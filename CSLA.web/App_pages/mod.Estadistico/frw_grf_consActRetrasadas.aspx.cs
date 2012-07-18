@@ -19,13 +19,13 @@ using COSEVI.CSLA.lib.accesoDatos.mod.Administracion;
 // COSEVI - Consejo de Seguridad Vial. - 2011
 // Sistema CSLA (Sistema para el Control y Seguimiento de Labores)
 //
-// frw_grf_compHorasActividades.aspx.cs
+// frw_grf_consActRetrasadas.aspx.cs
 //
 // Explicación de los contenidos del archivo.
 // =========================================================================
 // Historial
 // PERSONA 			           MES – DIA - AÑO		DESCRIPCIÓN
-// Esteban Ramírez Gónzalez  	03 – 06  - 2012	 	Se crea la clase
+// Cristian Arce Jiménez     	06 – 20  - 2012	 	Se crea la clase
 // 
 //								
 //								
@@ -35,7 +35,7 @@ using COSEVI.CSLA.lib.accesoDatos.mod.Administracion;
 
 namespace CSLA.web.App_pages.mod.Estadistico
 {
-    public partial class frw_grf_compHorasActividades : System.Web.UI.Page
+    public partial class frw_grf_consActRetrasadas : System.Web.UI.Page
     {
 
         #region Inicialización
@@ -60,7 +60,7 @@ namespace CSLA.web.App_pages.mod.Estadistico
                 }
                 catch (Exception po_exception)
                 {
-                    String vs_error_usuario = "Error en la consulta de datos para el gráfco de comparación de horas de actividades por proyecto.";
+                    String vs_error_usuario = "Error en la consulta de datos para el gráfco de consulta de actividades retrasadas por proyecto.";
                     this.lanzarExcepcion(po_exception, vs_error_usuario);
                 }
 
@@ -79,7 +79,7 @@ namespace CSLA.web.App_pages.mod.Estadistico
             }
             catch (Exception po_exception)
             {
-                String vs_error_usuario = "Error al inicializar los controles de la ventana para el gráfico de comparación de horas de actividades por proyecto.";
+                String vs_error_usuario = "Error al inicializar los controles de la ventana para el gráfico de consulta de actividades retrasadas por proyecto.";
                 this.lanzarExcepcion(po_exception, vs_error_usuario);
             }
         }
@@ -128,7 +128,7 @@ namespace CSLA.web.App_pages.mod.Estadistico
                 //Si se está obteniendo información para un proyecto que NO es el proyecto por defecto
                 if (pi_proyecto > 0)
                 {
-                    obtenerGraficoActividadesPorProyecto(pi_proyecto, pi_paquete, ps_usuario);
+                    obtenerGraficoConsultaRetrasos(pi_proyecto, pi_paquete, ps_usuario);
                 }
                 else
                 {
@@ -192,98 +192,68 @@ namespace CSLA.web.App_pages.mod.Estadistico
         /// <summary>
         /// Método que obtiene la información con la que se va a cargar en gráfico
         /// </summary>
-        private void obtenerGraficoActividadesPorProyecto(int pi_proyecto, int pi_paquete, string ps_usuario)
+        private void obtenerGraficoConsultaRetrasos(int pi_proyecto, int pi_paquete, string ps_usuario)
         {
             try
             {
                 //Se procede a obtener la información por proyecto
-                cls_compHorasActividades vo_compHorasActividades = new cls_compHorasActividades();
-                vo_compHorasActividades.pPK_proyecto = pi_proyecto;
-                vo_compHorasActividades.pPK_paquete = pi_paquete;
-                vo_compHorasActividades.pPK_usuario = ps_usuario;
+                cls_consActRetrasadas vo_consActRetrasadas = new cls_consActRetrasadas();
+                vo_consActRetrasadas.pPK_proyecto = pi_proyecto;
+                vo_consActRetrasadas.pPK_paquete = pi_paquete;
+                vo_consActRetrasadas.pPK_usuario = ps_usuario;
 
-                List<cls_compHorasActividades> vl_topActividades = cls_gestorEstadistico.CompHorasActividadesPorProyecto(vo_compHorasActividades);
-
-                //Se asignan los tooltips para el gráfico
-                Grafico.Series["Leyendas"].ToolTip = "##VALX\n#PERCENT";
-                //Grafico.Series["Leyendas"].ToolTip = "#VALX: #VAL{d} horas";
-                Grafico.Series["Leyendas"].LegendToolTip = "#VALX\n#PERCENT";
-                //Grafico.Series["Leyendas"].LegendToolTip = "#VALX: #VAL{d} Horas";
-                Grafico.Series["Leyendas"].IsVisibleInLegend = false;
-                Grafico.Series["Leyendas"].Label = "#VAL{d} horas";
-                //Grafico.Series["Leyendas"].Label = "#VALX\n#PERCENT";
-                Grafico.Series["Leyendas"].PostBackValue = "#INDEX";
-                Grafico.Series["Leyendas"].LegendPostBackValue = "#INDEX";
+                List<cls_consActRetrasadas> vl_consultaActividades = cls_gestorEstadistico.ConsultaActRetrasadas(vo_consActRetrasadas);
 
                 //Se realiza el binding de la información que se obtuvo en la consulta
-                Grafico.Series["Leyendas"].Points.DataBindXY(vl_topActividades, "pNombreActividad", vl_topActividades, "pHorasReales");
+                Grafico.Series["DiasRetraso"].Points.DataBindXY(vl_consultaActividades, "pNombreActividad", vl_consultaActividades, "pDiasRetraso");
 
-                // Set pyramid chart type
-                Grafico.Series["Leyendas"].ChartType = SeriesChartType.Line;
-                // set the markers for each point of the Pareto Line
-                Grafico.Series["Leyendas"].IsValueShownAsLabel = true;
-                Grafico.Series["Leyendas"].MarkerColor = Color.LightSkyBlue;
-                Grafico.Series["Leyendas"].MarkerBorderColor = Color.LightSkyBlue;
-                Grafico.Series["Leyendas"].MarkerStyle = MarkerStyle.Circle;
-                Grafico.Series["Leyendas"].MarkerSize = 8;
-                Grafico.Series["Leyendas"].LabelFormat = "0.#";  // format with one decimal and leading zero
-                // Set Color of line Pareto chart
-                Grafico.Series["Leyendas"].Color = Color.LightSkyBlue;
+                // Set radar chart type
+                Grafico.Series["DiasRetraso"].ChartType = SeriesChartType.Radar;
 
+                // Set radar chart style (Area, Line or Marker)
+                Grafico.Series["DiasRetraso"]["RadarDrawingStyle"] = "Line";
 
-                // Disable axis labels auto fitting of text
-                Grafico.ChartAreas["AreaGrafico"].AxisX.IsLabelAutoFit = false;
-                // Set axis labels font
-                Grafico.ChartAreas["AreaGrafico"].AxisX.LabelStyle.Font = new Font("Arial", 10);
-                // Set axis labels angle
-                Grafico.ChartAreas["AreaGrafico"].AxisX.LabelStyle.Angle = -90;
-                // Disable offset labels style
-                Grafico.ChartAreas["AreaGrafico"].AxisX.LabelStyle.IsStaggered = false;
-                // Enable X axis labels
-                Grafico.ChartAreas["AreaGrafico"].AxisX.LabelStyle.Enabled = true;
+                // Set circular area drawing style (Circle or Polygon)
+                Grafico.Series["DiasRetraso"]["AreaDrawingStyle"] = "Circle";
+
+                // Set labels style (Auto, Horizontal, Circular or Radial)
+                Grafico.Series["DiasRetraso"]["CircularLabelsStyle"] = "Horizontal";
+
+                // Show as 3D
+                Grafico.ChartAreas["AreaGrafico"].Area3DStyle.Enable3D = true;
+                Grafico.Series["DiasRetraso"].Color = Color.Red;
+
                 // Enable AntiAliasing for either Text and Graphics or just Graphics
                 Grafico.AntiAliasing = AntiAliasingStyles.All; // AntiAliasingStyles.Graphics and AntiAliasingStyles.Text
 
                 // create the destination series and add it to the chart
-                Series destSeries = new Series("Pareto");
+                Series destSeries = new Series("HorasDeMas");
 
-                if (Grafico.Series.IndexOf("Pareto") != 1)
+                if (Grafico.Series.IndexOf("HorasDeMas") != 1)
                 {
                     Grafico.Series.Add(destSeries);
                 }
-                // ensure the destination series is a Line or Spline chart type
-                destSeries.ChartType = SeriesChartType.Line;
-                destSeries.BorderWidth = 3;
-                destSeries.Color = Color.Firebrick;
-                // assign the series to the same chart area as the column chart
-                destSeries.ChartArea = Grafico.Series["Leyendas"].ChartArea;
-                Grafico.ChartAreas["AreaGrafico"].AxisX.LabelStyle.IsEndLabelVisible = false;
-
-                Grafico.Legends[0].Enabled = false;
+                
                 //Se realiza el binding de la información que se obtuvo en la consulta
-                Grafico.Series["Pareto"].Points.DataBindXY(vl_topActividades, "pNombreActividad", vl_topActividades, "pHorasAsignadas");
+                Grafico.Series["HorasDeMas"].Points.DataBindXY(vl_consultaActividades, "pNombreActividad", vl_consultaActividades, "pHorasRetraso");
 
-                Grafico.Series["Pareto"]["BackColor"] = "Transparent";
-                // Set chart types for output data
-                Grafico.Series["Pareto"].ChartType = SeriesChartType.Line;
-                // set the markers for each point of the Pareto Line
-                Grafico.Series["Pareto"].IsValueShownAsLabel = true;
-                Grafico.Series["Pareto"].MarkerColor = Color.Red;
-                Grafico.Series["Pareto"].MarkerBorderColor = Color.DarkRed;
-                Grafico.Series["Pareto"].MarkerStyle = MarkerStyle.Circle;
-                Grafico.Series["Pareto"].MarkerSize = 8;
-                Grafico.Series["Pareto"].LabelFormat = "0.#";  // format with one decimal and leading zero
-                // Set Color of line Pareto chart
-                Grafico.Series["Pareto"].Color = Color.Tomato;
+                Grafico.Series["HorasDeMas"]["BackColor"] = "Transparent";
 
-                // Set 3D mode
+                // Set radar chart type
+                Grafico.Series["HorasDeMas"].ChartType = SeriesChartType.Radar;
+
+                // Set radar chart style (Area, Line or Marker)
+                Grafico.Series["HorasDeMas"]["RadarDrawingStyle"] = "Line";
+
+                // Set circular area drawing style (Circle or Polygon)
+                Grafico.Series["HorasDeMas"]["AreaDrawingStyle"] = "Circle";
+
+                // Set labels style (Auto, Horizontal, Circular or Radial)
+                Grafico.Series["HorasDeMas"]["CircularLabelsStyle"] = "Horizontal";
+
+                // Show as 3D
                 Grafico.ChartAreas["AreaGrafico"].Area3DStyle.Enable3D = true;
-                // Show a 30% perspective
-                Grafico.ChartAreas["AreaGrafico"].Area3DStyle.Perspective = 0;
-                // Set the X Angle to 30
-                Grafico.ChartAreas["AreaGrafico"].Area3DStyle.Inclination = 0;
-                // Set the Y Angle to 40
-                Grafico.ChartAreas["AreaGrafico"].Area3DStyle.Rotation = 5;
+                Grafico.Series["HorasDeMas"].Color = Color.BlueViolet;
 
                 //Se aplica el estilo pastel a los colores definidos para el gráfico
                 Grafico.Palette = ChartColorPalette.BrightPastel;
@@ -297,17 +267,14 @@ namespace CSLA.web.App_pages.mod.Estadistico
                     }
                 }
 
-                // Set axis title
-                Grafico.ChartAreas["AreaGrafico"].AxisY.Title = "Horas Invertidas";
-                Grafico.ChartAreas["AreaGrafico"].AxisY.TitleFont = new Font("Times New Roman", 12, FontStyle.Bold);
-                Grafico.ChartAreas["AreaGrafico"].AxisX2.Title = "Actividades Registradas";
-                Grafico.ChartAreas["AreaGrafico"].AxisX2.TitleFont = new Font("Times New Roman", 12, FontStyle.Bold);
-
                 // Properties
-                Grafico.ChartAreas["AreaGrafico"].BackColor = Color.Khaki;
-                Grafico.ChartAreas["AreaGrafico"].AxisY.Interval = 8;
-                Grafico.ChartAreas["AreaGrafico"].AxisX.Interval = 1;
-                Grafico.ChartAreas["AreaGrafico"].AxisX.TextOrientation = TextOrientation.Rotated90;
+                Grafico.ChartAreas["AreaGrafico"].BackColor = Color.PaleGoldenrod;
+                Grafico.ChartAreas["AreaGrafico"].AxisY.Interval = 5;
+                Grafico.ChartAreas["AreaGrafico"].AxisY.IntervalType = DateTimeIntervalType.Number;
+                Grafico.ChartAreas["AreaGrafico"].AxisX.Interval = 2;
+                Grafico.ChartAreas["AreaGrafico"].AxisX.IntervalType = DateTimeIntervalType.Number;
+
+                //Grafico.ChartAreas["AreaGrafico"].AxisX.TextOrientation = TextOrientation.Rotated90;
                 Grafico.ChartAreas["AreaGrafico"].AxisX.LabelStyle.IsEndLabelVisible = false;
 
             }
@@ -335,22 +302,13 @@ namespace CSLA.web.App_pages.mod.Estadistico
                 Grafico.Series["Leyendas"].Points[0].Color = Color.White;
 
                 //Se indica que tipo de gráfico se va a presentar al usuario
-                Grafico.Series["Leyendas"].ChartType = SeriesChartType.Pie;
+                Grafico.Series["Leyendas"].ChartType = SeriesChartType.Radar;
             }
             catch (Exception po_exception)
             {
                 throw new Exception("Ocurrió un error al cargar el gráfico con la información por defecto.", po_exception);
             }
         }
-
-        /// <summary>
-        /// Método utilizado para limpiar las 3 variables de sesión que utiliza este gráfico
-        /// </summary>
-        //private void LimpiarVariablesSession()
-        //{
-        //    Session[cls_constantes.CODIGOPROYECTO] = null;
-        //    Session[cls_constantes.CODIGOPAQUETE] = null;
-        //}
 
         /// <summary>
         /// Se carga la lista con la totalidad de usuarios que pueden ser asignados a una actividad

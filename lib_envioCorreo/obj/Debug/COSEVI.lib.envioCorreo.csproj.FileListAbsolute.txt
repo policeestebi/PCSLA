@@ -26,3 +26,10 @@ D:\cslagit\COSEVI_CSLA\lib_envioCorreo\bin\Debug\ExceptionManagement.pdb
 D:\cslagit\COSEVI_CSLA\lib_envioCorreo\obj\Debug\ResolveAssemblyReference.cache
 D:\cslagit\COSEVI_CSLA\lib_envioCorreo\obj\Debug\lib_envioCorreo.dll
 D:\cslagit\COSEVI_CSLA\lib_envioCorreo\obj\Debug\lib_envioCorreo.pdb
+D:\cslagit\PCSLA\lib_envioCorreo\bin\Debug\lib_envioCorreo.dll
+D:\cslagit\PCSLA\lib_envioCorreo\bin\Debug\lib_envioCorreo.pdb
+D:\cslagit\PCSLA\lib_envioCorreo\bin\Debug\ExceptionManagement.dll
+D:\cslagit\PCSLA\lib_envioCorreo\bin\Debug\ExceptionManagement.pdb
+D:\cslagit\PCSLA\lib_envioCorreo\obj\Debug\ResolveAssemblyReference.cache
+D:\cslagit\PCSLA\lib_envioCorreo\obj\Debug\lib_envioCorreo.dll
+D:\cslagit\PCSLA\lib_envioCorreo\obj\Debug\lib_envioCorreo.pdb
