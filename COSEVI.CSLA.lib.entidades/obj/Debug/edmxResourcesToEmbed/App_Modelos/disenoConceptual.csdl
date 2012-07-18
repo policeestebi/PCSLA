@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="cslaModel1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+  <EntityContainer Name="cslaEntities1">
+    <EntitySet Name="t_admi_departamento" EntityType="cslaModel1.t_admi_departamento" />
+    <EntitySet Name="t_admi_menu" EntityType="cslaModel1.t_admi_menu" />
+    <EntitySet Name="t_admi_pagina" EntityType="cslaModel1.t_admi_pagina" />
+    <EntitySet Name="t_admi_permiso" EntityType="cslaModel1.t_admi_permiso" />
+    <EntitySet Name="t_admi_rol" EntityType="cslaModel1.t_admi_rol" />
+    <EntitySet Name="t_admi_usuario" EntityType="cslaModel1.t_admi_usuario" />
+    <EntitySet Name="t_cont_actividad" EntityType="cslaModel1.t_cont_actividad" />
+    <EntitySet Name="t_cont_componente" EntityType="cslaModel1.t_cont_componente" />
+    <EntitySet Name="t_cont_entregable" EntityType="cslaModel1.t_cont_entregable" />
+    <EntitySet Name="t_cont_paquete" EntityType="cslaModel1.t_cont_paquete" />
+    <EntitySet Name="t_cont_proyecto" EntityType="cslaModel1.t_cont_proyecto" />
+    <AssociationSet Name="fk_departamento1" Association="cslaModel1.fk_departamento1">
+      <End Role="t_admi_departamento" EntitySet="t_admi_departamento" />
+      <End Role="t_admi_departamento1" EntitySet="t_admi_departamento" />
+    </AssociationSet>
+    <AssociationSet Name="fk_menu1" Association="cslaModel1.fk_menu1">
+      <End Role="t_admi_menu" EntitySet="t_admi_menu" />
+      <End Role="t_admi_menu1" EntitySet="t_admi_menu" />
+    </AssociationSet>
+    <AssociationSet Name="t_cont_proyectot_admi_departamento" Association="cslaModel1.t_cont_proyectot_admi_departamento">
+      <End Role="t_cont_proyecto" EntitySet="t_cont_proyecto" />
+      <End Role="t_admi_departamento" EntitySet="t_admi_departamento" />
+    </AssociationSet>
+    <AssociationSet Name="t_admi_menut_admi_pagina" Association="cslaModel1.t_admi_menut_admi_pagina">
+      <End Role="t_admi_menu" EntitySet="t_admi_menu" />
+      <End Role="t_admi_pagina" EntitySet="t_admi_pagina" />
+    </AssociationSet>
+    <AssociationSet Name="t_admi_paginat_admi_permiso" Association="cslaModel1.t_admi_paginat_admi_permiso">
+      <End Role="t_admi_pagina" EntitySet="t_admi_pagina" />
+      <End Role="t_admi_permiso" EntitySet="t_admi_permiso" />
+    </AssociationSet>
+    <AssociationSet Name="t_admi_rolt_admi_pagina" Association="cslaModel1.t_admi_rolt_admi_pagina">
+      <End Role="t_admi_rol" EntitySet="t_admi_rol" />
+      <End Role="t_admi_pagina" EntitySet="t_admi_pagina" />
+    </AssociationSet>
+    <AssociationSet Name="t_admi_rolt_admi_permiso" Association="cslaModel1.t_admi_rolt_admi_permiso">
+      <End Role="t_admi_rol" EntitySet="t_admi_rol" />
+      <End Role="t_admi_permiso" EntitySet="t_admi_permiso" />
+    </AssociationSet>
+    <AssociationSet Name="t_admi_rolt_admi_usuario" Association="cslaModel1.t_admi_rolt_admi_usuario">
+      <End Role="t_admi_rol" EntitySet="t_admi_rol" />
+      <End Role="t_admi_usuario" EntitySet="t_admi_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="t_admi_usuariot_cont_actividad" Association="cslaModel1.t_admi_usuariot_cont_actividad">
+      <End Role="t_admi_usuario" EntitySet="t_admi_usuario" />
+      <End Role="t_cont_actividad" EntitySet="t_cont_actividad" />
+    </AssociationSet>
+    <AssociationSet Name="t_cont_paquetet_cont_actividad" Association="cslaModel1.t_cont_paquetet_cont_actividad">
+      <End Role="t_cont_paquete" EntitySet="t_cont_paquete" />
+      <End Role="t_cont_actividad" EntitySet="t_cont_actividad" />
+    </AssociationSet>
+    <AssociationSet Name="t_cont_componentet_cont_paquete" Association="cslaModel1.t_cont_componentet_cont_paquete">
+      <End Role="t_cont_componente" EntitySet="t_cont_componente" />
+      <End Role="t_cont_paquete" EntitySet="t_cont_paquete" />
+    </AssociationSet>
+    <AssociationSet Name="t_cont_entregablet_cont_componente" Association="cslaModel1.t_cont_entregablet_cont_componente">
+      <End Role="t_cont_entregable" EntitySet="t_cont_entregable" />
+      <End Role="t_cont_componente" EntitySet="t_cont_componente" />
+    </AssociationSet>
+    <AssociationSet Name="t_admi_departamentot_cont_proyecto" Association="cslaModel1.t_admi_departamentot_cont_proyecto">
+      <End Role="t_admi_departamento" EntitySet="t_admi_departamento" />
+      <End Role="t_cont_proyecto" EntitySet="t_cont_proyecto" />
+    </AssociationSet>
+    <AssociationSet Name="t_cont_proyectot_cont_entregable" Association="cslaModel1.t_cont_proyectot_cont_entregable">
+      <End Role="t_cont_proyecto" EntitySet="t_cont_proyecto" />
+      <End Role="t_cont_entregable" EntitySet="t_cont_entregable" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="t_admi_departamento">
+    <Key>
+      <PropertyRef Name="PK_departamento" />
+    </Key>
+    <Property Name="PK_departamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="ubicacion" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="administrador" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="t_admi_departamento1" Relationship="cslaModel1.fk_departamento1" FromRole="t_admi_departamento" ToRole="t_admi_departamento1" />
+    <NavigationProperty Name="t_admi_departamento2" Relationship="cslaModel1.fk_departamento1" FromRole="t_admi_departamento1" ToRole="t_admi_departamento" />
+    <NavigationProperty Name="t_cont_proyecto" Relationship="cslaModel1.t_cont_proyectot_admi_departamento" FromRole="t_admi_departamento" ToRole="t_cont_proyecto" />
+  </EntityType>
+  <EntityType Name="t_admi_menu">
+    <Key>
+      <PropertyRef Name="PK_menu" />
+    </Key>
+    <Property Name="PK_menu" Type="Int32" Nullable="false" />
+    <Property Name="imagen" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="titulo" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="descripcion" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="t_admi_menu1" Relationship="cslaModel1.fk_menu1" FromRole="t_admi_menu" ToRole="t_admi_menu1" />
+    <NavigationProperty Name="t_admi_menu2" Relationship="cslaModel1.fk_menu1" FromRole="t_admi_menu1" ToRole="t_admi_menu" />
+  </EntityType>
+  <EntityType Name="t_admi_pagina">
+    <Key>
+      <PropertyRef Name="PK_pagina" />
+    </Key>
+    <Property Name="PK_pagina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="url" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="height" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="t_admi_permiso" Relationship="cslaModel1.t_admi_paginat_admi_permiso" FromRole="t_admi_pagina" ToRole="t_admi_permiso" />
+    <NavigationProperty Name="t_admi_rol" Relationship="cslaModel1.t_admi_rolt_admi_pagina" FromRole="t_admi_pagina" ToRole="t_admi_rol" />
+  </EntityType>
+  <EntityType Name="t_admi_permiso">
+    <Key>
+      <PropertyRef Name="PK_permiso" />
+    </Key>
+    <Property Name="PK_permiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="t_admi_pagina" Relationship="cslaModel1.t_admi_paginat_admi_permiso" FromRole="t_admi_permiso" ToRole="t_admi_pagina" />
+    <NavigationProperty Name="t_admi_rol" Relationship="cslaModel1.t_admi_rolt_admi_permiso" FromRole="t_admi_permiso" ToRole="t_admi_rol" />
+  </EntityType>
+  <EntityType Name="t_admi_rol">
+    <Key>
+      <PropertyRef Name="PK_rol" />
+    </Key>
+    <Property Name="PK_rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="75" Unicode="true" FixedLength="false" />
+    <Property Name="visible" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="t_admi_pagina" Relationship="cslaModel1.t_admi_rolt_admi_pagina" FromRole="t_admi_rol" ToRole="t_admi_pagina" />
+    <NavigationProperty Name="t_admi_permiso" Relationship="cslaModel1.t_admi_rolt_admi_permiso" FromRole="t_admi_rol" ToRole="t_admi_permiso" />
+    <NavigationProperty Name="t_admi_usuario" Relationship="cslaModel1.t_admi_rolt_admi_usuario" FromRole="t_admi_rol" ToRole="t_admi_usuario" />
+  </EntityType>
+  <EntityType Name="t_admi_usuario">
+    <Key>
+      <PropertyRef Name="PK_usuario" />
+    </Key>
+    <Property Name="PK_usuario" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="clave" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+    <Property Name="activo" Type="Int16" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="apellido1" Type="String" Nullable="false" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="apellido2" Type="String" Nullable="false" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="puesto" Type="String" Nullable="false" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="t_admi_rol" Relationship="cslaModel1.t_admi_rolt_admi_usuario" FromRole="t_admi_usuario" ToRole="t_admi_rol" />
+  </EntityType>
+  <EntityType Name="t_cont_actividad">
+    <Key>
+      <PropertyRef Name="PK_actividad" />
+    </Key>
+    <Property Name="PK_actividad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="nombre" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="t_cont_paquete" Relationship="cslaModel1.t_cont_paquetet_cont_actividad" FromRole="t_cont_actividad" ToRole="t_cont_paquete" />
+  </EntityType>
+  <EntityType Name="t_cont_componente">
+    <Key>
+      <PropertyRef Name="PK_componente" />
+    </Key>
+    <Property Name="PK_componente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="nombre" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="t_cont_entregable">
+    <Key>
+      <PropertyRef Name="PK_entregable" />
+    </Key>
+    <Property Name="PK_entregable" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="t_cont_paquete">
+    <Key>
+      <PropertyRef Name="PK_paquete" />
+    </Key>
+    <Property Name="PK_paquete" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="nombre" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="t_cont_actividad" Relationship="cslaModel1.t_cont_paquetet_cont_actividad" FromRole="t_cont_paquete" ToRole="t_cont_actividad" />
+  </EntityType>
+  <EntityType Name="t_cont_proyecto">
+    <Key>
+      <PropertyRef Name="PK_proyecto" />
+    </Key>
+    <Property Name="PK_proyecto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_estado" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="objetivo" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="meta" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="fechaInicio" Type="DateTime" />
+    <Property Name="fechaFin" Type="DateTime" />
+    <Property Name="horasAsignadas" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="horasAsigDefectos" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="horasReales" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="horasRealesDefectos" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="t_admi_departamento" Relationship="cslaModel1.t_cont_proyectot_admi_departamento" FromRole="t_cont_proyecto" ToRole="t_admi_departamento" />
+  </EntityType>
+  <Association Name="fk_departamento1">
+    <End Role="t_admi_departamento" Type="cslaModel1.t_admi_departamento" Multiplicity="0..1" />
+    <End Role="t_admi_departamento1" Type="cslaModel1.t_admi_departamento" Multiplicity="*" />
+  </Association>
+  <Association Name="fk_menu1">
+    <End Role="t_admi_menu" Type="cslaModel1.t_admi_menu" Multiplicity="0..1" />
+    <End Role="t_admi_menu1" Type="cslaModel1.t_admi_menu" Multiplicity="*" />
+  </Association>
+  <Association Name="t_cont_proyectot_admi_departamento">
+    <End Type="cslaModel1.t_cont_proyecto" Role="t_cont_proyecto" Multiplicity="1" />
+    <End Type="cslaModel1.t_admi_departamento" Role="t_admi_departamento" Multiplicity="*" />
+  </Association>
+  <Association Name="t_admi_menut_admi_pagina">
+    <End Type="cslaModel1.t_admi_menu" Role="t_admi_menu" Multiplicity="1" />
+    <End Type="cslaModel1.t_admi_pagina" Role="t_admi_pagina" Multiplicity="*" />
+  </Association>
+  <Association Name="t_admi_paginat_admi_permiso">
+    <End Type="cslaModel1.t_admi_pagina" Role="t_admi_pagina" Multiplicity="*" />
+    <End Type="cslaModel1.t_admi_permiso" Role="t_admi_permiso" Multiplicity="*" />
+  </Association>
+  <Association Name="t_admi_rolt_admi_pagina">
+    <End Type="cslaModel1.t_admi_rol" Role="t_admi_rol" Multiplicity="*" />
+    <End Type="cslaModel1.t_admi_pagina" Role="t_admi_pagina" Multiplicity="*" />
+  </Association>
+  <Association Name="t_admi_rolt_admi_permiso">
+    <End Type="cslaModel1.t_admi_rol" Role="t_admi_rol" Multiplicity="*" />
+    <End Type="cslaModel1.t_admi_permiso" Role="t_admi_permiso" Multiplicity="*" />
+  </Association>
+  <Association Name="t_admi_rolt_admi_usuario">
+    <End Type="cslaModel1.t_admi_rol" Role="t_admi_rol" Multiplicity="1" />
+    <End Type="cslaModel1.t_admi_usuario" Role="t_admi_usuario" Multiplicity="*" />
+  </Association>
+  <Association Name="t_admi_usuariot_cont_actividad">
+    <End Type="cslaModel1.t_admi_usuario" Role="t_admi_usuario" Multiplicity="*" />
+    <End Type="cslaModel1.t_cont_actividad" Role="t_cont_actividad" Multiplicity="*" />
+  </Association>
+  <Association Name="t_cont_paquetet_cont_actividad">
+    <End Type="cslaModel1.t_cont_paquete" Role="t_cont_paquete" Multiplicity="*" />
+    <End Type="cslaModel1.t_cont_actividad" Role="t_cont_actividad" Multiplicity="*" />
+  </Association>
+  <Association Name="t_cont_componentet_cont_paquete">
+    <End Type="cslaModel1.t_cont_componente" Role="t_cont_componente" Multiplicity="*" />
+    <End Type="cslaModel1.t_cont_paquete" Role="t_cont_paquete" Multiplicity="*" />
+  </Association>
+  <Association Name="t_cont_entregablet_cont_componente">
+    <End Type="cslaModel1.t_cont_entregable" Role="t_cont_entregable" Multiplicity="*" />
+    <End Type="cslaModel1.t_cont_componente" Role="t_cont_componente" Multiplicity="*" />
+  </Association>
+  <Association Name="t_admi_departamentot_cont_proyecto">
+    <End Type="cslaModel1.t_admi_departamento" Role="t_admi_departamento" Multiplicity="1" />
+    <End Type="cslaModel1.t_cont_proyecto" Role="t_cont_proyecto" Multiplicity="*" />
+  </Association>
+  <Association Name="t_cont_proyectot_cont_entregable">
+    <End Type="cslaModel1.t_cont_proyecto" Role="t_cont_proyecto" Multiplicity="*" />
+    <End Type="cslaModel1.t_cont_entregable" Role="t_cont_entregable" Multiplicity="*" />
+  </Association>
+</Schema>

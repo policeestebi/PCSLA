@@ -1,0 +1,7 @@
+D:\cslagit\CSLA\CSLA\lib_accesoDatos\bin\Release\lib_accesoDatos.dll
+D:\cslagit\CSLA\CSLA\lib_accesoDatos\bin\Release\lib_accesoDatos.pdb
+D:\cslagit\CSLA\CSLA\lib_accesoDatos\bin\Release\COSEVI.CSLA.lib.entidades.dll
+D:\cslagit\CSLA\CSLA\lib_accesoDatos\bin\Release\COSEVI.CSLA.lib.entidades.pdb
+D:\cslagit\CSLA\CSLA\lib_accesoDatos\obj\Release\ResolveAssemblyReference.cache
+D:\cslagit\CSLA\CSLA\lib_accesoDatos\obj\Release\lib_accesoDatos.dll
+D:\cslagit\CSLA\CSLA\lib_accesoDatos\obj\Release\lib_accesoDatos.pdb

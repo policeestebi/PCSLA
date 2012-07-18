@@ -1,0 +1,170 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScriptBD", "ScriptBD", "{E9E074AB-3718-4A11-A9FB-4335F3E6E729}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Administracion", "Administracion", "{1AD5DB59-C11D-45FD-A933-F5D833E14124}"
+	ProjectSection(SolutionItems) = preProject
+		Archivos\ScriptsBD\CSLA_DB\mod_administracion\init_adm.sql = Archivos\ScriptsBD\CSLA_DB\mod_administracion\init_adm.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ControlSeguimiento", "ControlSeguimiento", "{83AE10BB-4C7D-4B5E-9E7D-A70426C8F707}"
+	ProjectSection(SolutionItems) = preProject
+		Archivos\ScriptsBD\CSLA_DB\mod_control_seguimiento\init_cont.sql = Archivos\ScriptsBD\CSLA_DB\mod_control_seguimiento\init_cont.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Estadisco", "Estadisco", "{C09C220D-0A95-4E08-A51F-7EF111950DEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reportes", "Reportes", "{6B68EAFF-9CE8-44CF-867B-A8877EC321AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Procedures", "Procedures", "{CAE91CB0-365D-478C-95A3-1244232CE100}"
+	ProjectSection(SolutionItems) = preProject
+		Archivos\ScriptsBD\CSLA_DB\mod_administracion\procedures\csla_admi_procedures_deletes.sql = Archivos\ScriptsBD\CSLA_DB\mod_administracion\procedures\csla_admi_procedures_deletes.sql
+		Archivos\ScriptsBD\CSLA_DB\mod_administracion\procedures\csla_admi_procedures_inserts.sql = Archivos\ScriptsBD\CSLA_DB\mod_administracion\procedures\csla_admi_procedures_inserts.sql
+		Archivos\ScriptsBD\CSLA_DB\mod_administracion\procedures\csla_admi_procedures_selectOne.sql = Archivos\ScriptsBD\CSLA_DB\mod_administracion\procedures\csla_admi_procedures_selectOne.sql
+		Archivos\ScriptsBD\CSLA_DB\mod_administracion\procedures\csla_admi_procedures_selects.sql = Archivos\ScriptsBD\CSLA_DB\mod_administracion\procedures\csla_admi_procedures_selects.sql
+		Archivos\ScriptsBD\CSLA_DB\mod_administracion\procedures\csla_admi_procedures_updates.sql = Archivos\ScriptsBD\CSLA_DB\mod_administracion\procedures\csla_admi_procedures_updates.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{E76BB924-2BFC-4217-9F45-D1375CC4681A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Trigers", "Trigers", "{B38AB422-4C75-4070-826B-61B459849A1C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Views", "Views", "{403223FA-7E26-47A7-BB0E-078F648B545E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{ADD03717-A19E-468F-8864-F6807D173271}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Procedures", "Procedures", "{BAB36C1D-E248-467C-A35E-5FE9C5C8B3C5}"
+	ProjectSection(SolutionItems) = preProject
+		Archivos\ScriptsBD\CSLA_DB\mod_control_seguimiento\procedures\csla_cont_procedures_deletes.sql = Archivos\ScriptsBD\CSLA_DB\mod_control_seguimiento\procedures\csla_cont_procedures_deletes.sql
+		Archivos\ScriptsBD\CSLA_DB\mod_control_seguimiento\procedures\csla_cont_procedures_inserts.sql = Archivos\ScriptsBD\CSLA_DB\mod_control_seguimiento\procedures\csla_cont_procedures_inserts.sql
+		Archivos\ScriptsBD\CSLA_DB\mod_control_seguimiento\procedures\csla_cont_procedures_selectOne.sql = Archivos\ScriptsBD\CSLA_DB\mod_control_seguimiento\procedures\csla_cont_procedures_selectOne.sql
+		Archivos\ScriptsBD\CSLA_DB\mod_control_seguimiento\procedures\csla_cont_procedures_selects.sql = Archivos\ScriptsBD\CSLA_DB\mod_control_seguimiento\procedures\csla_cont_procedures_selects.sql
+		Archivos\ScriptsBD\CSLA_DB\mod_control_seguimiento\procedures\csla_cont_procedures_updates.sql = Archivos\ScriptsBD\CSLA_DB\mod_control_seguimiento\procedures\csla_cont_procedures_updates.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Trigers", "Trigers", "{EE863C13-2BF2-4E24-808C-9A1AC164FB78}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Views", "Views", "{76C31540-DCD4-474C-8426-DD67F25F9725}"
+	ProjectSection(SolutionItems) = preProject
+		csla_cont_views.sql = csla_cont_views.sql
+		Archivos\ScriptsBD\CSLA_DB\mod_control_seguimiento\vistas\csla_cont_views.sql = Archivos\ScriptsBD\CSLA_DB\mod_control_seguimiento\vistas\csla_cont_views.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{9134438F-A740-4390-8953-E04F0713D354}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Trigers", "Trigers", "{D9C7FB14-082B-4C72-8BF9-97F1C0558E02}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Procedures", "Procedures", "{53A4D24E-E077-4BA6-9258-E73985AE66DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Views", "Views", "{9BA7508E-53BD-4F09-950E-9273CA996520}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{71E8672A-B3F4-4EE5-B24E-7B82C2BE3103}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Procedures", "Procedures", "{3D6B61D5-46B6-4DBE-9F33-B7C66C9AF0BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Trigers", "Trigers", "{A53D15C9-EF83-48D8-B4C3-B98CA755B281}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Views", "Views", "{D944CF46-BF58-46B0-865E-39321BAEEC15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COSEVI.lib.exceptionManagement", "ExceptionManagement\COSEVI.lib.exceptionManagement.csproj", "{A29641AD-41B7-4C7D-99C3-47CBDF0D8E3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COSEVI.CSLA.lib.accesoDatos", "lib_accesoDatos\COSEVI.CSLA.lib.accesoDatos.csproj", "{0A016234-3335-42AC-BE25-0B51447AE3E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COSEVI.lib.envioCorreo", "lib_envioCorreo\COSEVI.lib.envioCorreo.csproj", "{DAA07FFC-B765-460C-88D0-682695E1050C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COSEVI.web.controls", "COSEVI.web.controls\COSEVI.web.controls.csproj", "{CE72A54C-6A0A-4E07-BD21-231E5B884959}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COSEVI.CSLA.lib.entidades", "COSEVI.CSLA.lib.entidades\COSEVI.CSLA.lib.entidades.csproj", "{0CEAFD85-CCE3-4D25-A123-1929F222D7FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSLA.web", "CSLA.web\CSLA.web.csproj", "{38AA973E-AF9C-45F8-B062-9C85FA065E56}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentos", "Documentos", "{57C8F74E-708B-4671-9DF8-E45B57E3661B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Diagramas", "Diagramas", "{10500C57-1491-4F1B-BD7D-FA8E748308FC}"
+	ProjectSection(SolutionItems) = preProject
+		Archivos\Diagramas\CSLA-ADMIN-Modelo.mwb = Archivos\Diagramas\CSLA-ADMIN-Modelo.mwb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Esquema", "Esquema", "{B8070CFC-CB80-4662-B7D5-A350FBF55FF9}"
+	ProjectSection(SolutionItems) = preProject
+		Archivos\ScriptsBD\CSLA_DB\mod_administracion\esquema\CSLA_BD_esquema.sql = Archivos\ScriptsBD\CSLA_DB\mod_administracion\esquema\CSLA_BD_esquema.sql
+		Archivos\ScriptsBD\CSLA_DB\mod_administracion\esquema\CSLA_menu.sql = Archivos\ScriptsBD\CSLA_DB\mod_administracion\esquema\CSLA_menu.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Init", "Init", "{33330708-51BF-4297-BFCF-FD3251E7B6E7}"
+	ProjectSection(SolutionItems) = preProject
+		Archivos\ScriptsBD\CSLA_DB\init.sql = Archivos\ScriptsBD\CSLA_DB\init.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Estandares", "Estandares", "{8A58ECB7-9ADE-4FEB-8FF5-3F8744618D26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COSEVI.lib.Security", "COSEVI.lib.Security\COSEVI.lib.Security.csproj", "{B1CEB3D4-9EEE-41C2-8F35-6F10C1FB0354}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Observaciones", "Observaciones", "{9E6FD5B9-716C-475F-BCFD-E55F8E104D14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A29641AD-41B7-4C7D-99C3-47CBDF0D8E3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A29641AD-41B7-4C7D-99C3-47CBDF0D8E3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A29641AD-41B7-4C7D-99C3-47CBDF0D8E3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A29641AD-41B7-4C7D-99C3-47CBDF0D8E3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A016234-3335-42AC-BE25-0B51447AE3E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A016234-3335-42AC-BE25-0B51447AE3E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A016234-3335-42AC-BE25-0B51447AE3E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A016234-3335-42AC-BE25-0B51447AE3E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAA07FFC-B765-460C-88D0-682695E1050C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAA07FFC-B765-460C-88D0-682695E1050C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAA07FFC-B765-460C-88D0-682695E1050C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAA07FFC-B765-460C-88D0-682695E1050C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE72A54C-6A0A-4E07-BD21-231E5B884959}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE72A54C-6A0A-4E07-BD21-231E5B884959}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE72A54C-6A0A-4E07-BD21-231E5B884959}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE72A54C-6A0A-4E07-BD21-231E5B884959}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CEAFD85-CCE3-4D25-A123-1929F222D7FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CEAFD85-CCE3-4D25-A123-1929F222D7FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CEAFD85-CCE3-4D25-A123-1929F222D7FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CEAFD85-CCE3-4D25-A123-1929F222D7FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38AA973E-AF9C-45F8-B062-9C85FA065E56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38AA973E-AF9C-45F8-B062-9C85FA065E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38AA973E-AF9C-45F8-B062-9C85FA065E56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38AA973E-AF9C-45F8-B062-9C85FA065E56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1CEB3D4-9EEE-41C2-8F35-6F10C1FB0354}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1CEB3D4-9EEE-41C2-8F35-6F10C1FB0354}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1CEB3D4-9EEE-41C2-8F35-6F10C1FB0354}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1CEB3D4-9EEE-41C2-8F35-6F10C1FB0354}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1AD5DB59-C11D-45FD-A933-F5D833E14124} = {E9E074AB-3718-4A11-A9FB-4335F3E6E729}
+		{83AE10BB-4C7D-4B5E-9E7D-A70426C8F707} = {E9E074AB-3718-4A11-A9FB-4335F3E6E729}
+		{C09C220D-0A95-4E08-A51F-7EF111950DEB} = {E9E074AB-3718-4A11-A9FB-4335F3E6E729}
+		{6B68EAFF-9CE8-44CF-867B-A8877EC321AB} = {E9E074AB-3718-4A11-A9FB-4335F3E6E729}
+		{B8070CFC-CB80-4662-B7D5-A350FBF55FF9} = {E9E074AB-3718-4A11-A9FB-4335F3E6E729}
+		{33330708-51BF-4297-BFCF-FD3251E7B6E7} = {E9E074AB-3718-4A11-A9FB-4335F3E6E729}
+		{CAE91CB0-365D-478C-95A3-1244232CE100} = {1AD5DB59-C11D-45FD-A933-F5D833E14124}
+		{E76BB924-2BFC-4217-9F45-D1375CC4681A} = {1AD5DB59-C11D-45FD-A933-F5D833E14124}
+		{B38AB422-4C75-4070-826B-61B459849A1C} = {1AD5DB59-C11D-45FD-A933-F5D833E14124}
+		{403223FA-7E26-47A7-BB0E-078F648B545E} = {1AD5DB59-C11D-45FD-A933-F5D833E14124}
+		{ADD03717-A19E-468F-8864-F6807D173271} = {83AE10BB-4C7D-4B5E-9E7D-A70426C8F707}
+		{BAB36C1D-E248-467C-A35E-5FE9C5C8B3C5} = {83AE10BB-4C7D-4B5E-9E7D-A70426C8F707}
+		{EE863C13-2BF2-4E24-808C-9A1AC164FB78} = {83AE10BB-4C7D-4B5E-9E7D-A70426C8F707}
+		{76C31540-DCD4-474C-8426-DD67F25F9725} = {83AE10BB-4C7D-4B5E-9E7D-A70426C8F707}
+		{9134438F-A740-4390-8953-E04F0713D354} = {C09C220D-0A95-4E08-A51F-7EF111950DEB}
+		{D9C7FB14-082B-4C72-8BF9-97F1C0558E02} = {C09C220D-0A95-4E08-A51F-7EF111950DEB}
+		{53A4D24E-E077-4BA6-9258-E73985AE66DF} = {C09C220D-0A95-4E08-A51F-7EF111950DEB}
+		{9BA7508E-53BD-4F09-950E-9273CA996520} = {C09C220D-0A95-4E08-A51F-7EF111950DEB}
+		{71E8672A-B3F4-4EE5-B24E-7B82C2BE3103} = {6B68EAFF-9CE8-44CF-867B-A8877EC321AB}
+		{3D6B61D5-46B6-4DBE-9F33-B7C66C9AF0BA} = {6B68EAFF-9CE8-44CF-867B-A8877EC321AB}
+		{A53D15C9-EF83-48D8-B4C3-B98CA755B281} = {6B68EAFF-9CE8-44CF-867B-A8877EC321AB}
+		{D944CF46-BF58-46B0-865E-39321BAEEC15} = {6B68EAFF-9CE8-44CF-867B-A8877EC321AB}
+		{8A58ECB7-9ADE-4FEB-8FF5-3F8744618D26} = {57C8F74E-708B-4671-9DF8-E45B57E3661B}
+		{9E6FD5B9-716C-475F-BCFD-E55F8E104D14} = {57C8F74E-708B-4671-9DF8-E45B57E3661B}
+	EndGlobalSection
+EndGlobal

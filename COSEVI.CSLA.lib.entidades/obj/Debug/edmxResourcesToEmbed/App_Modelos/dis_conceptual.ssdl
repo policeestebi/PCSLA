@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="cslaModel1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+  <EntityContainer Name="cslaModel1StoreContainer">
+    <EntitySet Name="t_admi_departamento" EntityType="cslaModel1.Store.t_admi_departamento" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="t_admi_menu" EntityType="cslaModel1.Store.t_admi_menu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="t_admi_pagina" EntityType="cslaModel1.Store.t_admi_pagina" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="t_admi_permiso" EntityType="cslaModel1.Store.t_admi_permiso" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="t_admi_rol" EntityType="cslaModel1.Store.t_admi_rol" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="t_admi_usuario" EntityType="cslaModel1.Store.t_admi_usuario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="t_cont_actividad" EntityType="cslaModel1.Store.t_cont_actividad" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="t_cont_componente" EntityType="cslaModel1.Store.t_cont_componente" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="t_cont_entregable" EntityType="cslaModel1.Store.t_cont_entregable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="t_cont_paquete" EntityType="cslaModel1.Store.t_cont_paquete" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="t_cont_proyecto" EntityType="cslaModel1.Store.t_cont_proyecto" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="fk_departamento1" Association="cslaModel1.Store.fk_departamento1">
+      <End Role="t_admi_departamento" EntitySet="t_admi_departamento" />
+      <End Role="t_admi_departamento1" EntitySet="t_admi_departamento" />
+    </AssociationSet>
+    <AssociationSet Name="fk_menu1" Association="cslaModel1.Store.fk_menu1">
+      <End Role="t_admi_menu" EntitySet="t_admi_menu" />
+      <End Role="t_admi_menu1" EntitySet="t_admi_menu" />
+    </AssociationSet>
+    <AssociationSet Name="fk_pagina1" Association="cslaModel1.Store.fk_pagina1">
+      <End Role="t_admi_menu" EntitySet="t_admi_menu" />
+      <End Role="t_admi_pagina" EntitySet="t_admi_pagina" />
+    </AssociationSet>
+    <AssociationSet Name="fk_usuario1" Association="cslaModel1.Store.fk_usuario1">
+      <End Role="t_admi_rol" EntitySet="t_admi_rol" />
+      <End Role="t_admi_usuario" EntitySet="t_admi_usuario" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="t_admi_departamento">
+    <Key>
+      <PropertyRef Name="PK_departamento" />
+    </Key>
+    <Property Name="PK_departamento" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FK_departamento" Type="int" />
+    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="ubicacion" Type="nvarchar" MaxLength="100" />
+    <Property Name="administrador" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="t_admi_menu">
+    <Key>
+      <PropertyRef Name="PK_menu" />
+    </Key>
+    <Property Name="PK_menu" Type="int" Nullable="false" />
+    <Property Name="FK_menuPadre" Type="int" />
+    <Property Name="imagen" Type="nvarchar" MaxLength="100" />
+    <Property Name="titulo" Type="nvarchar" MaxLength="100" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="t_admi_pagina">
+    <Key>
+      <PropertyRef Name="PK_pagina" />
+    </Key>
+    <Property Name="PK_pagina" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FK_menu" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="100" />
+    <Property Name="url" Type="nvarchar" MaxLength="100" />
+    <Property Name="height" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="t_admi_permiso">
+    <Key>
+      <PropertyRef Name="PK_permiso" />
+    </Key>
+    <Property Name="PK_permiso" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="t_admi_rol">
+    <Key>
+      <PropertyRef Name="PK_rol" />
+    </Key>
+    <Property Name="PK_rol" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="75" />
+    <Property Name="visible" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="t_admi_usuario">
+    <Key>
+      <PropertyRef Name="PK_usuario" />
+    </Key>
+    <Property Name="PK_usuario" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="FK_rol" Type="int" Nullable="false" />
+    <Property Name="clave" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="activo" Type="smallint" />
+    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="apellido1" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="apellido2" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="puesto" Type="nvarchar" Nullable="false" MaxLength="45" />
+    <Property Name="email" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="t_cont_actividad">
+    <Key>
+      <PropertyRef Name="PK_actividad" />
+    </Key>
+    <Property Name="PK_actividad" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="nvarchar" MaxLength="20" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="100" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="t_cont_componente">
+    <Key>
+      <PropertyRef Name="PK_componente" />
+    </Key>
+    <Property Name="PK_componente" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="nvarchar" MaxLength="20" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="100" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="t_cont_entregable">
+    <Key>
+      <PropertyRef Name="PK_entregable" />
+    </Key>
+    <Property Name="PK_entregable" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="t_cont_paquete">
+    <Key>
+      <PropertyRef Name="PK_paquete" />
+    </Key>
+    <Property Name="PK_paquete" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="nvarchar" MaxLength="20" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="100" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="t_cont_proyecto">
+    <Key>
+      <PropertyRef Name="PK_proyecto" />
+    </Key>
+    <Property Name="PK_proyecto" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FK_estado" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="100" />
+    <Property Name="objetivo" Type="nvarchar" MaxLength="500" />
+    <Property Name="meta" Type="nvarchar" MaxLength="500" />
+    <Property Name="fechaInicio" Type="datetime" />
+    <Property Name="fechaFin" Type="datetime" />
+    <Property Name="horasAsignadas" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="horasAsigDefectos" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="horasReales" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="horasRealesDefectos" Type="numeric" Precision="10" Scale="2" />
+  </EntityType>
+  <Association Name="fk_departamento1">
+    <End Role="t_admi_departamento" Type="cslaModel1.Store.t_admi_departamento" Multiplicity="0..1" />
+    <End Role="t_admi_departamento1" Type="cslaModel1.Store.t_admi_departamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_admi_departamento">
+        <PropertyRef Name="PK_departamento" />
+      </Principal>
+      <Dependent Role="t_admi_departamento1">
+        <PropertyRef Name="FK_departamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_menu1">
+    <End Role="t_admi_menu" Type="cslaModel1.Store.t_admi_menu" Multiplicity="0..1" />
+    <End Role="t_admi_menu1" Type="cslaModel1.Store.t_admi_menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_admi_menu">
+        <PropertyRef Name="PK_menu" />
+      </Principal>
+      <Dependent Role="t_admi_menu1">
+        <PropertyRef Name="FK_menuPadre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_pagina1">
+    <End Role="t_admi_menu" Type="cslaModel1.Store.t_admi_menu" Multiplicity="1" />
+    <End Role="t_admi_pagina" Type="cslaModel1.Store.t_admi_pagina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_admi_menu">
+        <PropertyRef Name="PK_menu" />
+      </Principal>
+      <Dependent Role="t_admi_pagina">
+        <PropertyRef Name="FK_menu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_usuario1">
+    <End Role="t_admi_rol" Type="cslaModel1.Store.t_admi_rol" Multiplicity="1" />
+    <End Role="t_admi_usuario" Type="cslaModel1.Store.t_admi_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_admi_rol">
+        <PropertyRef Name="PK_rol" />
+      </Principal>
+      <Dependent Role="t_admi_usuario">
+        <PropertyRef Name="FK_rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

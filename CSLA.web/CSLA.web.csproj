@@ -1,0 +1,587 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{38AA973E-AF9C-45F8-B062-9C85FA065E56}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSLA.web</RootNamespace>
+    <AssemblyName>CSLA.web</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=1.0.10618.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Web.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_pages\frw_acerdaDe.aspx" />
+    <Content Include="App_pages\frw_bienvenidad.aspx" />
+    <Content Include="App_pages\mod.Administracion\frw_edicionUsuario.aspx" />
+    <Content Include="App_pages\mod.Ayuda\frw_ayuda.aspx" />
+    <Content Include="App_pages\mod.ControlSeguimiento\frw_copiarProyecto.aspx" />
+    <Content Include="App_pages\mod.ControlSeguimiento\frw_asignacionActividad.aspx" />
+    <Content Include="App_pages\mod.ControlSeguimiento\frw_calendario.aspx" />
+    <Content Include="App_pages\mod.ControlSeguimiento\frw_operaciones.aspx" />
+    <Content Include="App_pages\mod.ControlSeguimiento\frw_proyectosCreacion.aspx" />
+    <Content Include="App_pages\mod.ControlSeguimiento\frw_registroTiempos.aspx" />
+    <Content Include="App_pages\mod.Estadistico\frw_grf_compHorasActividades.aspx" />
+    <Content Include="App_pages\mod.Estadistico\frw_grf_topActividades.aspx" />
+    <Content Include="App_pages\mod.Estadistico\frw_grf_inversionTiempos.aspx" />
+    <Content Include="App_pages\mod.Reportes\ActividadesRetrasadas\frw_rep_actividadesRetrasadas.aspx" />
+    <Content Include="App_pages\mod.Reportes\ActividadesRetrasadas\frw_rep_actividadesRetrasadasParam.aspx" />
+    <Content Include="App_pages\mod.Reportes\ActividadesSuperanEstimado\frw_rep_actividadesSuperanEstimado.aspx" />
+    <Content Include="App_pages\mod.Reportes\ActividadesSuperanEstimado\frw_rep_actividadesSuperanEstimadoParam.aspx" />
+    <Content Include="App_pages\mod.Reportes\Bitacora\frw_rep_bitacora.aspx" />
+    <Content Include="App_pages\mod.Reportes\Bitacora\frw_rep_bitacoraParam.aspx" />
+    <Content Include="App_pages\mod.Reportes\frw_rep_registroTiempos.aspx" />
+    <Content Include="App_pages\mod.Reportes\RegistroTiemposUsuarios\frw_rep_registroTiemposUsuarios.aspx" />
+    <Content Include="App_pages\mod.Reportes\RegistroTiemposUsuarios\frw_rep_registroTiemposUsuariosParam.aspx" />
+    <Content Include="App_pages\mod.Reportes\RegistroTiemposUsuario\frw_rep_registroTiemposUsuario.aspx" />
+    <Content Include="App_pages\mod.Reportes\RegistroTiemposUsuario\frw_rep_registroTiemposUsuarioParam.aspx" />
+    <Content Include="App_Themes\Basico\css\common.css" />
+    <Content Include="App_Themes\Basico\css\jquery-ui.css" />
+    <Content Include="App_Themes\Basico\css\jquery.booklet.css" />
+    <Content Include="App_Themes\Basico\css\jquery.fancybox.css" />
+    <Content Include="App_Themes\Basico\imagenes\ayuda\img_bucar_nodatos.png" />
+    <Content Include="App_Themes\Basico\imagenes\ayuda\img_calendario_part.png" />
+    <Content Include="App_Themes\Basico\imagenes\ayuda\img_calendario_registro.png" />
+    <Content Include="App_Themes\Basico\imagenes\ayuda\img_calendario_reg_adver.png" />
+    <Content Include="App_Themes\Basico\imagenes\ayuda\img_eliminar_msg.png" />
+    <Content Include="App_Themes\Basico\imagenes\ayuda\img_eliminar_permanentes.png" />
+    <Content Include="App_Themes\Basico\imagenes\ayuda\img_error_mensaje.png" />
+    <Content Include="App_Themes\Basico\imagenes\ayuda\img_login_ingreso.png" />
+    <Content Include="App_Themes\Basico\imagenes\ayuda\img_login_part.png" />
+    <Content Include="App_Themes\Basico\imagenes\ayuda\img_mantenimiento2_part.png" />
+    <Content Include="App_Themes\Basico\imagenes\ayuda\img_mantenimiento_part.png" />
+    <Content Include="App_Themes\Basico\imagenes\ayuda\img_proyecto_wizard1.png" />
+    <Content Include="App_Themes\Basico\imagenes\ayuda\img_proyecto_wizard2.png" />
+    <Content Include="App_Themes\Basico\imagenes\ayuda\img_usuario_cambio.png" />
+    <Content Include="App_Themes\Basico\imagenes\fancybox\blank.gif" />
+    <Content Include="App_Themes\Basico\imagenes\fancybox\fancybox-x.png" />
+    <Content Include="App_Themes\Basico\imagenes\fancybox\fancybox-y.png" />
+    <Content Include="App_Themes\Basico\imagenes\fancybox\fancybox.png" />
+    <Content Include="App_Themes\Basico\imagenes\fancybox\fancy_close.png" />
+    <Content Include="App_Themes\Basico\imagenes\fancybox\fancy_loading.png" />
+    <Content Include="App_Themes\Basico\imagenes\fancybox\fancy_nav_left.png" />
+    <Content Include="App_Themes\Basico\imagenes\fancybox\fancy_nav_right.png" />
+    <Content Include="App_Themes\Basico\imagenes\fancybox\fancy_shadow_e.png" />
+    <Content Include="App_Themes\Basico\imagenes\fancybox\fancy_shadow_n.png" />
+    <Content Include="App_Themes\Basico\imagenes\fancybox\fancy_shadow_ne.png" />
+    <Content Include="App_Themes\Basico\imagenes\fancybox\fancy_shadow_nw.png" />
+    <Content Include="App_Themes\Basico\imagenes\fancybox\fancy_shadow_s.png" />
+    <Content Include="App_Themes\Basico\imagenes\fancybox\fancy_shadow_se.png" />
+    <Content Include="App_Themes\Basico\imagenes\fancybox\fancy_shadow_sw.png" />
+    <Content Include="App_Themes\Basico\imagenes\fancybox\fancy_shadow_w.png" />
+    <Content Include="App_Themes\Basico\imagenes\fancybox\fancy_title_left.png" />
+    <Content Include="App_Themes\Basico\imagenes\fancybox\fancy_title_main.png" />
+    <Content Include="App_Themes\Basico\imagenes\fancybox\fancy_title_over.png" />
+    <Content Include="App_Themes\Basico\imagenes\fancybox\fancy_title_right.png" />
+    <Content Include="App_Themes\Basico\imagenes\iconos\img_copy.png" />
+    <Content Include="App_Themes\Basico\imagenes\iconos\img_previous.png" />
+    <Content Include="App_Themes\Basico\imagenes\iconos\img_proyecto.png" />
+    <Content Include="App_Themes\Basico\imagenes\iconos\img_user.png" />
+    <Content Include="App_Themes\Basico\imagenes\jui\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="App_Themes\Basico\imagenes\jui\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="App_Themes\Basico\imagenes\jui\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="App_Themes\Basico\imagenes\jui\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="App_Themes\Basico\imagenes\jui\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="App_Themes\Basico\imagenes\jui\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="App_Themes\Basico\imagenes\jui\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="App_Themes\Basico\imagenes\jui\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="App_Themes\Basico\imagenes\jui\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="App_Themes\Basico\imagenes\jui\ui-icons_222222_256x240.png" />
+    <Content Include="App_Themes\Basico\imagenes\jui\ui-icons_228ef1_256x240.png" />
+    <Content Include="App_Themes\Basico\imagenes\jui\ui-icons_ef8c08_256x240.png" />
+    <Content Include="App_Themes\Basico\imagenes\jui\ui-icons_ffd27a_256x240.png" />
+    <Content Include="App_Themes\Basico\imagenes\jui\ui-icons_ffffff_256x240.png" />
+    <Content Include="App_Themes\Basico\js\jquery-ui.min.js" />
+    <Content Include="App_Themes\Basico\js\jquery.booklet.js" />
+    <Content Include="App_Themes\Basico\js\jquery.easing.js" />
+    <Content Include="App_Themes\Basico\js\jquery.fancybox.js" />
+    <Content Include="App_Themes\Basico\js\jquery.fancybox.pack.js" />
+    <Content Include="App_Themes\Basico\js\jquery.fn.shorten.js" />
+    <Content Include="frw_error.aspx" />
+    <Content Include="App_pages\mod.Administracion\frw_bitacora.aspx" />
+    <Content Include="App_pages\mod.Administracion\frw_departamento.aspx" />
+    <Content Include="App_pages\mod.Administracion\frw_menu.aspx" />
+    <Content Include="App_pages\mod.Administracion\frw_pagina.aspx" />
+    <Content Include="App_pages\mod.Administracion\frw_permisos.aspx" />
+    <Content Include="App_pages\mod.Administracion\frw_roles.aspx" />
+    <Content Include="App_pages\mod.Administracion\frw_usuarios.aspx" />
+    <Content Include="App_pages\mod.ControlSeguimiento\frw_actividades.aspx" />
+    <Content Include="App_pages\mod.ControlSeguimiento\frw_componentes.aspx" />
+    <Content Include="App_pages\mod.ControlSeguimiento\frw_entregables.aspx" />
+    <Content Include="App_pages\mod.ControlSeguimiento\frw_estados.aspx" />
+    <Content Include="App_pages\mod.ControlSeguimiento\frw_paquetes.aspx" />
+    <Content Include="App_pages\mod.ControlSeguimiento\frw_proyectos.aspx" />
+    <Content Include="App_Themes\Basico\botones\img_warning.gif" />
+    <Content Include="App_Themes\Basico\imagenes\iconos\img_login.png" />
+    <Content Include="App_Themes\Basico\imagenes\iconos\loading.gif" />
+    <Content Include="Default.aspx" />
+    <Content Include="frw_principal.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="PageLoader.asmx" />
+    <Content Include="test.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Constantes\cls_util.cs" />
+    <Compile Include="App_pages\frw_acerdaDe.aspx.cs">
+      <DependentUpon>frw_acerdaDe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\frw_acerdaDe.aspx.designer.cs">
+      <DependentUpon>frw_acerdaDe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\frw_bienvenidad.aspx.cs">
+      <DependentUpon>frw_bienvenidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\frw_bienvenidad.aspx.designer.cs">
+      <DependentUpon>frw_bienvenidad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Administracion\frw_edicionUsuario.aspx.cs">
+      <DependentUpon>frw_edicionUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Administracion\frw_edicionUsuario.aspx.designer.cs">
+      <DependentUpon>frw_edicionUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Ayuda\frw_ayuda.aspx.cs">
+      <DependentUpon>frw_ayuda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Ayuda\frw_ayuda.aspx.designer.cs">
+      <DependentUpon>frw_ayuda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_copiarProyecto.aspx.cs">
+      <DependentUpon>frw_copiarProyecto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_copiarProyecto.aspx.designer.cs">
+      <DependentUpon>frw_copiarProyecto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_asignacionActividad.aspx.cs">
+      <DependentUpon>frw_asignacionActividad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_asignacionActividad.aspx.designer.cs">
+      <DependentUpon>frw_asignacionActividad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_calendario.aspx.cs">
+      <DependentUpon>frw_calendario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_calendario.aspx.designer.cs">
+      <DependentUpon>frw_calendario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_operaciones.aspx.cs">
+      <DependentUpon>frw_operaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_operaciones.aspx.designer.cs">
+      <DependentUpon>frw_operaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_proyectosCreacion.aspx.cs">
+      <DependentUpon>frw_proyectosCreacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_proyectosCreacion.aspx.designer.cs">
+      <DependentUpon>frw_proyectosCreacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_registroTiempos.aspx.cs">
+      <DependentUpon>frw_registroTiempos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_registroTiempos.aspx.designer.cs">
+      <DependentUpon>frw_registroTiempos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Estadistico\frw_grf_compHorasActividades.aspx.cs">
+      <DependentUpon>frw_grf_compHorasActividades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Estadistico\frw_grf_compHorasActividades.aspx.designer.cs">
+      <DependentUpon>frw_grf_compHorasActividades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Estadistico\frw_grf_topActividades.aspx.cs">
+      <DependentUpon>frw_grf_topActividades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Estadistico\frw_grf_topActividades.aspx.designer.cs">
+      <DependentUpon>frw_grf_topActividades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Estadistico\frw_grf_inversionTiempos.aspx.cs">
+      <DependentUpon>frw_grf_inversionTiempos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Estadistico\frw_grf_inversionTiempos.aspx.designer.cs">
+      <DependentUpon>frw_grf_inversionTiempos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\ActividadesRetrasadas\frw_rep_actividadesRetrasadas.aspx.cs">
+      <DependentUpon>frw_rep_actividadesRetrasadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\ActividadesRetrasadas\frw_rep_actividadesRetrasadas.aspx.designer.cs">
+      <DependentUpon>frw_rep_actividadesRetrasadas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\ActividadesRetrasadas\frw_rep_actividadesRetrasadasParam.aspx.cs">
+      <DependentUpon>frw_rep_actividadesRetrasadasParam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\ActividadesRetrasadas\frw_rep_actividadesRetrasadasParam.aspx.designer.cs">
+      <DependentUpon>frw_rep_actividadesRetrasadasParam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\ActividadesSuperanEstimado\frw_rep_actividadesSuperanEstimado.aspx.cs">
+      <DependentUpon>frw_rep_actividadesSuperanEstimado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\ActividadesSuperanEstimado\frw_rep_actividadesSuperanEstimado.aspx.designer.cs">
+      <DependentUpon>frw_rep_actividadesSuperanEstimado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\ActividadesSuperanEstimado\frw_rep_actividadesSuperanEstimadoParam.aspx.cs">
+      <DependentUpon>frw_rep_actividadesSuperanEstimadoParam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\ActividadesSuperanEstimado\frw_rep_actividadesSuperanEstimadoParam.aspx.designer.cs">
+      <DependentUpon>frw_rep_actividadesSuperanEstimadoParam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\Bitacora\frw_rep_bitacora.aspx.cs">
+      <DependentUpon>frw_rep_bitacora.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\Bitacora\frw_rep_bitacora.aspx.designer.cs">
+      <DependentUpon>frw_rep_bitacora.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\Bitacora\frw_rep_bitacoraParam.aspx.cs">
+      <DependentUpon>frw_rep_bitacoraParam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\Bitacora\frw_rep_bitacoraParam.aspx.designer.cs">
+      <DependentUpon>frw_rep_bitacoraParam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\frw_rep_registroTiempos.aspx.cs">
+      <DependentUpon>frw_rep_registroTiempos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\frw_rep_registroTiempos.aspx.designer.cs">
+      <DependentUpon>frw_rep_registroTiempos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\RegistroTiemposUsuarios\frw_rep_registroTiemposUsuarios.aspx.cs">
+      <DependentUpon>frw_rep_registroTiemposUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\RegistroTiemposUsuarios\frw_rep_registroTiemposUsuarios.aspx.designer.cs">
+      <DependentUpon>frw_rep_registroTiemposUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\RegistroTiemposUsuarios\frw_rep_registroTiemposUsuariosParam.aspx.cs">
+      <DependentUpon>frw_rep_registroTiemposUsuariosParam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\RegistroTiemposUsuarios\frw_rep_registroTiemposUsuariosParam.aspx.designer.cs">
+      <DependentUpon>frw_rep_registroTiemposUsuariosParam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\RegistroTiemposUsuario\frw_rep_registroTiemposUsuario.aspx.cs">
+      <DependentUpon>frw_rep_registroTiemposUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\RegistroTiemposUsuario\frw_rep_registroTiemposUsuario.aspx.designer.cs">
+      <DependentUpon>frw_rep_registroTiemposUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\RegistroTiemposUsuario\frw_rep_registroTiemposUsuarioParam.aspx.cs">
+      <DependentUpon>frw_rep_registroTiemposUsuarioParam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Reportes\RegistroTiemposUsuario\frw_rep_registroTiemposUsuarioParam.aspx.designer.cs">
+      <DependentUpon>frw_rep_registroTiemposUsuarioParam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frw_error.aspx.cs">
+      <DependentUpon>frw_error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frw_error.aspx.designer.cs">
+      <DependentUpon>frw_error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Administracion\frw_bitacora.aspx.cs">
+      <DependentUpon>frw_bitacora.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Administracion\frw_bitacora.aspx.designer.cs">
+      <DependentUpon>frw_bitacora.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Administracion\frw_departamento.aspx.cs">
+      <DependentUpon>frw_departamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Administracion\frw_departamento.aspx.designer.cs">
+      <DependentUpon>frw_departamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Administracion\frw_menu.aspx.cs">
+      <DependentUpon>frw_menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Administracion\frw_menu.aspx.designer.cs">
+      <DependentUpon>frw_menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Administracion\frw_pagina.aspx.cs">
+      <DependentUpon>frw_pagina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Administracion\frw_pagina.aspx.designer.cs">
+      <DependentUpon>frw_pagina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Administracion\frw_roles.aspx.cs">
+      <DependentUpon>frw_roles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Administracion\frw_roles.aspx.designer.cs">
+      <DependentUpon>frw_roles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.Administracion\frw_usuarios.aspx.cs">
+      <DependentUpon>frw_usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Administracion\frw_usuarios.aspx.designer.cs">
+      <DependentUpon>frw_usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_actividades.aspx.cs">
+      <DependentUpon>frw_actividades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_actividades.aspx.designer.cs">
+      <DependentUpon>frw_actividades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_componentes.aspx.cs">
+      <DependentUpon>frw_componentes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_componentes.aspx.designer.cs">
+      <DependentUpon>frw_componentes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_entregables.aspx.cs">
+      <DependentUpon>frw_entregables.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_entregables.aspx.designer.cs">
+      <DependentUpon>frw_entregables.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_estados.aspx.cs">
+      <DependentUpon>frw_estados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_estados.aspx.designer.cs">
+      <DependentUpon>frw_estados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_paquetes.aspx.cs">
+      <DependentUpon>frw_paquetes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_paquetes.aspx.designer.cs">
+      <DependentUpon>frw_paquetes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_proyectos.aspx.cs">
+      <DependentUpon>frw_proyectos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_proyectos.aspx.designer.cs">
+      <DependentUpon>frw_proyectos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Content Include="App_Code\PageLoader.cs" />
+    <Compile Include="App_Constantes\cls_constantes.cs" />
+    <Compile Include="App_pages\mod.Administracion\frw_permisos.aspx.cs">
+      <DependentUpon>frw_permisos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.Administracion\frw_permisos.aspx.designer.cs">
+      <DependentUpon>frw_permisos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Variables\cls_variablesSistema.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frw_principal.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>frw_principal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frw_principal.aspx.designer.cs">
+      <DependentUpon>frw_principal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="msp.EstiloBasico\mspContenido.Master.cs">
+      <DependentUpon>mspContenido.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="msp.EstiloBasico\mspContenido.Master.designer.cs">
+      <DependentUpon>mspContenido.Master</DependentUpon>
+    </Compile>
+    <Compile Include="msp.EstiloBasico\mspEstiloGeneral.Master.cs">
+      <DependentUpon>mspEstiloGeneral.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="msp.EstiloBasico\mspEstiloGeneral.Master.designer.cs">
+      <DependentUpon>mspEstiloGeneral.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\COSEVI.CSLA.lib.entidades\COSEVI.CSLA.lib.entidades.csproj">
+      <Project>{0CEAFD85-CCE3-4D25-A123-1929F222D7FD}</Project>
+      <Name>COSEVI.CSLA.lib.entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COSEVI.lib.Security\COSEVI.lib.Security.csproj">
+      <Project>{B1CEB3D4-9EEE-41C2-8F35-6F10C1FB0354}</Project>
+      <Name>COSEVI.lib.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\COSEVI.web.controls\COSEVI.web.controls.csproj">
+      <Project>{CE72A54C-6A0A-4E07-BD21-231E5B884959}</Project>
+      <Name>COSEVI.web.controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExceptionManagement\COSEVI.lib.exceptionManagement.csproj">
+      <Project>{A29641AD-41B7-4C7D-99C3-47CBDF0D8E3B}</Project>
+      <Name>COSEVI.lib.exceptionManagement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\lib_accesoDatos\COSEVI.CSLA.lib.accesoDatos.csproj">
+      <Project>{0A016234-3335-42AC-BE25-0B51447AE3E9}</Project>
+      <Name>COSEVI.CSLA.lib.accesoDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\lib_envioCorreo\COSEVI.lib.envioCorreo.csproj">
+      <Project>{DAA07FFC-B765-460C-88D0-682695E1050C}</Project>
+      <Name>COSEVI.lib.envioCorreo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="msp.EstiloBasico\mspContenido.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Basico\botones\img_alerta.png" />
+    <Content Include="App_Themes\Basico\botones\img_calendario.png" />
+    <Content Include="App_Themes\Basico\botones\img_check.png" />
+    <Content Include="App_Themes\Basico\botones\img_editar.gif" />
+    <Content Include="App_Themes\Basico\botones\img_eliminar.gif" />
+    <Content Include="App_Themes\Basico\botones\img_ver.gif" />
+    <Content Include="App_Themes\Basico\css\menu.css" />
+    <Content Include="App_Themes\Basico\css\pages_style.css" />
+    <Content Include="App_Themes\Basico\css\principal_style.css" />
+    <Content Include="App_Themes\Basico\css\reset_style.css" />
+    <Content Include="App_Themes\Basico\imagenes\css\container_footer.png" />
+    <Content Include="App_Themes\Basico\imagenes\css\container_header.png" />
+    <Content Include="App_Themes\Basico\imagenes\css\cosevi_logo.png" />
+    <Content Include="App_Themes\Basico\imagenes\css\csla_logo.png" />
+    <Content Include="App_Themes\Basico\imagenes\css\header_body.png" />
+    <Content Include="App_Themes\Basico\imagenes\css\header_buttom.png" />
+    <Content Include="App_Themes\Basico\imagenes\css\header_up.png" />
+    <Content Include="App_Themes\Basico\imagenes\css\img_background.png" />
+    <Content Include="App_Themes\Basico\imagenes\css\img_body.jpg" />
+    <Content Include="App_Themes\Basico\imagenes\css\madera.png" />
+    <Content Include="App_Themes\Basico\imagenes\iconos\img_anterior.png" />
+    <Content Include="App_Themes\Basico\imagenes\iconos\img_calendario.png" />
+    <Content Include="App_Themes\Basico\imagenes\iconos\img_siguiente.png" />
+    <Content Include="App_Themes\Basico\imagenes\menu\back.png" />
+    <Content Include="App_Themes\Basico\imagenes\menu\pix.gif" />
+    <Content Include="App_Themes\Basico\imagenes\menu\pointer.gif" />
+    <Content Include="App_Themes\Basico\js\jquery.js" />
+    <Content Include="App_Themes\Basico\js\js.js" />
+    <Content Include="App_Themes\Basico\js\menu.js" />
+    <Content Include="msp.EstiloBasico\mspEstiloGeneral.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3055</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

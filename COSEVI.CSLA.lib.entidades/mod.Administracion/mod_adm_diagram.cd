@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="COSEVI.CSLA.lib.entidades.mod.Administracion.cls_bitacora">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAABIAAQAQAAAAEAgEAAIAAACAAgAQIAAQEAAgABIA=</HashCode>
+      <FileName>mod.Administracion\cls_bitacora.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COSEVI.CSLA.lib.entidades.mod.Administracion.cls_departamento">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAACAgCAAAAEgAAAAhAAAAAEAAAABAIA=</HashCode>
+      <FileName>mod.Administracion\cls_departamento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COSEVI.CSLA.lib.entidades.mod.Administracion.cls_funcionario">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACRAAACAAAAAAAAAAgAAhAASAAAQIAAAAAA=</HashCode>
+      <FileName>mod.Administracion\cls_funcionario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COSEVI.CSLA.lib.entidades.mod.Administracion.cls_menu">
+    <Position X="7.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAIQCAEAAAAAEAAwAAAABAAgEAAAAAA=</HashCode>
+      <FileName>mod.Administracion\cls_menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COSEVI.CSLA.lib.entidades.mod.Administracion.cls_pagina">
+    <Position X="9.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACAQAAAAAAAACAAAAAAAgAAAAIBAQAAAIAAgAAAAA=</HashCode>
+      <FileName>mod.Administracion\cls_pagina.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COSEVI.CSLA.lib.entidades.mod.Administracion.cls_permiso">
+    <Position X="11.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAASAAAAAAAAAAgAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mod.Administracion\cls_permiso.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COSEVI.CSLA.lib.entidades.mod.Administracion.cls_rol">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAACAAAEAgAAAAAAABAAAAACACCAAEAA=</HashCode>
+      <FileName>mod.Administracion\cls_rol.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COSEVI.CSLA.lib.entidades.mod.Administracion.cls_usuario">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAABAAAAAAAAAEAAACAAQAAgAAAAACAAAAIAAAAAA=</HashCode>
+      <FileName>mod.Administracion\cls_usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

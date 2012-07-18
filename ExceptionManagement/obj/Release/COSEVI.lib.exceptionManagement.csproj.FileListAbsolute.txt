@@ -1,0 +1,9 @@
+D:\cslagit\CSLA\CSLA\ExceptionManagement\bin\Release\ExceptionManagement.dll
+D:\cslagit\CSLA\CSLA\ExceptionManagement\bin\Release\ExceptionManagement.pdb
+D:\cslagit\CSLA\CSLA\ExceptionManagement\obj\Release\ResolveAssemblyReference.cache
+D:\cslagit\CSLA\CSLA\ExceptionManagement\obj\Release\ExceptionManagement.ExceptionManagerInstaller.resources
+D:\cslagit\CSLA\CSLA\ExceptionManagement\obj\Release\ExceptionManagement.ExceptionManagerText.resources
+D:\cslagit\CSLA\CSLA\ExceptionManagement\obj\Release\GenerateResource-ResGen.read.1.tlog
+D:\cslagit\CSLA\CSLA\ExceptionManagement\obj\Release\GenerateResource-ResGen.write.1.tlog
+D:\cslagit\CSLA\CSLA\ExceptionManagement\obj\Release\ExceptionManagement.dll
+D:\cslagit\CSLA\CSLA\ExceptionManagement\obj\Release\ExceptionManagement.pdb

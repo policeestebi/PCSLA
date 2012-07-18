@@ -1,0 +1,5 @@
+D:\cslagit\CSLA\CSLA\COSEVI.lib.Security\bin\Release\COSEVI.lib.Security.dll
+D:\cslagit\CSLA\CSLA\COSEVI.lib.Security\bin\Release\COSEVI.lib.Security.pdb
+D:\cslagit\CSLA\CSLA\COSEVI.lib.Security\obj\Release\ResolveAssemblyReference.cache
+D:\cslagit\CSLA\CSLA\COSEVI.lib.Security\obj\Release\COSEVI.lib.Security.dll
+D:\cslagit\CSLA\CSLA\COSEVI.lib.Security\obj\Release\COSEVI.lib.Security.pdb

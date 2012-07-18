@@ -1,0 +1,5 @@
+D:\cslagit\CSLA\CSLA\COSEVI.CSLA.lib.entidades\bin\Release\COSEVI.CSLA.lib.entidades.dll
+D:\cslagit\CSLA\CSLA\COSEVI.CSLA.lib.entidades\bin\Release\COSEVI.CSLA.lib.entidades.pdb
+D:\cslagit\CSLA\CSLA\COSEVI.CSLA.lib.entidades\obj\Release\ResolveAssemblyReference.cache
+D:\cslagit\CSLA\CSLA\COSEVI.CSLA.lib.entidades\obj\Release\COSEVI.CSLA.lib.entidades.dll
+D:\cslagit\CSLA\CSLA\COSEVI.CSLA.lib.entidades\obj\Release\COSEVI.CSLA.lib.entidades.pdb

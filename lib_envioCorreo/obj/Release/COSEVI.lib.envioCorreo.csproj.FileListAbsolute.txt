@@ -1,0 +1,7 @@
+D:\cslagit\CSLA\CSLA\lib_envioCorreo\bin\Release\lib_envioCorreo.dll
+D:\cslagit\CSLA\CSLA\lib_envioCorreo\bin\Release\lib_envioCorreo.pdb
+D:\cslagit\CSLA\CSLA\lib_envioCorreo\bin\Release\ExceptionManagement.dll
+D:\cslagit\CSLA\CSLA\lib_envioCorreo\bin\Release\ExceptionManagement.pdb
+D:\cslagit\CSLA\CSLA\lib_envioCorreo\obj\Release\ResolveAssemblyReference.cache
+D:\cslagit\CSLA\CSLA\lib_envioCorreo\obj\Release\lib_envioCorreo.dll
+D:\cslagit\CSLA\CSLA\lib_envioCorreo\obj\Release\lib_envioCorreo.pdb

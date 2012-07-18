@@ -1,0 +1,566 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="cslaModelStoreContainer" CdmEntityContainer="cslaEntities2">
+    <EntitySetMapping Name="t_admi_bitacora">
+      <EntityTypeMapping TypeName="cslaModel.t_admi_bitacora">
+        <MappingFragment StoreEntitySet="t_admi_bitacora">
+          <ScalarProperty Name="PK_bitacora" ColumnName="PK_bitacora" />
+          <ScalarProperty Name="accion" ColumnName="accion" />
+          <ScalarProperty Name="fecha_accion" ColumnName="fecha_accion" />
+          <ScalarProperty Name="numero_registro" ColumnName="numero_registro" />
+          <ScalarProperty Name="tabla" ColumnName="tabla" />
+          <ScalarProperty Name="maquina" ColumnName="maquina" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_admi_consecutivo">
+      <EntityTypeMapping TypeName="cslaModel.t_admi_consecutivo">
+        <MappingFragment StoreEntitySet="t_admi_consecutivo">
+          <ScalarProperty Name="PK_reporte" ColumnName="PK_reporte" />
+          <ScalarProperty Name="consecutivo" ColumnName="consecutivo" />
+          <ScalarProperty Name="fecha_impresión" ColumnName="fecha_impresión" />
+          <ScalarProperty Name="reimpresion" ColumnName="reimpresion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_admi_departamento">
+      <EntityTypeMapping TypeName="cslaModel.t_admi_departamento">
+        <MappingFragment StoreEntitySet="t_admi_departamento">
+          <ScalarProperty Name="PK_departamento" ColumnName="PK_departamento" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+          <ScalarProperty Name="administrador" ColumnName="administrador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_admi_menu">
+      <EntityTypeMapping TypeName="cslaModel.t_admi_menu">
+        <MappingFragment StoreEntitySet="t_admi_menu">
+          <ScalarProperty Name="PK_menu" ColumnName="PK_menu" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_admi_pagina">
+      <EntityTypeMapping TypeName="cslaModel.t_admi_pagina">
+        <MappingFragment StoreEntitySet="t_admi_pagina">
+          <ScalarProperty Name="PK_pagina" ColumnName="PK_pagina" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="height" ColumnName="height" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_admi_pagina_permiso">
+      <EntityTypeMapping TypeName="cslaModel.t_admi_pagina_permiso">
+        <MappingFragment StoreEntitySet="t_admi_pagina_permiso">
+          <ScalarProperty Name="PK_pagina" ColumnName="PK_pagina" />
+          <ScalarProperty Name="PK_permiso" ColumnName="PK_permiso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_admi_permiso">
+      <EntityTypeMapping TypeName="cslaModel.t_admi_permiso">
+        <MappingFragment StoreEntitySet="t_admi_permiso">
+          <ScalarProperty Name="PK_permiso" ColumnName="PK_permiso" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_admi_registro_permanente">
+      <EntityTypeMapping TypeName="cslaModel.t_admi_registro_permanente">
+        <MappingFragment StoreEntitySet="t_admi_registro_permanente">
+          <ScalarProperty Name="tabla" ColumnName="tabla" />
+          <ScalarProperty Name="registro" ColumnName="registro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_admi_rol">
+      <EntityTypeMapping TypeName="cslaModel.t_admi_rol">
+        <MappingFragment StoreEntitySet="t_admi_rol">
+          <ScalarProperty Name="PK_rol" ColumnName="PK_rol" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="visible" ColumnName="visible" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_admi_usuario">
+      <EntityTypeMapping TypeName="cslaModel.t_admi_usuario">
+        <MappingFragment StoreEntitySet="t_admi_usuario">
+          <ScalarProperty Name="PK_usuario" ColumnName="PK_usuario" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+          <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+          <ScalarProperty Name="puesto" ColumnName="puesto" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_cont_actividad">
+      <EntityTypeMapping TypeName="cslaModel.t_cont_actividad">
+        <MappingFragment StoreEntitySet="t_cont_actividad">
+          <ScalarProperty Name="PK_actividad" ColumnName="PK_actividad" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_cont_actividad_asignada">
+      <EntityTypeMapping TypeName="cslaModel.t_cont_actividad_asignada">
+        <MappingFragment StoreEntitySet="t_cont_actividad_asignada">
+          <ScalarProperty Name="PK_actividad" ColumnName="PK_actividad" />
+          <ScalarProperty Name="PK_paquete" ColumnName="PK_paquete" />
+          <ScalarProperty Name="PK_componente" ColumnName="PK_componente" />
+          <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+          <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+          <ScalarProperty Name="PK_usuario" ColumnName="PK_usuario" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+          <ScalarProperty Name="horasAsignadas" ColumnName="horasAsignadas" />
+          <ScalarProperty Name="horasAsigDefectos" ColumnName="horasAsigDefectos" />
+          <ScalarProperty Name="horasReales" ColumnName="horasReales" />
+          <ScalarProperty Name="horasRealesDefectos" ColumnName="horasRealesDefectos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_cont_asignacion_operacion">
+      <EntityTypeMapping TypeName="cslaModel.t_cont_asignacion_operacion">
+        <MappingFragment StoreEntitySet="t_cont_asignacion_operacion">
+          <ScalarProperty Name="PK_codigo" ColumnName="PK_codigo" />
+          <ScalarProperty Name="PK_usuario" ColumnName="PK_usuario" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_cont_componente">
+      <EntityTypeMapping TypeName="cslaModel.t_cont_componente">
+        <MappingFragment StoreEntitySet="t_cont_componente">
+          <ScalarProperty Name="PK_componente" ColumnName="PK_componente" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_cont_componente_paquete">
+      <EntityTypeMapping TypeName="cslaModel.t_cont_componente_paquete">
+        <MappingFragment StoreEntitySet="t_cont_componente_paquete">
+          <ScalarProperty Name="PK_paquete" ColumnName="PK_paquete" />
+          <ScalarProperty Name="PK_componente" ColumnName="PK_componente" />
+          <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+          <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_cont_departamento_proyecto">
+      <EntityTypeMapping TypeName="cslaModel.t_cont_departamento_proyecto">
+        <MappingFragment StoreEntitySet="t_cont_departamento_proyecto">
+          <ScalarProperty Name="PK_departamento" ColumnName="PK_departamento" />
+          <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_cont_entregable">
+      <EntityTypeMapping TypeName="cslaModel.t_cont_entregable">
+        <MappingFragment StoreEntitySet="t_cont_entregable">
+          <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_cont_entregable_componente">
+      <EntityTypeMapping TypeName="cslaModel.t_cont_entregable_componente">
+        <MappingFragment StoreEntitySet="t_cont_entregable_componente">
+          <ScalarProperty Name="PK_componente" ColumnName="PK_componente" />
+          <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+          <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_cont_estado">
+      <EntityTypeMapping TypeName="cslaModel.t_cont_estado">
+        <MappingFragment StoreEntitySet="t_cont_estado">
+          <ScalarProperty Name="PK_estado" ColumnName="PK_estado" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_cont_operacion">
+      <EntityTypeMapping TypeName="cslaModel.t_cont_operacion">
+        <MappingFragment StoreEntitySet="t_cont_operacion">
+          <ScalarProperty Name="PK_codigo" ColumnName="PK_codigo" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_cont_paquete">
+      <EntityTypeMapping TypeName="cslaModel.t_cont_paquete">
+        <MappingFragment StoreEntitySet="t_cont_paquete">
+          <ScalarProperty Name="PK_paquete" ColumnName="PK_paquete" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_cont_paquete_actividad">
+      <EntityTypeMapping TypeName="cslaModel.t_cont_paquete_actividad">
+        <MappingFragment StoreEntitySet="t_cont_paquete_actividad">
+          <ScalarProperty Name="PK_actividad" ColumnName="PK_actividad" />
+          <ScalarProperty Name="PK_paquete" ColumnName="PK_paquete" />
+          <ScalarProperty Name="PK_componente" ColumnName="PK_componente" />
+          <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+          <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_cont_proyecto">
+      <EntityTypeMapping TypeName="cslaModel.t_cont_proyecto">
+        <MappingFragment StoreEntitySet="t_cont_proyecto">
+          <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="objetivo" ColumnName="objetivo" />
+          <ScalarProperty Name="meta" ColumnName="meta" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+          <ScalarProperty Name="horasAsignadas" ColumnName="horasAsignadas" />
+          <ScalarProperty Name="horasAsigDefectos" ColumnName="horasAsigDefectos" />
+          <ScalarProperty Name="horasReales" ColumnName="horasReales" />
+          <ScalarProperty Name="horasRealesDefectos" ColumnName="horasRealesDefectos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_cont_proyecto_entregable">
+      <EntityTypeMapping TypeName="cslaModel.t_cont_proyecto_entregable">
+        <MappingFragment StoreEntitySet="t_cont_proyecto_entregable">
+          <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+          <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_cont_registro_actividad">
+      <EntityTypeMapping TypeName="cslaModel.t_cont_registro_actividad">
+        <MappingFragment StoreEntitySet="t_cont_registro_actividad">
+          <ScalarProperty Name="PK_registro" ColumnName="PK_registro" />
+          <ScalarProperty Name="PK_actividad" ColumnName="PK_actividad" />
+          <ScalarProperty Name="PK_paquete" ColumnName="PK_paquete" />
+          <ScalarProperty Name="PK_componente" ColumnName="PK_componente" />
+          <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+          <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+          <ScalarProperty Name="PK_usuario" ColumnName="PK_usuario" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+          <ScalarProperty Name="horas" ColumnName="horas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_cont_registro_operacion">
+      <EntityTypeMapping TypeName="cslaModel.t_cont_registro_operacion">
+        <MappingFragment StoreEntitySet="t_cont_registro_operacion">
+          <ScalarProperty Name="PK_registro" ColumnName="PK_registro" />
+          <ScalarProperty Name="PK_codigo" ColumnName="PK_codigo" />
+          <ScalarProperty Name="PK_usuario" ColumnName="PK_usuario" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="horas" ColumnName="horas" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="fk_bitacora1" TypeName="cslaModel.fk_bitacora1" StoreEntitySet="t_admi_bitacora">
+      <EndProperty Name="t_admi_usuario">
+        <ScalarProperty Name="PK_usuario" ColumnName="FK_usuario" />
+      </EndProperty>
+      <EndProperty Name="t_admi_bitacora">
+        <ScalarProperty Name="PK_bitacora" ColumnName="PK_bitacora" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_bitacora2" TypeName="cslaModel.fk_bitacora2" StoreEntitySet="t_admi_bitacora">
+      <EndProperty Name="t_admi_departamento">
+        <ScalarProperty Name="PK_departamento" ColumnName="FK_departamento" />
+      </EndProperty>
+      <EndProperty Name="t_admi_bitacora">
+        <ScalarProperty Name="PK_bitacora" ColumnName="PK_bitacora" />
+      </EndProperty>
+      <Condition ColumnName="FK_departamento" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_departamento_proyecto1" TypeName="cslaModel.fk_departamento_proyecto1" StoreEntitySet="t_cont_departamento_proyecto">
+      <EndProperty Name="t_admi_departamento">
+        <ScalarProperty Name="PK_departamento" ColumnName="PK_departamento" />
+      </EndProperty>
+      <EndProperty Name="t_cont_departamento_proyecto">
+        <ScalarProperty Name="PK_departamento" ColumnName="PK_departamento" />
+        <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_departamento1" TypeName="cslaModel.fk_departamento1" StoreEntitySet="t_admi_departamento">
+      <EndProperty Name="t_admi_departamento">
+        <ScalarProperty Name="PK_departamento" ColumnName="FK_departamento" />
+      </EndProperty>
+      <EndProperty Name="t_admi_departamento1">
+        <ScalarProperty Name="PK_departamento" ColumnName="PK_departamento" />
+      </EndProperty>
+      <Condition ColumnName="FK_departamento" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_menu1" TypeName="cslaModel.fk_menu1" StoreEntitySet="t_admi_menu">
+      <EndProperty Name="t_admi_menu">
+        <ScalarProperty Name="PK_menu" ColumnName="FK_menuPadre" />
+      </EndProperty>
+      <EndProperty Name="t_admi_menu1">
+        <ScalarProperty Name="PK_menu" ColumnName="PK_menu" />
+      </EndProperty>
+      <Condition ColumnName="FK_menuPadre" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_pagina1" TypeName="cslaModel.fk_pagina1" StoreEntitySet="t_admi_pagina">
+      <EndProperty Name="t_admi_menu">
+        <ScalarProperty Name="PK_menu" ColumnName="FK_menu" />
+      </EndProperty>
+      <EndProperty Name="t_admi_pagina">
+        <ScalarProperty Name="PK_pagina" ColumnName="PK_pagina" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_pagina_permiso1" TypeName="cslaModel.fk_pagina_permiso1" StoreEntitySet="t_admi_pagina_permiso">
+      <EndProperty Name="t_admi_pagina">
+        <ScalarProperty Name="PK_pagina" ColumnName="PK_pagina" />
+      </EndProperty>
+      <EndProperty Name="t_admi_pagina_permiso">
+        <ScalarProperty Name="PK_pagina" ColumnName="PK_pagina" />
+        <ScalarProperty Name="PK_permiso" ColumnName="PK_permiso" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_pagina_permiso2" TypeName="cslaModel.fk_pagina_permiso2" StoreEntitySet="t_admi_pagina_permiso">
+      <EndProperty Name="t_admi_permiso">
+        <ScalarProperty Name="PK_permiso" ColumnName="PK_permiso" />
+      </EndProperty>
+      <EndProperty Name="t_admi_pagina_permiso">
+        <ScalarProperty Name="PK_pagina" ColumnName="PK_pagina" />
+        <ScalarProperty Name="PK_permiso" ColumnName="PK_permiso" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_usuario1" TypeName="cslaModel.fk_usuario1" StoreEntitySet="t_admi_usuario">
+      <EndProperty Name="t_admi_rol">
+        <ScalarProperty Name="PK_rol" ColumnName="FK_rol" />
+      </EndProperty>
+      <EndProperty Name="t_admi_usuario">
+        <ScalarProperty Name="PK_usuario" ColumnName="PK_usuario" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_actividad_asignada2" TypeName="cslaModel.fk_actividad_asignada2" StoreEntitySet="t_cont_actividad_asignada">
+      <EndProperty Name="t_admi_usuario">
+        <ScalarProperty Name="PK_usuario" ColumnName="PK_usuario" />
+      </EndProperty>
+      <EndProperty Name="t_cont_actividad_asignada">
+        <ScalarProperty Name="PK_actividad" ColumnName="PK_actividad" />
+        <ScalarProperty Name="PK_paquete" ColumnName="PK_paquete" />
+        <ScalarProperty Name="PK_componente" ColumnName="PK_componente" />
+        <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+        <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+        <ScalarProperty Name="PK_usuario" ColumnName="PK_usuario" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_asignacion_operacion2" TypeName="cslaModel.fk_asignacion_operacion2" StoreEntitySet="t_cont_asignacion_operacion">
+      <EndProperty Name="t_admi_usuario">
+        <ScalarProperty Name="PK_usuario" ColumnName="PK_usuario" />
+      </EndProperty>
+      <EndProperty Name="t_cont_asignacion_operacion">
+        <ScalarProperty Name="PK_codigo" ColumnName="PK_codigo" />
+        <ScalarProperty Name="PK_usuario" ColumnName="PK_usuario" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_paquete_actividad2" TypeName="cslaModel.fk_paquete_actividad2" StoreEntitySet="t_cont_paquete_actividad">
+      <EndProperty Name="t_cont_actividad">
+        <ScalarProperty Name="PK_actividad" ColumnName="PK_actividad" />
+      </EndProperty>
+      <EndProperty Name="t_cont_paquete_actividad">
+        <ScalarProperty Name="PK_actividad" ColumnName="PK_actividad" />
+        <ScalarProperty Name="PK_paquete" ColumnName="PK_paquete" />
+        <ScalarProperty Name="PK_componente" ColumnName="PK_componente" />
+        <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+        <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_actividad_asignada1" TypeName="cslaModel.fk_actividad_asignada1" StoreEntitySet="t_cont_actividad_asignada">
+      <EndProperty Name="t_cont_paquete_actividad">
+        <ScalarProperty Name="PK_actividad" ColumnName="PK_actividad" />
+        <ScalarProperty Name="PK_paquete" ColumnName="PK_paquete" />
+        <ScalarProperty Name="PK_componente" ColumnName="PK_componente" />
+        <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+        <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+      </EndProperty>
+      <EndProperty Name="t_cont_actividad_asignada">
+        <ScalarProperty Name="PK_actividad" ColumnName="PK_actividad" />
+        <ScalarProperty Name="PK_paquete" ColumnName="PK_paquete" />
+        <ScalarProperty Name="PK_componente" ColumnName="PK_componente" />
+        <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+        <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+        <ScalarProperty Name="PK_usuario" ColumnName="PK_usuario" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_actividad_asignada3" TypeName="cslaModel.fk_actividad_asignada3" StoreEntitySet="t_cont_actividad_asignada">
+      <EndProperty Name="t_cont_estado">
+        <ScalarProperty Name="PK_estado" ColumnName="FK_estado" />
+      </EndProperty>
+      <EndProperty Name="t_cont_actividad_asignada">
+        <ScalarProperty Name="PK_actividad" ColumnName="PK_actividad" />
+        <ScalarProperty Name="PK_paquete" ColumnName="PK_paquete" />
+        <ScalarProperty Name="PK_componente" ColumnName="PK_componente" />
+        <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+        <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+        <ScalarProperty Name="PK_usuario" ColumnName="PK_usuario" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_registro_actividad1" TypeName="cslaModel.fk_registro_actividad1" StoreEntitySet="t_cont_registro_actividad">
+      <EndProperty Name="t_cont_actividad_asignada">
+        <ScalarProperty Name="PK_actividad" ColumnName="PK_actividad" />
+        <ScalarProperty Name="PK_paquete" ColumnName="PK_paquete" />
+        <ScalarProperty Name="PK_componente" ColumnName="PK_componente" />
+        <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+        <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+        <ScalarProperty Name="PK_usuario" ColumnName="PK_usuario" />
+      </EndProperty>
+      <EndProperty Name="t_cont_registro_actividad">
+        <ScalarProperty Name="PK_registro" ColumnName="PK_registro" />
+        <ScalarProperty Name="PK_actividad" ColumnName="PK_actividad" />
+        <ScalarProperty Name="PK_paquete" ColumnName="PK_paquete" />
+        <ScalarProperty Name="PK_componente" ColumnName="PK_componente" />
+        <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+        <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+        <ScalarProperty Name="PK_usuario" ColumnName="PK_usuario" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_asignacion_operacion1" TypeName="cslaModel.fk_asignacion_operacion1" StoreEntitySet="t_cont_asignacion_operacion">
+      <EndProperty Name="t_cont_operacion">
+        <ScalarProperty Name="PK_codigo" ColumnName="PK_codigo" />
+      </EndProperty>
+      <EndProperty Name="t_cont_asignacion_operacion">
+        <ScalarProperty Name="PK_codigo" ColumnName="PK_codigo" />
+        <ScalarProperty Name="PK_usuario" ColumnName="PK_usuario" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_registro_operacion1" TypeName="cslaModel.fk_registro_operacion1" StoreEntitySet="t_cont_registro_operacion">
+      <EndProperty Name="t_cont_asignacion_operacion">
+        <ScalarProperty Name="PK_codigo" ColumnName="PK_codigo" />
+        <ScalarProperty Name="PK_usuario" ColumnName="PK_usuario" />
+      </EndProperty>
+      <EndProperty Name="t_cont_registro_operacion">
+        <ScalarProperty Name="PK_registro" ColumnName="PK_registro" />
+        <ScalarProperty Name="PK_codigo" ColumnName="PK_codigo" />
+        <ScalarProperty Name="PK_usuario" ColumnName="PK_usuario" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_entregable_componente2" TypeName="cslaModel.fk_entregable_componente2" StoreEntitySet="t_cont_entregable_componente">
+      <EndProperty Name="t_cont_componente">
+        <ScalarProperty Name="PK_componente" ColumnName="PK_componente" />
+      </EndProperty>
+      <EndProperty Name="t_cont_entregable_componente">
+        <ScalarProperty Name="PK_componente" ColumnName="PK_componente" />
+        <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+        <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_componente_paquete2" TypeName="cslaModel.fk_componente_paquete2" StoreEntitySet="t_cont_componente_paquete">
+      <EndProperty Name="t_cont_paquete">
+        <ScalarProperty Name="PK_paquete" ColumnName="PK_paquete" />
+      </EndProperty>
+      <EndProperty Name="t_cont_componente_paquete">
+        <ScalarProperty Name="PK_paquete" ColumnName="PK_paquete" />
+        <ScalarProperty Name="PK_componente" ColumnName="PK_componente" />
+        <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+        <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_paquete_actividad1" TypeName="cslaModel.fk_paquete_actividad1" StoreEntitySet="t_cont_paquete_actividad">
+      <EndProperty Name="t_cont_componente_paquete">
+        <ScalarProperty Name="PK_paquete" ColumnName="PK_paquete" />
+        <ScalarProperty Name="PK_componente" ColumnName="PK_componente" />
+        <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+        <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+      </EndProperty>
+      <EndProperty Name="t_cont_paquete_actividad">
+        <ScalarProperty Name="PK_actividad" ColumnName="PK_actividad" />
+        <ScalarProperty Name="PK_paquete" ColumnName="PK_paquete" />
+        <ScalarProperty Name="PK_componente" ColumnName="PK_componente" />
+        <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+        <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_departamento_proyecto2" TypeName="cslaModel.fk_departamento_proyecto2" StoreEntitySet="t_cont_departamento_proyecto">
+      <EndProperty Name="t_cont_proyecto">
+        <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+      </EndProperty>
+      <EndProperty Name="t_cont_departamento_proyecto">
+        <ScalarProperty Name="PK_departamento" ColumnName="PK_departamento" />
+        <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_proyecto_entregable2" TypeName="cslaModel.fk_proyecto_entregable2" StoreEntitySet="t_cont_proyecto_entregable">
+      <EndProperty Name="t_cont_entregable">
+        <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+      </EndProperty>
+      <EndProperty Name="t_cont_proyecto_entregable">
+        <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+        <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_entregable_componente1" TypeName="cslaModel.fk_entregable_componente1" StoreEntitySet="t_cont_entregable_componente">
+      <EndProperty Name="t_cont_proyecto_entregable">
+        <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+        <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+      </EndProperty>
+      <EndProperty Name="t_cont_entregable_componente">
+        <ScalarProperty Name="PK_componente" ColumnName="PK_componente" />
+        <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+        <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_proyecto1" TypeName="cslaModel.fk_proyecto1" StoreEntitySet="t_cont_proyecto">
+      <EndProperty Name="t_cont_estado">
+        <ScalarProperty Name="PK_estado" ColumnName="FK_estado" />
+      </EndProperty>
+      <EndProperty Name="t_cont_proyecto">
+        <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_operacion1" TypeName="cslaModel.fk_operacion1" StoreEntitySet="t_cont_operacion">
+      <EndProperty Name="t_cont_proyecto">
+        <ScalarProperty Name="PK_proyecto" ColumnName="FK_proyecto" />
+      </EndProperty>
+      <EndProperty Name="t_cont_operacion">
+        <ScalarProperty Name="PK_codigo" ColumnName="PK_codigo" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="fk_proyecto_entregable1" TypeName="cslaModel.fk_proyecto_entregable1" StoreEntitySet="t_cont_proyecto_entregable">
+      <EndProperty Name="t_cont_proyecto">
+        <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+      </EndProperty>
+      <EndProperty Name="t_cont_proyecto_entregable">
+        <ScalarProperty Name="PK_entregable" ColumnName="PK_entregable" />
+        <ScalarProperty Name="PK_proyecto" ColumnName="PK_proyecto" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="t_admi_rol_pagina_permiso" TypeName="cslaModel.t_admi_rol_pagina_permiso" StoreEntitySet="t_admi_rol_pagina_permiso">
+      <EndProperty Name="t_admi_rol">
+        <ScalarProperty Name="PK_rol" ColumnName="PK_rol" />
+      </EndProperty>
+      <EndProperty Name="t_admi_pagina_permiso">
+        <ScalarProperty Name="PK_pagina" ColumnName="PK_pagina" />
+        <ScalarProperty Name="PK_permiso" ColumnName="PK_permiso" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

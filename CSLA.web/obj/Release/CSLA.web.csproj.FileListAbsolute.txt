@@ -1,0 +1,17 @@
+D:\cslagit\CSLA\CSLA\CSLA.web\bin\CSLA.web.dll
+D:\cslagit\CSLA\CSLA\CSLA.web\bin\CSLA.web.pdb
+D:\cslagit\CSLA\CSLA\CSLA.web\bin\COSEVI.CSLA.lib.entidades.dll
+D:\cslagit\CSLA\CSLA\CSLA.web\bin\COSEVI.lib.Security.dll
+D:\cslagit\CSLA\CSLA\CSLA.web\bin\COSEVI.web.controls.dll
+D:\cslagit\CSLA\CSLA\CSLA.web\bin\ExceptionManagement.dll
+D:\cslagit\CSLA\CSLA\CSLA.web\bin\lib_accesoDatos.dll
+D:\cslagit\CSLA\CSLA\CSLA.web\bin\lib_envioCorreo.dll
+D:\cslagit\CSLA\CSLA\CSLA.web\bin\COSEVI.CSLA.lib.entidades.pdb
+D:\cslagit\CSLA\CSLA\CSLA.web\bin\COSEVI.lib.Security.pdb
+D:\cslagit\CSLA\CSLA\CSLA.web\bin\COSEVI.web.controls.pdb
+D:\cslagit\CSLA\CSLA\CSLA.web\bin\ExceptionManagement.pdb
+D:\cslagit\CSLA\CSLA\CSLA.web\bin\lib_accesoDatos.pdb
+D:\cslagit\CSLA\CSLA\CSLA.web\bin\lib_envioCorreo.pdb
+D:\cslagit\CSLA\CSLA\CSLA.web\obj\Release\ResolveAssemblyReference.cache
+D:\cslagit\CSLA\CSLA\CSLA.web\obj\Release\CSLA.web.dll
+D:\cslagit\CSLA\CSLA\CSLA.web\obj\Release\CSLA.web.pdb
