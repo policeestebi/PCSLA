@@ -1132,5 +1132,102 @@ END
 
 
 
+
+
+IF  EXISTS (SELECT * FROM sys.procedures WHERE object_id = OBJECT_ID(N'[dbo].[PA_estd_consultaActRetrasadas]'))
+DROP PROCEDURE [dbo].[PA_estd_consultaActRetrasadas]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Autor: Cristian Arce Ramírez
+-- Fecha Creación:	01-07-2012
+-- Fecha Actualización:	01-07-2012
+-- Descripción: 
+-- =============================================
+CREATE PROCEDURE  [dbo].[PA_estd_consultaActRetrasadas]
+  @paramProyecto	INT,
+  @paramPaquete		INT,
+  @paramUsuario		NVARCHAR(30)
+AS 
+ BEGIN 
+
+		SELECT 
+			CASE
+				WHEN t.fechaFin < t.fecha_ultimo
+				THEN	
+					DATEDIFF(day,t.fechaFin,t.fecha_ultimo)
+				ELSE
+					0
+				END
+				diasRetraso,
+			CASE 
+				WHEN t.horasAsignadas < t.horas_reales
+				THEN	
+					t.horas_reales - t.horasAsignadas
+				ELSE
+					0
+				END
+				horasRetraso,
+				t.nombreActividad
+		FROM 
+		(
+		SELECT 
+			aa.PK_actividad,
+			aa.PK_paquete,
+			aa.PK_componente,
+			aa.PK_entregable,
+			aa.PK_proyecto,
+			aa.PK_usuario,
+			aa.fechaInicio,
+			aa.fechaFin,
+			aa.horasAsignadas,
+			SUM(ra.horas) horas_reales,
+			MAX(ra.fecha) fecha_ultimo,
+			a.nombre nombreActividad,
+			aa.FK_estado
+		FROM
+			t_cont_asignacion_actividad aa
+		INNER JOIN
+			t_cont_registro_actividad ra
+		ON
+			aa.PK_actividad = ra.PK_actividad AND
+			aa.PK_paquete = ra.PK_paquete AND
+			aa.PK_componente = ra.PK_componente AND
+			aa.PK_entregable = ra.PK_entregable AND
+			aa.PK_proyecto = ra.PK_proyecto
+		INNER JOIN 
+			t_cont_actividad a
+		ON
+			aa.PK_actividad = a.PK_actividad
+		WHERE
+			aa.PK_paquete = @paramPaquete AND
+			aa.PK_proyecto = @paramProyecto AND
+			aa.PK_usuario = @paramUsuario	AND
+			aa.FK_estado = 1
+		GROUP BY
+			aa.PK_actividad,
+			aa.PK_paquete,
+			aa.PK_componente,
+			aa.PK_entregable,
+			aa.PK_proyecto,
+			aa.PK_usuario,
+			aa.fechaInicio,
+			aa.fechaFin,
+			aa.horasAsignadas,
+			a.nombre,
+			aa.FK_Estado
+		) t
+
+END
+
+
+
+
+
+	
+
 	
 

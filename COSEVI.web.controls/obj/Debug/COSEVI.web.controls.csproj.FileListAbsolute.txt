@@ -20,3 +20,14 @@ D:\cslagit\COSEVI_CSLA\COSEVI.web.controls\obj\Debug\GenerateResource-ResGen.rea
 D:\cslagit\COSEVI_CSLA\COSEVI.web.controls\obj\Debug\GenerateResource-ResGen.write.1.tlog
 D:\cslagit\COSEVI_CSLA\COSEVI.web.controls\obj\Debug\COSEVI.web.controls.dll
 D:\cslagit\COSEVI_CSLA\COSEVI.web.controls\obj\Debug\COSEVI.web.controls.pdb
+D:\cslagit\PCSLA\COSEVI.web.controls\bin\Debug\COSEVI.web.controls.dll
+D:\cslagit\PCSLA\COSEVI.web.controls\bin\Debug\COSEVI.web.controls.pdb
+D:\cslagit\PCSLA\COSEVI.web.controls\bin\Debug\AjaxControlToolkit.dll
+D:\cslagit\PCSLA\COSEVI.web.controls\bin\Debug\COSEVI.CSLA.lib.entidades.dll
+D:\cslagit\PCSLA\COSEVI.web.controls\bin\Debug\COSEVI.CSLA.lib.entidades.pdb
+D:\cslagit\PCSLA\COSEVI.web.controls\obj\Debug\ResolveAssemblyReference.cache
+D:\cslagit\PCSLA\COSEVI.web.controls\obj\Debug\COSEVI.web.controls.cld_resources.resources
+D:\cslagit\PCSLA\COSEVI.web.controls\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\cslagit\PCSLA\COSEVI.web.controls\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\cslagit\PCSLA\COSEVI.web.controls\obj\Debug\COSEVI.web.controls.dll
+D:\cslagit\PCSLA\COSEVI.web.controls\obj\Debug\COSEVI.web.controls.pdb

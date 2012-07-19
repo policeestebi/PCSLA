@@ -252,5 +252,51 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Estadistico
 
         #endregion Gráfico Comparación Horas Actividad
 
+        #region Gráfico Consulta Actividades Retrasadas
+
+        /// <summary>
+        /// Método que permite consultar  
+        /// las actividades que presenten retrasos o superen el estimado en los diferente paquetes de proyecto
+        /// </summary>
+        /// <returns>vo_lista valor del resultado de la ejecución de la sentencia</returns>
+        public static List<cls_consActRetrasadas> ConsultaActRetrasadas(cls_consActRetrasadas po_consActRetrasadas)
+        {
+            List<cls_consActRetrasadas> vo_lista = null;
+            cls_consActRetrasadas vo_consActRetrasadas = null;
+
+            try
+            {
+                String vs_comando = "PA_estd_consultaActRetrasadas";
+                cls_parameter[] vu_parametros = { new cls_parameter("@paramProyecto", po_consActRetrasadas.pPK_proyecto),
+                                                  new cls_parameter("@paramPaquete", po_consActRetrasadas.pPK_paquete),
+                                                  new cls_parameter("@paramUsuario", po_consActRetrasadas.pPK_usuario)
+                                                };
+
+                DataSet vu_dataSet = cls_sqlDatabase.executeDataset(vs_comando, true, vu_parametros);
+
+                vo_lista = new List<cls_consActRetrasadas>();
+                for (int i = 0; i < vu_dataSet.Tables[0].Rows.Count; i++)
+                {
+                    vo_consActRetrasadas = new cls_consActRetrasadas();
+
+                    vo_consActRetrasadas.pNombreActividad = vu_dataSet.Tables[0].Rows[i]["nombreActividad"].ToString();
+
+                    vo_consActRetrasadas.pDiasRetraso = Convert.ToDecimal(vu_dataSet.Tables[0].Rows[i]["diasRetraso"].ToString());
+
+                    vo_consActRetrasadas.pHorasRetraso = Convert.ToDecimal(vu_dataSet.Tables[0].Rows[i]["horasRetraso"].ToString());
+
+                    vo_lista.Add(vo_consActRetrasadas);
+                }
+
+                return vo_lista;
+            }
+            catch (Exception po_exception)
+            {
+                throw new Exception("Ocurrió un error al obtener el gráfico de consulta de actividades retrasadas por proyecto.", po_exception);
+            }
+        }
+
+        #endregion Gráfico Consulta Actividades Retrasadas
+
     }
 }

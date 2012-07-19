@@ -73,7 +73,7 @@ INSERT INTO t_admi_registro_permanente(tabla,registro) VALUES ('t_admi_menu','23
 INSERT INTO t_admi_menu (PK_menu,FK_menuPadre,titulo,descripcion) VALUES (24,4,'Inversión Tiempos', 'Inversión Tiempos');
 INSERT INTO t_admi_menu (PK_menu,FK_menuPadre,titulo,descripcion) VALUES (25,4,'Top Actividades', 'Top Actividades');
 INSERT INTO t_admi_menu (PK_menu,FK_menuPadre,titulo,descripcion) VALUES (26,4,'Comparar Horas', 'Comparar Horas');
-INSERT INTO t_admi_menu (PK_menu,FK_menuPadre,titulo,descripcion) VALUES (27,4,'Gráfico 4', 'Gráfico 4');
+INSERT INTO t_admi_menu (PK_menu,FK_menuPadre,titulo,descripcion) VALUES (27,4,'Actividades Retrasadas', 'Actividades Retrasadas');
 
 --Registros no eliminables
 INSERT INTO t_admi_registro_permanente(tabla,registro) VALUES ('t_admi_menu','24');
@@ -153,7 +153,7 @@ INSERT INTO t_admi_registro_permanente(tabla,registro) VALUES ('t_admi_pagina','
 INSERT INTO t_admi_pagina(FK_menu,nombre,url,height) VALUES (24,'Inversión Tiempos','#App_pages/mod.Estadistico/frw_grf_inversionTiempos.aspx','900');					--17
 INSERT INTO t_admi_pagina(FK_menu,nombre,url,height) VALUES (25,'Top Actividades','#App_pages/mod.Estadistico/frw_grf_topActividades.aspx','900');							--18
 INSERT INTO t_admi_pagina(FK_menu,nombre,url,height) VALUES (26,'Comparar Horas','#App_pages/mod.Estadistico/frw_grf_compHorasActividades.aspx','900');				--19
-INSERT INTO t_admi_pagina(FK_menu,nombre,url,height) VALUES (27,'Grafico 4','#App_pages/mod.Estadistico','900');																				--20
+INSERT INTO t_admi_pagina(FK_menu,nombre,url,height) VALUES (27,'Actividades Retrasadas','#App_pages/mod.Estadistico/frw_grf_consActRetrasadas.aspx','900');																				--20
 
 --Registros no eliminables
 INSERT INTO t_admi_registro_permanente(tabla,registro) VALUES ('t_admi_pagina','17');

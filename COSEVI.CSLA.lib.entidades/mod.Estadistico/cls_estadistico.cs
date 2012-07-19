@@ -283,5 +283,98 @@ namespace COSEVI.CSLA.lib.entidades.mod.Estadistico
 
     }
 
+    /// <summary>
+    /// Clase utilizada para la obtención de datos en el gráfico de consulta de actividades retrasadas por proyecto.
+    /// </summary>
+    public class cls_consActRetrasadas
+    {
+
+        #region Constructor
+
+        /// <summary>
+        /// Constructor de la clase cls_consActRetrasadas.
+        /// </summary>
+        public cls_consActRetrasadas()
+        {
+        }
+
+        #endregion
+
+        #region Propiedades
+
+        public int pPK_proyecto
+        {
+            get { return PK_proyecto; }
+            set { this.PK_proyecto = value; }
+        }
+
+        public int pPK_paquete
+        {
+            get { return PK_paquete; }
+            set { this.PK_paquete = value; }
+        }
+
+        public string pPK_usuario
+        {
+            get { return PK_usuario; }
+            set { this.PK_usuario = value; }
+        }
+
+        public string pNombreActividad
+        {
+            get { return nombreActividad; }
+            set { this.nombreActividad = value; }
+        }
+
+        public decimal pDiasRetraso
+        {
+            get { return diasRetraso; }
+            set { this.diasRetraso = value; }
+        }
+
+        public decimal pHorasRetraso
+        {
+            get { return horasRetraso; }
+            set { this.horasRetraso = value; }
+        }
+
+        #endregion
+
+        #region Atributos
+
+        /// <summary>
+        /// Código del proyecto
+        /// </summary>
+        private int PK_proyecto;
+
+        /// <summary>
+        /// Código del paquete
+        /// </summary>
+        private int PK_paquete;
+
+        /// <summary>
+        /// Código del usuario
+        /// </summary>
+        private string PK_usuario;
+
+        /// <summary>
+        /// Nombre de la actividad para el desgloce
+        /// </summary>
+        private string nombreActividad;
+
+        /// <summary>
+        /// Dias de retraso de la actividad
+        /// </summary>
+        private decimal diasRetraso;
+
+        /// <summary>
+        /// Horas reales de retraso en la actividad
+        /// </summary>
+        private decimal horasRetraso;
+
+        #endregion
+
+    }
+
 }
 
