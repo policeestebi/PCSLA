@@ -58,6 +58,15 @@ namespace CSLA.web.msp.EstiloBasico {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder6;
         
         /// <summary>
+        /// ContentPlaceHolder7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder7;
+        
+        /// <summary>
         /// ContentPlaceHolder2 control.
         /// </summary>
         /// <remarks>

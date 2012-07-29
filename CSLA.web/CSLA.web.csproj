@@ -156,6 +156,7 @@
     <Content Include="App_Themes\Basico\js\jquery.fancybox.js" />
     <Content Include="App_Themes\Basico\js\jquery.fancybox.pack.js" />
     <Content Include="App_Themes\Basico\js\jquery.fn.shorten.js" />
+    <Content Include="App_Themes\Basico\js\pdfobject.js" />
     <Content Include="frw_error.aspx" />
     <Content Include="App_pages\mod.Administracion\frw_bitacora.aspx" />
     <Content Include="App_pages\mod.Administracion\frw_departamento.aspx" />
@@ -563,6 +564,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PDF\CSLA_Manual_Usuario.pdf" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

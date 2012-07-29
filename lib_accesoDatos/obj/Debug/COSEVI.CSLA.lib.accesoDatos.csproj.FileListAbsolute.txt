@@ -33,3 +33,10 @@ D:\cslagit\PCSLA\lib_accesoDatos\bin\Debug\COSEVI.CSLA.lib.entidades.pdb
 D:\cslagit\PCSLA\lib_accesoDatos\obj\Debug\ResolveAssemblyReference.cache
 D:\cslagit\PCSLA\lib_accesoDatos\obj\Debug\lib_accesoDatos.dll
 D:\cslagit\PCSLA\lib_accesoDatos\obj\Debug\lib_accesoDatos.pdb
+C:\Users\Esteban\Documents\GIT\PCSLA\lib_accesoDatos\bin\Debug\lib_accesoDatos.dll
+C:\Users\Esteban\Documents\GIT\PCSLA\lib_accesoDatos\bin\Debug\lib_accesoDatos.pdb
+C:\Users\Esteban\Documents\GIT\PCSLA\lib_accesoDatos\bin\Debug\COSEVI.CSLA.lib.entidades.dll
+C:\Users\Esteban\Documents\GIT\PCSLA\lib_accesoDatos\bin\Debug\COSEVI.CSLA.lib.entidades.pdb
+C:\Users\Esteban\Documents\GIT\PCSLA\lib_accesoDatos\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Esteban\Documents\GIT\PCSLA\lib_accesoDatos\obj\Debug\lib_accesoDatos.dll
+C:\Users\Esteban\Documents\GIT\PCSLA\lib_accesoDatos\obj\Debug\lib_accesoDatos.pdb

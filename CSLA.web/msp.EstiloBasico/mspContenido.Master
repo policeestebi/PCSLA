@@ -36,6 +36,12 @@
         </script>
     </asp:ContentPlaceHolder>
 
+   <asp:ContentPlaceHolder ID="ContentPlaceHolder7" runat="server">
+        <script src="<%=Page.ResolveUrl("~/App_Themes/Basico/js/pdfobject.js") %>" language="javascript"
+            type="text/javascript">
+        </script>
+    </asp:ContentPlaceHolder>
+
     <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
         <script src="<%=Page.ResolveUrl("~/App_Themes/Basico/js/jquery.fancybox.pack.js") %>" language="javascript"
             type="text/javascript">

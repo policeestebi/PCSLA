@@ -31,3 +31,16 @@ D:\cslagit\PCSLA\COSEVI.web.controls\obj\Debug\GenerateResource-ResGen.read.1.tl
 D:\cslagit\PCSLA\COSEVI.web.controls\obj\Debug\GenerateResource-ResGen.write.1.tlog
 D:\cslagit\PCSLA\COSEVI.web.controls\obj\Debug\COSEVI.web.controls.dll
 D:\cslagit\PCSLA\COSEVI.web.controls\obj\Debug\COSEVI.web.controls.pdb
+C:\Users\Esteban\Documents\GIT\PCSLA\COSEVI.web.controls\bin\Debug\COSEVI.web.controls.dll
+C:\Users\Esteban\Documents\GIT\PCSLA\COSEVI.web.controls\bin\Debug\COSEVI.web.controls.pdb
+C:\Users\Esteban\Documents\GIT\PCSLA\COSEVI.web.controls\bin\Debug\AjaxControlToolkit.dll
+C:\Users\Esteban\Documents\GIT\PCSLA\COSEVI.web.controls\bin\Debug\COSEVI.CSLA.lib.entidades.dll
+C:\Users\Esteban\Documents\GIT\PCSLA\COSEVI.web.controls\bin\Debug\COSEVI.CSLA.lib.entidades.pdb
+C:\Users\Esteban\Documents\GIT\PCSLA\COSEVI.web.controls\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Esteban\Documents\GIT\PCSLA\COSEVI.web.controls\obj\Debug\COSEVI.web.controls.cld_resources.resources
+C:\Users\Esteban\Documents\GIT\PCSLA\COSEVI.web.controls\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\Esteban\Documents\GIT\PCSLA\COSEVI.web.controls\obj\Debug\ResGen.read.1.tlog
+C:\Users\Esteban\Documents\GIT\PCSLA\COSEVI.web.controls\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\Esteban\Documents\GIT\PCSLA\COSEVI.web.controls\obj\Debug\ResGen.write.1.tlog
+C:\Users\Esteban\Documents\GIT\PCSLA\COSEVI.web.controls\obj\Debug\COSEVI.web.controls.dll
+C:\Users\Esteban\Documents\GIT\PCSLA\COSEVI.web.controls\obj\Debug\COSEVI.web.controls.pdb

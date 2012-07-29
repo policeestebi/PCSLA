@@ -23,3 +23,8 @@ D:\cslagit\PCSLA\COSEVI.lib.Security\bin\Debug\COSEVI.lib.Security.pdb
 D:\cslagit\PCSLA\COSEVI.lib.Security\obj\Debug\ResolveAssemblyReference.cache
 D:\cslagit\PCSLA\COSEVI.lib.Security\obj\Debug\COSEVI.lib.Security.dll
 D:\cslagit\PCSLA\COSEVI.lib.Security\obj\Debug\COSEVI.lib.Security.pdb
+C:\Users\Esteban\Documents\GIT\PCSLA\COSEVI.lib.Security\bin\Debug\COSEVI.lib.Security.dll
+C:\Users\Esteban\Documents\GIT\PCSLA\COSEVI.lib.Security\bin\Debug\COSEVI.lib.Security.pdb
+C:\Users\Esteban\Documents\GIT\PCSLA\COSEVI.lib.Security\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Esteban\Documents\GIT\PCSLA\COSEVI.lib.Security\obj\Debug\COSEVI.lib.Security.dll
+C:\Users\Esteban\Documents\GIT\PCSLA\COSEVI.lib.Security\obj\Debug\COSEVI.lib.Security.pdb

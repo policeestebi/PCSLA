@@ -1,0 +1,155 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="mspEstiloGeneral.master.cs"
+    Inherits="CSLA.web.msp.EstiloBasico.mspEstiloGeneral" %>
+
+<%@ Register Assembly="COSEVI.web.controls" Namespace="COSEVI.web.controls" TagPrefix="cc1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>COSEVI-CSLA</title>
+    <link href="../App_Themes/Basico/css/reset_style.css" type="text/css" rel="stylesheet" />
+    <link href="../App_Themes/Basico/css/principal_style.css" type="text/css" rel="stylesheet" />
+    <link type="text/css" href="../App_Themes/Basico/css/menu.css" rel="stylesheet" />
+    <link rel="Stylesheet" type="text/css" href="../App_Themes/Basico/css/jquery.fancybox.css"
+        media="screen" />
+    <asp:ContentPlaceHolder ID="jquery" runat="server">
+        <script src="<%=Page.ResolveUrl("~/App_Themes/Basico/js/jquery.js") %>" language="javascript"
+            type="text/javascript">
+        </script>
+    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <script src="<%=Page.ResolveUrl("~/App_Themes/Basico/js/js.js") %>" language="javascript"
+            type="text/javascript">
+        </script>
+    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+        <script src="<%=Page.ResolveUrl("~/App_Themes/Basico/js/menu.js") %>" language="javascript"
+            type="text/javascript">
+        </script>
+    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+        <script src="<%=Page.ResolveUrl("~/App_Themes/Basico/js/jquery.fancybox.pack.js") %>"
+            language="javascript" type="text/javascript">
+        </script>
+    </asp:ContentPlaceHolder>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            Load();
+        });
+
+        function Load() {
+
+            $(function () {
+                $(".about").fancybox({
+                    'width': 550,
+                    'height': 200,
+                    'autoScale': false,
+                    'transitionIn': 'none',
+                    'transitionOut': 'none',
+                    'type': 'iframe',
+                    'closeBtn': true
+                });
+            });
+
+            $(function () {
+                $(".hipUsuario").fancybox({
+                    'width': '50%',
+                    'height': '60%',
+                    'autoScale': false,
+                    'transitionIn': 'none',
+                    'transitionOut': 'none',
+                    'type': 'iframe',
+                    'closeBtn': true
+                });
+            });
+
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="scrp_man" runat="server">
+        <Services>
+            <asp:ServiceReference Path="~/PageLoader.asmx" />
+        </Services>
+    </asp:ScriptManager>
+    <div id="container_layout">
+        <div id="container_header">
+        </div>
+        <div id="container">
+            <div id="header_container">
+                <div id="header_up">
+                </div>
+                <div id="header">
+                    <div id="logo">
+                        <img runat="server" src="../App_Themes/Basico/imagenes/css/csla_logo.png" alt="CSLA" />
+                    </div>
+                    <div id="logo_compania">
+                        <img runat="server" src="../App_Themes/Basico/imagenes/css/cosevi_logo.png" alt="COSEVI" /></div>
+                    <div id="usuario">
+                        <div id="fecha">
+                            <asp:Label ID="lbl_fecha" runat="server" Text=""></asp:Label>
+                            <br />
+                            <asp:HyperLink ID="hpl_acerca" runat="server" Text="Acerca de CSLA" CssClass="about"
+                                NavigateUrl="../App_pages/frw_acerdaDe.aspx"></asp:HyperLink>
+                        </div>
+                        <div id="usuario_login">
+                            <asp:HyperLink ID="hpl_usuario" NavigateUrl="../App_pages/mod.Administracion/frw_edicionUsuario.aspx" CssClass="hipUsuario" runat="server" Visible="false"></asp:HyperLink>
+                            &nbsp
+                            <asp:Label ID="lbl_separador" runat="server" Text="|"></asp:Label>
+                            &nbsp
+                            <asp:HyperLink ID="hpl_logOut" NavigateUrl="../Default.aspx" runat="server" Visible="false">Salir</asp:HyperLink>
+                        </div>
+                    </div>
+                </div>
+                <div id="header_buttom">
+                </div>
+            </div>
+            <asp:ContentPlaceHolder ID="menu" runat="server">
+            </asp:ContentPlaceHolder>
+            <div id="Loading" style="padding: 10px; margin: 10px; vertical-align: middle; display: none"
+                align="center">
+                <table>
+                    <tr>
+                        <td align="center" valign="middle">
+                            <br />
+                            <br />
+                            <img alt="loading" runat="server" id="Img1" src="../App_Themes/Basico/imagenes/iconos/loading.gif" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="main">
+                <asp:ContentPlaceHolder ID="main_container" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div align="center" id="footer_container">
+                <div id="footer_up">
+                </div>
+                <div id="footer">
+                    <asp:Label ID="lblInfoFooter" runat="server" Text=""></asp:Label>
+                    <script language="javascript" type="text/javascript">
+                        date = new Date();
+
+                        year = date.getFullYear();
+
+                        document.writeln(" &#169; " + year + " COSEVI - Costa Rica. Todos los derechos reservados.");
+                    </script>
+                    <br />
+                    <asp:HyperLink ID="hpl_ayuda" runat="server" NavigateUrl="~/App_pages/mod.Ayuda/frw_ayuda.aspx">Ayuda</asp:HyperLink>
+                </div>
+                <div id="footer_buttom">
+                </div>
+            </div>
+        </div>
+        <div id="container_footer">
+        </div>
+        <div id="copyright" style="display: none">
+            <a href="http://apycom.com/">Apycom jQuery Menus</a>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

@@ -89,7 +89,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Esquema", "Esquema", "{B8070CFC-CB80-4662-B7D5-A350FBF55FF9}"
 	ProjectSection(SolutionItems) = preProject
 		Archivos\ScriptsBD\CSLA_DB\mod_administracion\esquema\CSLA_BD_esquema.sql = Archivos\ScriptsBD\CSLA_DB\mod_administracion\esquema\CSLA_BD_esquema.sql
-		Archivos\ScriptsBD\CSLA_DB\mod_administracion\esquema\CSLA_menu.sql = Archivos\ScriptsBD\CSLA_DB\mod_administracion\esquema\CSLA_menu.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Init", "Init", "{33330708-51BF-4297-BFCF-FD3251E7B6E7}"
