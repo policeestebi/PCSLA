@@ -490,14 +490,15 @@ AS
 			o.PK_codigo,
 			o.tipo,
 			o.descripcion,
-			o.activo
+			ao.activo
 		FROM
 			t_cont_operacion o
 		INNER JOIN
 			t_cont_asignacion_operacion ao
 		ON
 			o.PK_codigo = ao.PK_codigo AND
-			ao.PK_usuario = @paramUsuario
+			ao.PK_usuario = @paramUsuario AND
+			ao.borrado = 0
 END  
  GO 
 
@@ -597,7 +598,8 @@ GO
 -- Fecha Actulización:	12-04-2012
 -- Descripción: Se utiliza para seleccionar en cuales
 --				las operaciones asociadas 
---				a un usuario.
+--				a un usuario. Sólo aquellas
+--				que estan activas
 -- =============================================
 CREATE PROCEDURE  PA_cont_operacionSelectUsuario
 	 @paramUsuario	  NVARCHAR(30),
@@ -617,7 +619,8 @@ AS
 	WHERE 
 		op.FK_proyecto IS NULL AND
 		op.tipo = @paramTipo AND
-		op.activo = 1
+		aop.activo = 1 AND
+		aop.borrado= 0
 	ORDER BY op.descripcion asc
 END  
 GO 
@@ -810,7 +813,8 @@ AS
 	ON
 		op.PK_codigo = ap.PK_codigo AND
 		ap.PK_usuario = @paramUsuario AND
-		op.FK_proyecto = @paramProyecto
+		op.FK_proyecto = @paramProyecto AND
+		ap.borrado = 0
 	) t
 	ORDER BY descripcion ASC
 	
@@ -1044,7 +1048,7 @@ AS
 				tcra.PK_proyecto = @paramProyecto 
 
 END 
-
+GO
 
 IF  EXISTS (SELECT * FROM sys.procedures WHERE object_id = OBJECT_ID(N'[dbo].[PA_cont_verificarActividadRetrasada]'))
 DROP PROCEDURE [dbo].[PA_cont_verificarActividadRetrasada]
@@ -1129,7 +1133,7 @@ AS
 			aa.horasAsignadas
 		) t
 END 
-
+GO
 
 
 
@@ -1222,6 +1226,35 @@ AS
 		) t
 
 END
+GO
+
+IF  EXISTS (SELECT * FROM sys.procedures WHERE object_id = OBJECT_ID(N'[dbo].[PA_cont_asignacionOperacion]'))
+DROP PROCEDURE [dbo].[PA_cont_asignacionOperacion]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Autor: Generador
+-- Fecha Creación:	02-09-2012
+-- Fecha Actulización:	02-09-2012
+-- Descripción: 
+-- =============================================
+CREATE PROCEDURE  PA_cont_asignacionOperacion 
+	  @paramOperacion		int
+AS
+ BEGIN 
+		SELECT 
+			PK_codigo,
+			PK_usuario
+		FROM
+			t_cont_asignacion_operacion
+		WHERE
+			PK_codigo = @paramOperacion AND
+			borrado = 0
+END  
+ GO 
 
 
 

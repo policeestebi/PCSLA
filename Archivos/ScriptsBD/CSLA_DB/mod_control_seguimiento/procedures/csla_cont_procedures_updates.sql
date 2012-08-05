@@ -569,16 +569,23 @@ GO
 CREATE PROCEDURE  PA_cont_operacionUpdate 
   @paramPK_operacion NVARCHAR(50),
   @paramDescripcion NVARCHAR(100),   
-  @paramActivo		SMALLINT
+  @paramActivo		SMALLINT,
+  @paramUsuario		NVARCHAR(30)
 AS 
  BEGIN 
 SET NOCOUNT ON; 
 
 	UPDATE t_cont_operacion
-	SET descripcion = @paramDescripcion,
-		activo = @paramActivo
+	SET descripcion = @paramDescripcion
 	WHERE 
 	PK_codigo = @paramPK_operacion;
+
+	UPDATE t_cont_asignacion_operacion
+	SET activo = @paramActivo
+	WHERE 
+		PK_codigo = @paramPK_operacion AND
+		PK_usuario = @paramUsuario
+
 
 END   
  GO   

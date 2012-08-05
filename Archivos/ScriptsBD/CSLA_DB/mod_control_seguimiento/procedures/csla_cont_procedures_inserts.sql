@@ -528,29 +528,29 @@ AS
 		 PK_codigo,
 		 tipo,
 		 descripcion,
-		 FK_proyecto,
-		 activo
+		 FK_proyecto
         ) 
         VALUES
         ( 
 		 @codigo,
 		 @paramTipo,
 		 @paramDescripcion,
-		 @paramProyecto,
-		 @paramActivo
+		 @paramProyecto
         ) 
         
         INSERT INTO t_cont_asignacion_operacion
         (
         PK_codigo,
         PK_usuario,
-        comentario
+        comentario,
+		 activo
         )
         VALUES
         (
         @codigo,
         @paramUsuario,
-        @paramDescripcion
+        @paramDescripcion,
+		@paramActivo
         )
 
 END   
@@ -724,3 +724,49 @@ AS
 
  END
  GO
+
+
+ IF  EXISTS (SELECT * FROM sys.procedures WHERE object_id = OBJECT_ID(N'[dbo].[PA_cont_asignacionOperacionInsert]'))
+DROP PROCEDURE [dbo].[PA_cont_asignacionOperacionInsert]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Autor: Generador
+-- Fecha Creación:	03-09-2012
+-- Fecha Actulización:	03-09-2012
+-- Descripción: 
+-- =============================================
+CREATE PROCEDURE  PA_cont_asignacionOperacionInsert
+	  @paramOperacion		int,
+	  @paramUsuario			NVARCHAR(30),
+	  @paramActivo			int
+AS
+BEGIN 
+	
+	IF NOT EXISTS( 
+		SELECT * FROM t_cont_asignacion_operacion
+		WHERE  PK_codigo = @paramOperacion AND PK_usuario = @paramUsuario
+	)
+	BEGIN
+		INSERT INTO
+			t_cont_asignacion_operacion
+			(PK_codigo, PK_usuario,activo)
+			VALUES
+			(@paramOperacion,@paramUsuario,@paramActivo)
+	END
+	ELSE
+		UPDATE
+			t_cont_asignacion_operacion
+		SET 
+			borrado = 0,
+			activo = 1
+		WHERE
+			PK_codigo = @paramOperacion AND PK_usuario = @paramUsuario
+		
+END  
+GO 
+
+

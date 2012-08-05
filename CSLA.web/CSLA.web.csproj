@@ -76,6 +76,7 @@
     <Content Include="App_pages\mod.ControlSeguimiento\frw_copiarProyecto.aspx" />
     <Content Include="App_pages\mod.ControlSeguimiento\frw_asignacionActividad.aspx" />
     <Content Include="App_pages\mod.ControlSeguimiento\frw_calendario.aspx" />
+    <Content Include="App_pages\mod.ControlSeguimiento\frw_operacionAsignacion.aspx" />
     <Content Include="App_pages\mod.ControlSeguimiento\frw_operaciones.aspx" />
     <Content Include="App_pages\mod.ControlSeguimiento\frw_proyectosCreacion.aspx" />
     <Content Include="App_pages\mod.ControlSeguimiento\frw_registroTiempos.aspx" />
@@ -233,6 +234,13 @@
     </Compile>
     <Compile Include="App_pages\mod.ControlSeguimiento\frw_calendario.aspx.designer.cs">
       <DependentUpon>frw_calendario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_operacionAsignacion.aspx.cs">
+      <DependentUpon>frw_operacionAsignacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_pages\mod.ControlSeguimiento\frw_operacionAsignacion.aspx.designer.cs">
+      <DependentUpon>frw_operacionAsignacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_pages\mod.ControlSeguimiento\frw_operaciones.aspx.cs">
       <DependentUpon>frw_operaciones.aspx</DependentUpon>

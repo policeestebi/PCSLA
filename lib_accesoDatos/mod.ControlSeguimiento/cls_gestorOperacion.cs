@@ -11,6 +11,8 @@ using COSEVI.CSLA.lib.entidades.mod.ControlSeguimiento;
 using COSEVI.CSLA.lib.accesoDatos.App_Database;
 using COSEVI.CSLA.lib.accesoDatos.App_Constantes;
 using COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes;
+using COSEVI.CSLA.lib.accesoDatos.mod.Administracion;
+using COSEVI.CSLA.lib.entidades.mod.Administracion;
 
 //=======================================================================
 // Consejo de Seguridad Vial (COSEVI). - 2011
@@ -111,7 +113,8 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
                     {                   
                  		    new cls_parameter("@paramPK_operacion", poOperacion.pPK_Codigo),
                             new cls_parameter("@paramDescripcion", poOperacion.pDescripcion), 
-                            new cls_parameter("@paramActivo", poOperacion.pActivo)
+                            new cls_parameter("@paramActivo", poOperacion.pActivo),
+                            new cls_parameter("@paramUsuario", cls_interface.vs_usuarioActual)	
                     };
 
                 cls_sqlDatabase.beginTransaction();
@@ -226,7 +229,8 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
             {
                 String vs_comando = "PA_cont_operacionSelectOne";
                 cls_parameter[] vu_parametros = { 
-                                                       new cls_parameter("@paramPK_codigo", poOperacion.pPK_Codigo) 
+                                                       new cls_parameter("@paramPK_codigo", poOperacion.pPK_Codigo), 
+                                                       new cls_parameter("@paramPK_usuario", cls_interface.vs_usuarioActual) 
                                                    };
 
                 DataSet vu_dataSet = cls_sqlDatabase.executeDataset(vs_comando, true, vu_parametros);
@@ -250,6 +254,55 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
             {
                 cls_sqlDatabase.rollbackTransaction();
                 throw new Exception("Ocurrió un error al obtener una operación específica.", po_exception);
+            }
+        }
+
+        /// <summary>
+        /// Lista las asignaciones
+        /// existentes de una operación
+        /// </summary>
+        /// <param name="poOperacion">cls_operacion operacion</param>
+        /// <returns>List con las asignaciones existentes de una operación</returns>
+        public static List<cls_asignacionOperacion> listarAsignacionesOperacion(cls_operacion poOperacion)
+        {
+            List<cls_asignacionOperacion> vo_lista = null;
+            cls_asignacionOperacion voAsignacion = null;
+            cls_usuario voUsuario = null;
+
+            try
+            {
+                String vs_comando = "PA_cont_asignacionOperacion";
+                cls_parameter[] vu_parametros = 
+                {
+                    new cls_parameter("@paramOperacion", poOperacion.pPK_Codigo)
+                };
+
+                DataSet vu_dataSet = cls_sqlDatabase.executeDataset(vs_comando, true, vu_parametros);
+
+                vo_lista = new List<cls_asignacionOperacion>();
+
+                for (int i = 0; i < vu_dataSet.Tables[0].Rows.Count; i++)
+                {
+                    voAsignacion = new cls_asignacionOperacion();
+
+                    voAsignacion.pFK_Operacion = poOperacion;
+
+                    voAsignacion.pFK_Usuario = vu_dataSet.Tables[0].Rows[i]["PK_usuario"].ToString();
+
+                    voUsuario = new cls_usuario();
+
+                    voUsuario.pPK_usuario = voAsignacion.pFK_Usuario;
+
+                    voAsignacion.pUsuario = cls_gestorUsuario.seleccionarUsuario(voUsuario);
+
+                    vo_lista.Add(voAsignacion);
+                }
+
+                return vo_lista;
+            }
+            catch (Exception po_exception)
+            {
+                throw new Exception("Ocurrió un error al obtener el listado de los paquetes de manera filtrada.", po_exception);
             }
         }
 
@@ -305,7 +358,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
             try
             {
                 String vs_comando = "PA_cont_obtenerUltimaOperacion";
-                cls_parameter[] vu_parametros = {  };
+                cls_parameter[] vu_parametros = { };
 
                 DataSet vu_dataSet = cls_sqlDatabase.executeDataset(vs_comando, true, vu_parametros);
 
@@ -354,6 +407,110 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
             return vu_dataSet;
         }
+
+        /// <summary>
+        /// Inserta una asignación 
+        /// de una operación.
+        /// Se utiliza  para la asignación
+        /// masiva de operaciones
+        /// </summary>
+        /// <param name="poOperacion">cls_asignacionOperacion asignación a insertar.</param>
+        /// <returns>valor del resultado de la ejecución de la sentencia</returns>
+        public static int insertAsignacionOperacion(cls_asignacionOperacion poOperacion)
+        {
+            int vi_resultado;
+
+            try
+            {
+                String vs_comando = "PA_cont_asignacionOperacionInsert";
+
+                cls_parameter[] vu_parametros = 
+                    {                   
+                        new cls_parameter("@paramOperacion", poOperacion.pFK_Operacion.pPK_Codigo),
+                        new cls_parameter("@paramUsuario", poOperacion.pFK_Usuario),
+                        new cls_parameter("@paramActivo", poOperacion.pIsActivo)
+                    };
+
+                vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
+
+                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.OPERACION_ASIGNACION, poOperacion.pFK_Operacion.pPK_Codigo + "/" + poOperacion.pFK_Usuario);
+
+                return vi_resultado;
+
+            }
+            catch (Exception po_exception)
+            {
+                throw new Exception("Ocurrió un error al insertar la asignación de la operación.", po_exception);
+            }
+
+        }
+
+        /// <summary>
+        /// Elimina una asiganción de una operación.
+        /// </summary>
+        /// <param name="poOperacion">cls_asignacionOperacion asignación a eliminar.</param>
+        /// <returns>valor del resultado de la ejecución de la sentencia</returns>
+        public static int deleteAsignacionOperacion(cls_asignacionOperacion poOperacion)
+        {
+            int vi_resultado;
+
+            try
+            {
+                String vs_comando = "PA_cont_asignacionOperacionDelete";
+
+                cls_parameter[] vu_parametros = 
+                    {                   
+                        new cls_parameter("@paramOperacion", poOperacion.pFK_Operacion.pPK_Codigo),
+                        new cls_parameter("@paramUsuario", poOperacion.pFK_Usuario)
+                    };
+
+                vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
+
+                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.OPERACION_ASIGNACION, poOperacion.pFK_Operacion.pPK_Codigo + "/" + poOperacion.pFK_Usuario);
+
+                return vi_resultado;
+
+            }
+            catch (Exception po_exception)
+            {
+                throw new Exception("Ocurrió un error al insertar la asignación de la operación.", po_exception);
+            }
+
+        }
+
+        /// <summary>
+        /// Método que realiza la 
+        /// asignación masiva de operaciones,
+        /// se pasan dos listas con las asignaciones
+        /// a insertar y las asignaciones a eliminar.
+        /// </summary>
+        /// <param name="poAsignacionesAgregar">cls_asignacionOperacion lista de asignaciones a agregar.</param>
+        /// <param name="poAsignacionesEliminar">cls_asignacionOperacion lista de asignaciones a eliminar.</param>
+        public static void crearAsignacionMasiva(List<cls_asignacionOperacion> poAsignacionesAgregar, List<cls_asignacionOperacion> poAsignacionesEliminar)
+        {
+            try
+            {
+                cls_sqlDatabase.beginTransaction();
+
+                foreach (cls_asignacionOperacion poAsignacion in poAsignacionesAgregar)
+                {
+                    cls_gestorOperacion.insertAsignacionOperacion(poAsignacion);
+                }
+
+                foreach (cls_asignacionOperacion poAsignacion in poAsignacionesEliminar)
+                {
+                    cls_gestorOperacion.deleteAsignacionOperacion(poAsignacion);
+                }
+
+                cls_sqlDatabase.commitTransaction() ;
+            }
+            catch (Exception po_exception)
+            {
+                cls_sqlDatabase.rollbackTransaction();
+                throw new Exception("Ocurrió un error al realizar la asignación masiva de operaciones.", po_exception);
+            }
+        }
+
 
     }
 }

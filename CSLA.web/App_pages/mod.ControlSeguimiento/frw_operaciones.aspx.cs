@@ -10,7 +10,6 @@ using ExceptionManagement.Exceptions;
 using COSEVI.CSLA.lib.entidades.mod.ControlSeguimiento;
 using COSEVI.CSLA.lib.entidades.mod.Administracion;
 using COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento;
-using COSEVI.CSLA.lib.entidades.mod.Administracion;
 using COSEVI.CSLA.lib.accesoDatos.mod.Administracion;
 
 using CSLA.web.App_Variables;
@@ -34,10 +33,8 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
             if (!Page.IsPostBack)
             {
-
                 try
                 {
-                    
                     this.obtenerPermisos();
                     this.validarAcceso();
                     this.cargarPermisos();

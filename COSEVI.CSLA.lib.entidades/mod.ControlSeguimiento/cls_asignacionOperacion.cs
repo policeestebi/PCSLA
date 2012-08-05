@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using COSEVI.CSLA.lib.entidades.mod.Administracion;
+
 //======================================================================
 // Consejo de Seguridad Vial (COSEVI). - 2011
 // Sistema CSLA
@@ -60,6 +62,11 @@ namespace COSEVI.CSLA.lib.entidades.mod.ControlSeguimiento
             set { isActivo = value; }
         }
 
+        public cls_usuario pUsuario
+        {
+            get { return usuario; }
+            set { usuario = value; }
+        }
         #endregion
 
         #region Atributos
@@ -71,6 +78,8 @@ namespace COSEVI.CSLA.lib.entidades.mod.ControlSeguimiento
         private cls_operacion FK_operacion;
 
         private bool isActivo;
+
+        private cls_usuario usuario;
 
         #endregion
 

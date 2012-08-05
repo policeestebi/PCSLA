@@ -177,12 +177,13 @@ INSERT INTO t_admi_registro_permanente(tabla,registro) VALUES ('t_admi_pagina','
 
 
 --Insert de la tabla de permisos
-INSERT INTO t_admi_permiso(nombre) VALUES ('Agregar');
-INSERT INTO t_admi_permiso(nombre) VALUES ('Modificar');
-INSERT INTO t_admi_permiso(nombre) VALUES ('Eliminar');
-INSERT INTO t_admi_permiso(nombre) VALUES ('Acceso');
-INSERT INTO t_admi_permiso(nombre) VALUES ('CambCont');
-INSERT INTO t_admi_permiso(nombre) VALUES ('TodosUsuarios');
+INSERT INTO t_admi_permiso(nombre) VALUES ('Agregar');				--1
+INSERT INTO t_admi_permiso(nombre) VALUES ('Modificar');			--2
+INSERT INTO t_admi_permiso(nombre) VALUES ('Eliminar');				--3
+INSERT INTO t_admi_permiso(nombre) VALUES ('Acceso');				--4
+INSERT INTO t_admi_permiso(nombre) VALUES ('CambCont');				--5
+INSERT INTO t_admi_permiso(nombre) VALUES ('TodosUsuarios');		--6
+INSERT INTO t_admi_permiso(nombre) VALUES ('AsignacionMasiva');		--7
 --Registros no eliminables
 INSERT INTO t_admi_registro_permanente(tabla,registro) VALUES ('t_admi_permiso','1');
 INSERT INTO t_admi_registro_permanente(tabla,registro) VALUES ('t_admi_permiso','2');
@@ -292,6 +293,7 @@ INSERT INTO t_admi_pagina_permiso (PK_pagina, PK_permiso) VALUES(15,1)
 INSERT INTO t_admi_pagina_permiso (PK_pagina, PK_permiso) VALUES(15,2)
 INSERT INTO t_admi_pagina_permiso (PK_pagina, PK_permiso) VALUES(15,3)
 INSERT INTO t_admi_pagina_permiso (PK_pagina, PK_permiso) VALUES(15,4)
+INSERT INTO t_admi_pagina_permiso (PK_pagina, PK_permiso) VALUES(15,7)
 
 --Inicio
 INSERT INTO t_admi_pagina_permiso (PK_pagina, PK_permiso) VALUES(16,4)

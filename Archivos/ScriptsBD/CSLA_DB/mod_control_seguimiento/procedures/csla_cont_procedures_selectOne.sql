@@ -345,20 +345,26 @@ GO
 -- Descripción: 
 -- =============================================
 CREATE PROCEDURE  PA_cont_operacionSelectOne 
-  @paramPK_codigo NVARCHAR(50)
+  @paramPK_codigo NVARCHAR(50),
+  @paramPK_usuario NVARCHAR(30)
 AS 
  BEGIN 
 
-         SELECT 
-			PK_codigo,
+    SELECT 
+			o.PK_codigo,
 			tipo,
 			descripcion,
 			ISNULL(FK_proyecto,-1) as FK_proyecto,
-			activo
+			ao.activo
 		 FROM
-			t_cont_operacion
+			t_cont_operacion o
+		 INNER JOIN
+			t_cont_asignacion_operacion ao
+		 ON
+			o.PK_codigo = ao.PK_codigo AND
+			ao.PK_usuario = @paramPK_usuario
          WHERE 
-			   PK_codigo = @paramPK_codigo
+			   o.PK_codigo = @paramPK_codigo
 END  
  GO 
 

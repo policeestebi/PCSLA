@@ -3,16 +3,47 @@
 <%@ Register Assembly="COSEVI.web.controls" Namespace="COSEVI.web.controls" TagPrefix="cc1" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="act" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-</asp:Content>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="tituloPagina" runat="server">
     Lista de Operaciones
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="cuerpoPagina" runat="server">
+
+<script type="text/javascript">
+
+    Sys.WebForms.PageRequestManager.getInstance().add_endRequest(Load);
+
+    function EndRequestHandler(sender, args) {
+        if (args.get_error() == undefined) {//Condicion si queremos manejar que hubo un error y no ejecutar nada
+            Load();
+        }
+    }
+
+    $(document).ready(function () {
+        Load();
+    });
+
+    function Load() {
+        $(document).ready(function () {
+            $(".asg").fancybox({
+                'width': '100%',
+                'height': 400,
+                'autoScale': false,
+                'transitionIn': 'none',
+                'transitionOut': 'none',
+                'type': 'iframe',
+                'closeBtn': true,
+                onClosed: function () {
+                    __doPostBack('<%= upd_Principal.ClientID  %>', '');
+
+                }
+            });
+        });
+    }
+
+    </script>
        <asp:ScriptManager ID="scr_Man" runat="server">
     </asp:ScriptManager>
       <asp:UpdatePanel ID="upd_Principal" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
@@ -78,6 +109,14 @@
                                                         <asp:ImageButton runat="server" ID="btn_eliminar" CommandName="Eliminar" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                             CausesValidation="false" ImageUrl="~/App_Themes/Basico/botones/img_eliminar.gif"
                                                             OnClientClick="return confirm('¿Está seguro que desea eliminar este registro?');" />
+                                                    </ItemTemplate>
+                                                    <ItemStyle Width="1px" />
+                                                </asp:TemplateField>
+                                                <asp:TemplateField>
+                                                    <ItemTemplate>
+                                                        <a href='<%#  DataBinder.Eval(Container.DataItem,"pPK_Codigo","frw_operacionAsignacion.aspx?ope={0}" ) %>'  class="asg" runat="server">
+                                                            <img id="img_asignacion" alt="asignacion" runat="server" height="16" width="16" src="~/App_Themes/Basico/imagenes/iconos/img_user.png" />
+                                                        </a>
                                                     </ItemTemplate>
                                                     <ItemStyle Width="1px" />
                                                 </asp:TemplateField>

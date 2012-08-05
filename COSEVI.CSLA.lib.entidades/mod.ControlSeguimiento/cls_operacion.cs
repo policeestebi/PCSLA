@@ -30,6 +30,7 @@ namespace COSEVI.CSLA.lib.entidades.mod.ControlSeguimiento
 
         public cls_operacion()
         {
+            this.listaAsignaciones = new List<cls_asignacionOperacion>();
         }
 
         #endregion
@@ -74,6 +75,13 @@ namespace COSEVI.CSLA.lib.entidades.mod.ControlSeguimiento
             set { descripcion = value; }
         }
 
+
+        public List<cls_asignacionOperacion> ListaAsignaciones
+        {
+            get { return listaAsignaciones; }
+            set { listaAsignaciones = value; }
+        }
+
         #endregion
 
         #region Atributos
@@ -87,7 +95,9 @@ namespace COSEVI.CSLA.lib.entidades.mod.ControlSeguimiento
         private string descripcion;
 
         private bool activo;
-        
+
+        private List<cls_asignacionOperacion> listaAsignaciones;
+
         #endregion
     }
 }
