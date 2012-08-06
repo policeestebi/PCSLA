@@ -117,7 +117,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             try
             {
                 //this.grd_listaOperaciones.Columns[0].Visible = true;
-                this.grd_listaOperaciones.DataSource = cls_gestorOperacion.listarOperaciones(((cls_usuario)(Session["cls_usuario"])).pPK_usuario);
+                this.grd_listaOperaciones.DataSource = cls_gestorOperacion.listarOperaciones(((cls_usuario)(Session["cls_usuario"])).pPK_usuario,this.pbAsignacionMasiva);
                 this.grd_listaOperaciones.DataBind();
 
                 if (this.grd_listaOperaciones.Rows.Count == 0)
@@ -187,7 +187,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             {
                 psFilter = "o." + psFilter;
                 //this.grd_listaOperaciones.Columns[0].Visible = true;
-                this.grd_listaOperaciones.DataSource = cls_gestorOperacion.listarPaqueteFiltro(psFilter);
+                this.grd_listaOperaciones.DataSource = cls_gestorOperacion.listarPaqueteFiltro(psFilter, pbAsignacionMasiva);
                 this.grd_listaOperaciones.DataBind();
                 //this.grd_listaOperaciones.Columns[0].Visible = false;
 
@@ -279,7 +279,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
                 vo_asignacion.pFK_Usuario = ((cls_usuario)(Session["cls_usuario"])).pPK_usuario;
 
-                cls_gestorOperacion.deleteOperacion(vo_asignacion);
+                cls_gestorOperacion.deleteOperacion(vo_asignacion,pbAsignacionMasiva);
 
                 this.llenarGridView();
 
@@ -312,7 +312,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 switch (cls_variablesSistema.tipoEstado)
                 {
                     case cls_constantes.AGREGAR:
-                        vi_resultado = cls_gestorOperacion.insertOperacion(vo_asignacion);
+                        vi_resultado = cls_gestorOperacion.insertOperacion(vo_asignacion, this.pbAsignacionMasiva);
                         break;
                     case cls_constantes.EDITAR:
                         vi_resultado = cls_gestorOperacion.updateOperacion(vo_operacion);
@@ -339,7 +339,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             this.ddl_Tipos.SelectedIndex = 0;
             this.ddl_Proyectos.SelectedIndex = 0;
             this.txt_descripcion.Text = String.Empty;
-            this.chk_activo.Checked = true;
+            this.chk_activo.Checked = !pbAsignacionMasiva;
         }
 
         /// <summary>
@@ -362,7 +362,8 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             }
             this.txt_descripcion.Enabled = pb_habilitados;
             this.chk_activo.Enabled = pb_habilitados;
-            this.btn_guardar.Visible = pb_habilitados && (this.pbAgregar || this.pbModificar); ;
+            this.btn_guardar.Visible = pb_habilitados && (this.pbAgregar || this.pbModificar); 
+           
 
 
 
@@ -702,6 +703,26 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         }
 
         /// <summary>
+        /// Valida el permiso
+        /// de asignación masiva para 
+        /// as operaciones.
+        /// </summary>
+        private bool pbAsignacionMasiva
+        {
+            get
+            {
+                if (Session[cls_constantes.PAGINA] != null)
+                {
+                    return (Session[cls_constantes.PAGINA] as cls_pagina)[cls_constantes.ASIGNACION_MASIVA] != null;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        /// <summary>
         /// Obtiene los permisos
         /// para la página actual.
         /// </summary>
@@ -731,9 +752,10 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             this.btn_agregar.Visible = this.pbAgregar;
             this.btn_guardar.Visible = this.pbModificar || this.pbAgregar;
-            this.grd_listaOperaciones.Columns[3].Visible = this.pbAcceso;
-            this.grd_listaOperaciones.Columns[4].Visible = this.pbModificar;
-            this.grd_listaOperaciones.Columns[5].Visible = this.pbEliminar;
+            this.grd_listaOperaciones.Columns[4].Visible = this.pbAcceso;
+            this.grd_listaOperaciones.Columns[5].Visible = this.pbModificar;
+            this.grd_listaOperaciones.Columns[6].Visible = this.pbEliminar;
+            this.grd_listaOperaciones.Columns[7].Visible = this.pbAsignacionMasiva;
         }
 
         #endregion

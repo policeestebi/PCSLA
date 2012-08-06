@@ -572,21 +572,43 @@ CREATE PROCEDURE  PA_cont_operacionUpdate
   @paramActivo		SMALLINT,
   @paramUsuario		NVARCHAR(30)
 AS 
- BEGIN 
+BEGIN 
 SET NOCOUNT ON; 
 
+	
 	UPDATE t_cont_operacion
 	SET descripcion = @paramDescripcion
 	WHERE 
 	PK_codigo = @paramPK_operacion;
 
-	UPDATE t_cont_asignacion_operacion
-	SET activo = @paramActivo
-	WHERE 
-		PK_codigo = @paramPK_operacion AND
-		PK_usuario = @paramUsuario
-
-
+	IF EXISTS 
+	(SELECT  PK_codigo  FROM t_cont_asignacion_operacion
+	WHERE PK_codigo = @paramPK_operacion AND PK_usuario = @paramUsuario)
+	BEGIN
+		UPDATE t_cont_asignacion_operacion
+		SET activo = @paramActivo , borrado = 0
+		WHERE 
+			PK_codigo = @paramPK_operacion AND
+			PK_usuario = @paramUsuario 
+			
+	END
+	ELSE IF @paramActivo = 1
+		 BEGIN
+			INSERT INTO t_cont_asignacion_operacion
+			(
+			PK_codigo,
+			PK_usuario,
+			comentario,
+			 activo
+			)
+			VALUES
+			(
+			@paramPK_operacion,
+			@paramUsuario,
+			@paramDescripcion,
+			@paramActivo
+			)
+		 END
 END   
  GO   
 

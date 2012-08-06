@@ -26,13 +26,19 @@
                 <table>
                     <tr>
                         <td>
-                            Versión: 1.0.0.0 BETA
+                            Versión: 1.0.0.0
                         </td>
                     </tr>
                     <tr>
                         <td>
                             CSLA es desarrollado por el COSEVI (Consejo de Seguridad Vial, Costa Rica) y la
                             UNA (Universidad Nacional de Costa Rica).2010 - 2012. Todos los derechos reservados 
+                            
+                            <br />
+                            <strong>Desarollado por:
+                            <br />
+                            Cristian Arce Jiménez y Esteban Ramírez González
+                            </strong>
                         </td>
                     </tr> 
                 </table> 

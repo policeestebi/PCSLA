@@ -355,10 +355,10 @@ AS
 			tipo,
 			descripcion,
 			ISNULL(FK_proyecto,-1) as FK_proyecto,
-			ao.activo
+			ISNULL(ao.activo,0) as activo
 		 FROM
 			t_cont_operacion o
-		 INNER JOIN
+		 LEFT OUTER JOIN
 			t_cont_asignacion_operacion ao
 		 ON
 			o.PK_codigo = ao.PK_codigo AND

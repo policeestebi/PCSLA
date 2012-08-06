@@ -483,9 +483,13 @@ GO
 -- Descripción: 
 -- =============================================
 CREATE PROCEDURE  PA_cont_operacionSelectAll
-  @paramUsuario	  NVARCHAR(30)
+  @paramUsuario	  NVARCHAR(30),
+  @paramTodos	  INT
 AS 
  BEGIN 
+
+	IF @paramTodos = 0
+	BEGIN
 		SELECT 
 			o.PK_codigo,
 			o.tipo,
@@ -499,6 +503,22 @@ AS
 			o.PK_codigo = ao.PK_codigo AND
 			ao.PK_usuario = @paramUsuario AND
 			ao.borrado = 0
+	END
+	ELSE
+		SELECT 
+			o.PK_codigo,
+			o.tipo,
+			o.descripcion,
+			ISNULL(ao.activo,0) activo
+		FROM
+			t_cont_operacion o
+		LEFT OUTER JOIN
+			t_cont_asignacion_operacion ao
+		ON
+			o.PK_codigo = ao.PK_codigo AND
+			ao.PK_usuario = @paramUsuario AND
+			ao.borrado = 0
+		
 END  
  GO 
 

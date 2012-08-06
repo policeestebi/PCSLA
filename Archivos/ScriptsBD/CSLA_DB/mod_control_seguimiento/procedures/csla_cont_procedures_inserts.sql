@@ -512,7 +512,8 @@ CREATE PROCEDURE  PA_cont_operacionInsert
   @paramUsuario		nvarchar(50),
   @paramProyecto	int,
   @paramActivo		SMALLINT,
-  @param_PK_codigo nvarchar(50) OUTPUT
+  @param_PK_codigo nvarchar(50) OUTPUT,
+  @paramAsignacionMasiva int
 AS 
  BEGIN 
  SET NOCOUNT ON; 
@@ -522,7 +523,7 @@ AS
 		SELECT @codigo = (ISNULL(MAX(CONVERT(decimal(38,0),PK_codigo )),0) + 1) FROM t_cont_operacion;
 		
 		SELECT @param_PK_codigo = CONVERT(NVARCHAR(50),@codigo);
-		
+
         INSERT INTO t_cont_operacion
         (
 		 PK_codigo,
@@ -537,21 +538,24 @@ AS
 		 @paramDescripcion,
 		 @paramProyecto
         ) 
-        
-        INSERT INTO t_cont_asignacion_operacion
-        (
-        PK_codigo,
-        PK_usuario,
-        comentario,
-		 activo
-        )
-        VALUES
-        (
-        @codigo,
-        @paramUsuario,
-        @paramDescripcion,
-		@paramActivo
-        )
+
+		IF (@paramAsignacionMasiva = 1 AND @paramActivo = 1) OR @paramAsignacionMasiva = 0
+        BEGIN
+			INSERT INTO t_cont_asignacion_operacion
+			(
+			PK_codigo,
+			PK_usuario,
+			comentario,
+			 activo
+			)
+			VALUES
+			(
+			@codigo,
+			@paramUsuario,
+			@paramDescripcion,
+			@paramActivo
+			)
+		END
 
 END   
  GO 

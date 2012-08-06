@@ -37,7 +37,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
         /// </summary>
         /// <param name="poOperacion">cls_asignacionOperacion a insertar</param>
         /// <returns>valor del resultado de la ejecución de la sentencia</returns>
-        public static int insertOperacion(cls_asignacionOperacion poOperacion)
+        public static int insertOperacion(cls_asignacionOperacion poOperacion, bool pbAsignacionMasiva)
         {
             int vi_resultado;
 
@@ -55,7 +55,9 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
                         new cls_parameter("@paramUsuario", poOperacion.pFK_Usuario),
                         new cls_parameter("@paramProyecto", DBNull.Value),
                         new cls_parameter("@paramActivo", poOperacion.pFK_Operacion.pActivo ? 1 : 0),
-                        new cls_parameter("@param_PK_codigo", poOperacion.pFK_Operacion.pPK_Codigo,ParameterDirection.Output)
+                        new cls_parameter("@param_PK_codigo", poOperacion.pFK_Operacion.pPK_Codigo,ParameterDirection.Output),
+                        new cls_parameter("@paramAsignacionMasiva", pbAsignacionMasiva ? 1 : 0)
+                        
                     };
 
                     cls_sqlDatabase.beginTransaction();
@@ -71,7 +73,8 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
                         new cls_parameter("@paramUsuario", poOperacion.pFK_Usuario),
                         new cls_parameter("@paramProyecto", poOperacion.pFK_Operacion.pFK_Proyecto),
                         new cls_parameter("@paramActivo", poOperacion.pIsActivo),
-                        new cls_parameter("@param_PK_codigo", poOperacion.pFK_Operacion.pPK_Codigo)
+                        new cls_parameter("@param_PK_codigo", poOperacion.pFK_Operacion.pPK_Codigo),
+                         new cls_parameter("@paramAsignacionMasiva", pbAsignacionMasiva ? 1 : 0)
                     };
 
                     cls_sqlDatabase.beginTransaction();
@@ -142,7 +145,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
         /// </summary>
         /// <param name="poOperacion">cls_asignacionOperacion operación.</param>
         /// <returns>valor del resultado de la ejecución de la sentencia</returns>
-        public static int deleteOperacion(cls_asignacionOperacion poOperacion)
+        public static int deleteOperacion(cls_asignacionOperacion poOperacion, bool pbAsignacionMasiva)
         {
             int vi_resultado;
 
@@ -152,7 +155,9 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
                 cls_parameter[] vu_parametros = 
                     {
                         new cls_parameter("@paramPK_operacion", poOperacion.pFK_Operacion.pPK_Codigo),
-                        new cls_parameter("@paramUsuario", poOperacion.pFK_Usuario)
+                        new cls_parameter("@paramUsuario", poOperacion.pFK_Usuario),
+                        new cls_parameter("@paramAsignaconMasiva", pbAsignacionMasiva ? 1 : 0)
+                        
                     };
 
                 cls_sqlDatabase.beginTransaction();
@@ -178,7 +183,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
         /// todos los registros en la tabla operacion
         /// </summary>
         /// <returns>List<cls_operacion> valor del resultado de la ejecución de la sentencia</returns>
-        public static List<cls_operacion> listarOperaciones(string psUsuario)
+        public static List<cls_operacion> listarOperaciones(string psUsuario, bool pbDesplegarTodos)
         {
             List<cls_operacion> vo_lista = null;
             cls_operacion poOperacion = null;
@@ -187,7 +192,8 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
                 String vs_comando = "PA_cont_operacionSelectAll";
                 cls_parameter[] vu_parametros = 
                 {
-                    new cls_parameter("@paramUsuario", psUsuario)
+                    new cls_parameter("@paramUsuario", psUsuario),
+                    new cls_parameter("@paramTodos", pbDesplegarTodos ? 1 : 0)
                 };
 
                 DataSet vu_dataSet = cls_sqlDatabase.executeDataset(vs_comando, true, vu_parametros);
@@ -312,15 +318,26 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
         /// </summary>
         /// <param name="psFiltro"></param>
         /// <returns>List con la lista de operaciones</returns>
-        public static List<cls_operacion> listarPaqueteFiltro(string psFiltro)
+        public static List<cls_operacion> listarPaqueteFiltro(string psFiltro, bool pbMostrarTodos)
         {
             List<cls_operacion> vo_lista = null;
             cls_operacion voOperacion = null;
+            DataSet vu_dataSet = null;
             try
             {
-                DataSet vu_dataSet = cls_gestorUtil.selectFilter(cls_constantes.OPERACION + " o " + "," + cls_constantes.OPERACION_ASIGNACION + " ao ",
-                                                                " o.PK_codigo,o.tipo,o.descripcion,o.activo ",
-                                                                psFiltro + " AND o.PK_codigo = ao.PK_codigo AND ao.PK_usuario = '" + COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes.cls_interface.vs_usuarioActual + "'");
+                if (!pbMostrarTodos)
+                {
+
+                     vu_dataSet = cls_gestorUtil.selectFilter(cls_constantes.OPERACION + " o " + "," + cls_constantes.OPERACION_ASIGNACION + " ao ",
+                                                                    " o.PK_codigo,o.tipo,o.descripcion,ao.activo ",
+                                                                    psFiltro + " AND o.PK_codigo = ao.PK_codigo AND ao.PK_usuario = '" + COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes.cls_interface.vs_usuarioActual + "'");
+                }
+                else
+                {
+                    vu_dataSet = cls_gestorUtil.selectFilter(cls_constantes.OPERACION + " o " + " LEFT OUTER JOIN " + cls_constantes.OPERACION_ASIGNACION + " ao ON o.PK_codigo = ao.PK_codigo  AND ao.PK_usuario = '" + COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes.cls_interface.vs_usuarioActual + "' ",
+                                                                    " o.PK_codigo,o.tipo,o.descripcion, ISNULL(ao.activo,0) as activo ",
+                                                                    psFiltro);
+                }
 
                 vo_lista = new List<cls_operacion>();
 
@@ -334,7 +351,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
                     voOperacion.pDescripcion = vu_dataSet.Tables[0].Rows[i]["descripcion"].ToString();
 
-                    voOperacion.pActivo = Convert.ToInt32(vu_dataSet.Tables[0].Rows[0]["activo"]) == 1 ? true : false;
+                    voOperacion.pActivo = Convert.ToInt32(vu_dataSet.Tables[0].Rows[i]["activo"]) == 1 ? true : false;
 
                     vo_lista.Add(voOperacion);
                 }

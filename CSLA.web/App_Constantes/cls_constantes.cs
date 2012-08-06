@@ -15,6 +15,7 @@ namespace CSLA.web.App_Constantes
         public const String VER = "Ver";
         public const String ACCESO = "Acceso";
         public const String TODOS_USUARIOS = "TodosUsuarios";
+        public const String ASIGNACION_MASIVA = "AsignacionMasiva";
         public const String CAMBIAR = "Cambiar";
         public const String CREAR= "Crear";
         public const String ASIGNAR = "Asignar";

@@ -362,17 +362,27 @@ GO
 -- =============================================
 CREATE PROCEDURE  PA_cont_operacionDelete 
   @paramPK_operacion NVARCHAR(50),
-  @paramUsuario		 NVARCHAR(30)
+  @paramUsuario		 NVARCHAR(30),
+  @paramAsignaconMasiva int
 AS 
 BEGIN 
 SET NOCOUNT ON; 
 
+	IF @paramAsignaconMasiva = 1
+	BEGIN
+		DELETE FROM t_cont_asignacion_operacion
+			WHERE  PK_codigo = @paramPK_operacion;
+
+		DELETE FROM 
+			t_cont_operacion      
+		WHERE 
+			PK_codigo = @paramPK_operacion
+	END
+	ELSE
 		DELETE FROM t_cont_asignacion_operacion
 		WHERE PK_usuario = @paramUsuario AND PK_codigo = @paramPK_operacion;
-		
-         DELETE FROM t_cont_operacion      
-         WHERE 
-			PK_codigo = @paramPK_operacion
+
+	
 			
 END   
 GO 

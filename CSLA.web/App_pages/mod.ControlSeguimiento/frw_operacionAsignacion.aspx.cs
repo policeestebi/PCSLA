@@ -92,6 +92,11 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
                 listaUsuario = new List<cls_usuario>();
 
+                if (voOperacion.ListaAsignaciones.Count == 0)
+                {
+                    vsFiltro = "''";
+                }
+
                 foreach(cls_asignacionOperacion voAsignacion in voOperacion.ListaAsignaciones)
                 {
                     listaUsuario.Add(voAsignacion.pUsuario);
@@ -99,7 +104,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                     vsFiltro += "'" + voAsignacion.pUsuario.pPK_usuario + "'" + ",";
                 }
 
-                vsFiltro = vsFiltro.Remove(vsFiltro.Length - 1, 1);
+                vsFiltro = vsFiltro.Equals("''") ? vsFiltro : vsFiltro.Remove(vsFiltro.Length - 1, 1);
 
                 this.ltb_usuarioAsignados.DataSource = listaUsuario;
                 this.ltb_usuarioAsignados.DataBind();

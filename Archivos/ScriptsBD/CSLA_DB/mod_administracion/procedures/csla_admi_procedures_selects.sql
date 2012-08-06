@@ -410,14 +410,14 @@ GO
 -- Descripción: Select utilizado para realizar búsquedas con filtros en las tablas.
 -- =============================================
 CREATE PROCEDURE  PA_admi_selectFilter
-	@paramTable varchar(100),
-	@paramColumnas varchar(MAX),
-	@paramFilter   varchar(MAX)
+	@paramTable nvarchar(MAX),
+	@paramColumnas nvarchar(MAX),
+	@paramFilter   nvarchar(MAX)
 AS 
  BEGIN 
 
- DECLARE @SELECT VARCHAR(MAX),
-		 @COLUMNS VARCHAR(MAX)
+ DECLARE @SELECT nVARCHAR(MAX),
+		 @COLUMNS nVARCHAR(MAX)
 
  IF @paramColumnas = ''
  BEGIN
