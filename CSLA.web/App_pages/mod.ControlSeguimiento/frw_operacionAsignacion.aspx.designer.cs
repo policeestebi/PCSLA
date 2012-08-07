@@ -103,6 +103,15 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento {
         protected global::System.Web.UI.WebControls.ListBox ltb_usuarioNoAsignados;
         
         /// <summary>
+        /// lte_usuarios control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ListSearchExtender lte_usuarios;
+        
+        /// <summary>
         /// btn_guardar control.
         /// </summary>
         /// <remarks>

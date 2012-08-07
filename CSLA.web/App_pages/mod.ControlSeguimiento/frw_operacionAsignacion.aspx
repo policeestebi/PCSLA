@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/msp.EstiloBasico/mspContenido.Master"
     AutoEventWireup="true" CodeBehind="frw_operacionAsignacion.aspx.cs" Inherits="CSLA.web.App_pages.mod.ControlSeguimiento.frw_operacionAsignacion" %>
-
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="act" %>
 <asp:Content ID="Content8" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content9" ContentPlaceHolderID="tituloPagina" runat="server">
@@ -81,6 +81,8 @@
                             runat="server" DataTextField="pNombreCompleto"  DataValueField="pPK_usuario" 
                             SelectionMode="Multiple" >
                         </asp:ListBox>
+                         <act:ListSearchExtender ID="lte_usuarios" runat="server" TargetControlID="ltb_usuarioNoAsignados"
+                                    PromptText="Escriba para buscar" PromptCssClass="serchExtender" PromptPosition="Top" />
                     </td>
                 </tr>
                 <tr>

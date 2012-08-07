@@ -85,6 +85,60 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento {
         protected global::System.Web.UI.WebControls.Label lblActividadValor;
         
         /// <summary>
+        /// lblFechaInicio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFechaInicio;
+        
+        /// <summary>
+        /// lblFechaInicioValor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFechaInicioValor;
+        
+        /// <summary>
+        /// lblFechaFinal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFechaFinal;
+        
+        /// <summary>
+        /// lblFechaFinalValor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFechaFinalValor;
+        
+        /// <summary>
+        /// lblHoraAsignadas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHoraAsignadas;
+        
+        /// <summary>
+        /// lblHorasAsignadasValor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHorasAsignadasValor;
+        
+        /// <summary>
         /// lblHoras control.
         /// </summary>
         /// <remarks>

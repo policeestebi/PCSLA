@@ -382,15 +382,6 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_horasAsignadas;
         
         /// <summary>
-        /// rfv_horasAsignadaslenght control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfv_horasAsignadaslenght;
-        
-        /// <summary>
         /// lbl_horasReales control.
         /// </summary>
         /// <remarks>

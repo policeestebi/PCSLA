@@ -35,7 +35,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
                 if (!this.IsPostBack)
                 {
-                    
+
                     this.obtenerPermisos();
 
                     this.cargarObjetoSegunUrl();
@@ -153,7 +153,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                     cls_gestorRegistroOperacion.seleccionarRegistroOperacion(vo_registro);
                 }
 
-              
+
 
                 cls_variablesSistema.obj = vo_registro;
 
@@ -186,18 +186,25 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             cls_registroActividad vo_registro;
             cls_actividad vo_actividad;
             cls_asignacionActividad vo_asignacion;
-
+            cls_paqueteActividad vo_paquete = null;
             try
             {
                 vo_registro = new cls_registroActividad();
-
+              
 
                 vo_actividad = new cls_actividad();
                 vo_actividad.pPK_Actividad = Convert.ToInt32(ps_actividad);
                 vo_actividad = cls_gestorActividad.seleccionarActividad(vo_actividad);
 
+                vo_paquete = new cls_paqueteActividad();
+                vo_paquete.pPK_Actividad = vo_actividad.pPK_Actividad;
+                vo_paquete.pPK_Componente = Convert.ToInt32(ps_componente);
+                vo_paquete.pPK_Entregable = Convert.ToInt32(ps_entregable);
+                vo_paquete.pPK_Paquete = Convert.ToInt32(ps_paquete);
+                vo_paquete.pPK_Proyecto = Convert.ToInt32(ps_proyecto);
 
                 vo_asignacion = new cls_asignacionActividad();
+                vo_asignacion = cls_gestorAsignacionActividad.seleccionarAsignacionActividad(vo_paquete);
                 vo_asignacion.pActividad = vo_actividad;
                 vo_asignacion.pPK_Componente = Convert.ToInt32(ps_componente);
                 vo_asignacion.pPK_Entregable = Convert.ToInt32(ps_entregable);
@@ -223,7 +230,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
                 cls_variablesSistema.obj = vo_registro;
 
-                
+
             }
             catch (Exception)
             {
@@ -231,7 +238,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             }
         }
 
-     
+
         /// <summary>
         /// Levanta mensaje de advertencia cuando la actividad se 
         /// encuentra atrasada o esta superando el tiempo estimado.
@@ -268,7 +275,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
                 if (vbAtrasada || vbSupera)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Advertencia", "DesplegarAdvertencia('" + vstitle + "', '" + vsMensaje+ "');", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Advertencia", "DesplegarAdvertencia('" + vstitle + "', '" + vsMensaje + "');", true);
                 }
 
             }
@@ -310,7 +317,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                         {
                             vo_proyecto = cls_gestorProyecto.seleccionarProyectos(vo_proyecto);
                             this.lblProyectoValor.Text = vo_proyecto.pNombre;
+
                         }
+
 
                         this.lblDiaValor.Text = vo_registro.pFecha.ToString("dddd, dd MMMM yyyy");
                         this.lblActividadValor.Text = vo_registro.pFK_Asignacion.pFK_Operacion.pDescripcion;
@@ -350,6 +359,19 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             this.lblActividadValor.Text = vo_registro.pAsignacion.pActividad.pDescripcion;
             this.txtHoras.Text = vo_registro.pHoras.ToString();
             this.txtComentarios.Text = vo_registro.pComentario;
+
+
+            this.lblFechaFinal.Visible = true;
+            this.lblFechaFinalValor.Visible = true;
+            this.lblFechaInicio.Visible = true;
+            this.lblFechaInicioValor.Visible = true;
+            this.lblHoraAsignadas.Visible = true;
+            this.lblHorasAsignadasValor.Visible = true;
+
+            this.lblFechaInicioValor.Text = vo_registro.pAsignacion.pFechaInicio.ToString("dd/MM/yyyy");
+            this.lblFechaFinalValor.Text = vo_registro.pAsignacion.pFechaFin.ToString("dd/MM/yyyy");
+
+            this.lblHorasAsignadasValor.Text = vo_registro.pAsignacion.pHorasAsignadas.ToString();
 
             this.colocarActividadAtrasada(vo_registro.pAsignacion);
         }
@@ -435,7 +457,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Salida", "MostrarMensaje();", true);
                 //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Salida", "alert(\"Se ha grabado con éxito el registro de tiempos\");", true);
             }
-            catch (Exception po_excepciones) 
+            catch (Exception po_excepciones)
             {
                 this.lanzarExcepcion(po_excepciones, "Error al guardar la información");
             }

@@ -570,7 +570,8 @@ namespace CSLA.web.App_pages.mod.Administracion
                 {
                     this.guardarDatos();
 
-                    this.llenarGridView();
+                    //this.llenarGridView();
+                    this.llenarGridViewFilter(this.ucSearchUsuario.Filter); 
 
                     this.limpiarCampos();
 
@@ -630,7 +631,8 @@ namespace CSLA.web.App_pages.mod.Administracion
             try
             {   
                 this.grd_listaUsuarios.PageIndex = e.NewPageIndex;
-                this.llenarGridView();
+                //this.llenarGridView();
+                this.llenarGridViewFilter(this.ucSearchUsuario.Filter); 
                 this.upd_Principal.Update();
             }
             catch (Exception po_exception)
