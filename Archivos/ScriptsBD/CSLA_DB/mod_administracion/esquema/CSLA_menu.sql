@@ -153,7 +153,7 @@ INSERT INTO t_admi_registro_permanente(tabla,registro) VALUES ('t_admi_pagina','
 INSERT INTO t_admi_pagina(FK_menu,nombre,url,height) VALUES (24,'Inversión Tiempos','#App_pages/mod.Estadistico/frw_grf_inversionTiempos.aspx','900');					--17
 INSERT INTO t_admi_pagina(FK_menu,nombre,url,height) VALUES (25,'Top Actividades','#App_pages/mod.Estadistico/frw_grf_topActividades.aspx','900');							--18
 INSERT INTO t_admi_pagina(FK_menu,nombre,url,height) VALUES (26,'Comparar Horas','#App_pages/mod.Estadistico/frw_grf_compHorasActividades.aspx','900');				--19
-INSERT INTO t_admi_pagina(FK_menu,nombre,url,height) VALUES (27,'Actividades Retrasadas','#App_pages/mod.Estadistico/frw_grf_consActRetrasadas.aspx','900');																				--20
+INSERT INTO t_admi_pagina(FK_menu,nombre,url,height) VALUES (27,'Actividades Retrasadas','#App_pages/mod.Estadistico/frw_grf_consActRetrasadas.aspx','1000');																				--20
 
 --Registros no eliminables
 INSERT INTO t_admi_registro_permanente(tabla,registro) VALUES ('t_admi_pagina','17');

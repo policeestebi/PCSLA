@@ -134,6 +134,7 @@
     <Content Include="App_Themes\Basico\imagenes\fancybox\fancy_title_over.png" />
     <Content Include="App_Themes\Basico\imagenes\fancybox\fancy_title_right.png" />
     <Content Include="App_Themes\Basico\imagenes\iconos\img_copy.png" />
+    <Content Include="App_Themes\Basico\imagenes\iconos\img_loading.gif" />
     <Content Include="App_Themes\Basico\imagenes\iconos\img_previous.png" />
     <Content Include="App_Themes\Basico\imagenes\iconos\img_proyecto.png" />
     <Content Include="App_Themes\Basico\imagenes\iconos\img_user.png" />
@@ -179,7 +180,6 @@
     <Content Include="frw_principal.aspx" />
     <Content Include="Global.asax" />
     <Content Include="PageLoader.asmx" />
-    <Content Include="test.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -461,13 +461,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="test.aspx.cs">
-      <DependentUpon>test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test.aspx.designer.cs">
-      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Content Include="App_Code\PageLoader.cs" />
     <Compile Include="App_Constantes\cls_constantes.cs" />

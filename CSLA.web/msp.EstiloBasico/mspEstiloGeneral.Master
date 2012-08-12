@@ -44,7 +44,7 @@
             $(function () {
                 $(".about").fancybox({
                     'width': 550,
-                    'height': 200,
+                    'height': 250,
                     'autoScale': false,
                     'transitionIn': 'none',
                     'transitionOut': 'none',

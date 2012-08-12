@@ -64,6 +64,8 @@ namespace CSLA.web.App_pages.mod.Administracion
                     this.cargarPermisos();
                     this.llenarGridView();
                     this.cargarDataSetDepartamentos();
+
+
                 }
                 catch (Exception po_exception)
                 {
@@ -143,6 +145,18 @@ namespace CSLA.web.App_pages.mod.Administracion
         #endregion
 
         #region Métodos
+
+        /// <summary>
+        /// Muestra los acordeones dependiendo 
+        /// en los valores enviados por parámetro
+        /// </summary>
+        /// <param name="pbListado"></param>
+        /// <param name="pbEdicion"></param>
+        private void mostrarAcordeones(bool pbListado, bool pbEdicion)
+        {
+            this.acp_edicionDatos.Visible = pbEdicion;
+            this.acp_listadoDatos.Visible = pbListado;
+        }
 
         /// <summary>
         /// Método que se encarga de 
@@ -466,6 +480,8 @@ namespace CSLA.web.App_pages.mod.Administracion
                 this.upd_Principal.Update();
 
                 this.ard_principal.SelectedIndex = 1;
+
+                
             }
             catch (Exception po_exception)
             {
@@ -495,6 +511,7 @@ namespace CSLA.web.App_pages.mod.Administracion
                 this.upd_Principal.Update();
 
                 this.ard_principal.SelectedIndex = 0;
+
             }
             catch (Exception po_exception)
             {
@@ -522,6 +539,7 @@ namespace CSLA.web.App_pages.mod.Administracion
                 this.ard_principal.SelectedIndex = 0;
 
                 this.ucSearchDepartamento_searchClick(null, null, null, null);
+
             }
             catch (Exception po_exception)
             {

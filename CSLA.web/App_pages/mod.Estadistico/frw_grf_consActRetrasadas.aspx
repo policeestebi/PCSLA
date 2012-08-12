@@ -40,7 +40,12 @@
         <tr align="center">
             <td>
                 <table id="Table2">
-                    <tr align="right">
+                    
+                </table>
+            </td>
+            <td>
+                <table id="Table6">
+                    <tr align="left">
                         <td>
                             <asp:Label ID="lbl_proyecto" runat="server" Text="Proyecto:"></asp:Label>
                         </td>
@@ -49,7 +54,7 @@
                             </asp:DropDownList>
                         </td>
                     </tr>
-                    <tr align="right">
+                    <tr align="left">
                         <td>
                             <asp:Label ID="lbl_paquete" runat="server" Text="Paquete:"></asp:Label>
                         </td>
@@ -58,10 +63,11 @@
                             </asp:DropDownList>
                         </td>
                     </tr>
-                </table>
-            </td>
-            <td>
-                <table id="Table6">
+                    <tr>
+                        <td colspan="2">
+                            &nbsp;
+                        </td>
+                    </tr>
                     <tr align="right">
                         <td>
                             <asp:Label ID="lbl_usuario" runat="server" Text="Usuario: "></asp:Label>

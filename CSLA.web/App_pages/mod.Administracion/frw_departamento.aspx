@@ -4,6 +4,7 @@
 <%@ Register Assembly="COSEVI.web.controls" Namespace="COSEVI.web.controls" TagPrefix="cc1" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="act" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="tituloPagina" runat="server">
     Lista de Departamentos
@@ -11,28 +12,34 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="cuerpoPagina" runat="server">
     <asp:ScriptManager ID="scr_Man" runat="server">
     </asp:ScriptManager>
+     <script type="text/javascript"  >
+
+//         function OnUpdating() {
+//             $('.loading').css('display', 'block'); 
+//         }
+
+//         function OnUpdated() {
+//             
+//             $('.loading').css('display', 'none');
+//         }
+            
+    
+    </script>
     <asp:UpdatePanel ID="upd_Principal" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
         <ContentTemplate>
-
             <%-- Modal para indicar mensaje de error al intentar eliminar un registro permanente --%>
-            <act:ModalPopupExtender ID="mpe_RegistroPermante" runat="server" 
-                TargetControlID="btn_permanente"
-                PopupControlID="div_PopUpMensaje" 
-                BackgroundCssClass="popUpStyle" 
-                CancelControlID="btn_permanente" 
-                DropShadow="true"
-                />
-
+            <act:ModalPopupExtender ID="mpe_RegistroPermante" runat="server" TargetControlID="btn_permanente"
+                PopupControlID="div_PopUpMensaje" BackgroundCssClass="popUpStyle" CancelControlID="btn_permanente"
+                DropShadow="true" />
             <%-- Llamado al modal para indicar mensaje de error al intentar eliminar un registro permanente --%>
-            <div id="div_PopUpMensaje" class="modalPopup" style="display:none;">
+            <div id="div_PopUpMensaje" class="modalPopup" style="display: none;">
                 <asp:Panel ID="pan_mensajeeliminar" runat="server" CssClass="modalPopup">
-                    No se puede terminar la petición debido a que el registro que intenta eliminar 
-                    es propio del sistema.
-                <br />
-                <asp:Button ID="btn_permanente" runat="server" Text="Close" />
+                    No se puede terminar la petición debido a que el registro que intenta eliminar es
+                    propio del sistema.
+                    <br />
+                    <asp:Button ID="btn_permanente" runat="server" Text="Close" />
                 </asp:Panel>
             </div>
-        
             <act:Accordion ID="ard_principal" runat="server" SelectedIndex="0" FadeTransitions="false"
                 FramesPerSecond="40" TransitionDuration="250" AutoSize="None" RequireOpenedPane="false"
                 SuppressHeaderPostbacks="true" HeaderCssClass="encabezadoAcordeon" ContentCssClass="contenidoAcordeon"
@@ -164,8 +171,8 @@
                                                     <td>
                                                         <asp:RequiredFieldValidator ID="rfv_nombre" runat="server" ControlToValidate="txt_nombre"
                                                             ToolTip="Ingrese el nombre del departamento" ErrorMessage="Nombre es requerido"><img alt="imagen" width="25px" height="20px" src="../../App_Themes/Basico/botones/img_warning.gif" border="none"/></asp:RequiredFieldValidator>
-                                                        <asp:RegularExpressionValidator ID="rfv_nombrelength" runat="server" ErrorMessage="La longitud máxima son 30 caracteres." 
-                                                            ValidationExpression="^([\S\s]{0,30})$" ControlToValidate="txt_nombre" Display="Dynamic"></asp:RegularExpressionValidator>                                                  
+                                                        <asp:RegularExpressionValidator ID="rfv_nombrelength" runat="server" ErrorMessage="La longitud máxima son 30 caracteres."
+                                                            ValidationExpression="^([\S\s]{0,30})$" ControlToValidate="txt_nombre" Display="Dynamic"></asp:RegularExpressionValidator>
                                                     </td>
                                                 </tr>
                                                 <tr align="left">
@@ -178,8 +185,8 @@
                                                     <td>
                                                         <asp:RequiredFieldValidator ID="rfv_ubicacion" runat="server" ControlToValidate="txt_ubicacion"
                                                             ToolTip="Ingrese la ubicacion" ErrorMessage="Ubicacion es requerida"><img alt="imagen" width="25px" height="20px" src="../../App_Themes/Basico/botones/img_warning.gif" border="none"/></asp:RequiredFieldValidator>
-                                                        <asp:RegularExpressionValidator ID="txt_ubicacionlength" runat="server" ErrorMessage="La longitud máxima son 100 caracteres." 
-                                                            ValidationExpression="^([\S\s]{0,100})$" ControlToValidate="txt_ubicacion" Display="Dynamic"></asp:RegularExpressionValidator>                                                                                                      
+                                                        <asp:RegularExpressionValidator ID="txt_ubicacionlength" runat="server" ErrorMessage="La longitud máxima son 100 caracteres."
+                                                            ValidationExpression="^([\S\s]{0,100})$" ControlToValidate="txt_ubicacion" Display="Dynamic"></asp:RegularExpressionValidator>
                                                     </td>
                                                 </tr>
                                                 <tr align="left">
@@ -192,9 +199,9 @@
                                                     <td>
                                                         <asp:RequiredFieldValidator ID="rfv_administrador" runat="server" ControlToValidate="txt_administrador"
                                                             ToolTip="Ingrese el administrador" ErrorMessage="Administrador es requerido"><img alt="imagen" width="25px" height="20px" src="../../App_Themes/Basico/botones/img_warning.gif" border="none"/></asp:RequiredFieldValidator>
-                                                        <asp:RegularExpressionValidator ID="rfv_administradorlength" runat="server" ErrorMessage="La longitud máxima son 30 caracteres." 
-                                                            ValidationExpression="^([\S\s]{0,30})$" ControlToValidate="txt_administrador" Display="Dynamic"></asp:RegularExpressionValidator>                                                                                                      
-                                                    
+                                                        <asp:RegularExpressionValidator ID="rfv_administradorlength" runat="server" ErrorMessage="La longitud máxima son 30 caracteres."
+                                                            ValidationExpression="^([\S\s]{0,30})$" ControlToValidate="txt_administrador"
+                                                            Display="Dynamic"></asp:RegularExpressionValidator>
                                                     </td>
                                                 </tr>
                                                 <tr align="left">
@@ -207,8 +214,8 @@
                                                     <td>
                                                         <asp:RequiredFieldValidator ID="rfv_consecutivo" runat="server" ControlToValidate="txt_consecutivo"
                                                             ToolTip="Ingrese el consecutivo del departamento" ErrorMessage="Consecutivo requerido"><img alt="imagen" width="25px" height="20px" src="../../App_Themes/Basico/botones/img_warning.gif" border="none"/></asp:RequiredFieldValidator>
-                                                        <asp:RegularExpressionValidator ID="rfv_consecutivolength" runat="server" ErrorMessage="La longitud máxima son 45 caracteres." 
-                                                            ValidationExpression="^([\S\s]{0,45})$" ControlToValidate="txt_consecutivo" Display="Dynamic"></asp:RegularExpressionValidator>                                                                                                      
+                                                        <asp:RegularExpressionValidator ID="rfv_consecutivolength" runat="server" ErrorMessage="La longitud máxima son 45 caracteres."
+                                                            ValidationExpression="^([\S\s]{0,45})$" ControlToValidate="txt_consecutivo" Display="Dynamic"></asp:RegularExpressionValidator>
                                                     </td>
                                                 </tr>
                                             </tr>
@@ -240,4 +247,22 @@
             </act:Accordion>
         </ContentTemplate>
     </asp:UpdatePanel>
+    <act:UpdatePanelAnimationExtender ID="ae" runat="server" TargetControlID="upd_Principal">
+        <Animations>
+        <OnUpdating>
+            <Parallel duration="0">
+            <ScriptAction Script="OnUpdating();" />
+            </Parallel>
+        </OnUpdating>
+        <OnUpdated>
+             <Parallel duration="0">
+            <ScriptAction Script="OnUpdated();" />
+            </Parallel>
+        </OnUpdated>
+        </Animations>
+    </act:UpdatePanelAnimationExtender>
+
+   <%-- <div class="loading">
+        <asp:Image ID="img_loading" ImageUrl="~/App_Themes/Basico/imagenes/iconos/img_loading.gif" runat="server" />
+    </div>--%>
 </asp:Content>

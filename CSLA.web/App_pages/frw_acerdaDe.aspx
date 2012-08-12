@@ -26,7 +26,7 @@
                 <table>
                     <tr>
                         <td>
-                            Versión: 1.0.0.0
+                           <strong> Versión: 1.0.0.0 </strong>
                         </td>
                     </tr>
                     <tr>
