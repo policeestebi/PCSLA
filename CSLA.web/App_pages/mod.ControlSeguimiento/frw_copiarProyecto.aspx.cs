@@ -115,12 +115,12 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             try
             {
                 //Inicialización de botones generales
-                this.btn_cancelar = (Button)acp_edicionDatos.FindControl("btn_cancelar");
-                this.btn_guardar = (Button)acp_edicionDatos.FindControl("btn_guardar");
+                //this.btn_cancelar = (Button)acp_edicionDatos.FindControl("btn_cancelar");
+                //this.btn_guardar = (Button)acp_edicionDatos.FindControl("btn_guardar");
 
                 //Inicialización de botones de la asignación de Departamentos para el Proyecto
-                this.btn_asignarDepto = (Button)acp_edicionDatos.FindControl("btn_asignarDepto");
-                this.btn_removerDepto = (Button)acp_edicionDatos.FindControl("btn_removerDepto");
+                //this.btn_asignarDepto = (Button)acp_edicionDatos.FindControl("btn_asignarDepto");
+                //this.btn_removerDepto = (Button)acp_edicionDatos.FindControl("btn_removerDepto");
 
             }
             catch (Exception po_exception)
@@ -452,7 +452,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
                 this.upd_Principal.Update();
 
-                this.ard_principal.SelectedIndex = 0;
+                
 
                 this.regresarMantenimiento();
 
@@ -480,7 +480,8 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
                 this.upd_Principal.Update();
 
-                this.ard_principal.SelectedIndex = 0;
+                Response.Redirect("frw_proyectos.aspx");
+               
             }
             catch (Exception po_exception)
             {
@@ -578,8 +579,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             {
                 this.Session.Abandon();
                 this.Session.Clear();
-                //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Salida", "alert('Salida'); document.location.href = '../../Default.aspx';", true);
-                Response.Redirect("../../Default.aspx");
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Salida", cls_constantes.SCRIPTLOGOUT, true);
             }
         }
 
@@ -591,8 +591,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             if (this.Session["cls_usuario"] == null)
             {
-                //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Salida", "alert('Salida'); document.location.href = '../../Default.aspx';", true);
-                Response.Redirect("../../Default.aspx");
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Salida", cls_constantes.SCRIPTLOGOUT, true);
             }
         }
 
@@ -678,7 +677,8 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
             try
             {
-                lsUrl = "#" + cls_util.ObtenerDireccion(HttpContext.Current.Request.Url.AbsolutePath.Remove(0, 1));
+                //De momento se validad contra la página de proyectos que es la página padre.
+                lsUrl = "#App_pages/mod.ControlSeguimiento/frw_proyectos.aspx";//"#" + cls_util.ObtenerDireccion(HttpContext.Current.Request.Url.AbsolutePath.Remove(0, 1));
 
                 if (this.Session["cls_usuario"] != null)
                 {

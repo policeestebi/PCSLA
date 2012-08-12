@@ -78,37 +78,34 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <td align="center">
                                         <%-- GridView o Mantenimiento--%>
-                                        <table id="tbl_mantenimiento">
-                                            <tr align="left">
-                                                <td>
+                                        <table id="tbl_mantenimiento" >
+                                            <tr>
+                                                <td colspan="3">
                                                     <table>
-                                                        <tr>
-                                                            <td>
-                                                                <asp:Label ID="lbl_proyecto" runat="server" Text="Proyecto: "></asp:Label>   
+                                                        <tr align="left">
+                                                            <td>    
+                                                                <asp:Label ID="lbl_proyecto" runat="server" Text="Proyecto:"></asp:Label>   
                                                             </td>
                                                             <td>
                                                                 <asp:TextBox ID="txt_proyecto" runat="server" ReadOnly="true"></asp:TextBox>
                                                             </td>
                                                             <td>
-                                                                &nbsp;
                                                             </td>
+                                                        </tr>
+                                                        <tr>
                                                             <td>
-                                                                <asp:Label ID="lbl_paquete" runat="server" Text="Paquete: "></asp:Label>
+                                                                <asp:Label ID="lbl_paquete" runat="server" Text="Paquete:"></asp:Label>
                                                             </td>
                                                             <td>
                                                                 <asp:DropDownList ID="ddl_paquete" runat="server" OnSelectedIndexChanged="ddlPaquete_SelectedIndexChanged"
                                                                     AutoPostBack="true" OnDataBound="ddlPaquete_DataBound">
                                                                 </asp:DropDownList>
                                                             </td>
+                                                            <td>
+                                                            </td>
                                                         </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="3" align="center">
-                                                    <table>
                                                         <tr align="left">
                                                             <td>
                                                                 <asp:Label ID="lbl_descripcion" runat="server" Text="Descripcion: "></asp:Label>
@@ -118,7 +115,9 @@
                                                             </td>
                                                             <td>
                                                                 <asp:RequiredFieldValidator ID="rfv_descripcion" runat="server" ControlToValidate="txt_descripcion"
-                                                                    ToolTip="Ingrese la descripcion de la actividad" ErrorMessage="Descripcion es requerida"><img alt="imagen" width="25px" height="20px" src="../../App_Themes/Basico/botones/img_warning.gif" border="none"/></asp:RequiredFieldValidator>
+                                                                    ToolTip="Ingrese la descripcion de la actividad" ErrorMessage="Descripcion es requerida">
+                                                                    <img alt="imagen" width="25px" height="20px" src="../../App_Themes/Basico/botones/img_warning.gif" border="none"/>
+                                                                </asp:RequiredFieldValidator>
                                                             </td>
                                                         </tr>
                                                         <tr align="left">

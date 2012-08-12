@@ -64,7 +64,7 @@
                     <table id="tbl_contenido">
                         <tr>
                             <td>
-                                <asp:Label ID="lblDia" runat="server" Text="Día: "></asp:Label>
+                                <asp:Label ID="lblDia" CssClass="label" runat="server" Text="Día: "></asp:Label>
                             </td>
                             <td>
                                 <asp:Label ID="lblDiaValor" runat="server" Text="20 Jun 2012"></asp:Label>
@@ -84,6 +84,30 @@
                             </td>
                             <td>
                                 <asp:Label ID="lblActividadValor" runat="server" Text="Actividad 1"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Label ID="lblFechaInicio" CssClass="label" runat="server" Text="Fecha Inicio: " Visible="false"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblFechaInicioValor" runat="server" Text="" Visible="false"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Label ID="lblFechaFinal" CssClass="label" runat="server" Text="Fecha Final: " Visible="false"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblFechaFinalValor" runat="server" Text="" Visible="false"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Label ID="lblHoraAsignadas" CssClass="label" runat="server" Text="Horas asignadas: " Visible="false"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblHorasAsignadasValor" runat="server" Text="" Visible="false"></asp:Label>
                             </td>
                         </tr>
                         <tr>

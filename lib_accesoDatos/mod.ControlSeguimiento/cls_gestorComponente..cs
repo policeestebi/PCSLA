@@ -247,7 +247,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
                {
                    voComponente = new cls_componente();
 
-                   voComponente.pPK_componente = Convert.ToInt32(vu_dataSet.Tables[0].Rows[0]["PK_componente"]);
+                   voComponente.pPK_componente = Convert.ToInt32(vu_dataSet.Tables[0].Rows[i]["PK_componente"]);
 
                    voComponente.pCodigo = vu_dataSet.Tables[0].Rows[i]["codigo"].ToString();
 

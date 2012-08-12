@@ -24,7 +24,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lbl_mensaje" runat="server" Text="Gráfico que imprime el top de actividades en las cuales un usuario ha gastado más tiempo en un proyecto específico."></asp:Label>
+                    <asp:Label ID="lbl_mensaje" runat="server" Text="Gráfico que imprime el top de actividades en las cuales un usuario ha invertido más tiempo en un proyecto específico."></asp:Label>
                 </td>
             </tr>
         </table>
@@ -110,7 +110,7 @@
                         </td>
                         <td align="left">
                             <asp:ListBox ID="lbx_usuarios" runat="server" SelectionMode="Single" Width="200px"
-                                Height="58px"></asp:ListBox>
+                                Height="198px"></asp:ListBox>
                         </td>
                     </tr>
                 </table>

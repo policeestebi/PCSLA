@@ -31,24 +31,6 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento {
         protected global::System.Web.UI.UpdatePanel upd_Principal;
         
         /// <summary>
-        /// ard_principal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.Accordion ard_principal;
-        
-        /// <summary>
-        /// acp_edicionDatos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.AccordionPane acp_edicionDatos;
-        
-        /// <summary>
         /// lbl_proyecto control.
         /// </summary>
         /// <remarks>
@@ -148,15 +130,6 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_nombre;
         
         /// <summary>
-        /// rfv_nombrelenght control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfv_nombrelenght;
-        
-        /// <summary>
         /// lbl_fechaFin control.
         /// </summary>
         /// <remarks>
@@ -193,6 +166,15 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_fechaFin;
         
         /// <summary>
+        /// rfv_nombrelenght control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfv_nombrelenght;
+        
+        /// <summary>
         /// lbl_descripcion control.
         /// </summary>
         /// <remarks>
@@ -218,15 +200,6 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_descripcion;
-        
-        /// <summary>
-        /// rfv_descripcionlenght control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfv_descripcionlenght;
         
         /// <summary>
         /// lbl_horasAsignadas control.
@@ -256,13 +229,13 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_horasAsignadas;
         
         /// <summary>
-        /// rfv_horasAsignadaslenght control.
+        /// rfv_descripcionlenght control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfv_horasAsignadaslenght;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfv_descripcionlenght;
         
         /// <summary>
         /// lbl_objetivo control.
@@ -290,6 +263,24 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_objetivo;
+        
+        /// <summary>
+        /// lbl_horasReales control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_horasReales;
+        
+        /// <summary>
+        /// txt_horasReales control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_horasReales;
         
         /// <summary>
         /// rfv_objetivolenght control.
@@ -335,24 +326,6 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator rfv_metalenght;
-        
-        /// <summary>
-        /// lbl_horasReales control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_horasReales;
-        
-        /// <summary>
-        /// txt_horasReales control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_horasReales;
         
         /// <summary>
         /// lse_depAsociados control.

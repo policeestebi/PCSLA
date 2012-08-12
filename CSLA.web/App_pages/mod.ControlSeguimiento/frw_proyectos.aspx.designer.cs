@@ -148,15 +148,6 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_descripcion;
         
         /// <summary>
-        /// rfv_descripcionlenght control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfv_descripcionlenght;
-        
-        /// <summary>
         /// lbl_meta control.
         /// </summary>
         /// <remarks>
@@ -182,6 +173,15 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_meta;
+        
+        /// <summary>
+        /// rfv_descripcionlenght control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfv_descripcionlenght;
         
         /// <summary>
         /// rfv_metalenght control.
@@ -220,15 +220,6 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_objetivo;
         
         /// <summary>
-        /// rfv_objetivolenght control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfv_objetivolenght;
-        
-        /// <summary>
         /// lbl_estado control.
         /// </summary>
         /// <remarks>
@@ -245,6 +236,15 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_estado;
+        
+        /// <summary>
+        /// rfv_objetivolenght control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfv_objetivolenght;
         
         /// <summary>
         /// lbl_fechaInicio control.

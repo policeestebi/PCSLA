@@ -767,7 +767,8 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             {
                 this.guardarDatos();
 
-                this.llenarGridView();
+                //this.llenarGridView();
+                this.llenarGridViewFilter(this.ucSearchProyecto.Filter);
 
                 this.limpiarCampos();
 
@@ -822,7 +823,8 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             try
             {              
                 this.grd_listaProyecto.PageIndex = e.NewPageIndex;
-                this.llenarGridView();
+                //this.llenarGridView();
+                this.llenarGridViewFilter(this.ucSearchProyecto.Filter);
                 this.upd_Principal.Update();
             }
             catch (Exception po_exception)
@@ -1164,7 +1166,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 this.grd_listaProyecto.Columns[11].Visible = this.pbAcceso;
                 this.grd_listaProyecto.Columns[12].Visible = this.pbModificar;
                 this.grd_listaProyecto.Columns[13].Visible = this.pbEliminar;
-                //Si se tiene permiso de agregar o modificar, se puede crero asignar
+                //Si se tiene permiso de agregar o modificar, se puede asignar
                 this.grd_listaProyecto.Columns[14].Visible = this.pbModificar || this.pbAgregar;
                 this.grd_listaProyecto.Columns[15].Visible = this.pbModificar || this.pbAgregar;
             }

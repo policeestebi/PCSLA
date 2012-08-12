@@ -248,7 +248,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
                {
                    voPermiso = new cls_entregable();
 
-                   voPermiso.pPK_entregable = Convert.ToInt32(vu_dataSet.Tables[0].Rows[0]["PK_entregable"]);
+                   voPermiso.pPK_entregable = Convert.ToInt32(vu_dataSet.Tables[0].Rows[i]["PK_entregable"]);
 
                    voPermiso.pCodigo = vu_dataSet.Tables[0].Rows[i]["codigo"].ToString();
 

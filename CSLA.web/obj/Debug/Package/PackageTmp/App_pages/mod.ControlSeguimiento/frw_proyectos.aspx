@@ -294,10 +294,14 @@
                                                     </td>
                                                     <td>
                                                         <asp:RequiredFieldValidator ID="rfv_horasAsignadas" runat="server" ControlToValidate="txt_horasAsignadas"
-                                                            ToolTip="Ingrese la cantidad de horas asignadas para el proyecto" ErrorMessage="Horas asignadas son requeridas"><img alt="imagen" width="25px" height="20px" src="../../App_Themes/Basico/botones/img_warning.gif" border="none"/></asp:RequiredFieldValidator>
-                                                        <asp:RegularExpressionValidator ID="rfv_horasAsignadaslenght" runat="server" ErrorMessage="Número decimal fuera del rango establecido."
-                                                            ValidationExpression="^[0-9]{1,3}(\.[0-9]{0,2})?$" ControlToValidate="txt_horasAsignadas"
-                                                            Display="Dynamic"></asp:RegularExpressionValidator>
+                                                            ToolTip="Ingrese la cantidad de horas asignadas para el proyecto" ErrorMessage="Horas asignadas son requeridas">
+                                                            <img alt="imagen" width="25px" height="20px" src="../../App_Themes/Basico/botones/img_warning.gif" border="none"/>
+                                                         </asp:RequiredFieldValidator>
+
+                                                        <%--<asp:RegularExpressionValidator ID="rfv_horasAsignadaslenght" runat="server" ErrorMessage="Número decimal fuera del rango establecido."
+                                                            ValidationExpression="\d+" ControlToValidate="txt_horasAsignadas"
+                                                            Display="Dynamic">
+                                                        </asp:RegularExpressionValidator>--%>
                                                     </td>
                                                     <td>
                                                         <asp:Label ID="lbl_horasReales" runat="server" Text="Horas Reales: "></asp:Label>

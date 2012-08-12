@@ -107,7 +107,7 @@
                                     <td>
                                         <%-- GridView--%>
                                         <asp:GridView ID="grd_listaUsuarios" AllowPaging="True" runat="server" AutoGenerateColumns="False"
-                                            Width="100%" CssClass="Grid" CellSpacing="1" CellPadding="3" OnRowCommand="grd_listaUsuarios_RowCommand"
+                                            Width="100%" CssClass="Grid" CellSpacing="10" CellPadding="10" OnRowCommand="grd_listaUsuarios_RowCommand" 
                                             OnPageIndexChanging="grd_listaUsuarios_PageIndexChanging">
                                             <PagerSettings PageButtonCount="20" />
                                             <Columns>
@@ -157,7 +157,7 @@
                                                     <ItemStyle Width="1px" />
                                                 </asp:TemplateField>
                                             </Columns>
-                                            <HeaderStyle CssClass="GridHeader"></HeaderStyle>
+                                            <HeaderStyle CssClass="GridHeader"  ></HeaderStyle>
                                             <AlternatingRowStyle CssClass="GridAltItem" />
                                         </asp:GridView>
                                     </td>

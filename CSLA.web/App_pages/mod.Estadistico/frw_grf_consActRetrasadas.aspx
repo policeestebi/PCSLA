@@ -70,7 +70,7 @@
                             <act:ListSearchExtender ID="lse_usuarios" runat="server" TargetControlID="lbx_usuarios"
                                 PromptText="Digite para buscar..." PromptPosition="Top" />
                             <asp:ListBox ID="lbx_usuarios" runat="server" SelectionMode="Single" Width="200px"
-                                Height="58px"></asp:ListBox>
+                                Height="198px"></asp:ListBox>
                         </td>
                     </tr>
                 </table>

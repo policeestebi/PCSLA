@@ -28,7 +28,7 @@
             <br />
             <tr>
                 <td>
-                    <asp:Label ID="lbl_PaqueteTitulo" CssClass="label" runat="server" Text="Reporte de Actividades Retradas"></asp:Label>
+                    <asp:Label ID="lbl_PaqueteTitulo" CssClass="label" runat="server" Text="Reporte de Actividades Atrasadas"></asp:Label>
                 </td>
             </tr>
             <tr>

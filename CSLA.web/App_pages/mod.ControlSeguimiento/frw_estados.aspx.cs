@@ -445,7 +445,8 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             {
                 this.guardarDatos();
 
-                this.llenarGridView();
+                //this.llenarGridView();
+                this.llenarGridViewFilter(this.ucSearchEstado.Filter); 
 
                 this.limpiarCampos();
 
@@ -498,7 +499,8 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             try
             {     
                 this.grd_listaEstado.PageIndex = e.NewPageIndex;
-                this.llenarGridView();
+                //this.llenarGridView();
+                this.llenarGridViewFilter(this.ucSearchEstado.Filter); 
                 this.upd_Principal.Update();
             }
             catch (Exception po_exception)

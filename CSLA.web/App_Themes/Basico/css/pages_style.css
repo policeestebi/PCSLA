@@ -418,13 +418,13 @@ border: solid 1px #FFFFFF;
 margin: 1px 1px 1px 1px;
 padding: 1px 1px 1px 1px;
 text-align: left;
+padding:2px 5px 2px 5px;
 }
 .GridHeader
 {
-font-weight: bold;
-/*background-color: #99CCFF;#F76C09*/
-background-color: #DF7E18;
-color:White;
+    font-weight: bold;
+    background-color: #DF7E18;
+    color:White; 
 }
 .GridItem
 {

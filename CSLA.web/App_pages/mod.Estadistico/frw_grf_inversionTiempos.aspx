@@ -47,12 +47,10 @@
         </td>
     </tr>
     <tr>
-        <td>
+        <td colspan="3">
+            &nbsp;
         </td>
-        <td>
-        </td>
-        <td>
-        </td>
+       
     </tr>
     <tr>    
         <td>
@@ -62,7 +60,7 @@
             <act:ListSearchExtender ID="lse_usuarios" runat="server" TargetControlID="lbx_usuarios"
                                 PromptText="Digite para buscar..." PromptPosition="Top" />
             <asp:ListBox ID="lbx_usuarios" runat="server" SelectionMode="Single" Width="200px"
-                                Height="58px">
+                                Height="198px">
             </asp:ListBox>
         </td>
         <td>

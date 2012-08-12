@@ -33,7 +33,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lbl_PaqueteMensaje" runat="server" Text="Este reporte se imprime para los superiores cada mes, en el mismo se define una fecha y se imprimirá entre el primero y el último día del mes seleccionado. El sistema asignará automáticamente el número de oficioy Cada vez que el usuario reimprima el reporte de horas se guardará la cantidad de veces que se ha reimpreso para llevar un control del mismo."></asp:Label>
+                    <asp:Label ID="lbl_PaqueteMensaje" runat="server" Text="Este reporte se imprime para los superiores cada mes, en el mismo se define una fecha y se imprimirá entre el primero y el último día del mes seleccionado. El sistema asignará automáticamente el número de oficio y cada vez que el usuario reimprima el reporte de horas se guardará la cantidad de veces que se ha reimpreso para llevar un control del mismo."></asp:Label>
                 </td>
             </tr>
         </table>

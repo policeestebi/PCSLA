@@ -190,13 +190,21 @@
                                                         <asp:Label ID="lbl_nombre" runat="server" Text="Nombre: "></asp:Label>
                                                     </td>
                                                     <td>
-                                                        <asp:TextBox ID="txt_nombre" runat="server" Height="50px" Width="200px" TextMode="MultiLine"></asp:TextBox>
+                                                        <asp:TextBox ID="txt_nombre" runat="server" Width="250px"></asp:TextBox>
                                                     </td>
                                                     <td>
                                                         <asp:RequiredFieldValidator ID="rfv_nombre" runat="server" ControlToValidate="txt_nombre"
                                                             ToolTip="Ingrese el nombre del proyecto" ErrorMessage="Nombre es requerido"><img alt="imagen" width="25px" height="20px" src="../../App_Themes/Basico/botones/img_warning.gif" border="none"/></asp:RequiredFieldValidator>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                    </td>
+                                                    <td>
                                                         <asp:RegularExpressionValidator ID="rfv_nombrelenght" runat="server" ErrorMessage="La longitud máxima son 100 caracteres."
                                                             ValidationExpression="^([\S\s]{0,100})$" ControlToValidate="txt_nombre" Display="Dynamic"></asp:RegularExpressionValidator>
+                                                    </td>
+                                                    <td> 
                                                     </td>
                                                 </tr>
                                                 <tr align="left">
@@ -204,26 +212,42 @@
                                                         <asp:Label ID="lbl_descripcion" runat="server" Text="Descripcion: "></asp:Label>
                                                     </td>
                                                     <td>
-                                                        <asp:TextBox ID="txt_descripcion" runat="server" Height="50px" Width="200px" TextMode="MultiLine"></asp:TextBox>
+                                                        <asp:TextBox ID="txt_descripcion" runat="server" Height="50px" Width="250px" TextMode="MultiLine"></asp:TextBox>
                                                     </td>
                                                     <td>
                                                         <asp:RequiredFieldValidator ID="rfv_descripcion" runat="server" ControlToValidate="txt_descripcion"
                                                             ToolTip="Ingrese la descripcion del proyecto" ErrorMessage="Descripcion es requerida"><img alt="imagen" width="25px" height="20px" src="../../App_Themes/Basico/botones/img_warning.gif" border="none"/></asp:RequiredFieldValidator>
-                                                        <asp:RegularExpressionValidator ID="rfv_descripcionlenght" runat="server" ErrorMessage="La longitud máxima son 100 caracteres."
-                                                            ValidationExpression="^([\S\s]{0,100})$" ControlToValidate="txt_descripcion"
-                                                            Display="Dynamic"></asp:RegularExpressionValidator>
+                                                        
                                                     </td>
                                                     <td>
                                                         <asp:Label ID="lbl_meta" runat="server" Text="Meta: "></asp:Label>
                                                     </td>
                                                     <td>
-                                                        <asp:TextBox ID="txt_meta" runat="server" Height="50px" Width="200px" TextMode="MultiLine"></asp:TextBox>
+                                                        <asp:TextBox ID="txt_meta" runat="server" Height="50px" Width="250px" TextMode="MultiLine"></asp:TextBox>
                                                     </td>
                                                     <td>
                                                         <asp:RequiredFieldValidator ID="rfv_meta" runat="server" ControlToValidate="txt_meta"
                                                             ToolTip="Ingrese la meta del proyecto" ErrorMessage="Meta es requerida"><img alt="imagen" width="25px" height="20px" src="../../App_Themes/Basico/botones/img_warning.gif" border="none"/></asp:RequiredFieldValidator>
+                                                        
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                        <asp:RegularExpressionValidator ID="rfv_descripcionlenght" runat="server" ErrorMessage="La longitud máxima son 100 caracteres."
+                                                            ValidationExpression="^([\S\s]{0,100})$" ControlToValidate="txt_descripcion"
+                                                            Display="Dynamic"></asp:RegularExpressionValidator>
+                                                    </td>
+                                                    <td>   
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
                                                         <asp:RegularExpressionValidator ID="rfv_metalenght" runat="server" ErrorMessage="La longitud máxima son 500 caracteres."
                                                             ValidationExpression="^([\S\s]{0,500})$" ControlToValidate="txt_objetivo" Display="Dynamic"></asp:RegularExpressionValidator>
+                                                    </td>
+                                                    <td>
                                                     </td>
                                                 </tr>
                                                 <tr align="left">
@@ -231,13 +255,12 @@
                                                         <asp:Label ID="lbl_objetivo" runat="server" Text="Objetivo: "></asp:Label>
                                                     </td>
                                                     <td>
-                                                        <asp:TextBox ID="txt_objetivo" runat="server" Height="50px" Width="200px" TextMode="MultiLine"></asp:TextBox>
+                                                        <asp:TextBox ID="txt_objetivo" runat="server" Height="50px" Width="250px" TextMode="MultiLine"></asp:TextBox>
                                                     </td>
                                                     <td>
                                                         <asp:RequiredFieldValidator ID="rfv_objetivo" runat="server" ControlToValidate="txt_objetivo"
                                                             ToolTip="Ingrese el objetivo del proyecto" ErrorMessage="Objetivo es requerido"><img alt="imagen" width="25px" height="20px" src="../../App_Themes/Basico/botones/img_warning.gif" border="none"/></asp:RequiredFieldValidator>
-                                                        <asp:RegularExpressionValidator ID="rfv_objetivolenght" runat="server" ErrorMessage="La longitud máxima son 500 caracteres."
-                                                            ValidationExpression="^([\S\s]{0,500})$" ControlToValidate="txt_objetivo" Display="Dynamic"></asp:RegularExpressionValidator>
+                                                        
                                                     </td>
                                                     <td>
                                                         <asp:Label ID="lbl_estado" runat="server" Text="Estado: "></asp:Label>
@@ -247,13 +270,29 @@
                                                         </asp:DropDownList>
                                                     </td>                                                   
                                                 </tr>
+                                                <tr>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                        <asp:RegularExpressionValidator ID="rfv_objetivolenght" runat="server" ErrorMessage="La longitud máxima son 500 caracteres."
+                                                            ValidationExpression="^([\S\s]{0,500})$" ControlToValidate="txt_objetivo" Display="Dynamic"></asp:RegularExpressionValidator>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
                                                 <tr align="left">
                                                     <td>
                                                         <asp:Label ID="lbl_fechaInicio" runat="server" Text="Fecha Inicio: "></asp:Label>
                                                     </td>
                                                     <td>
-                                                        <asp:TextBox ID="txt_fechaInicio" runat="server"></asp:TextBox>
-                                                        <asp:ImageButton ID="img_cldFechaInicio" runat="server" ImageUrl="../../App_Themes/Basico/botones/img_calendario.png"
+                                                        <asp:TextBox ID="txt_fechaInicio" runat="server" Width="220"></asp:TextBox>
+                                                        <asp:ImageButton ID="img_cldFechaInicio" runat="server" ImageUrl="../../App_Themes/Basico/botones/img_calendario.png" 
                                                             CausesValidation="false" />
                                                         <act:CalendarExtender ID="dt_fechaInicio" runat="server" TargetControlID="txt_fechaInicio"
                                                             PopupButtonID="img_cldFechaInicio" Format="dd/MM/yyyy" />
@@ -270,7 +309,7 @@
                                                         <asp:Label ID="lbl_fechaFin" runat="server" Text="Fecha Fin: "></asp:Label>
                                                     </td>
                                                     <td>
-                                                        <asp:TextBox ID="txt_fechaFin" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txt_fechaFin" runat="server" Width="220"></asp:TextBox>
                                                         <asp:ImageButton ID="img_cldFechaFinal" runat="server" ImageUrl="../../App_Themes/Basico/botones/img_calendario.png"
                                                             CausesValidation="false" />
                                                         <act:CalendarExtender ID="dt_fechaFin" runat="server" TargetControlID="txt_fechaFin"
@@ -290,7 +329,7 @@
                                                         <asp:Label ID="lbl_horasAsignadas" runat="server" Text="Horas Asignadas: "></asp:Label>
                                                     </td>
                                                     <td>
-                                                        <asp:TextBox ID="txt_horasAsignadas" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txt_horasAsignadas" runat="server" Width="50"></asp:TextBox>
                                                     </td>
                                                     <td>
                                                         <asp:RequiredFieldValidator ID="rfv_horasAsignadas" runat="server" ControlToValidate="txt_horasAsignadas"
@@ -307,7 +346,7 @@
                                                         <asp:Label ID="lbl_horasReales" runat="server" Text="Horas Reales: "></asp:Label>
                                                         </td>
                                                         <td>
-                                                            <asp:TextBox ID="txt_horasReales" runat="server" ReadOnly="true"></asp:TextBox>
+                                                            <asp:TextBox ID="txt_horasReales" Width="50" runat="server" ReadOnly="true"></asp:TextBox>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -360,11 +399,11 @@
                                                                 &nbsp;
                                                                 </td>
                                                                 <td>
-                                                                    <asp:Button ID="btn_asignarDepto" runat="server" Text="&lt;" OnClick="btn_asignarDepto_Click"
-                                                                        Width="35px" colspan="2" />
+                                                                    <asp:Button ID="btn_asignarDepto" runat="server" Text="<" OnClick="btn_asignarDepto_Click"
+                                                                        Width="35px" />
                                                                     <br />
-                                                                    <asp:Button ID="btn_removerDepto" runat="server" Text="&gt;" OnClick="btn_removerDepto_Click"
-                                                                        Width="35px" colspan="2" />
+                                                                    <asp:Button ID="btn_removerDepto" runat="server" Text=">" OnClick="btn_removerDepto_Click"
+                                                                        Width="35px"  />
                                                                 </td>
                                                                 <td>
                                                                 &nbsp;
