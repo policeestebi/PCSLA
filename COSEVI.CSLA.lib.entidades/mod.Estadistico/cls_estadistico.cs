@@ -51,6 +51,18 @@ namespace COSEVI.CSLA.lib.entidades.mod.Estadistico
             set { this.PK_proyecto = value; }
         }
 
+        public DateTime pFechaDesde
+        {
+          get { return fechaDesde; }
+          set { this.fechaDesde = value; }
+        }
+
+        public DateTime pFechaHasta
+        {
+          get { return fechaHasta; }
+          set { this.fechaHasta = value; }
+        }
+
         public string pPK_usuario
         {
             get { return PK_usuario; }
@@ -78,20 +90,30 @@ namespace COSEVI.CSLA.lib.entidades.mod.Estadistico
         /// </summary>
  	    private int PK_proyecto;
 
-        /// <summary>
-        /// Código del usuario
-        /// </summary>
-        private string PK_usuario;
+      /// <summary>
+      /// Código del usuario
+      /// </summary>
+      private string PK_usuario;
 
-        /// <summary>
-        /// Tipo de labor para el desgloce
-        /// </summary>
+      /// <summary>
+      /// Fecha Inicio del filtro
+      /// </summary>
+      private DateTime fechaDesde;
+
+      /// <summary>
+      /// Fecha Fin del filtro
+      /// </summary>
+      private DateTime fechaHasta;
+
+      /// <summary>
+      /// Tipo de labor para el desgloce
+      /// </summary>
 	    private string tipoLabor;
 
-        /// <summary>
-        /// Cantidad de registros
-        /// </summary>
-        private int cantidad;
+      /// <summary>
+      /// Cantidad de registros
+      /// </summary>
+      private int cantidad;
 
         #endregion
 
@@ -221,6 +243,18 @@ namespace COSEVI.CSLA.lib.entidades.mod.Estadistico
             set { this.PK_paquete = value; }
         }
 
+        public DateTime pFechaDesde
+        {
+          get { return fechaDesde; }
+          set { this.fechaDesde = value; }
+        }
+
+        public DateTime pFechaHasta
+        {
+          get { return fechaHasta; }
+          set { this.fechaHasta = value; }
+        }
+
         public string pPK_usuario
         {
             get { return PK_usuario; }
@@ -263,6 +297,16 @@ namespace COSEVI.CSLA.lib.entidades.mod.Estadistico
         /// Código del usuario
         /// </summary>
         private string PK_usuario;
+
+        /// <summary>
+        /// Fecha Inicio del filtro
+        /// </summary>
+        private DateTime fechaDesde;
+
+        /// <summary>
+        /// Fecha Fin del filtro
+        /// </summary>
+        private DateTime fechaHasta;
 
         /// <summary>
         /// Nombre de la actividad para el desgloce
@@ -338,6 +382,18 @@ namespace COSEVI.CSLA.lib.entidades.mod.Estadistico
             set { this.horasRetraso = value; }
         }
 
+        public DateTime pFechaDesde
+        {
+          get { return fechaDesde; }
+          set { this.fechaDesde = value; }
+        }
+
+        public DateTime pFechaHasta
+        {
+          get { return fechaHasta; }
+          set { this.fechaHasta = value; }
+        }
+
         #endregion
 
         #region Atributos
@@ -371,6 +427,16 @@ namespace COSEVI.CSLA.lib.entidades.mod.Estadistico
         /// Horas reales de retraso en la actividad
         /// </summary>
         private decimal horasRetraso;
+
+        /// <summary>
+        /// Fecha Inicio del filtro
+        /// </summary>
+        private DateTime fechaDesde;
+
+        /// <summary>
+        /// Fecha Fin del filtro
+        /// </summary>
+        private DateTime fechaHasta;
 
         #endregion
 

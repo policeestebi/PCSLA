@@ -40,3 +40,10 @@ C:\Users\Esteban\Documents\GIT\PCSLA\lib_accesoDatos\bin\Debug\COSEVI.CSLA.lib.e
 C:\Users\Esteban\Documents\GIT\PCSLA\lib_accesoDatos\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Esteban\Documents\GIT\PCSLA\lib_accesoDatos\obj\Debug\lib_accesoDatos.dll
 C:\Users\Esteban\Documents\GIT\PCSLA\lib_accesoDatos\obj\Debug\lib_accesoDatos.pdb
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\lib_accesoDatos\bin\Debug\lib_accesoDatos.dll
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\lib_accesoDatos\bin\Debug\lib_accesoDatos.pdb
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\lib_accesoDatos\bin\Debug\COSEVI.CSLA.lib.entidades.dll
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\lib_accesoDatos\bin\Debug\COSEVI.CSLA.lib.entidades.pdb
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\lib_accesoDatos\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\lib_accesoDatos\obj\Debug\lib_accesoDatos.dll
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\lib_accesoDatos\obj\Debug\lib_accesoDatos.pdb
