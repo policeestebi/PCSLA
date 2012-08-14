@@ -56,3 +56,12 @@ C:\Users\Esteban\Documents\GIT\PCSLA\ExceptionManagement\obj\Debug\GenerateResou
 C:\Users\Esteban\Documents\GIT\PCSLA\ExceptionManagement\obj\Debug\ResGen.write.1.tlog
 C:\Users\Esteban\Documents\GIT\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.dll
 C:\Users\Esteban\Documents\GIT\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.pdb
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\ExceptionManagement\bin\Debug\ExceptionManagement.dll
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\ExceptionManagement\bin\Debug\ExceptionManagement.pdb
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\ExceptionManagement\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.ExceptionManagerInstaller.resources
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.ExceptionManagerText.resources
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\ExceptionManagement\obj\Debug\ResGen.read.1.tlog
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\ExceptionManagement\obj\Debug\ResGen.write.1.tlog
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.dll
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.pdb

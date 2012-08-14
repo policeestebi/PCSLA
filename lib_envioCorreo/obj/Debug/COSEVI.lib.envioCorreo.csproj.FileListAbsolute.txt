@@ -40,3 +40,10 @@ C:\Users\Esteban\Documents\GIT\PCSLA\lib_envioCorreo\bin\Debug\ExceptionManageme
 C:\Users\Esteban\Documents\GIT\PCSLA\lib_envioCorreo\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Esteban\Documents\GIT\PCSLA\lib_envioCorreo\obj\Debug\lib_envioCorreo.dll
 C:\Users\Esteban\Documents\GIT\PCSLA\lib_envioCorreo\obj\Debug\lib_envioCorreo.pdb
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\lib_envioCorreo\bin\Debug\lib_envioCorreo.dll
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\lib_envioCorreo\bin\Debug\lib_envioCorreo.pdb
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\lib_envioCorreo\bin\Debug\ExceptionManagement.dll
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\lib_envioCorreo\bin\Debug\ExceptionManagement.pdb
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\lib_envioCorreo\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\lib_envioCorreo\obj\Debug\lib_envioCorreo.dll
+C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\lib_envioCorreo\obj\Debug\lib_envioCorreo.pdb

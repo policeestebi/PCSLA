@@ -93,6 +93,13 @@ namespace CSLA.web.App_pages.mod.Estadistico
         {
             try
             {
+              if (!Page.IsPostBack)
+              {
+                //Cuando se está ingresando a la página, se limpian las variables de sesión para evitar valores incorrectos
+                //LimpiarVariablesSession();
+                txt_fechaInicio.Text = DateTime.Today.AddMonths(-1).ToString().Substring(0, 10);
+                txt_fechaFin.Text = DateTime.Today.ToString().Substring(0, 10);
+              }
                 //if (!Page.IsPostBack)
                 //{
                 //    //Cuando se está ingresando a la página, se limpia la variable de sesión para evitar valores incorrectos
@@ -145,14 +152,14 @@ namespace CSLA.web.App_pages.mod.Estadistico
         /// <summary>
         /// Método que realiza la consulta en BD para obtener la información por proyecto y usuario
         /// </summary>
-        private void CargaGrafico(int pi_proyecto, string ps_usuario)
+        private void CargaGrafico(int pi_proyecto, DateTime pd_fechaDesde, DateTime pd_fechaHasta, string ps_usuario)
         {
             try
             {
                 //Si se está obteniendo información para un proyecto que NO es el proyecto por defecto
                 if (pi_proyecto > 0)
                 {
-                    obtenerGraficoPorProyecto(pi_proyecto, ps_usuario);
+                  obtenerGraficoPorProyecto(pi_proyecto, pd_fechaDesde, pd_fechaHasta, ps_usuario);
                 }
                 else
                 {
@@ -190,13 +197,15 @@ namespace CSLA.web.App_pages.mod.Estadistico
         /// <summary>
         /// Método que obtiene la información con la que se va a cargar en gráfico
         /// </summary>
-        private void obtenerGraficoPorProyecto(int pi_proyecto, string ps_usuario)
+        private void obtenerGraficoPorProyecto(int pi_proyecto, DateTime pd_fechaDesde, DateTime pd_fechaHasta, string ps_usuario)
         {
             try
             {
                 //Se procede a obtener la información por proyecto
                 cls_totalidadLabores vo_estadistico = new cls_totalidadLabores();
                 vo_estadistico.pPK_proyecto = pi_proyecto;
+                vo_estadistico.pFechaDesde = pd_fechaDesde;
+                vo_estadistico.pFechaHasta = pd_fechaHasta;
                 vo_estadistico.pPK_usuario = ps_usuario;
                 List<cls_totalidadLabores> vl_estadistico = cls_gestorEstadistico.TotalidadLaboresPorProyecto(vo_estadistico);
 
@@ -391,11 +400,11 @@ namespace CSLA.web.App_pages.mod.Estadistico
                 {
                     if (Convert.ToInt32(lbx_usuarios.SelectedIndex) > 0)
                     {
-                        CargaGrafico(Convert.ToInt32(ddl_proyecto.SelectedValue), lbx_usuarios.SelectedValue.ToString());
+                      CargaGrafico(Convert.ToInt32(ddl_proyecto.SelectedValue), Convert.ToDateTime(txt_fechaInicio.Text), Convert.ToDateTime(txt_fechaFin.Text), lbx_usuarios.SelectedValue.ToString());
                     }
                     else
                     {
-                        CargaGrafico(Convert.ToInt32(ddl_proyecto.SelectedValue), string.Empty);
+                      CargaGrafico(Convert.ToInt32(ddl_proyecto.SelectedValue), Convert.ToDateTime(txt_fechaInicio.Text), Convert.ToDateTime(txt_fechaFin.Text), string.Empty);
                     }
                 }
             }
@@ -416,7 +425,7 @@ namespace CSLA.web.App_pages.mod.Estadistico
                 int pointIndex = int.Parse(e.PostBackValue);
                 Series series = Grafico.Series["Leyendas"];
 
-                CargaGrafico(Convert.ToInt32(ddl_proyecto.SelectedValue), lbx_usuarios.SelectedValue.ToString());
+                CargaGrafico(Convert.ToInt32(ddl_proyecto.SelectedValue), Convert.ToDateTime(txt_fechaInicio.Text), Convert.ToDateTime(txt_fechaFin.Text), lbx_usuarios.SelectedValue.ToString());
 
                 if (pointIndex >= 0 && pointIndex < series.Points.Count)
                 {
