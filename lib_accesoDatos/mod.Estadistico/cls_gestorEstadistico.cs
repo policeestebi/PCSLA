@@ -133,6 +133,8 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Estadistico
            {
                String vs_comando = "PA_estd_inversionTiempos";
                cls_parameter[] vu_parametros = { new cls_parameter("@paramProyecto", po_totalidadLabores.pPK_proyecto),
+                                                  new cls_parameter("@paramFechaInicio", po_totalidadLabores.pFechaDesde),
+                                                  new cls_parameter("@paramFechaFin", po_totalidadLabores.pFechaHasta),
                                                  new cls_parameter("@paramUsuario", po_totalidadLabores.pPK_usuario)};
 
                DataSet vu_dataSet = cls_sqlDatabase.executeDataset(vs_comando, true, vu_parametros);
@@ -223,6 +225,8 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Estadistico
                 String vs_comando = "PA_estd_comparacionHorasActividad";
                 cls_parameter[] vu_parametros = { new cls_parameter("@paramProyecto", po_compHorasActividades.pPK_proyecto),
                                                   new cls_parameter("@paramPaquete", po_compHorasActividades.pPK_paquete),
+                                                  new cls_parameter("@paramFechaInicio", po_compHorasActividades.pFechaDesde),
+                                                  new cls_parameter("@paramFechaFin", po_compHorasActividades.pFechaHasta),
                                                   new cls_parameter("@paramUsuario", po_compHorasActividades.pPK_usuario)
                                                 };
 
@@ -268,7 +272,9 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Estadistico
             {
                 String vs_comando = "PA_estd_consultaActRetrasadas";
                 cls_parameter[] vu_parametros = { new cls_parameter("@paramProyecto", po_consActRetrasadas.pPK_proyecto),
-                                                  new cls_parameter("@paramPaquete", po_consActRetrasadas.pPK_paquete),
+                                                  new cls_parameter("@paramPaquete", po_consActRetrasadas.pPK_paquete),                                                  
+                                                  new cls_parameter("@paramFechaInicio", po_consActRetrasadas.pFechaDesde),
+                                                  new cls_parameter("@paramFechaFin", po_consActRetrasadas.pFechaHasta),
                                                   new cls_parameter("@paramUsuario", po_consActRetrasadas.pPK_usuario)
                                                 };
 

@@ -855,7 +855,9 @@ GO
 -- Descripción: 
 -- =============================================
 CREATE PROCEDURE  PA_estd_inversionTiempos
-  @paramProyecto	INT,
+  @paramProyecto	INT,  
+  @paramFechaInicio	datetime,
+  @paramFechaFin	datetime,
   @paramUsuario varchar(50)
 AS 
  BEGIN 
@@ -873,7 +875,8 @@ AS
 			From t_cont_registro_operacion tcro INNER JOIN t_cont_operacion tco
 			ON tcro.PK_codigo = tco.PK_codigo, t_cont_proyecto tcp
 			WHERE tcro.fecha between tcp.fechaInicio AND tcp.fechaFin
-			AND tcp.PK_proyecto = @paramProyecto
+			AND tcp.PK_proyecto = @paramProyecto AND
+					tcra.fecha BETWEEN @paramFechaInicio AND @paramFechaFin
 		Group by tco.tipo
 	END
 	ELSE
@@ -889,7 +892,9 @@ AS
 			From t_cont_registro_operacion tcro INNER JOIN t_cont_operacion tco
 			ON tcro.PK_codigo = tco.PK_codigo, t_cont_proyecto tcp
 			WHERE tcro.fecha between tcp.fechaInicio AND tcp.fechaFin
-			AND tcp.PK_proyecto = @paramProyecto and tcro.pk_usuario = @paramUsuario
+			AND tcp.PK_proyecto = @paramProyecto AND
+					tcra.fecha BETWEEN @paramFechaInicio AND @paramFechaFin
+      AND tcro.pk_usuario = @paramUsuario
 		Group by tco.tipo
 	END
 END  
@@ -981,6 +986,8 @@ GO
 CREATE PROCEDURE  [dbo].[PA_estd_comparacionHorasActividad]
   @paramProyecto	INT,
   @paramPaquete		INT,
+  @paramFechaInicio	datetime,
+  @paramFechaFin	datetime,
   @paramUsuario     varchar(50)
 AS 
  BEGIN 
@@ -1002,8 +1009,9 @@ AS
 					   tcra.PK_proyecto = tcaa.PK_proyecto AND
 					   tcra.PK_usuario = tcaa.PK_usuario 
 				Where 
-					tcra.PK_proyecto = @paramProyecto AND
-					tcra.PK_paquete = @paramPaquete
+					tcra.PK_proyecto = @paramProyecto  AND
+					tcra.PK_paquete = @paramPaquete AND
+					tcra.fecha BETWEEN @paramFechaInicio AND @paramFechaFin
 				GROUP BY tca.nombre, tcaa.horasAsignadas
 		END
 	ELSE
@@ -1026,7 +1034,8 @@ AS
 				Where 
 					tcra.PK_proyecto = @paramProyecto AND
 					tcra.PK_paquete = @paramPaquete AND
-					tcra.PK_usuario = @paramUsuario
+					tcra.fecha BETWEEN @paramFechaInicio AND @paramFechaFin AND 
+					tcra.PK_usuario = @paramUsuario 
 				GROUP BY tca.nombre, tcaa.horasAsignadas
 		END
 END 
@@ -1173,7 +1182,9 @@ GO
 -- =============================================
 CREATE PROCEDURE  [dbo].[PA_estd_consultaActRetrasadas]
   @paramProyecto	INT,
-  @paramPaquete		INT,
+  @paramPaquete		INT,  
+  @paramFechaInicio	datetime,
+  @paramFechaFin	datetime,
   @paramUsuario		NVARCHAR(30)
 AS 
  BEGIN 
@@ -1229,6 +1240,7 @@ AS
 		WHERE
 			aa.PK_paquete = @paramPaquete AND
 			aa.PK_proyecto = @paramProyecto AND
+      ra.fecha BETWEEN @paramFechaInicio AND @paramFechaFin AND
 			aa.PK_usuario = @paramUsuario	AND
 			aa.FK_estado = 1
 		GROUP BY

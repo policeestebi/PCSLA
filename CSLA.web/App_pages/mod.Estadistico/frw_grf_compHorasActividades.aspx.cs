@@ -93,11 +93,13 @@ namespace CSLA.web.App_pages.mod.Estadistico
         {
             try
             {
-                //if (!Page.IsPostBack)
-                //{
+              if (!Page.IsPostBack)
+              {
                 //    //Cuando se está ingresando a la página, se limpian las variables de sesión para evitar valores incorrectos
                 //    LimpiarVariablesSession();
-                //}
+                txt_fechaInicio.Text = DateTime.Today.AddMonths(-1).ToString().Substring(0, 10);
+                txt_fechaFin.Text = DateTime.Today.ToString().Substring(0, 10);
+              }
                 //else
                 //{
                 //    if (!(Session[cls_constantes.CODIGOPROYECTO] == null))
@@ -121,14 +123,14 @@ namespace CSLA.web.App_pages.mod.Estadistico
         /// <summary>
         /// Método que realiza la consulta en BD para obtener la información por proyecto y cargar sus valores
         /// </summary>
-        private void CargaGrafico(int pi_proyecto, int pi_paquete, string ps_usuario)
+        private void CargaGrafico(int pi_proyecto, int pi_paquete, DateTime pd_fechaDesde, DateTime pd_fechaHasta, string ps_usuario)
         {
             try
             {
                 //Si se está obteniendo información para un proyecto que NO es el proyecto por defecto
                 if (pi_proyecto > 0)
                 {
-                    obtenerGraficoActividadesPorProyecto(pi_proyecto, pi_paquete, ps_usuario);
+                  obtenerGraficoActividadesPorProyecto(pi_proyecto, pi_paquete, pd_fechaDesde, pd_fechaHasta, ps_usuario);
                 }
                 else
                 {
@@ -192,7 +194,7 @@ namespace CSLA.web.App_pages.mod.Estadistico
         /// <summary>
         /// Método que obtiene la información con la que se va a cargar en gráfico
         /// </summary>
-        private void obtenerGraficoActividadesPorProyecto(int pi_proyecto, int pi_paquete, string ps_usuario)
+        private void obtenerGraficoActividadesPorProyecto(int pi_proyecto, int pi_paquete, DateTime pd_fechaDesde, DateTime pd_fechaHasta, string ps_usuario)
         {
             try
             {
@@ -200,6 +202,8 @@ namespace CSLA.web.App_pages.mod.Estadistico
                 cls_compHorasActividades vo_compHorasActividades = new cls_compHorasActividades();
                 vo_compHorasActividades.pPK_proyecto = pi_proyecto;
                 vo_compHorasActividades.pPK_paquete = pi_paquete;
+                vo_compHorasActividades.pFechaDesde = pd_fechaDesde;
+                vo_compHorasActividades.pFechaHasta = pd_fechaHasta;
                 vo_compHorasActividades.pPK_usuario = ps_usuario;
 
                 List<cls_compHorasActividades> vl_topActividades = cls_gestorEstadistico.CompHorasActividadesPorProyecto(vo_compHorasActividades);
@@ -430,11 +434,11 @@ namespace CSLA.web.App_pages.mod.Estadistico
                 {
                     if (Convert.ToInt32(lbx_usuarios.SelectedIndex) > 0)
                     {
-                        CargaGrafico(Convert.ToInt32(ddl_proyecto.SelectedValue), Convert.ToInt32(ddl_paquete.SelectedValue), lbx_usuarios.SelectedValue.ToString());
+                      CargaGrafico(Convert.ToInt32(ddl_proyecto.SelectedValue), Convert.ToInt32(ddl_paquete.SelectedValue), Convert.ToDateTime(txt_fechaInicio.Text), Convert.ToDateTime(txt_fechaFin.Text), lbx_usuarios.SelectedValue.ToString());
                     }
                     else
                     {
-                        CargaGrafico(Convert.ToInt32(ddl_proyecto.SelectedValue), Convert.ToInt32(ddl_paquete.SelectedValue), string.Empty);
+                      CargaGrafico(Convert.ToInt32(ddl_proyecto.SelectedValue), Convert.ToInt32(ddl_paquete.SelectedValue), Convert.ToDateTime(txt_fechaInicio.Text), Convert.ToDateTime(txt_fechaFin.Text), string.Empty);
                     }
                 }
             }

@@ -1,4 +1,5 @@
-
+USE CSLA
+GO
 
 --- Elimina lo anterior para agregar el nuevo menu
 DELETE FROM t_admi_rol_pagina_permiso
@@ -6,7 +7,7 @@ DELETE FROM t_admi_pagina_permiso
 DELETE FROM t_admi_pagina
 DELETE FROM t_admi_menu
 
-DBCC CHECKIDENT('t_admi_pagina', RESEED, 0)
+DBCC CHECKIDENT('t_admi_pagina', RESEED, 1)
 
 --Insert del Menú Principal
 INSERT INTO t_admi_menu (PK_menu,FK_menuPadre,titulo,descripcion) VALUES (1,NULL,'Inicio', 'Inicio');
@@ -316,3 +317,5 @@ INSERT INTO t_admi_pagina_permiso (PK_pagina, PK_permiso) VALUES(25,6)
 --Se agregan todos los privilegios para el usuario administrador
 INSERT INTO t_admi_rol_pagina_permiso
 SELECT 1, PK_pagina, PK_permiso FROM t_admi_pagina_permiso
+
+SELECT * FROM t_admi_pagina

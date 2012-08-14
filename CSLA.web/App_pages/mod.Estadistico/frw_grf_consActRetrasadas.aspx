@@ -68,6 +68,46 @@
                             &nbsp;
                         </td>
                     </tr>
+                    <tr align="left">
+                        <td>
+                            <asp:Label ID="lbl_fechaInicio" runat="server" Text="Fecha Inicio: "></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txt_fechaInicio" runat="server"></asp:TextBox>
+                            <asp:ImageButton ID="img_cldFechaInicio" runat="server" ImageUrl="../../App_Themes/Basico/botones/img_calendario.png"
+                                CausesValidation="false" />
+                            <act:CalendarExtender ID="dt_fechaInicio" runat="server" TargetControlID="txt_fechaInicio"
+                                PopupButtonID="img_cldFechaInicio" Format="dd/MM/yyyy" />
+                            <act:MaskedEditExtender runat="server" ID="msk_fechaInicio" TargetControlID="txt_fechaInicio"
+                                Mask="99/99/9999" CultureName="es-ES" MessageValidatorTip="true" MaskType="Date"
+                                UserDateFormat="DayMonthYear">
+                            </act:MaskedEditExtender>
+                        </td>
+                        <td>
+                            <asp:RequiredFieldValidator ID="rfv_fechaInicio" runat="server" ControlToValidate="txt_fechaInicio"
+                                ToolTip="Ingrese la fecha inicio de la actividad" ErrorMessage="Fecha inicio es requerida"><img alt="imagen" width="25px" height="20px" src="../../App_Themes/Basico/botones/img_warning.gif" border="none"/></asp:RequiredFieldValidator>
+                        </td>
+                    </tr>
+                    <tr align="left">
+                        <td>
+                            <asp:Label ID="lbl_fechaFin" runat="server" Text="Fecha Fin: "></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txt_fechaFin" runat="server"></asp:TextBox>
+                            <asp:ImageButton ID="img_cldFechaFinal" runat="server" ImageUrl="../../App_Themes/Basico/botones/img_calendario.png"
+                                CausesValidation="false" />
+                            <act:CalendarExtender ID="dt_fechaFin" runat="server" TargetControlID="txt_fechaFin"
+                                PopupButtonID="img_cldFechaFinal" Format="dd/MM/yyyy" />
+                            <act:MaskedEditExtender runat="server" ID="msk_fechaFinal" TargetControlID="txt_fechaFin"
+                                Mask="99/99/9999" CultureName="es-ES" MessageValidatorTip="true" MaskType="Date"
+                                UserDateFormat="DayMonthYear">
+                            </act:MaskedEditExtender>
+                        </td>
+                        <td>
+                            <asp:RequiredFieldValidator ID="rfv_fechaFin" runat="server" ControlToValidate="txt_fechaFin"
+                                ToolTip="Ingrese la fecha fin de la actividad" ErrorMessage="Fecha fin es requerida"><img alt="imagen" width="25px" height="20px" src="../../App_Themes/Basico/botones/img_warning.gif" border="none"/></asp:RequiredFieldValidator>
+                        </td>
+                    </tr>
                     <tr align="right">
                         <td>
                             <asp:Label ID="lbl_usuario" runat="server" Text="Usuario: "></asp:Label>

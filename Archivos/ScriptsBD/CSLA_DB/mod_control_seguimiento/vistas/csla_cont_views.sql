@@ -1,4 +1,7 @@
-﻿IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[v_cont_reporteRegritroTiempos]'))
+﻿USE CSLA
+GO
+
+IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[v_cont_reporteRegritroTiempos]'))
 DROP VIEW [dbo].[v_cont_reporteRegritroTiempos]
 GO
 SET ANSI_NULLS ON
@@ -8,6 +11,8 @@ GO
 -- =============================================
 -- Autor: Generador
 -- Fecha Creación:	15-05-2011
+
+
 -- Fecha Actulización:	15-05-2011
 -- Descripción: 
 -- =============================================
