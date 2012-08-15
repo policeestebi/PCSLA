@@ -866,7 +866,8 @@ AS
 	BEGIN
 	Select 'Actividad' as tipo, COUNT(PK_registro)AS cantidad 
 			From t_cont_registro_actividad tcra 
-			Where tcra.PK_proyecto = @paramProyecto
+			Where tcra.PK_proyecto = @paramProyecto AND
+				  tcra.fecha BETWEEN @paramFechaInicio AND @paramFechaFin
 	Union all
 	Select tipo = CASE tco.tipo 
 					WHEN 'I' THEN 'Imprevisto'
@@ -875,15 +876,15 @@ AS
 			From t_cont_registro_operacion tcro INNER JOIN t_cont_operacion tco
 			ON tcro.PK_codigo = tco.PK_codigo, t_cont_proyecto tcp
 			WHERE tcro.fecha between tcp.fechaInicio AND tcp.fechaFin
-			AND tcp.PK_proyecto = @paramProyecto AND
-					tcra.fecha BETWEEN @paramFechaInicio AND @paramFechaFin
+			AND tcp.PK_proyecto = @paramProyecto 
 		Group by tco.tipo
 	END
 	ELSE
 	BEGIN
 	Select 'Actividad' as tipo, COUNT(PK_registro)AS cantidad 
 			From t_cont_registro_actividad tcra 
-			Where tcra.PK_proyecto = @paramProyecto and tcra.pk_usuario = @paramUsuario
+			Where tcra.PK_proyecto = @paramProyecto and tcra.pk_usuario = @paramUsuario AND
+			      tcra.fecha BETWEEN @paramFechaInicio AND @paramFechaFin
 	Union all
 	Select tipo = CASE tco.tipo 
 					WHEN 'I' THEN 'Imprevisto'
@@ -892,17 +893,12 @@ AS
 			From t_cont_registro_operacion tcro INNER JOIN t_cont_operacion tco
 			ON tcro.PK_codigo = tco.PK_codigo, t_cont_proyecto tcp
 			WHERE tcro.fecha between tcp.fechaInicio AND tcp.fechaFin
-			AND tcp.PK_proyecto = @paramProyecto AND
-					tcra.fecha BETWEEN @paramFechaInicio AND @paramFechaFin
-      AND tcro.pk_usuario = @paramUsuario
+			AND tcp.PK_proyecto = @paramProyecto 
+            AND tcro.pk_usuario = @paramUsuario
 		Group by tco.tipo
 	END
 END  
 GO 
-
-exec PA_estd_inversionTiempos 1,'Administrador'
-
-
 
 IF  EXISTS (SELECT * FROM sys.procedures WHERE object_id = OBJECT_ID(N'[dbo].[PA_estd_actividadesTopProyecto]'))
 DROP PROCEDURE [dbo].[PA_estd_actividadesTopProyecto]
