@@ -65,3 +65,12 @@ C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\ExceptionManagement\obj\Debug\R
 C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\ExceptionManagement\obj\Debug\ResGen.write.1.tlog
 C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.dll
 C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.pdb
+P:\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\bin\Debug\ExceptionManagement.dll
+P:\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\bin\Debug\ExceptionManagement.pdb
+P:\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\obj\Debug\ResolveAssemblyReference.cache
+P:\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.ExceptionManagerInstaller.resources
+P:\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.ExceptionManagerText.resources
+P:\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\obj\Debug\ResGen.read.1.tlog
+P:\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\obj\Debug\ResGen.write.1.tlog
+P:\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.dll
+P:\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.pdb
