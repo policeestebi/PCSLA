@@ -220,14 +220,14 @@ namespace CSLA.web.App_pages.mod.Estadistico
                 // Set radar chart type
                 Grafico.Series["DiasRetraso"].ChartType = SeriesChartType.Radar;
 
-                // Set radar chart style (Area, Line or Marker)
-                Grafico.Series["DiasRetraso"]["RadarDrawingStyle"] = "Line";
+                //// Set radar chart style (Area, Line or Marker)
+                //Grafico.Series["DiasRetraso"]["RadarDrawingStyle"] = "Line";
 
-                // Set circular area drawing style (Circle or Polygon)
-                Grafico.Series["DiasRetraso"]["AreaDrawingStyle"] = "Circle";
+                //// Set circular area drawing style (Circle or Polygon)
+                //Grafico.Series["DiasRetraso"]["AreaDrawingStyle"] = "Circle";
 
-                // Set labels style (Auto, Horizontal, Circular or Radial)
-                Grafico.Series["DiasRetraso"]["CircularLabelsStyle"] = "Horizontal";
+                //// Set labels style (Auto, Horizontal, Circular or Radial)
+                //Grafico.Series["DiasRetraso"]["CircularLabelsStyle"] = "Horizontal";
 
                 // Show as 3D
                 Grafico.ChartAreas["AreaGrafico"].Area3DStyle.Enable3D = true;
@@ -252,14 +252,14 @@ namespace CSLA.web.App_pages.mod.Estadistico
                 // Set radar chart type
                 Grafico.Series["HorasDeMas"].ChartType = SeriesChartType.Radar;
 
-                // Set radar chart style (Area, Line or Marker)
-                Grafico.Series["HorasDeMas"]["RadarDrawingStyle"] = "Line";
+                //// Set radar chart style (Area, Line or Marker)
+                //Grafico.Series["HorasDeMas"]["RadarDrawingStyle"] = "Line";
 
-                // Set circular area drawing style (Circle or Polygon)
-                Grafico.Series["HorasDeMas"]["AreaDrawingStyle"] = "Circle";
+                //// Set circular area drawing style (Circle or Polygon)
+                //Grafico.Series["HorasDeMas"]["AreaDrawingStyle"] = "Circle";
 
-                // Set labels style (Auto, Horizontal, Circular or Radial)
-                Grafico.Series["HorasDeMas"]["CircularLabelsStyle"] = "Horizontal";
+                //// Set labels style (Auto, Horizontal, Circular or Radial)
+                //Grafico.Series["HorasDeMas"]["CircularLabelsStyle"] = "Horizontal";
 
                 // Show as 3D
                 Grafico.ChartAreas["AreaGrafico"].Area3DStyle.Enable3D = true;

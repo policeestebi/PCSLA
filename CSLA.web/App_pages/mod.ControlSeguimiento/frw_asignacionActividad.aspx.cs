@@ -670,6 +670,18 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             }
         }
 
+        /// <summary>
+        /// Método encargado de enfocar el primer registro de la lista de actividades, eso si existe
+        /// </summary>
+        private void enfocarRegistro()
+        {
+            if (lbx_actividades.Items.Count > 0)
+            {
+                //lbx_actividades.Items[0].Selected = true;
+                //lbx_actividades.Focus();
+            }
+        }
+
         #endregion
 
         #region Eventos
@@ -734,6 +746,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
                 //Como aún no se ha escogido actividad alguna, se limpian los campos hasta que se vuelvan a asignar
                 limpiarCamposTexto();
+
+                //Se envía a poner el foco en el primer registro actividad que existe para el paquete
+                enfocarRegistro();
             }
             catch (Exception po_exception)
             {
