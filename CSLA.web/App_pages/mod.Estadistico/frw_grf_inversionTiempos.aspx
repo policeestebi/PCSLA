@@ -92,16 +92,23 @@
                 </table>
             </td>
             <td>
-                <table id="Table6">
-                    <tr align="right">
+                <table id="Table7">
+                    <tr align="left">
                         <td>
                             <asp:Label ID="lbl_usuario" runat="server" Text="Usuario: "></asp:Label>
                         </td>
                         <td>
                             <act:ListSearchExtender ID="lse_usuarios" runat="server" TargetControlID="lbx_usuarios"
                                 PromptText="Digite para buscar..." PromptPosition="Top" />
+                        </td>
+                    </tr>
+                    <tr align="left">
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td align="left">
                             <asp:ListBox ID="lbx_usuarios" runat="server" SelectionMode="Single" Width="200px"
-                                Height="158px"></asp:ListBox>
+                                Height="198px"></asp:ListBox>
                         </td>
                     </tr>
                 </table>
