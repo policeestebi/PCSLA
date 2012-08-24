@@ -148,8 +148,8 @@ LEFT OUTER JOIN
 	t_cont_paquete pa
 ON
 	aa.PK_paquete = pa.PK_paquete
-WHERE
- aa.activo = 1
+--WHERE
+-- aa.activo = 1
 GO
 
 
