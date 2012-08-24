@@ -111,7 +111,7 @@
                                                                 <asp:Label ID="lbl_descripcion" runat="server" Text="Descripcion: "></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox ID="txt_descripcion" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txt_descripcion" runat="server" OnTextChanged="txt_descripcion_TextChanged" AutoPostBack="true"></asp:TextBox>
                                                             </td>
                                                             <td>
                                                                 <asp:RequiredFieldValidator ID="rfv_descripcion" runat="server" ControlToValidate="txt_descripcion"
@@ -122,10 +122,10 @@
                                                         </tr>
                                                         <tr align="left">
                                                             <td>
-                                                                <asp:Label ID="lbl_fechaInicio" runat="server" Text="Fecha Inicio: "></asp:Label>
+                                                                <asp:Label ID="lbl_fechaInicio" runat="server" Text="Fecha Inicio: " ></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox ID="txt_fechaInicio" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txt_fechaInicio" runat="server"  OnTextChanged="txt_fechaInicio_TextChanged" AutoPostBack="true"></asp:TextBox>
                                                                 <asp:ImageButton ID="img_cldFechaInicio" runat="server" ImageUrl="../../App_Themes/Basico/botones/img_calendario.png"
                                                                     CausesValidation="false" />
                                                                 <act:CalendarExtender ID="dt_fechaInicio" runat="server" TargetControlID="txt_fechaInicio"
@@ -145,7 +145,7 @@
                                                                 <asp:Label ID="lbl_fechaFin" runat="server" Text="Fecha Fin: "></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox ID="txt_fechaFin" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txt_fechaFin" runat="server" OnTextChanged="txt_fechaFin_TextChanged" AutoPostBack="true"></asp:TextBox>
                                                                 <asp:ImageButton ID="img_cldFechaFinal" runat="server" ImageUrl="../../App_Themes/Basico/botones/img_calendario.png"
                                                                     CausesValidation="false" />
                                                                 <act:CalendarExtender ID="dt_fechaFin" runat="server" TargetControlID="txt_fechaFin"
@@ -165,7 +165,7 @@
                                                                 <asp:Label ID="lbl_horasAsignadas" runat="server" Text="Horas Asignadas: "></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox ID="txt_horasAsignadas" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txt_horasAsignadas" runat="server" OnTextChanged="txt_horasAsignadas_TextChanged" AutoPostBack="true"></asp:TextBox>
                                                             </td>
                                                             <td>
                                                                 <asp:RequiredFieldValidator ID="rfv_horasAsignadas" runat="server" ControlToValidate="txt_horasAsignadas"

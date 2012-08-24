@@ -95,7 +95,6 @@
                 <table id="Table7">
                     <tr align="left">
                         <td>
-                            <asp:Label ID="lbl_usuario" runat="server" Text="Usuario: "></asp:Label>
                         </td>
                         <td>
                             <act:ListSearchExtender ID="lse_usuarios" runat="server" TargetControlID="lbx_usuarios"
@@ -104,7 +103,7 @@
                     </tr>
                     <tr align="left">
                         <td>
-                            &nbsp;
+                            <asp:Label ID="lbl_usuario" runat="server" Text="Usuario: "></asp:Label>
                         </td>
                         <td align="left">
                             <asp:ListBox ID="lbx_usuarios" runat="server" SelectionMode="Single" Width="200px"

@@ -684,6 +684,42 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             }
         }
 
+        private void Validador()
+        {
+            try
+            {
+                cls_paquete vo_paquete = new cls_paquete();
+                vo_paquete.pPK_Paquete = Convert.ToInt32(ddl_paquete.SelectedValue.ToString());
+
+                //Se recorren las actividades del listBox hasta que se llegue a la que se encuentra seleccionada
+                for (int i = lbx_actividades.Items.Count - 1; i >= 0; i--)
+                {
+                    if (lbx_actividades.Items[i].Selected == true)
+                    {
+                        cls_actividad vo_actividad = new cls_actividad();
+                        vo_actividad.pPK_Actividad = Convert.ToInt32(lbx_actividades.Items[i].Value.ToString());
+                        vo_actividad.pNombre = lbx_actividades.Items[i].Text.ToString();
+
+                        cls_asignacionActividad vo_actividadAsignada = new cls_asignacionActividad();
+
+                        if (lbx_usuariosAsociados.Items.Count > 0)
+                        {
+                            vo_actividadAsignada = (cls_asignacionActividad)cls_variablesSistema.vs_proyecto.pAsignacionActividadListaMemoria.Find(searchLinQ => searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad &&
+                                                                                                                                                                searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete);
+                            cls_variablesSistema.obj = vo_actividadAsignada;
+
+                            vo_actividadAsignada = crearObjeto();
+                        }
+                    }
+                }
+            }
+            catch (Exception po_exception)
+            {
+                String vs_error_usuario = "Ocurrió un error mientras se asignada la información del usuario a la actividad.";
+                this.lanzarExcepcion(po_exception, vs_error_usuario);
+            }
+        }
+
         #endregion
 
         #region Eventos
@@ -717,6 +753,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             try
             {
                 this.ddl_estado.Text = ((DropDownList)sender).SelectedValue;
+                Validador();
             }
             catch (Exception po_exception)
             {
@@ -1015,6 +1052,26 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             }
         }
 
+        protected void txt_horasAsignadas_TextChanged(object sender, EventArgs e)
+        {            
+            Validador();
+        }
+
+        protected void txt_descripcion_TextChanged(object sender, EventArgs e)
+        {
+            Validador();
+        }
+
+        protected void txt_fechaInicio_TextChanged(object sender, EventArgs e)
+        {
+            Validador();
+        }
+
+        protected void txt_fechaFin_TextChanged(object sender, EventArgs e)
+        {
+            Validador();
+        }
+
         #endregion
 
         #region Seguridad
@@ -1066,5 +1123,6 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         }
 
         #endregion Seguridad
+
     }
 }

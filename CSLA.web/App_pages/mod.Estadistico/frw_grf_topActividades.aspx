@@ -97,7 +97,6 @@
                 <table id="Table7">
                     <tr align="left">
                         <td>
-                            <asp:Label ID="lbl_usuario" runat="server" Text="Usuario: "></asp:Label>
                         </td>
                         <td>
                             <act:ListSearchExtender ID="lse_usuarios" runat="server" TargetControlID="lbx_usuarios"
@@ -106,7 +105,7 @@
                     </tr>
                     <tr align="left">
                         <td>
-                            &nbsp;
+                            <asp:Label ID="lbl_usuario" runat="server" Text="Usuario: "></asp:Label>
                         </td>
                         <td align="left">
                             <asp:ListBox ID="lbx_usuarios" runat="server" SelectionMode="Single" Width="200px"
@@ -123,7 +122,8 @@
             </td>
         </tr>
     </table>
-    <asp:Chart ID="Grafico" runat="server" Height="408px" Width="752px" OnClick="Grafico_Click" OnInit="Grafico_Init">
+    <asp:Chart ID="Grafico" runat="server" Height="408px" Width="752px" OnClick="Grafico_Click"
+        OnInit="Grafico_Init">
         <Titles>
             <asp:Title ShadowOffset="3" Name="Title1" />
         </Titles>
