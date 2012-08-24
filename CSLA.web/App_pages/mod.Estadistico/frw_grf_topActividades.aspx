@@ -123,7 +123,7 @@
             </td>
         </tr>
     </table>
-    <asp:Chart ID="Grafico" runat="server" Height="408px" Width="752px" OnInit="Grafico_Init">
+    <asp:Chart ID="Grafico" runat="server" Height="408px" Width="752px" OnClick="Grafico_Click" OnInit="Grafico_Init">
         <Titles>
             <asp:Title ShadowOffset="3" Name="Title1" />
         </Titles>

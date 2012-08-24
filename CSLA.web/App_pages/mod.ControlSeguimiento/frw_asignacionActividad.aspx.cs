@@ -677,7 +677,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             if (lbx_actividades.Items.Count > 0)
             {
-                //lbx_actividades.Items[0].Selected = true;
+                lbx_actividades.SelectedIndex = 0; 
+                lbx_actividades_SelectedIndexChanged(this, new EventArgs());
+                //lbx_actividades.SetSelected = true;
                 //lbx_actividades.Focus();
             }
         }

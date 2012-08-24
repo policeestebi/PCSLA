@@ -426,7 +426,7 @@ namespace CSLA.web.App_pages.mod.Estadistico
                 int pointIndex = int.Parse(e.PostBackValue);
                 Series series = Grafico.Series["Leyendas"];
 
-                CargaGrafico(Convert.ToInt32(ddl_proyecto.SelectedValue), Convert.ToDateTime(txt_fechaInicio.Text), Convert.ToDateTime(txt_fechaFin.Text), lbx_usuarios.SelectedValue.ToString());
+                CargaGrafico(Convert.ToInt32(ddl_proyecto.SelectedValue), Convert.ToDateTime(txt_fechaInicio.Text), Convert.ToDateTime(txt_fechaFin.Text), (lbx_usuarios.SelectedIndex == 0? string.Empty:lbx_usuarios.SelectedValue.ToString()));
 
                 if (pointIndex >= 0 && pointIndex < series.Points.Count)
                 {

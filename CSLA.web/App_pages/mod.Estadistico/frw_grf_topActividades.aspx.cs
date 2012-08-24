@@ -360,6 +360,31 @@ namespace CSLA.web.App_pages.mod.Estadistico
             }
         }
 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void Grafico_Click(object sender, ImageMapEventArgs e)
+        {
+            try
+            {
+                int pointIndex = int.Parse(e.PostBackValue);
+                Series series = Grafico.Series["Leyendas"];
+
+                CargaGrafico(Convert.ToInt32(ddl_proyecto.SelectedValue), Convert.ToDateTime(txt_fechaInicio.Text), Convert.ToDateTime(txt_fechaFin.Text), (lbx_usuarios.SelectedIndex == 0 ? string.Empty : lbx_usuarios.SelectedValue.ToString()));
+
+                if (pointIndex >= 0 && pointIndex < series.Points.Count)
+                {
+                    series.Points[pointIndex].CustomProperties = string.Empty;
+                    series.Points[pointIndex].CustomProperties += "Exploded=true";
+                }
+            }
+            catch (Exception po_exception)
+            {
+                String vs_error_usuario = "Ocurrió un error al enfocar la sección del gráfico.";
+                this.lanzarExcepcion(po_exception, vs_error_usuario);
+            }
+        }
+
         #endregion Eventos
 
         #region Seguridad
