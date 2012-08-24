@@ -134,6 +134,7 @@ namespace CSLA.web.App_pages.mod.Estadistico
                 }
                 else
                 {
+                    this.lanzarExcepcion(new Exception(cls_constantes.MENSAJEADVERTENCIA), cls_constantes.ADVERTENCIA);
                     obtenerGraficoPorDefecto();
                 }
             }

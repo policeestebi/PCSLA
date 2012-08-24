@@ -55,3 +55,14 @@ C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\COSEVI.web.controls\obj\Debug\R
 C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\COSEVI.web.controls\obj\Debug\ResGen.write.1.tlog
 C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\COSEVI.web.controls\obj\Debug\COSEVI.web.controls.dll
 C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\COSEVI.web.controls\obj\Debug\COSEVI.web.controls.pdb
+P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.web.controls\bin\Debug\COSEVI.web.controls.dll
+P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.web.controls\bin\Debug\COSEVI.web.controls.pdb
+P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.web.controls\bin\Debug\AjaxControlToolkit.dll
+P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.web.controls\bin\Debug\COSEVI.CSLA.lib.entidades.dll
+P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.web.controls\bin\Debug\COSEVI.CSLA.lib.entidades.pdb
+P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.web.controls\obj\Debug\ResolveAssemblyReference.cache
+P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.web.controls\obj\Debug\COSEVI.web.controls.cld_resources.resources
+P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.web.controls\obj\Debug\ResGen.read.1.tlog
+P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.web.controls\obj\Debug\ResGen.write.1.tlog
+P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.web.controls\obj\Debug\COSEVI.web.controls.dll
+P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.web.controls\obj\Debug\COSEVI.web.controls.pdb

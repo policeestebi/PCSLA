@@ -40,15 +40,6 @@ namespace CSLA.web.App_pages.mod.Estadistico {
         protected global::System.Web.UI.WebControls.Label lbl_mensaje;
         
         /// <summary>
-        /// lbl_titulo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_titulo;
-        
-        /// <summary>
         /// lbl_proyecto control.
         /// </summary>
         /// <remarks>
@@ -175,15 +166,6 @@ namespace CSLA.web.App_pages.mod.Estadistico {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_fechaFin;
         
         /// <summary>
-        /// lbl_usuario control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_usuario;
-        
-        /// <summary>
         /// lse_usuarios control.
         /// </summary>
         /// <remarks>
@@ -191,6 +173,15 @@ namespace CSLA.web.App_pages.mod.Estadistico {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.ListSearchExtender lse_usuarios;
+        
+        /// <summary>
+        /// lbl_usuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_usuario;
         
         /// <summary>
         /// lbx_usuarios control.

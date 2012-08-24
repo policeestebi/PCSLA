@@ -139,7 +139,8 @@ namespace CSLA.web.App_pages.mod.Estadistico
                 }
                 else
                 {
-                    obtenerGraficoPorDefecto();
+                    this.lanzarExcepcion(new Exception(cls_constantes.MENSAJEADVERTENCIA), cls_constantes.ADVERTENCIA);
+                    //obtenerGraficoPorDefecto();
                 }
             }
             catch (Exception po_exception)
@@ -217,19 +218,19 @@ namespace CSLA.web.App_pages.mod.Estadistico
                 Grafico.Series["DiasRetraso"].Points.DataBindXY(vl_consultaActividades, "pNombreActividad", vl_consultaActividades, "pDiasRetraso");
 
                 // Set radar chart type
-                Grafico.Series["DiasRetraso"].ChartType = SeriesChartType.Radar;
+                Grafico.Series["DiasRetraso"].ChartType = SeriesChartType.Column;
 
-                // Set radar chart style (Area, Line or Marker)
-                Grafico.Series["DiasRetraso"]["RadarDrawingStyle"] = "Line";
+                //// Set radar chart style (Area, Line or Marker)
+                //Grafico.Series["DiasRetraso"]["RadarDrawingStyle"] = "Line";
 
-                // Set circular area drawing style (Circle or Polygon)
-                Grafico.Series["DiasRetraso"]["AreaDrawingStyle"] = "Circle";
+                //// Set circular area drawing style (Circle or Polygon)
+                //Grafico.Series["DiasRetraso"]["AreaDrawingStyle"] = "Circle";
 
-                // Set labels style (Auto, Horizontal, Circular or Radial)
-                Grafico.Series["DiasRetraso"]["CircularLabelsStyle"] = "Horizontal";
+                //// Set labels style (Auto, Horizontal, Circular or Radial)
+                //Grafico.Series["DiasRetraso"]["CircularLabelsStyle"] = "Horizontal";
 
                 // Show as 3D
-                Grafico.ChartAreas["AreaGrafico"].Area3DStyle.Enable3D = true;
+                //Grafico.ChartAreas["AreaGrafico"].Area3DStyle.Enable3D = true;
                 Grafico.Series["DiasRetraso"].Color = Color.Red;
 
                 // Enable AntiAliasing for either Text and Graphics or just Graphics
@@ -249,23 +250,23 @@ namespace CSLA.web.App_pages.mod.Estadistico
                 Grafico.Series["HorasDeMas"]["BackColor"] = "Transparent";
 
                 // Set radar chart type
-                Grafico.Series["HorasDeMas"].ChartType = SeriesChartType.Radar;
+                Grafico.Series["HorasDeMas"].ChartType = SeriesChartType.Column;
 
-                // Set radar chart style (Area, Line or Marker)
-                Grafico.Series["HorasDeMas"]["RadarDrawingStyle"] = "Line";
+                //// Set radar chart style (Area, Line or Marker)
+                //Grafico.Series["HorasDeMas"]["RadarDrawingStyle"] = "Line";
 
-                // Set circular area drawing style (Circle or Polygon)
-                Grafico.Series["HorasDeMas"]["AreaDrawingStyle"] = "Circle";
+                //// Set circular area drawing style (Circle or Polygon)
+                //Grafico.Series["HorasDeMas"]["AreaDrawingStyle"] = "Circle";
 
-                // Set labels style (Auto, Horizontal, Circular or Radial)
-                Grafico.Series["HorasDeMas"]["CircularLabelsStyle"] = "Horizontal";
+                //// Set labels style (Auto, Horizontal, Circular or Radial)
+                //Grafico.Series["HorasDeMas"]["CircularLabelsStyle"] = "Horizontal";
 
                 // Show as 3D
-                Grafico.ChartAreas["AreaGrafico"].Area3DStyle.Enable3D = true;
-                Grafico.Series["HorasDeMas"].Color = Color.BlueViolet;
+                //Grafico.ChartAreas["AreaGrafico"].Area3DStyle.Enable3D = true;
+                Grafico.Series["HorasDeMas"].Color = Color.Green;
 
                 //Se aplica el estilo pastel a los colores definidos para el gráfico
-                Grafico.Palette = ChartColorPalette.BrightPastel;
+                Grafico.Palette = ChartColorPalette.Light;
                 Grafico.ApplyPaletteColors();
                 //Para que el estilo tome efecto se debe asignar a cada uno de los puntos de la serie en el gráfico
                 foreach (var series in Grafico.Series)
@@ -277,7 +278,7 @@ namespace CSLA.web.App_pages.mod.Estadistico
                 }
 
                 // Properties
-                Grafico.ChartAreas["AreaGrafico"].BackColor = Color.PaleGoldenrod;
+                Grafico.ChartAreas["AreaGrafico"].BackColor = Color.Transparent;
                 Grafico.ChartAreas["AreaGrafico"].AxisY.Interval = 5;
                 Grafico.ChartAreas["AreaGrafico"].AxisY.IntervalType = DateTimeIntervalType.Number;
                 Grafico.ChartAreas["AreaGrafico"].AxisX.Interval = 2;
@@ -387,23 +388,20 @@ namespace CSLA.web.App_pages.mod.Estadistico
         {
             try
             {
-                //Session[cls_constantes.CODIGOPROYECTO] = ddl_proyecto.SelectedValue;
-                //Session[cls_constantes.CODIGOPAQUETE] = ddl_paquete.SelectedValue;
-
                 //Si el proyecto es un proyecto válido, se carga, de lo contrario, se limpia la variable en memoria
                 //Si el proyecto es el "0", no se traerá nada, por lo que no se mostrará nada en ventana, que es el 
                 //caso defecto, y está bien
-                if (Convert.ToInt32(ddl_proyecto.SelectedValue) > -1)
-                {
-                    if (Convert.ToInt32(lbx_usuarios.SelectedIndex) > 0)
-                    {
-                      CargaGrafico(Convert.ToInt32(ddl_proyecto.SelectedValue), Convert.ToInt32(ddl_paquete.SelectedValue), Convert.ToDateTime(txt_fechaInicio.Text), Convert.ToDateTime(txt_fechaFin.Text), lbx_usuarios.SelectedValue.ToString());
-                    }
-                    else
-                    {
-                      CargaGrafico(Convert.ToInt32(ddl_proyecto.SelectedValue), Convert.ToInt32(ddl_paquete.SelectedValue), Convert.ToDateTime(txt_fechaInicio.Text), Convert.ToDateTime(txt_fechaFin.Text), string.Empty);
-                    }
-                }
+                //if (Convert.ToInt32(ddl_proyecto.SelectedValue) > -1)
+                //{
+                //    if (Convert.ToInt32(lbx_usuarios.SelectedIndex) > 0)
+                //    {
+                //      CargaGrafico(Convert.ToInt32(ddl_proyecto.SelectedValue), Convert.ToInt32(ddl_paquete.SelectedValue), Convert.ToDateTime(txt_fechaInicio.Text), Convert.ToDateTime(txt_fechaFin.Text), lbx_usuarios.SelectedValue.ToString());
+                //    }
+                //    else
+                //    {
+                //      CargaGrafico(Convert.ToInt32(ddl_proyecto.SelectedValue), Convert.ToInt32(ddl_paquete.SelectedValue), Convert.ToDateTime(txt_fechaInicio.Text), Convert.ToDateTime(txt_fechaFin.Text), string.Empty);
+                //    }
+                //}
             }
             catch (Exception po_exception)
             {

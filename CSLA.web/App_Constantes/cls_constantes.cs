@@ -100,6 +100,15 @@ namespace CSLA.web.App_Constantes
         /// </summary>
         public const string USUARIOCONSULTA = "vs_usuarioConsulta";
 
+        /// <summary>
+        /// Constante para indicar una advertencia
+        /// </summary>
+        public const string ADVERTENCIA = "Advertencia.";
+
+        /// <summary>
+        /// Mensaje que se utiliza para indicar que faltan parámetros para generar el gráfico
+        /// </summary>
+        public const string MENSAJEADVERTENCIA = "Debe indicar los parámetros que se le muestran para poder generar el gráfico.";
 
     }
 
