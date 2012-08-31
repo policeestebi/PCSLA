@@ -115,10 +115,10 @@ namespace CSLA.web.App_pages.mod.Reportes.RegistroTiemposUsuarios
         /// <param name="args"></param>
         protected void cmv_fechas_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            DateTime vd_fechaInicial = Convert.ToDateTime(this.txt_fechaInicio.Text);
-            DateTime vd_fechaFinal = Convert.ToDateTime(this.txt_fechaFinal.Text);
+            //DateTime vd_fechaInicial = Convert.ToDateTime(this.txt_fechaInicio.Text);
+            //DateTime vd_fechaFinal = Convert.ToDateTime(this.txt_fechaFinal.Text);
 
-            args.IsValid = vd_fechaInicial <= vd_fechaFinal;
+            //args.IsValid = vd_fechaInicial <= vd_fechaFinal;
         }
 
 

@@ -454,7 +454,8 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                     this.colocarActividadAtrasada(vo_registro.pAsignacion);
                 }
 
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Salida", "MostrarMensaje();", true);
+                //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Salida", "MostrarMensaje();", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Salida", "window.parent.$.fancybox.close();", true);
                 //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Salida", "alert(\"Se ha grabado con éxito el registro de tiempos\");", true);
             }
             catch (Exception po_excepciones)

@@ -134,3 +134,6 @@ P:\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\bin\lib_envioCorreo.pdb
 P:\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\obj\Debug\ResolveAssemblyReference.cache
 P:\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\obj\Debug\CSLA.web.dll
 P:\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\obj\Debug\CSLA.web.pdb
+C:\Users\Esteban\Documents\GIT\PCSLA\CSLA.web\bin\frw_error.aspx
+C:\Users\Esteban\Documents\GIT\PCSLA\CSLA.web\bin\frw_error.aspx.cs
+C:\Users\Esteban\Documents\GIT\PCSLA\CSLA.web\bin\frw_error.aspx.designer.cs

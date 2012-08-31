@@ -159,7 +159,9 @@
     <Content Include="App_Themes\Basico\js\jquery.fancybox.pack.js" />
     <Content Include="App_Themes\Basico\js\jquery.fn.shorten.js" />
     <Content Include="App_Themes\Basico\js\pdfobject.js" />
-    <Content Include="frw_error.aspx" />
+    <Content Include="frw_error.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="App_pages\mod.Administracion\frw_bitacora.aspx" />
     <Content Include="App_pages\mod.Administracion\frw_departamento.aspx" />
     <Content Include="App_pages\mod.Administracion\frw_menu.aspx" />
@@ -371,9 +373,11 @@
     <Compile Include="frw_error.aspx.cs">
       <DependentUpon>frw_error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="frw_error.aspx.designer.cs">
       <DependentUpon>frw_error.aspx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="App_pages\mod.Administracion\frw_bitacora.aspx.cs">
       <DependentUpon>frw_bitacora.aspx</DependentUpon>
