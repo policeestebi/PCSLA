@@ -65,6 +65,17 @@ C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\ExceptionManagement\obj\Debug\R
 C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\ExceptionManagement\obj\Debug\ResGen.write.1.tlog
 C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.dll
 C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.pdb
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\bin\Debug\ExceptionManagement.dll
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\bin\Debug\ExceptionManagement.pdb
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\obj\Debug\ResolveAssemblyReference.cache
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.ExceptionManagerInstaller.resources
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.ExceptionManagerText.resources
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\obj\Debug\ResGen.read.1.tlog
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\obj\Debug\ResGen.write.1.tlog
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.dll
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.pdb
 P:\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\bin\Debug\ExceptionManagement.dll
 P:\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\bin\Debug\ExceptionManagement.pdb
 P:\Dropbox\ProyectoCSLA\PCSLA\ExceptionManagement\obj\Debug\ResolveAssemblyReference.cache

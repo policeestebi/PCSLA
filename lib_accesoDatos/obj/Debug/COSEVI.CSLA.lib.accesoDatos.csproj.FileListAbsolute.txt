@@ -47,6 +47,13 @@ C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\lib_accesoDatos\bin\Debug\COSEV
 C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\lib_accesoDatos\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\lib_accesoDatos\obj\Debug\lib_accesoDatos.dll
 C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\lib_accesoDatos\obj\Debug\lib_accesoDatos.pdb
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\lib_accesoDatos\bin\Debug\lib_accesoDatos.dll
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\lib_accesoDatos\bin\Debug\lib_accesoDatos.pdb
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\lib_accesoDatos\bin\Debug\COSEVI.CSLA.lib.entidades.dll
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\lib_accesoDatos\bin\Debug\COSEVI.CSLA.lib.entidades.pdb
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\lib_accesoDatos\obj\Debug\ResolveAssemblyReference.cache
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\lib_accesoDatos\obj\Debug\lib_accesoDatos.dll
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\lib_accesoDatos\obj\Debug\lib_accesoDatos.pdb
 P:\Dropbox\ProyectoCSLA\PCSLA\lib_accesoDatos\bin\Debug\lib_accesoDatos.dll
 P:\Dropbox\ProyectoCSLA\PCSLA\lib_accesoDatos\bin\Debug\lib_accesoDatos.pdb
 P:\Dropbox\ProyectoCSLA\PCSLA\lib_accesoDatos\bin\Debug\COSEVI.CSLA.lib.entidades.dll

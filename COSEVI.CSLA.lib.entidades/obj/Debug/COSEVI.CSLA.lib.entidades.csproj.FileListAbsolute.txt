@@ -33,6 +33,11 @@ C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\COSEVI.CSLA.lib.entidades\bin\D
 C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\COSEVI.CSLA.lib.entidades\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\COSEVI.CSLA.lib.entidades\obj\Debug\COSEVI.CSLA.lib.entidades.dll
 C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\COSEVI.CSLA.lib.entidades\obj\Debug\COSEVI.CSLA.lib.entidades.pdb
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\COSEVI.CSLA.lib.entidades\bin\Debug\COSEVI.CSLA.lib.entidades.dll
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\COSEVI.CSLA.lib.entidades\bin\Debug\COSEVI.CSLA.lib.entidades.pdb
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\COSEVI.CSLA.lib.entidades\obj\Debug\ResolveAssemblyReference.cache
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\COSEVI.CSLA.lib.entidades\obj\Debug\COSEVI.CSLA.lib.entidades.dll
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\COSEVI.CSLA.lib.entidades\obj\Debug\COSEVI.CSLA.lib.entidades.pdb
 P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.CSLA.lib.entidades\bin\Debug\COSEVI.CSLA.lib.entidades.dll
 P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.CSLA.lib.entidades\bin\Debug\COSEVI.CSLA.lib.entidades.pdb
 P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.CSLA.lib.entidades\obj\Debug\ResolveAssemblyReference.cache
