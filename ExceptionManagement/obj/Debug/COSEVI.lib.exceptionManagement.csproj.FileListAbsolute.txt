@@ -50,9 +50,7 @@ C:\Users\Esteban\Documents\GIT\PCSLA\ExceptionManagement\bin\Debug\ExceptionMana
 C:\Users\Esteban\Documents\GIT\PCSLA\ExceptionManagement\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Esteban\Documents\GIT\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.ExceptionManagerInstaller.resources
 C:\Users\Esteban\Documents\GIT\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.ExceptionManagerText.resources
-C:\Users\Esteban\Documents\GIT\PCSLA\ExceptionManagement\obj\Debug\GenerateResource-ResGen.read.1.tlog
 C:\Users\Esteban\Documents\GIT\PCSLA\ExceptionManagement\obj\Debug\ResGen.read.1.tlog
-C:\Users\Esteban\Documents\GIT\PCSLA\ExceptionManagement\obj\Debug\GenerateResource-ResGen.write.1.tlog
 C:\Users\Esteban\Documents\GIT\PCSLA\ExceptionManagement\obj\Debug\ResGen.write.1.tlog
 C:\Users\Esteban\Documents\GIT\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.dll
 C:\Users\Esteban\Documents\GIT\PCSLA\ExceptionManagement\obj\Debug\ExceptionManagement.pdb

@@ -1,0 +1,132 @@
+/**
+ *********************************************
+ * Prototype of styles for horizontal CSS-menu
+ * @data 25.01.2010
+ *********************************************
+ * (X)HTML-scheme:
+ *  <div id="menu">
+ *      <ul class="menu">
+ *          <li><a href="#" class="parent"><span>level 1</span></a>
+ *              <div><ul>
+ *                  <li><a href="#" class="parent"><span>level 2</span></a>
+ *                      <div><ul><li><a href="#"><span>level 3</span></a></li></ul></div>
+ *                  </li>
+ *              </ul></div>
+ *          </li>
+ *          <li class="last"><a href="#"><span>level 1</span></a></li>
+ *      </ul>
+ *  </div>
+ *********************************************
+ */
+
+/* menu::base */
+#menu {
+    position:relative;
+    z-index:100;
+    height:32px;
+	background-color:#444;
+	margin-left:5px;
+	margin-right:5px;
+}
+#menu .menu {
+    position:absolute;
+    vertical-align:middle;
+}
+#menu * {
+    list-style:none;
+    border:0;
+    padding:0;
+    margin:0;
+}
+#menu a {
+    display:block;
+    padding:7px 14px 7px 14px;
+    white-space:nowrap;
+}
+#menu li {
+    float:left;
+    background:#fff;
+}
+#menu li li {
+    float:none;
+    _border:1px solid #737373; /** fix for ie6 */
+}
+#menu div {
+    visibility:hidden;
+    position:absolute;
+    background:url(../imagenes/menu/pix.gif);
+}
+#menu div div {
+    margin:-24px 0 0 -1px;
+    left:100%;
+}
+#menu li:hover>div { visibility:visible; }
+
+/* menu::special styles */
+/* menu::level 1 */
+#menu a {
+    text-decoration:none;
+    color:#fff;
+    position:relative;
+    z-index:77;
+}
+#menu a:hover {
+    background:url(../imagenes/menu/back.png);
+    color:#ffa500;
+}
+#menu a:hover span { color:#ffa500; }
+#menu>ul>li:hover>a {
+    background:url(../imagenes/menu/back.png);
+    color:#ffa500;
+}
+#menu>ul>li:hover>a span { color:#ffa500; }
+#menu span {
+    text-transform:uppercase;
+    font:12px/18px 'Trebuchet MS', Arial, Helvetica, Sans-serif;
+    color:#fff;
+}
+#menu li { background:none; }
+/* menu::level >= 2 */
+#menu li li a {
+    padding:0;
+    position:static;
+}
+#menu li li a:hover { background:#cf8700; }
+#menu li li a span { color:#fff; }
+#menu li li a:hover span { color:#ffffff; }
+#menu li li a.parent span { background:url(../imagenes/menu/pointer.gif) no-repeat right 9px; _background-position:right 10px; }
+*+html #menu li li a.parent span { background-position:right 10px; }
+#menu li li span {
+    display:block;
+    text-transform:none;
+    line-height:16px;
+    padding:4px 25px 4px 14px;
+    font-size:11px;
+}
+#menu li div { background:url(../imagenes/menu/back.png); }
+/** <fix for ie6> */
+#menu div div {
+    _margin-top:-25px;
+    _background:#393939;
+}
+#menu li li li { _border:1px solid #393939; }
+#menu div div div { _background:#292929; }
+#menu li li li li { _border:1px solid #292929; }
+/** </fix for ie6> */
+
+/* lava lamp */
+div#menu li.back {
+    width:10px;
+    height:32px;
+    z-index:8;
+    position:absolute;
+}
+div#menu li.back .left {
+    width:auto;
+    height:32px;
+    float:none;
+    position:relative;
+    top:0;
+    left:0;
+    visibility:visible;
+}
