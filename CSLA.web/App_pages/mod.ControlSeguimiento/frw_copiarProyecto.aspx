@@ -95,8 +95,14 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="txt_fechaInicio" runat="server"></asp:TextBox>
+                                    <asp:ImageButton ID="img_cldFechaInicio" runat="server" ImageUrl="../../App_Themes/Basico/botones/img_calendario.png"
+                                        CausesValidation="false" />
                                     <act:CalendarExtender ID="dt_fechaInicio" runat="server" TargetControlID="txt_fechaInicio"
-                                        Format="MMMM d, yyyy" />
+                                        PopupButtonID="img_cldFechaInicio" Format="dd/MM/yyyy" />
+                                    <act:MaskedEditExtender runat="server" ID="msk_fechaInicio" TargetControlID="txt_fechaInicio"
+                                        Mask="99/99/9999" CultureName="es-ES" MessageValidatorTip="true" MaskType="Date"
+                                        UserDateFormat="DayMonthYear">
+                                    </act:MaskedEditExtender>
                                 </td>
                                 <td>
                                     <asp:RequiredFieldValidator ID="rfv_fechaInicio" runat="server" ControlToValidate="txt_fechaInicio"
@@ -119,8 +125,14 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="txt_fechaFin" runat="server"></asp:TextBox>
+                                    <asp:ImageButton ID="img_cldFechaFinal" runat="server" ImageUrl="../../App_Themes/Basico/botones/img_calendario.png"
+                                        CausesValidation="false" />
                                     <act:CalendarExtender ID="dt_fechaFin" runat="server" TargetControlID="txt_fechaFin"
-                                        Format="MMMM d, yyyy" />
+                                        PopupButtonID="img_cldFechaFinal" Format="dd/MM/yyyy" />
+                                    <act:MaskedEditExtender runat="server" ID="msk_fechaFinal" TargetControlID="txt_fechaFin"
+                                        Mask="99/99/9999" CultureName="es-ES" MessageValidatorTip="true" MaskType="Date"
+                                        UserDateFormat="DayMonthYear">
+                                    </act:MaskedEditExtender>
                                 </td>
                                 <td>
                                     <asp:RequiredFieldValidator ID="rfv_fechaFin" runat="server" ControlToValidate="txt_fechaFin"

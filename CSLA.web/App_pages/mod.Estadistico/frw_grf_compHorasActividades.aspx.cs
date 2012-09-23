@@ -210,15 +210,10 @@ namespace CSLA.web.App_pages.mod.Estadistico
                 List<cls_compHorasActividades> vl_topActividades = cls_gestorEstadistico.CompHorasActividadesPorProyecto(vo_compHorasActividades);
 
                 //Se asignan los tooltips para el gráfico
-                Grafico.Series["Leyendas"].ToolTip = "##VALX\n#PERCENT";
-                //Grafico.Series["Leyendas"].ToolTip = "#VALX: #VAL{d} horas";
+                Grafico.Series["Leyendas"].ToolTip = "#VALX\n#PERCENT";
                 Grafico.Series["Leyendas"].LegendToolTip = "#VALX\n#PERCENT";
-                //Grafico.Series["Leyendas"].LegendToolTip = "#VALX: #VAL{d} Horas";
-                Grafico.Series["Leyendas"].IsVisibleInLegend = false;
+                Grafico.Series["Leyendas"].IsVisibleInLegend = true;
                 Grafico.Series["Leyendas"].Label = "#VAL{d} horas";
-                //Grafico.Series["Leyendas"].Label = "#VALX\n#PERCENT";
-                Grafico.Series["Leyendas"].PostBackValue = "#INDEX";
-                Grafico.Series["Leyendas"].LegendPostBackValue = "#INDEX";
 
                 //Se realiza el binding de la información que se obtuvo en la consulta
                 Grafico.Series["Leyendas"].Points.DataBindXY(vl_topActividades, "pNombreActividad", vl_topActividades, "pHorasReales");
@@ -241,7 +236,7 @@ namespace CSLA.web.App_pages.mod.Estadistico
                 // Set axis labels font
                 Grafico.ChartAreas["AreaGrafico"].AxisX.LabelStyle.Font = new Font("Arial", 10);
                 // Set axis labels angle
-                Grafico.ChartAreas["AreaGrafico"].AxisX.LabelStyle.Angle = -90;
+                Grafico.ChartAreas["AreaGrafico"].AxisX.LabelStyle.Angle = 0;
                 // Disable offset labels style
                 Grafico.ChartAreas["AreaGrafico"].AxisX.LabelStyle.IsStaggered = false;
                 // Enable X axis labels
@@ -259,27 +254,36 @@ namespace CSLA.web.App_pages.mod.Estadistico
                 // ensure the destination series is a Line or Spline chart type
                 destSeries.ChartType = SeriesChartType.Line;
                 destSeries.BorderWidth = 3;
-                destSeries.Color = Color.Firebrick;
+                destSeries.Color = Color.White;
                 // assign the series to the same chart area as the column chart
                 destSeries.ChartArea = Grafico.Series["Leyendas"].ChartArea;
-                Grafico.ChartAreas["AreaGrafico"].AxisX.LabelStyle.IsEndLabelVisible = false;
+                Grafico.ChartAreas["AreaGrafico"].AxisX.LabelStyle.IsEndLabelVisible = true;
 
                 Grafico.Legends[0].Enabled = false;
                 //Se realiza el binding de la información que se obtuvo en la consulta
                 Grafico.Series["Pareto"].Points.DataBindXY(vl_topActividades, "pNombreActividad", vl_topActividades, "pHorasAsignadas");
 
                 Grafico.Series["Pareto"]["BackColor"] = "Transparent";
+
+                //Se asignan los tooltips para el gráfico
+                Grafico.Series["Pareto"].ToolTip = "#VALX\n#PERCENT";
+                //Grafico.Series["Leyendas"].ToolTip = "#VALX: #VAL{d} horas";
+                Grafico.Series["Pareto"].LegendToolTip = "#VALX\n#PERCENT";
+                //Grafico.Series["Leyendas"].LegendToolTip = "#VALX: #VAL{d} Horas";
+                Grafico.Series["Pareto"].IsVisibleInLegend = true;
+                Grafico.Series["Pareto"].Label = "#VAL{d} horas";
+
                 // Set chart types for output data
                 Grafico.Series["Pareto"].ChartType = SeriesChartType.Line;
                 // set the markers for each point of the Pareto Line
                 Grafico.Series["Pareto"].IsValueShownAsLabel = true;
-                Grafico.Series["Pareto"].MarkerColor = Color.Red;
+                Grafico.Series["Pareto"].MarkerColor = Color.LightBlue;
                 Grafico.Series["Pareto"].MarkerBorderColor = Color.DarkRed;
                 Grafico.Series["Pareto"].MarkerStyle = MarkerStyle.Circle;
                 Grafico.Series["Pareto"].MarkerSize = 8;
                 Grafico.Series["Pareto"].LabelFormat = "0.#";  // format with one decimal and leading zero
                 // Set Color of line Pareto chart
-                Grafico.Series["Pareto"].Color = Color.Tomato;
+                Grafico.Series["Pareto"].Color = Color.LightSalmon;
 
                 // Set 3D mode
                 Grafico.ChartAreas["AreaGrafico"].Area3DStyle.Enable3D = true;
@@ -305,15 +309,15 @@ namespace CSLA.web.App_pages.mod.Estadistico
                 // Set axis title
                 Grafico.ChartAreas["AreaGrafico"].AxisY.Title = "Horas Invertidas";
                 Grafico.ChartAreas["AreaGrafico"].AxisY.TitleFont = new Font("Times New Roman", 12, FontStyle.Bold);
-                Grafico.ChartAreas["AreaGrafico"].AxisX2.Title = "Actividades Registradas";
-                Grafico.ChartAreas["AreaGrafico"].AxisX2.TitleFont = new Font("Times New Roman", 12, FontStyle.Bold);
+                Grafico.ChartAreas["AreaGrafico"].AxisX.Title = "Actividades Registradas";
+                Grafico.ChartAreas["AreaGrafico"].AxisX.TitleFont = new Font("Times New Roman", 12, FontStyle.Bold);
 
                 // Properties
-                Grafico.ChartAreas["AreaGrafico"].BackColor = Color.Khaki;
+                Grafico.ChartAreas["AreaGrafico"].BackColor = Color.White;
                 Grafico.ChartAreas["AreaGrafico"].AxisY.Interval = 8;
                 Grafico.ChartAreas["AreaGrafico"].AxisX.Interval = 1;
-                Grafico.ChartAreas["AreaGrafico"].AxisX.TextOrientation = TextOrientation.Rotated90;
-                Grafico.ChartAreas["AreaGrafico"].AxisX.LabelStyle.IsEndLabelVisible = false;
+                Grafico.ChartAreas["AreaGrafico"].AxisX.TextOrientation = TextOrientation.Horizontal;
+                Grafico.ChartAreas["AreaGrafico"].AxisX.LabelStyle.IsEndLabelVisible = true;
 
             }
             catch (Exception po_exception)
