@@ -367,6 +367,18 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             }
         }
 
+        private bool ValidarCampos()
+        {
+            bool validos = true;
+
+            if (string.IsNullOrEmpty(txt_descripcion.Text) || string.IsNullOrEmpty(txt_fechaInicio.Text) || string.IsNullOrEmpty(txt_fechaFin.Text) || string.IsNullOrEmpty(txt_horasAsignadas.Text))
+            {
+                validos = false;
+            }
+
+            return validos;
+        }
+
         /// <summary>
         /// Método que carga la información
         /// de del objeto a memoria.
@@ -418,7 +430,8 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             try
             {
                 asignarActividades(llaveProyecto);
-                
+                limpiarListaBaseDatos();
+
                 return vi_resultado;
             }
             catch (Exception po_exception)
@@ -619,6 +632,15 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         }
 
         /// <summary>
+        /// Método que limpia la variable de aplicación que contiene la lista de registros que se encuentran en la base de datos
+        /// Se limpia cada vez que se guarda, para que realice nuevamente la lectura de los registros que se encuentran en la Base de Datos y mantenga la información actualizada
+        /// </summary>
+        private void limpiarListaBaseDatos()
+        {
+            cls_variablesSistema.vs_proyecto.pAsignacionActividadListaBaseDatos = new List<cls_asignacionActividad>();
+        }
+
+        /// <summary>
         /// Método que habilita o 
         /// deshabilita los controles del
         /// formulario web.
@@ -715,7 +737,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             }
             catch (Exception po_exception)
             {
-                String vs_error_usuario = "Ocurrió un error mientras se asignada la información del usuario a la actividad.";
+                String vs_error_usuario = "Ocurrió un error mientras se asignaba la información del usuario a la actividad.";
                 this.lanzarExcepcion(po_exception, vs_error_usuario);
             }
         }
@@ -844,7 +866,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             }
             catch (Exception po_exception)
             {
-                String vs_error_usuario = "Ocurrió un error mientras se asignada la información del registro para las actividades.";
+                String vs_error_usuario = "Ocurrió un error mientras se asignaba la información del registro para las actividades.";
                 this.lanzarExcepcion(po_exception, vs_error_usuario);
             } 
         }
@@ -981,8 +1003,18 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             }
             catch (Exception po_exception)
             {
-                String vs_error_usuario = "Ocurrió un error mientras se asignada la información del usuario a la actividad.";
-                this.lanzarExcepcion(po_exception, vs_error_usuario);
+                String vs_error_usuario;
+
+                if (ValidarCampos())
+                {
+                    vs_error_usuario = "Ocurrió un error mientras se asignaba la información del usuario a la actividad.";
+                    this.lanzarExcepcion(po_exception, vs_error_usuario);
+                }
+                else
+                {
+                    vs_error_usuario = "Advertencia!. Todos los campos deben estar ingresados.";
+                    this.lanzarExcepcion(po_exception, vs_error_usuario);
+                }
             }
         }
 
@@ -1031,6 +1063,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                                     //del usuario, y si el mismo no se asigna, pues no se obtiene y presentaría un error
                                     else
                                     {
+                                        vo_actividadAsignada.pUsuarioLista.RemoveAll(searchLinQ => searchLinQ.pPK_usuario == vo_usuario.pPK_usuario);
                                         cls_variablesSistema.vs_proyecto.pAsignacionActividadListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad &&
                                                                                                                                   searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete);
                                     }

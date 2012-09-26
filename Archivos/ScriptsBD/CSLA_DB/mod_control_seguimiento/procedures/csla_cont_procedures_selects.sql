@@ -1238,7 +1238,8 @@ AS
 			aa.PK_proyecto = @paramProyecto AND
       ra.fecha BETWEEN @paramFechaInicio AND @paramFechaFin AND
 			aa.PK_usuario = @paramUsuario	AND
-			aa.FK_estado = 1
+			aa.FK_estado = 1 AND 
+			aa.Activo = 1
 		GROUP BY
 			aa.PK_actividad,
 			aa.PK_paquete,

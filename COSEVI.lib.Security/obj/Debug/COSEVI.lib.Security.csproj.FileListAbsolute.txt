@@ -33,6 +33,11 @@ C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\COSEVI.lib.Security\bin\Debug\C
 C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\COSEVI.lib.Security\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\COSEVI.lib.Security\obj\Debug\COSEVI.lib.Security.dll
 C:\Users\Cristian\Documents\Proyecto\pcsla\PCSLA\COSEVI.lib.Security\obj\Debug\COSEVI.lib.Security.pdb
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\COSEVI.lib.Security\bin\Debug\COSEVI.lib.Security.dll
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\COSEVI.lib.Security\bin\Debug\COSEVI.lib.Security.pdb
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\COSEVI.lib.Security\obj\Debug\ResolveAssemblyReference.cache
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\COSEVI.lib.Security\obj\Debug\COSEVI.lib.Security.dll
+D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\COSEVI.lib.Security\obj\Debug\COSEVI.lib.Security.pdb
 P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.lib.Security\bin\Debug\COSEVI.lib.Security.dll
 P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.lib.Security\bin\Debug\COSEVI.lib.Security.pdb
 P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.lib.Security\obj\Debug\ResolveAssemblyReference.cache
