@@ -115,6 +115,14 @@ namespace COSEVI.CSLA.lib.entidades.mod.ControlSeguimiento
 
         private List<cls_entregableComponente> entregableComponenteList;
 
+        private string usuarioTransaccion;
+
+        public string pUsuarioTransaccion
+        {
+            get { return usuarioTransaccion; }
+            set { usuarioTransaccion = value; }
+        }
+
         #endregion
 
         #region Metodos

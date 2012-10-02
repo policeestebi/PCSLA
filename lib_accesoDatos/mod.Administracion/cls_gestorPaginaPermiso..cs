@@ -59,7 +59,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.PAGINA_PERMISO, poPaginaPermiso.pPK_pagina + "/" + poPaginaPermiso.pPK_permiso);
+                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.PAGINA_PERMISO, poPaginaPermiso.pPK_pagina + "/" + poPaginaPermiso.pPK_permiso,poPaginaPermiso.pUsuarioTransaccion);
 
                 return vi_resultado;
 
@@ -93,7 +93,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.PAGINA_PERMISO, poPaginaPermiso.pPK_pagina + "/" + poPaginaPermiso.pPK_permiso);
+                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.PAGINA_PERMISO, poPaginaPermiso.pPK_pagina + "/" + poPaginaPermiso.pPK_permiso, poPaginaPermiso.pUsuarioTransaccion);
 
                 return vi_resultado;
 

@@ -142,7 +142,15 @@ namespace COSEVI.CSLA.lib.entidades.mod.ControlSeguimiento
         private cls_actividad actividad;
 
         private List<cls_actividad> actividadList;
- 
+
+        private string usuarioTransaccion;
+
+        public string pUsuarioTransaccion
+        {
+            get { return usuarioTransaccion; }
+            set { usuarioTransaccion = value; }
+        }
+
         #endregion
      
 	}

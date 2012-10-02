@@ -266,9 +266,9 @@ namespace CSLA.web.App_pages.mod.Administracion
         private cls_rol crearObjeto()
         {
             cls_rol vo_rol = new cls_rol();
-            if (cls_variablesSistema.tipoEstado != cls_constantes.AGREGAR)
+            if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado != cls_constantes.AGREGAR)
             {
-                vo_rol = (cls_rol)cls_variablesSistema.obj;
+                vo_rol = (cls_rol)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
             }
             try
             {
@@ -296,12 +296,12 @@ namespace CSLA.web.App_pages.mod.Administracion
 
             try
             {
-                vo_rol = (cls_rol)cls_variablesSistema.obj;
+                vo_rol = (cls_rol)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
                 this.txt_nombre.Text = vo_rol.pNombre;
                 this.txt_descripcion.Text = vo_rol.pDescripcion;
                 this.chk_activo.Checked = vo_rol.pVisible;
 
-                if (cls_variablesSistema.tipoEstado == cls_constantes.VER)
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado == cls_constantes.VER)
                 {
                     this.habilitarControles(false);
                 }
@@ -325,6 +325,8 @@ namespace CSLA.web.App_pages.mod.Administracion
         {
             try
             {
+                po_rol.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
                 cls_gestorRol.deleteRol(po_rol);
 
                 this.llenarGridView();
@@ -347,9 +349,12 @@ namespace CSLA.web.App_pages.mod.Administracion
         {
             int vi_resultado = 1;
             cls_rol vo_rol = this.crearObjeto();
+
+            vo_rol.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
             try
             {
-                switch (cls_variablesSistema.tipoEstado)
+                switch (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado)
                 {
                     case cls_constantes.AGREGAR:
                         vi_resultado = cls_gestorRol.insertRol(vo_rol);
@@ -713,7 +718,7 @@ namespace CSLA.web.App_pages.mod.Administracion
 
             try
             {
-                cls_variablesSistema.tipoEstado = cls_constantes.AGREGAR;
+                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = cls_constantes.AGREGAR;
 
                 this.limpiarCampos();
 
@@ -832,9 +837,9 @@ namespace CSLA.web.App_pages.mod.Administracion
 
                         this.cargarPermisosRol(vo_rol);
 
-                        cls_variablesSistema.obj = vo_rol;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_rol;
 
-                        cls_variablesSistema.tipoEstado = e.CommandName;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = e.CommandName;
 
                         this.cargarObjeto();
 
@@ -846,9 +851,9 @@ namespace CSLA.web.App_pages.mod.Administracion
 
                         this.cargarPermisosRol(vo_rol);
 
-                        cls_variablesSistema.obj = vo_rol;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_rol;
 
-                        cls_variablesSistema.tipoEstado = e.CommandName;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = e.CommandName;
 
                         this.cargarObjeto();
 

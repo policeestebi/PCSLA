@@ -80,7 +80,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
 
                 poPagina.pPK_pagina =Convert.ToInt32( cls_gestorUtil.selectMax(cls_constantes.PAGINA, "PK_pagina"));
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.PAGINA, poPagina.pPK_pagina.ToString());
+                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.PAGINA, poPagina.pPK_pagina.ToString(),poPagina.pUsuarioTransaccion);
 
                 foreach(cls_permiso vo_permiso in poPagina.Permisos)
                 {
@@ -148,7 +148,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
                     vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
                 }
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.MODIFICAR, cls_constantes.PAGINA, poPagina.pPK_pagina.ToString());
+                cls_interface.insertarTransacccionBitacora(cls_constantes.MODIFICAR, cls_constantes.PAGINA, poPagina.pPK_pagina.ToString(), poPagina.pUsuarioTransaccion);
 
                 vo_pagina = new cls_pagina();
                 vo_pagina.pPK_pagina = poPagina.pPK_pagina;
@@ -216,7 +216,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.PAGINA, poPagina.pPK_pagina.ToString());
+                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.PAGINA, poPagina.pPK_pagina.ToString(), poPagina.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 

@@ -63,6 +63,14 @@ namespace COSEVI.CSLA.lib.entidades.mod.ControlSeguimiento
             set { fecha = value; }
         }
 
+        private string usuarioTransaccion;
+
+        public string pUsuarioTransaccion
+        {
+            get { return usuarioTransaccion; }
+            set { usuarioTransaccion = value; }
+        }
+
         #endregion
         
         #region Atributos

@@ -59,7 +59,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.DEPARTAMENTO_PROYECTO, poDepartamentoProyecto.pPK_departamento + "/" + poDepartamentoProyecto.pPK_proyecto);
+                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.DEPARTAMENTO_PROYECTO, poDepartamentoProyecto.pPK_departamento + "/" + poDepartamentoProyecto.pPK_proyecto, poDepartamentoProyecto.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 
@@ -98,7 +98,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.DEPARTAMENTO_PROYECTO, poDepartamentoProyecto.pPK_departamento + "/" + poDepartamentoProyecto.pPK_proyecto);
+                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.DEPARTAMENTO_PROYECTO, poDepartamentoProyecto.pPK_departamento + "/" + poDepartamentoProyecto.pPK_proyecto, poDepartamentoProyecto.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 
@@ -136,7 +136,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
                vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-               cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.DEPARTAMENTO_PROYECTO, poDepartamentoProyecto.pPK_departamento + "/Masivo");
+               cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.DEPARTAMENTO_PROYECTO, poDepartamentoProyecto.pPK_departamento + "/Masivo", poDepartamentoProyecto.pUsuarioTransaccion);
 
                cls_sqlDatabase.commitTransaction();
 

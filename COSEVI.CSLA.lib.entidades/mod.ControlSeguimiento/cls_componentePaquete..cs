@@ -183,6 +183,14 @@ namespace COSEVI.CSLA.lib.entidades.mod.ControlSeguimiento
             //return encontrado;
         }
 
+        private string usuarioTransaccion;
+
+        public string pUsuarioTransaccion
+        {
+            get { return usuarioTransaccion; }
+            set { usuarioTransaccion = value; }
+        }
+
         #endregion Metodos
      
 	}

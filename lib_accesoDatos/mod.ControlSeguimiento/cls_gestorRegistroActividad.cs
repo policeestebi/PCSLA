@@ -106,7 +106,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
                                                                                                                         "/" + poRegistro.pAsignacion.pPK_Paquete +
                                                                                                                         "/" + poRegistro.pAsignacion.pPK_Componente +
                                                                                                                         "/" + poRegistro.pAsignacion.pPK_Proyecto +
-                                                                                                                        "/" + poRegistro.pAsignacion.pPK_Usuario);
+                                                                                                                        "/" + poRegistro.pAsignacion.pPK_Usuario,poRegistro.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 
@@ -159,7 +159,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
                                                                                                                         "/" + poRegistro.pAsignacion.pPK_Paquete +
                                                                                                                         "/" + poRegistro.pAsignacion.pPK_Componente +
                                                                                                                         "/" + poRegistro.pAsignacion.pPK_Proyecto +
-                                                                                                                        "/" + poRegistro.pAsignacion.pPK_Usuario);
+                                                                                                                        "/" + poRegistro.pAsignacion.pPK_Usuario, poRegistro.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 

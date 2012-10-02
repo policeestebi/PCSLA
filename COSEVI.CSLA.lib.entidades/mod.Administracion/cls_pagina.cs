@@ -172,6 +172,14 @@ namespace COSEVI.CSLA.lib.entidades.mod.Administracion
         /// </summary>
         private List<cls_permiso> permisos;
 
+        private string usuarioTransaccion;
+
+        public string pUsuarioTransaccion
+        {
+            get { return usuarioTransaccion; }
+            set { usuarioTransaccion = value; }
+        }
+
         #endregion
 
     }

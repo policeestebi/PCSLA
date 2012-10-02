@@ -77,6 +77,14 @@ namespace COSEVI.CSLA.lib.entidades.mod.ControlSeguimiento
 
         private decimal horas;
 
+        private string usuarioTransaccion;
+
+        public string pUsuarioTransaccion
+        {
+            get { return usuarioTransaccion; }
+            set { usuarioTransaccion = value; }
+        }
+
         #endregion
     }
 }

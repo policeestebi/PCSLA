@@ -40,13 +40,13 @@ namespace COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes
 
         #region Variables Estáticas
         
-        public static string vs_usuarioActual;
-        public static string vs_direccionIP;
-        public static string vs_nombreHost;
+        public string vs_usuarioActual;
+        public string vs_direccionIP;
+        public string vs_nombreHost;
 
         //Esta variable se encarga de mantener la llave del proyecto al cual se le va a realizar la 
         //asignación de Entregables, Componentes, Paquetes y Actividades
-        public static int vs_llaveProyecto;
+        public int vs_llaveProyecto;
 
         public static List<cls_registroPermanete> vl_registrosPermantentes = new List<cls_registroPermanete>();
 
@@ -60,14 +60,14 @@ namespace COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes
         /// <param name="psUsuario"></param>
         /// <param name="psAccion"></param>
         /// <param name="psTabla"></param>
-        public static void insertarTransacccionBitacora(string psAccion, string psTabla)
+        public static void insertarTransacccionBitacora(string psAccion, string psTabla,string psUsuario)
         {
 
                    cls_bitacora poBitacora = new cls_bitacora();
 
                    poBitacora.pFK_departamento = 1;
 
-                   poBitacora.pFK_usuario = vs_usuarioActual;
+                   poBitacora.pFK_usuario = psUsuario;
 
                    poBitacora.pAccion = psAccion;
 
@@ -77,7 +77,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes
 
                    poBitacora.pTabla = psTabla;
 
-                   poBitacora.pMaquina = vs_nombreHost;
+                   poBitacora.pMaquina = "";
 
                    cls_gestorBitacora.insertBitacora(poBitacora);
 
@@ -89,14 +89,14 @@ namespace COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes
         /// <param name="psUsuario"></param>
         /// <param name="psAccion"></param>
         /// <param name="psTabla"></param>
-        public static void insertarTransacccionBitacora(string psAccion, string psTabla, string psNumeroRegistro)
+        public static void insertarTransacccionBitacora(string psAccion, string psTabla, string psNumeroRegistro,string psUsuario)
         {
 
             cls_bitacora poBitacora = new cls_bitacora();
 
             poBitacora.pFK_departamento = 1;
 
-            poBitacora.pFK_usuario = vs_usuarioActual;
+            poBitacora.pFK_usuario = psUsuario;
 
             poBitacora.pAccion = psAccion;
 
@@ -106,7 +106,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes
 
             poBitacora.pTabla = psTabla;
 
-            poBitacora.pMaquina = vs_nombreHost;
+            poBitacora.pMaquina = "";
 
             cls_gestorBitacora.insertBitacora(poBitacora);
 

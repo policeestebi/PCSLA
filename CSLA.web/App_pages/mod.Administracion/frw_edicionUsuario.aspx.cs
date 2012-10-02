@@ -105,6 +105,8 @@ namespace CSLA.web.App_pages.mod.Administracion
                     vo_usuario.pContrasena = cls_MD5.GetPassword( vo_usuario.pPK_usuario,this.txt_contrasena.Text);
                 }
 
+                vo_usuario.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
                 //Se actualiza la información del usuario
                 cls_gestorUsuario.updateUsuario(vo_usuario);
 

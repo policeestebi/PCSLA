@@ -131,12 +131,12 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
                 vo_operacion = new cls_operacion();
                 vo_operacion.pPK_Codigo = ps_actividad;
-                vo_operacion = cls_gestorOperacion.seleccionarOperacion(vo_operacion);
+                vo_operacion = cls_gestorOperacion.seleccionarOperacion(vo_operacion, ((cls_usuario)Session["cls_usuario"]).pPK_usuario);
                 vo_operacion.pFK_Proyecto = Convert.ToInt32(ps_proyecto);
 
                 vo_asignacion = new cls_asignacionOperacion();
                 vo_asignacion.pFK_Operacion = vo_operacion;
-                vo_asignacion.pFK_Usuario = cls_interface.vs_usuarioActual;
+                vo_asignacion.pFK_Usuario = ((COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes.cls_interface)this.Session[CSLA.web.App_Constantes.cls_constantes.INTERFACES]).vs_usuarioActual;
 
                 vo_registro = new cls_registroOperacion();
                 vo_registro.pFK_Asignacion = vo_asignacion;
@@ -155,7 +155,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
 
 
-                cls_variablesSistema.obj = vo_registro;
+                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_registro;
 
             }
             catch (Exception)
@@ -211,7 +211,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 vo_asignacion.pPK_Paquete = Convert.ToInt32(ps_paquete);
                 vo_asignacion.pPK_Actividad = vo_actividad.pPK_Actividad;
                 vo_asignacion.pPK_Proyecto = Convert.ToInt32(ps_proyecto);
-                vo_asignacion.pPK_Usuario = cls_interface.vs_usuarioActual;
+                vo_asignacion.pPK_Usuario = ((COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes.cls_interface)this.Session[CSLA.web.App_Constantes.cls_constantes.INTERFACES]).vs_usuarioActual;
 
                 vo_registro = new cls_registroActividad();
                 vo_registro.pAsignacion = vo_asignacion;
@@ -228,7 +228,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                     cls_gestorRegistroActividad.seleccionarRegistroActividad(vo_registro);
                 }
 
-                cls_variablesSistema.obj = vo_registro;
+                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_registro;
 
 
             }
@@ -295,12 +295,12 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
             try
             {
-                if (cls_variablesSistema.obj != null)
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj != null)
                 {
 
-                    if (cls_variablesSistema.obj.GetType().Name == "cls_registroOperacion")
+                    if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj.GetType().Name == "cls_registroOperacion")
                     {
-                        vo_registro = (cls_registroOperacion)cls_variablesSistema.obj;
+                        vo_registro = (cls_registroOperacion)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
 
                         cls_proyecto vo_proyecto = new cls_proyecto();
                         vo_proyecto.pPK_proyecto = vo_registro.pFK_Asignacion.pFK_Operacion.pFK_Proyecto;
@@ -347,7 +347,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             cls_registroActividad vo_registro = null;
 
-            vo_registro = cls_variablesSistema.obj as cls_registroActividad;
+            vo_registro = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj as cls_registroActividad;
 
             cls_proyecto vo_proyecto = new cls_proyecto();
             vo_proyecto.pPK_proyecto = vo_registro.pAsignacion.pPK_Proyecto;
@@ -384,16 +384,16 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             try
             {
-                if (cls_variablesSistema.obj != null && cls_variablesSistema.obj.GetType().Name == "cls_registroOperacion")
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj != null && ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj.GetType().Name == "cls_registroOperacion")
                 {
-                    cls_registroOperacion vo_registro = (cls_registroOperacion)cls_variablesSistema.obj;
+                    cls_registroOperacion vo_registro = (cls_registroOperacion)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
 
                     vo_registro.pHoras = Convert.ToDecimal(this.txtHoras.Text);
                     vo_registro.pComentario = this.txtComentarios.Text;
                 }
                 else
                 {
-                    cls_registroActividad vo_registro = cls_variablesSistema.obj as cls_registroActividad;
+                    cls_registroActividad vo_registro = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj as cls_registroActividad;
 
                     vo_registro.pHoras = Convert.ToDecimal(this.txtHoras.Text);
                     vo_registro.pComentario = this.txtComentarios.Text;
@@ -422,32 +422,36 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             {
                 this.cargarValoresInstancia();
 
-                if (cls_variablesSistema.obj != null && cls_variablesSistema.obj.GetType().Name == "cls_registroOperacion")
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj != null && ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj.GetType().Name == "cls_registroOperacion")
                 {
-                    cls_registroOperacion vo_registro = (cls_registroOperacion)cls_variablesSistema.obj;
+                    cls_registroOperacion vo_registro = (cls_registroOperacion)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
 
                     //Si es nulo o vacío se debe insertar
                     if (vo_registro.pPK_registro == 0)
                     {
+                        vo_registro.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
                         cls_gestorRegistroOperacion.insertRegistroOperacion(vo_registro);
                     }
                     else
                     {
+                        vo_registro.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
                         cls_gestorRegistroOperacion.updateRegistroOperacion(vo_registro);
                     }
 
                 }
                 else
                 {
-                    cls_registroActividad vo_registro = (cls_registroActividad)cls_variablesSistema.obj;
+                    cls_registroActividad vo_registro = (cls_registroActividad)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
 
                     //Si es nulo o vacío se debe insertar
                     if (vo_registro.pRegistro == 0)
                     {
+                        vo_registro.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
                         cls_gestorRegistroActividad.insertRegistroActividad(vo_registro);
                     }
                     else
                     {
+                        vo_registro.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
                         cls_gestorRegistroActividad.updateRegistroActividad(vo_registro);
                     }
 

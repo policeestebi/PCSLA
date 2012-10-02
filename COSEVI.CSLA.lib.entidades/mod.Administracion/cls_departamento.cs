@@ -125,6 +125,14 @@ namespace COSEVI.CSLA.lib.entidades.mod.Administracion
 
         private cls_departamento departamentoPadre;
 
+        private string usuarioTransaccion;
+
+        public string pUsuarioTransaccion
+        {
+            get { return usuarioTransaccion; }
+            set { usuarioTransaccion = value; }
+        }
+
         #endregion
 
     }

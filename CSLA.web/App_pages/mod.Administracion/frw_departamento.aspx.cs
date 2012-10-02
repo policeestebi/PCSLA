@@ -240,9 +240,9 @@ namespace CSLA.web.App_pages.mod.Administracion
         private cls_departamento crearObjeto()
         {
             cls_departamento vo_departamento = new cls_departamento();
-            if (cls_variablesSistema.tipoEstado != cls_constantes.AGREGAR)
+            if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado != cls_constantes.AGREGAR)
             {
-                vo_departamento = (cls_departamento)cls_variablesSistema.obj;
+                vo_departamento = (cls_departamento)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
             }
             try
             {
@@ -269,14 +269,14 @@ namespace CSLA.web.App_pages.mod.Administracion
 
             try
             {
-                vo_departamento = (cls_departamento)cls_variablesSistema.obj;
+                vo_departamento = (cls_departamento)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
                 this.ddl_departamentoPadre.SelectedValue = vo_departamento.pFK_departamento.ToString();
                 this.txt_nombre.Text = vo_departamento.pNombre;
                 this.txt_ubicacion.Text = vo_departamento.pUbicacion;
                 this.txt_administrador.Text = vo_departamento.pAdministrador;
                 this.txt_consecutivo.Text = vo_departamento.pConsecutivo;
 
-                if (cls_variablesSistema.tipoEstado == cls_constantes.VER)
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado == cls_constantes.VER)
                 {
                     this.habilitarControles(false);
                 }
@@ -300,6 +300,8 @@ namespace CSLA.web.App_pages.mod.Administracion
         {
             try
             {
+                po_departamento.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
                 cls_gestorDepartamento.deleteDepartamento(po_departamento);
 
                 this.llenarGridView();
@@ -322,9 +324,10 @@ namespace CSLA.web.App_pages.mod.Administracion
         {
             int vi_resultado = 1;
             cls_departamento vo_departamento = this.crearObjeto();
+            vo_departamento.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
             try
             {
-                switch (cls_variablesSistema.tipoEstado)
+                switch (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado)
                 {
                     case cls_constantes.AGREGAR:
                         vi_resultado = cls_gestorDepartamento.insertDepartamento(vo_departamento);
@@ -471,7 +474,7 @@ namespace CSLA.web.App_pages.mod.Administracion
         {
             try
             {
-                cls_variablesSistema.tipoEstado = cls_constantes.AGREGAR;
+                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = cls_constantes.AGREGAR;
 
                 this.limpiarCampos();
 
@@ -607,9 +610,9 @@ namespace CSLA.web.App_pages.mod.Administracion
                     case cls_constantes.VER:
                         vo_departamento = cls_gestorDepartamento.seleccionarDepartamento(vo_departamento);
 
-                        cls_variablesSistema.obj = vo_departamento;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_departamento;
 
-                        cls_variablesSistema.tipoEstado = e.CommandName;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = e.CommandName;
 
                         this.cargarObjeto();
 
@@ -619,9 +622,9 @@ namespace CSLA.web.App_pages.mod.Administracion
                     case cls_constantes.EDITAR:
                         vo_departamento = cls_gestorDepartamento.seleccionarDepartamento(vo_departamento);
 
-                        cls_variablesSistema.obj = vo_departamento;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_departamento;
 
-                        cls_variablesSistema.tipoEstado = e.CommandName;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = e.CommandName;
 
                         this.cargarObjeto();
 

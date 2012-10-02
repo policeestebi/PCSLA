@@ -92,7 +92,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
                 poRegistro.pPK_registro = Convert.ToInt32(cls_gestorUtil.selectMax(cls_constantes.OPERACION_REGISTRO, "PK_registro"));
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.OPERACION_REGISTRO, poRegistro.pPK_registro + "/" + poRegistro.pFK_Asignacion.pFK_Operacion.pPK_Codigo + "/" + poRegistro.pFK_Asignacion.pFK_Usuario);
+                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.OPERACION_REGISTRO, poRegistro.pPK_registro + "/" + poRegistro.pFK_Asignacion.pFK_Operacion.pPK_Codigo + "/" + poRegistro.pFK_Asignacion.pFK_Usuario, poRegistro.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 
@@ -166,7 +166,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.MODIFICAR, cls_constantes.OPERACION_REGISTRO, poRegistro.pPK_registro + "/" + poRegistro.pFK_Asignacion.pFK_Operacion.pPK_Codigo + "/" + poRegistro.pFK_Asignacion.pFK_Usuario);
+                cls_interface.insertarTransacccionBitacora(cls_constantes.MODIFICAR, cls_constantes.OPERACION_REGISTRO, poRegistro.pPK_registro + "/" + poRegistro.pFK_Asignacion.pFK_Operacion.pPK_Codigo + "/" + poRegistro.pFK_Asignacion.pFK_Usuario, poRegistro.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 

@@ -84,7 +84,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
                 poOperacion.pFK_Operacion.pPK_Codigo = obtenerUltimaOperacion();
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.OPERACION, poOperacion.pFK_Operacion.pPK_Codigo.ToString());
+                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.OPERACION, poOperacion.pFK_Operacion.pPK_Codigo.ToString(), poOperacion.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 
@@ -117,14 +117,14 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
                  		    new cls_parameter("@paramPK_operacion", poOperacion.pPK_Codigo),
                             new cls_parameter("@paramDescripcion", poOperacion.pDescripcion), 
                             new cls_parameter("@paramActivo", poOperacion.pActivo),
-                            new cls_parameter("@paramUsuario", cls_interface.vs_usuarioActual)	
+                            new cls_parameter("@paramUsuario", poOperacion.pUsuarioTransaccion)	
                     };
 
                 cls_sqlDatabase.beginTransaction();
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.MODIFICAR, cls_constantes.OPERACION, poOperacion.pPK_Codigo);
+                cls_interface.insertarTransacccionBitacora(cls_constantes.MODIFICAR, cls_constantes.OPERACION, poOperacion.pPK_Codigo, poOperacion.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 
@@ -164,7 +164,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.OPERACION, poOperacion.pFK_Operacion.pPK_Codigo);
+                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.OPERACION, poOperacion.pFK_Operacion.pPK_Codigo, poOperacion.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 
@@ -229,14 +229,14 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
         /// </summary>
         /// <param name="poOperacion"></param>
         /// <returns></returns>
-        public static cls_operacion seleccionarOperacion(cls_operacion poOperacion)
+        public static cls_operacion seleccionarOperacion(cls_operacion poOperacion,string psUsuario)
         {
             try
             {
                 String vs_comando = "PA_cont_operacionSelectOne";
                 cls_parameter[] vu_parametros = { 
                                                        new cls_parameter("@paramPK_codigo", poOperacion.pPK_Codigo), 
-                                                       new cls_parameter("@paramPK_usuario", cls_interface.vs_usuarioActual) 
+                                                       new cls_parameter("@paramPK_usuario", psUsuario) 
                                                    };
 
                 DataSet vu_dataSet = cls_sqlDatabase.executeDataset(vs_comando, true, vu_parametros);
@@ -318,7 +318,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
         /// </summary>
         /// <param name="psFiltro"></param>
         /// <returns>List con la lista de operaciones</returns>
-        public static List<cls_operacion> listarPaqueteFiltro(string psFiltro, bool pbMostrarTodos)
+        public static List<cls_operacion> listarPaqueteFiltro(string psFiltro, bool pbMostrarTodos,string psUsuario)
         {
             List<cls_operacion> vo_lista = null;
             cls_operacion voOperacion = null;
@@ -330,11 +330,11 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
                      vu_dataSet = cls_gestorUtil.selectFilter(cls_constantes.OPERACION + " o " + "," + cls_constantes.OPERACION_ASIGNACION + " ao ",
                                                                     " o.PK_codigo,o.tipo,o.descripcion,ao.activo ",
-                                                                    psFiltro + " AND o.PK_codigo = ao.PK_codigo AND ao.PK_usuario = '" + COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes.cls_interface.vs_usuarioActual + "'");
+                                                                    psFiltro + " AND o.PK_codigo = ao.PK_codigo AND ao.PK_usuario = '" + psUsuario + "'");
                 }
                 else
                 {
-                    vu_dataSet = cls_gestorUtil.selectFilter(cls_constantes.OPERACION + " o " + " LEFT OUTER JOIN " + cls_constantes.OPERACION_ASIGNACION + " ao ON o.PK_codigo = ao.PK_codigo  AND ao.PK_usuario = '" + COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes.cls_interface.vs_usuarioActual + "' ",
+                    vu_dataSet = cls_gestorUtil.selectFilter(cls_constantes.OPERACION + " o " + " LEFT OUTER JOIN " + cls_constantes.OPERACION_ASIGNACION + " ao ON o.PK_codigo = ao.PK_codigo  AND ao.PK_usuario = '" + psUsuario + "' ",
                                                                     " o.PK_codigo,o.tipo,o.descripcion, ISNULL(ao.activo,0) as activo ",
                                                                     psFiltro);
                 }
@@ -450,7 +450,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.OPERACION_ASIGNACION, poOperacion.pFK_Operacion.pPK_Codigo + "/" + poOperacion.pFK_Usuario);
+                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.OPERACION_ASIGNACION, poOperacion.pFK_Operacion.pPK_Codigo + "/" + poOperacion.pFK_Usuario,poOperacion.pUsuarioTransaccion);
 
                 return vi_resultado;
 
@@ -483,7 +483,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.OPERACION_ASIGNACION, poOperacion.pFK_Operacion.pPK_Codigo + "/" + poOperacion.pFK_Usuario);
+                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.OPERACION_ASIGNACION, poOperacion.pFK_Operacion.pPK_Codigo + "/" + poOperacion.pFK_Usuario, poOperacion.pUsuarioTransaccion);
 
                 return vi_resultado;
 

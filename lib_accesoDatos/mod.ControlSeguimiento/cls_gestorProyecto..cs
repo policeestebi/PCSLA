@@ -67,7 +67,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
                 // Se obtiene el número del registro insertado.
                 poProyecto.pPK_proyecto = Convert.ToInt32(cls_gestorUtil.selectMax(cls_constantes.PROYECTO, "PK_proyecto"));
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.PROYECTO, poProyecto.pPK_proyecto.ToString());
+                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.PROYECTO, poProyecto.pPK_proyecto.ToString(),poProyecto.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 
@@ -112,7 +112,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
                     vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                    cls_interface.insertarTransacccionBitacora(cls_constantes.MODIFICAR, cls_constantes.PROYECTO, poProyecto.pPK_proyecto.ToString());
+                    cls_interface.insertarTransacccionBitacora(cls_constantes.MODIFICAR, cls_constantes.PROYECTO, poProyecto.pPK_proyecto.ToString(), poProyecto.pUsuarioTransaccion);
 
                     cls_sqlDatabase.commitTransaction();
 
@@ -149,7 +149,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
                     vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                    cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.PROYECTO, poProyecto.pPK_proyecto.ToString());
+                    cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.PROYECTO, poProyecto.pPK_proyecto.ToString(), poProyecto.pUsuarioTransaccion);
 
                     cls_sqlDatabase.commitTransaction();
 
@@ -350,7 +350,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
        /// todos los registros en la tabla proyecto
        /// </summary>
        /// <returns>List valor del resultado de la ejecución de la sentencia</returns>
-       public static List<cls_proyecto> listarProyectosUsuario()
+       public static List<cls_proyecto> listarProyectosUsuario(string psUsuario)
        {
            List<cls_proyecto> vo_lista = null;
            cls_proyecto poProyecto = null;
@@ -358,7 +358,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
            {
                String vs_comando = "PA_cont_proyectoSelectUsuario";
                cls_parameter[] vu_parametros = {
-                                                   new cls_parameter("@paramUsuario", cls_interface.vs_usuarioActual) 
+                                                   new cls_parameter("@paramUsuario", psUsuario) 
                                                     
                                                 };
 
@@ -432,14 +432,14 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
         /// todos los registros en la tabla proyecto
         /// </summary>
         /// <returns></returns>
-       public static DataSet listarProyectosUsuarioDataSet()
+       public static DataSet listarProyectosUsuarioDataSet(string psUsuario)
        {
            DataSet vu_dataSet = null;
            try
            {
                String vs_comando = "PA_cont_proyectoSelectUsuario";
                cls_parameter[] vu_parametros = {
-                                                   new cls_parameter("@paramUsuario", cls_interface.vs_usuarioActual) 
+                                                   new cls_parameter("@paramUsuario", psUsuario) 
                                                     
                                                 };
 
@@ -496,7 +496,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
        /// </summary>
        /// <param name="poProyecto">Proyecto a insertar</param>
        /// <returns>Int valor del resultado de la ejecución de la sentencia</returns>
-       public static int insertProyectoCopia(int pi_proyectoNuevo, int pi_proyectoOriginal)
+       public static int insertProyectoCopia(int pi_proyectoNuevo, int pi_proyectoOriginal,string psUsuario)
        {
            int vi_resultado;
 
@@ -513,7 +513,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
                vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-               cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.PROYECTO_COPIA, pi_proyectoNuevo.ToString());
+               cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.PROYECTO_COPIA, pi_proyectoNuevo.ToString(),psUsuario);
 
                cls_sqlDatabase.commitTransaction();
 

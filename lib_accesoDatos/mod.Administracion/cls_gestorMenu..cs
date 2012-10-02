@@ -82,7 +82,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
 
                 poMenu.pPK_menu = Convert.ToInt32(cls_gestorUtil.selectMax(cls_constantes.MENU, "PK_menu")); 
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.MENU, poMenu.pPK_menu.ToString());
+                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.MENU, poMenu.pPK_menu.ToString(),poMenu.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 
@@ -140,7 +140,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
                     vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
                 }
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.MODIFICAR, cls_constantes.MENU, poMenu.pPK_menu.ToString());
+                cls_interface.insertarTransacccionBitacora(cls_constantes.MODIFICAR, cls_constantes.MENU, poMenu.pPK_menu.ToString(), poMenu.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 
@@ -178,7 +178,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.MENU, poMenu.pPK_menu.ToString());
+                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.MENU, poMenu.pPK_menu.ToString(), poMenu.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 

@@ -239,6 +239,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 vo_dptoProyecto.pProyecto = vo_proyecto;
 
                 //Se intenta realizar la inserción del proyecto en la tabla correspondiente
+                vo_proyecto.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
                 vi_resultado = cls_gestorProyecto.insertProyecto(vo_proyecto);
 
                 //Para cada departamento, se realiza la correspondiente inserción con el proyecto específico
@@ -246,11 +247,14 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 {
                     vo_dptoProyecto.pDepartamento = vo_departamento;
 
+                    vo_dptoProyecto.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
+                    vo_dptoProyecto.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
                     vi_resultado = cls_gestorDepartamentoProyecto.insertDepartamentoProyecto(vo_dptoProyecto);
                 }
 
                 //Se realiza la inserción en las demás tablas, entregable/componente/paquete/actividad, con respecto al proyecto copiado
-                vi_resultado = cls_gestorProyecto.insertProyectoCopia(vo_proyecto.pPK_proyecto, cls_variablesSistema.vs_proyecto.pPK_proyecto);
+                vi_resultado = cls_gestorProyecto.insertProyectoCopia(vo_proyecto.pPK_proyecto, ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPK_proyecto,((cls_usuario)Session["cls_usuario"]).pPK_usuario);
 
                 return vi_resultado;
             }
@@ -322,7 +326,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             try
             {
-                this.txt_proyecto.Text = cls_variablesSistema.vs_proyecto.pNombre;
+                this.txt_proyecto.Text = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pNombre;
             }
             catch (Exception po_exception)
             {
@@ -427,7 +431,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         /// </summary>
         private void limpiarVariablesSistema()
         {
-            cls_variablesSistema.vs_proyecto = new cls_proyecto();
+            ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto = new cls_proyecto();
         }
 
         #endregion

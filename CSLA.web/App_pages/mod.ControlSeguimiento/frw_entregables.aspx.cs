@@ -228,9 +228,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
             try
             {
-			    if (cls_variablesSistema.tipoEstado != cls_constantes.AGREGAR)
+			    if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado != cls_constantes.AGREGAR)
 				{
-					vo_entregable = (cls_entregable)cls_variablesSistema.obj;
+					vo_entregable = (cls_entregable)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
 				}
                 vo_entregable.pCodigo = txt_codigo.Text;
                 vo_entregable.pNombre = txt_nombre.Text;
@@ -253,11 +253,11 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
             try
             {
-                vo_entregable = (cls_entregable)cls_variablesSistema.obj;
+                vo_entregable = (cls_entregable)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
                 this.txt_codigo.Text = vo_entregable.pCodigo;
                 this.txt_nombre.Text = vo_entregable.pNombre;
                 this.txt_descripcion.Text = vo_entregable.pDescripcion;
-                if (cls_variablesSistema.tipoEstado == cls_constantes.VER)
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado == cls_constantes.VER)
                 {
                     this.habilitarControles(false);
                 }
@@ -281,6 +281,8 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             try
             {
+                po_entregable.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
                 cls_gestorEntregable.deleteEntregable(po_entregable);
 
                 this.llenarGridView();
@@ -303,9 +305,12 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             int vi_resultado = 1;
             cls_entregable vo_entregable = this.crearObjeto();
+
+            vo_entregable.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
             try
             {
-                switch (cls_variablesSistema.tipoEstado)
+                switch (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado)
                 {
                     case cls_constantes.AGREGAR:
                         vi_resultado = cls_gestorEntregable.insertEntregable(vo_entregable);
@@ -425,7 +430,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             try
             {
-                cls_variablesSistema.tipoEstado = cls_constantes.AGREGAR;
+                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = cls_constantes.AGREGAR;
 
                 this.limpiarCampos();
 
@@ -543,9 +548,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                     case cls_constantes.VER:
                         vo_entregable = cls_gestorEntregable.seleccionarEntregable(vo_entregable);
 
-                        cls_variablesSistema.obj = vo_entregable;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_entregable;
 
-                        cls_variablesSistema.tipoEstado = e.CommandName;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = e.CommandName;
 
                         this.cargarObjeto();
 
@@ -555,9 +560,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                     case cls_constantes.EDITAR:
                         vo_entregable = cls_gestorEntregable.seleccionarEntregable(vo_entregable);
 
-                        cls_variablesSistema.obj = vo_entregable;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_entregable;
 
-                        cls_variablesSistema.tipoEstado = e.CommandName;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = e.CommandName;
 
                         this.cargarObjeto();
 

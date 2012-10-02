@@ -208,9 +208,9 @@ namespace CSLA.web.App_pages.mod.Administracion
         private cls_permiso crearObjeto()
         {
             cls_permiso vo_permiso = new cls_permiso();
-            if (cls_variablesSistema.tipoEstado != cls_constantes.AGREGAR)
+            if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado != cls_constantes.AGREGAR)
             {
-                vo_permiso = (cls_permiso)cls_variablesSistema.obj;
+                vo_permiso = (cls_permiso)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
             }
             try
             {
@@ -233,9 +233,9 @@ namespace CSLA.web.App_pages.mod.Administracion
 
             try
             {
-                vo_permiso = (cls_permiso)cls_variablesSistema.obj;
+                vo_permiso = (cls_permiso)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
                 this.txt_nombre.Text = vo_permiso.pNombre;
-                if (cls_variablesSistema.tipoEstado == cls_constantes.VER)
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado == cls_constantes.VER)
                 {
                     this.habilitarControles(false);
                 }
@@ -259,6 +259,8 @@ namespace CSLA.web.App_pages.mod.Administracion
         {
             try
             {
+                po_permiso.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
                 cls_gestorPermiso.deletePermiso(po_permiso);
 
                 this.llenarGridView();
@@ -281,9 +283,12 @@ namespace CSLA.web.App_pages.mod.Administracion
         {
             int vi_resultado = 1;
             cls_permiso vo_permiso = this.crearObjeto();
+
+            vo_permiso.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
             try
             {
-                switch (cls_variablesSistema.tipoEstado)
+                switch (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado)
                 {
                     case cls_constantes.AGREGAR:
                         vi_resultado = cls_gestorPermiso.insertPermiso(vo_permiso);
@@ -381,7 +386,7 @@ namespace CSLA.web.App_pages.mod.Administracion
 
             try
             {
-                cls_variablesSistema.tipoEstado = cls_constantes.AGREGAR;
+                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = cls_constantes.AGREGAR;
 
                 this.limpiarCampos();
 
@@ -498,9 +503,9 @@ namespace CSLA.web.App_pages.mod.Administracion
                     case cls_constantes.VER:
                         vo_permiso = cls_gestorPermiso.seleccionarPermiso(vo_permiso);
 
-                        cls_variablesSistema.obj = vo_permiso;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_permiso;
 
-                        cls_variablesSistema.tipoEstado = e.CommandName;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = e.CommandName;
 
                         this.cargarObjeto();
 
@@ -510,9 +515,9 @@ namespace CSLA.web.App_pages.mod.Administracion
                     case cls_constantes.EDITAR:
                         vo_permiso = cls_gestorPermiso.seleccionarPermiso(vo_permiso);
 
-                        cls_variablesSistema.obj = vo_permiso;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_permiso;
 
-                        cls_variablesSistema.tipoEstado = e.CommandName;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = e.CommandName;
 
                         this.cargarObjeto();
 

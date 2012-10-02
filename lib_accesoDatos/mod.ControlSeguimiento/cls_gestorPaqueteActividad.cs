@@ -61,7 +61,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.COMPONENTE_PAQUETE, po_paqueteActividad.pProyecto.pPK_proyecto + "/" + po_paqueteActividad.pEntregable.pPK_entregable + "/" + po_paqueteActividad.pComponente.pPK_componente + "/" + po_paqueteActividad.pPaquete.pPK_Paquete);
+                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.COMPONENTE_PAQUETE, po_paqueteActividad.pProyecto.pPK_proyecto + "/" + po_paqueteActividad.pEntregable.pPK_entregable + "/" + po_paqueteActividad.pComponente.pPK_componente + "/" + po_paqueteActividad.pPaquete.pPK_Paquete,po_paqueteActividad.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 
@@ -103,7 +103,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.COMPONENTE_PAQUETE, po_paqueteActividad.pProyecto.pPK_proyecto + "/" + po_paqueteActividad.pEntregable.pPK_entregable + "/" + po_paqueteActividad.pComponente.pPK_componente + "/" + po_paqueteActividad.pPaquete.pPK_Paquete);
+                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.COMPONENTE_PAQUETE, po_paqueteActividad.pProyecto.pPK_proyecto + "/" + po_paqueteActividad.pEntregable.pPK_entregable + "/" + po_paqueteActividad.pComponente.pPK_componente + "/" + po_paqueteActividad.pPaquete.pPK_Paquete, po_paqueteActividad.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 
