@@ -87,6 +87,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
                     vo_paginaPermiso = new cls_paginaPermiso();
                     vo_paginaPermiso.pPK_pagina = poPagina.pPK_pagina;
                     vo_paginaPermiso.pPK_permiso = vo_permiso.pPK_permiso;
+                    vo_paginaPermiso.pUsuarioTransaccion = poPagina.pUsuarioTransaccion;
 
                     cls_gestorPaginaPermiso.insertPaginaPermiso(vo_paginaPermiso);
                 }
@@ -163,7 +164,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
                         vo_paginaPermiso = new cls_paginaPermiso();
                         vo_paginaPermiso.pPK_pagina = poPagina.pPK_pagina;
                         vo_paginaPermiso.pPK_permiso = vo_permiso.pPK_permiso;
-
+                        vo_paginaPermiso.pUsuarioTransaccion = poPagina.pUsuarioTransaccion;
                         cls_gestorPaginaPermiso.insertPaginaPermiso(vo_paginaPermiso);
                     }
                 }
@@ -175,7 +176,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
                         vo_paginaPermiso = new cls_paginaPermiso();
                         vo_paginaPermiso.pPK_pagina = poPagina.pPK_pagina;
                         vo_paginaPermiso.pPK_permiso = vo_permiso.pPK_permiso;
-
+                        vo_paginaPermiso.pUsuarioTransaccion = poPagina.pUsuarioTransaccion;
                         cls_gestorPaginaPermiso.deletePaginaPermiso(vo_paginaPermiso);
                     }
                 }

@@ -72,6 +72,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
 
                         vo_rolPaginaPermiso.pPagina = pagina;
                         vo_rolPaginaPermiso.pRol = poRol;
+                        vo_rolPaginaPermiso.pUsuarioTransaccion = poRol.pUsuarioTransaccion;
 
                         foreach (cls_permiso permiso in pagina.Permisos)
                         {
@@ -140,6 +141,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
 
                         vo_rolPaginaPermiso.pPagina = pagina;
                         vo_rolPaginaPermiso.pRol = poRol;
+                        vo_rolPaginaPermiso.pUsuarioTransaccion = poRol.pUsuarioTransaccion;
 
                         foreach (cls_permiso permiso in pagina.Permisos)
                         {

@@ -101,15 +101,14 @@ AS
  BEGIN 
 SET NOCOUNT ON; 
 
-         DELETE FROM t_admi_pagina       
-         WHERE 
-			PK_pagina = @paramPK_pagina
-		
 		DELETE
 			FROM t_admi_pagina_permiso
 		WHERE
 			PK_pagina = @paramPK_pagina
 
+         DELETE FROM t_admi_pagina       
+         WHERE 
+			PK_pagina = @paramPK_pagina
 END  
  GO 
 
