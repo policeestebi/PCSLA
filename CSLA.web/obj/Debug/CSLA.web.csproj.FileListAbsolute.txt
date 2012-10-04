@@ -134,6 +134,12 @@ D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\bin\lib_envioCorreo
 D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\obj\Debug\ResolveAssemblyReference.cache
 D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\obj\Debug\CSLA.web.dll
 D:\CArce\DropBox\Dropbox\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\obj\Debug\CSLA.web.pdb
+C:\Users\Esteban\Documents\GIT\PCSLA\CSLA.web\bin\frw_error.aspx
+C:\Users\Esteban\Documents\GIT\PCSLA\CSLA.web\bin\frw_error.aspx.cs
+C:\Users\Esteban\Documents\GIT\PCSLA\CSLA.web\bin\frw_error.aspx.designer.cs
+P:\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\bin\frw_error.aspx
+P:\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\bin\frw_error.aspx.cs
+P:\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\bin\frw_error.aspx.designer.cs
 P:\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\bin\CSLA.web.dll
 P:\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\bin\CSLA.web.pdb
 P:\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\bin\COSEVI.CSLA.lib.entidades.dll
@@ -151,9 +157,3 @@ P:\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\bin\lib_envioCorreo.pdb
 P:\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\obj\Debug\ResolveAssemblyReference.cache
 P:\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\obj\Debug\CSLA.web.dll
 P:\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\obj\Debug\CSLA.web.pdb
-C:\Users\Esteban\Documents\GIT\PCSLA\CSLA.web\bin\frw_error.aspx
-C:\Users\Esteban\Documents\GIT\PCSLA\CSLA.web\bin\frw_error.aspx.cs
-C:\Users\Esteban\Documents\GIT\PCSLA\CSLA.web\bin\frw_error.aspx.designer.cs
-P:\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\bin\frw_error.aspx
-P:\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\bin\frw_error.aspx.cs
-P:\Dropbox\ProyectoCSLA\PCSLA\CSLA.web\bin\frw_error.aspx.designer.cs
