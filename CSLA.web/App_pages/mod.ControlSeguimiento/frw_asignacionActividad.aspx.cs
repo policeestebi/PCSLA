@@ -152,7 +152,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             try
             {
-                txt_proyecto.Text = cls_variablesSistema.vs_proyecto.pNombre;
+                txt_proyecto.Text = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pNombre;
             }
             catch (Exception po_exception)
             {
@@ -167,7 +167,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             try
             {
-                this.ddl_paquete.DataSource = cls_gestorAsignacionActividad.listarPaquetesProyecto(cls_variablesSistema.vs_proyecto.pPK_proyecto);
+                this.ddl_paquete.DataSource = cls_gestorAsignacionActividad.listarPaquetesProyecto(((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPK_proyecto);
                 this.ddl_paquete.DataTextField = "pNombre";
                 this.ddl_paquete.DataValueField = "pPK_Paquete";
                 this.ddl_paquete.DataBind();
@@ -241,9 +241,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             try
             {
-                cls_variablesSistema.vs_proyecto.pActividadesPaqueteLista = cls_gestorAsignacionActividad.listarActividadesPorPaquete(cls_variablesSistema.vs_proyecto.pPK_proyecto, pi_paquete);
+                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pActividadesPaqueteLista = cls_gestorAsignacionActividad.listarActividadesPorPaquete(((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPK_proyecto, pi_paquete);
 
-                lbx_actividades.DataSource = cls_variablesSistema.vs_proyecto.pActividadesPaqueteLista;
+                lbx_actividades.DataSource = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pActividadesPaqueteLista;
                 lbx_actividades.DataTextField = "pNombreActividad";
                 lbx_actividades.DataValueField = "pPK_Actividad";
                 lbx_actividades.DataBind();
@@ -273,27 +273,27 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
                 //Se verifica si la consulta de base de datos devolvió algún registro válido, de lo contrario no se debe registrar ni en la lista de memoria 
                 //ni en la de base de datos
-                if (vo_asignacionActividadMemoria.pPK_Proyecto == cls_variablesSistema.vs_proyecto.pPK_proyecto)
+                if (vo_asignacionActividadMemoria.pPK_Proyecto == ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPK_proyecto)
                 {
                     //De no encontrarse ya en la lista de base de datos, se agrega
-                    if (cls_variablesSistema.vs_proyecto.pAsignacionActividadListaBaseDatos.Where(searchLinQ => searchLinQ.pPK_Actividad == vo_asignacionActividadBaseDatos.pPK_Actividad &&
+                    if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pAsignacionActividadListaBaseDatos.Where(searchLinQ => searchLinQ.pPK_Actividad == vo_asignacionActividadBaseDatos.pPK_Actividad &&
                                                                                                           searchLinQ.pPK_Paquete == vo_asignacionActividadBaseDatos.pPK_Paquete).Count() == 0)
                     {
-                        cls_variablesSistema.vs_proyecto.pAsignacionActividadListaBaseDatos.Add(vo_asignacionActividadBaseDatos);
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pAsignacionActividadListaBaseDatos.Add(vo_asignacionActividadBaseDatos);
                     }
                     //Se verifica si existe en la lista de memoria para agregarlo en la variable objeto local y en la misma lista
-                    if (cls_variablesSistema.vs_proyecto.pAsignacionActividadListaMemoria.Where(searchLinQ => searchLinQ.pPK_Actividad == vo_asignacionActividadMemoria.pPK_Actividad &&
+                    if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pAsignacionActividadListaMemoria.Where(searchLinQ => searchLinQ.pPK_Actividad == vo_asignacionActividadMemoria.pPK_Actividad &&
                                                                                                         searchLinQ.pPK_Paquete == vo_asignacionActividadMemoria.pPK_Paquete).Count() == 0)
                     {
-                        cls_variablesSistema.obj = vo_asignacionActividadMemoria;
-                        cls_variablesSistema.vs_proyecto.pAsignacionActividadListaMemoria.Add(vo_asignacionActividadMemoria);
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_asignacionActividadMemoria;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pAsignacionActividadListaMemoria.Add(vo_asignacionActividadMemoria);
                     }
                     else
                     {
                         //Si la asigancion ya ha sido leída, se carga la variable objeto con la que se encuentra en memoria
-                        vo_asignacionActividadMemoria = (cls_asignacionActividad)cls_variablesSistema.vs_proyecto.pAsignacionActividadListaMemoria.Find(searchLinQ => searchLinQ.pPK_Actividad == vo_asignacionActividadMemoria.pPK_Actividad &&
+                        vo_asignacionActividadMemoria = (cls_asignacionActividad)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pAsignacionActividadListaMemoria.Find(searchLinQ => searchLinQ.pPK_Actividad == vo_asignacionActividadMemoria.pPK_Actividad &&
                                                                                                                                                         searchLinQ.pPK_Paquete == vo_asignacionActividadMemoria.pPK_Paquete);
-                        cls_variablesSistema.obj = vo_asignacionActividadMemoria;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_asignacionActividadMemoria;
                     }
 
                     //Se encuentre la asignació ya en memoria, o no, se envía a cargar la información del registro para cargar los campos de la ventana
@@ -302,12 +302,12 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 }
 
                 //Si la actividad ya se encuentra en memoria, se procede a asignar a los usuarios asignados
-                if (cls_variablesSistema.vs_proyecto.pAsignacionActividadListaMemoria.Where(searchLinQ => searchLinQ.pPK_Actividad == po_paqueteActividad.pPK_Actividad &&
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pAsignacionActividadListaMemoria.Where(searchLinQ => searchLinQ.pPK_Actividad == po_paqueteActividad.pPK_Actividad &&
                                                                                                     searchLinQ.pPK_Paquete == po_paqueteActividad.pPK_Paquete).Count() > 0)
                 {
-                    vo_asignacionActividadMemoria = (cls_asignacionActividad)cls_variablesSistema.vs_proyecto.pAsignacionActividadListaMemoria.Find(searchLinQ => searchLinQ.pPK_Actividad == po_paqueteActividad.pPK_Actividad &&
+                    vo_asignacionActividadMemoria = (cls_asignacionActividad)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pAsignacionActividadListaMemoria.Find(searchLinQ => searchLinQ.pPK_Actividad == po_paqueteActividad.pPK_Actividad &&
                                                                                                                                                    searchLinQ.pPK_Paquete == po_paqueteActividad.pPK_Paquete);
-                    cls_variablesSistema.obj = vo_asignacionActividadMemoria;
+                    ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_asignacionActividadMemoria;
                     
                     cargarObjeto();
 
@@ -322,7 +322,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 {
                     vo_asignacionActividadMemoria = cls_gestorAsignacionActividad.listarActividadesPorPaquete(po_paqueteActividad.pPK_Proyecto, po_paqueteActividad.pPK_Paquete, po_paqueteActividad.pPK_Actividad);
 
-                    cls_variablesSistema.obj = vo_asignacionActividadMemoria;
+                    ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_asignacionActividadMemoria;
 
                     lbx_usuariosAsociados.DataSource = vo_asignacionActividadMemoria.pUsuarioLista;
                     lbx_usuariosAsociados.DataTextField = "pNombre";
@@ -351,7 +351,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             try
             {
                 //Se asignan los datos que conforman la llave primaria al objeto
-                vo_asignacionActividad = (cls_asignacionActividad)cls_variablesSistema.obj;
+                vo_asignacionActividad = (cls_asignacionActividad)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
 
                 vo_asignacionActividad.pDescripcion = txt_descripcion.Text;
                 vo_asignacionActividad.pFechaInicio = Convert.ToDateTime(txt_fechaInicio.Text);
@@ -390,7 +390,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             try
             {
                 //Se carga el objeto que se encuentra asignado en memoria
-                vo_actividad = (cls_asignacionActividad)cls_variablesSistema.obj;
+                vo_actividad = (cls_asignacionActividad)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
 
                 this.txt_descripcion.Text = vo_actividad.pDescripcion;
                 this.txt_fechaInicio.Text = vo_actividad.pFechaInicio.ToShortDateString();
@@ -399,7 +399,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 this.txt_horasReales.Text = vo_actividad.pHorasReales.ToString();
                 this.ddl_estado.SelectedValue = vo_actividad.pFK_Estado == 0 ? "1" : vo_actividad.pFK_Estado.ToString();
 
-                if (cls_variablesSistema.tipoEstado == cls_constantes.VER)
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado == cls_constantes.VER)
                 {
                     this.habilitarControles(false);
                 }
@@ -425,7 +425,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             int vi_resultado = 1;
 
             //Se obtiene la llave primaria de proyecto, es decir, PK_proyecto, de la variables del sistema, para luego sólo enviarla por parámetro en los guardar
-            int llaveProyecto = cls_variablesSistema.vs_proyecto.pPK_proyecto;
+            int llaveProyecto = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPK_proyecto;
 
             try
             {
@@ -462,6 +462,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                     {
                         vo_actividadAsignada.pPK_Proyecto = ps_llaveProyecto;
                         vo_actividadAsignada.pUsuarioPivot = vo_usuario.pPK_usuario;
+
+                        vo_actividadAsignada.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
                         //Por cada usuario, se envía a realizar la inserción/modificación del mismo, el store procedure indica la operación a realizar
                         vi_resultado = cls_gestorAsignacionActividad.updateAsignacionActividad(vo_actividadAsignada, 1);
                     }
@@ -482,6 +485,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                         {
                             vo_actividadAsignada.pPK_Proyecto = ps_llaveProyecto;
                             vo_actividadAsignada.pUsuarioPivot = vo_usuario.pPK_usuario;
+
+                            vo_actividadAsignada.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
                             vi_resultado = cls_gestorAsignacionActividad.updateAsignacionActividad(vo_actividadAsignada, 0);
                         }
                     }
@@ -505,7 +511,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             {
                 List<cls_asignacionActividad> vo_asignacionActividad = new List<cls_asignacionActividad>();
 
-                vo_asignacionActividad = cls_variablesSistema.vs_proyecto.pAsignacionActividadListaMemoria;
+                vo_asignacionActividad = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pAsignacionActividadListaMemoria;
 
                 return vo_asignacionActividad;
             }
@@ -525,7 +531,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             {
                 List<cls_asignacionActividad> vo_asignacionActividad = new List<cls_asignacionActividad>();
 
-                vo_asignacionActividad = cls_variablesSistema.vs_proyecto.pAsignacionActividadListaBaseDatos;
+                vo_asignacionActividad = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pAsignacionActividadListaBaseDatos;
 
                 return vo_asignacionActividad;
             }
@@ -637,7 +643,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         /// </summary>
         private void limpiarListaBaseDatos()
         {
-            cls_variablesSistema.vs_proyecto.pAsignacionActividadListaBaseDatos = new List<cls_asignacionActividad>();
+            ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pAsignacionActividadListaBaseDatos = new List<cls_asignacionActividad>();
         }
 
         /// <summary>
@@ -726,9 +732,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
                         if (lbx_usuariosAsociados.Items.Count > 0)
                         {
-                            vo_actividadAsignada = (cls_asignacionActividad)cls_variablesSistema.vs_proyecto.pAsignacionActividadListaMemoria.Find(searchLinQ => searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad &&
+                            vo_actividadAsignada = (cls_asignacionActividad)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pAsignacionActividadListaMemoria.Find(searchLinQ => searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad &&
                                                                                                                                                                 searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete);
-                            cls_variablesSistema.obj = vo_actividadAsignada;
+                            ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_actividadAsignada;
 
                             vo_actividadAsignada = crearObjeto();
                         }
@@ -832,7 +838,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 int actividadSeleccionada;
 
                 //Se asignan las 3 llaves para la búsqueda
-                proyectoSeleccionado = cls_variablesSistema.vs_proyecto.pPK_proyecto;
+                proyectoSeleccionado = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPK_proyecto;
                 paqueteSeleccionado = Convert.ToInt32(ddl_paquete.SelectedValue.ToString());
                 actividadSeleccionada = Convert.ToInt32(lbx_actividades.SelectedValue.ToString());
 
@@ -955,13 +961,13 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                                 vo_usuario.pNombre = lbx_usuarios.Items[j].Text.ToString();
 
                                 //Si la asignación no se encuentra en memoria
-                                if (cls_variablesSistema.vs_proyecto.pAsignacionActividadListaMemoria.Where(searchLinQ => searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad &&
+                                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pAsignacionActividadListaMemoria.Where(searchLinQ => searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad &&
                                                                                                                     searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete).Count() == 0)
                                 {
 
-                                    vo_actividadAsignada = (cls_asignacionActividad)cls_variablesSistema.vs_proyecto.pActividadesPaqueteLista.Find(searchLinQ => searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad &&
+                                    vo_actividadAsignada = (cls_asignacionActividad)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pActividadesPaqueteLista.Find(searchLinQ => searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad &&
                                                                                                                                                                  searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete);
-                                    cls_variablesSistema.obj = vo_actividadAsignada;
+                                    ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_actividadAsignada;
 
                                     vo_actividadAsignada = crearObjeto();
 
@@ -975,15 +981,15 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                                         ListItem li = lbx_usuarios.Items[j];
                                         lbx_usuarios.Items.Remove(li);
 
-                                        cls_variablesSistema.vs_proyecto.pAsignacionActividadListaMemoria.Add(vo_actividadAsignada);
+                                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pAsignacionActividadListaMemoria.Add(vo_actividadAsignada);
                                     }
                                 }
                                 //De encontrarse la asignación ya en memoria, sólo se asigna y se corrobora el usuario que se intenta asignar
                                 else
                                 {
-                                    vo_actividadAsignada = (cls_asignacionActividad)cls_variablesSistema.vs_proyecto.pAsignacionActividadListaMemoria.Find(searchLinQ => searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad &&
+                                    vo_actividadAsignada = (cls_asignacionActividad)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pAsignacionActividadListaMemoria.Find(searchLinQ => searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad &&
                                                                                                                                                                          searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete);
-                                    cls_variablesSistema.obj = vo_actividadAsignada;
+                                    ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_actividadAsignada;
 
                                     vo_actividadAsignada = crearObjeto();
 
@@ -1048,10 +1054,10 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                                 vo_usuario.pPK_usuario = lbx_usuariosAsociados.Items[j].Value.ToString();
                                 vo_usuario.pNombre = lbx_usuariosAsociados.Items[j].Text.ToString();
 
-                                if (cls_variablesSistema.vs_proyecto.pAsignacionActividadListaMemoria.Where(searchLinQ => searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad &&
+                                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pAsignacionActividadListaMemoria.Where(searchLinQ => searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad &&
                                                                                                                           searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete).Count() > 0)
                                 {
-                                    vo_actividadAsignada = (cls_asignacionActividad)cls_variablesSistema.vs_proyecto.pAsignacionActividadListaMemoria.Find(searchLinQ => searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad &&
+                                    vo_actividadAsignada = (cls_asignacionActividad)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pAsignacionActividadListaMemoria.Find(searchLinQ => searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad &&
                                                                                                                                                                          searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete);
                                     //Si luego de esta eliminación, la lista aún va a quedar con elementos, solo se remueve el usuario
                                     if (vo_actividadAsignada.pUsuarioLista.Count > 1)
@@ -1064,7 +1070,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                                     else
                                     {
                                         vo_actividadAsignada.pUsuarioLista.RemoveAll(searchLinQ => searchLinQ.pPK_usuario == vo_usuario.pPK_usuario);
-                                        cls_variablesSistema.vs_proyecto.pAsignacionActividadListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad &&
+                                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pAsignacionActividadListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad &&
                                                                                                                                   searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete);
                                     }
                                 }

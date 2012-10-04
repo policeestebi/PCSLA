@@ -275,9 +275,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         private cls_proyecto crearObjetoProyecto()
         {
             cls_proyecto vo_proyecto = new cls_proyecto();
-            if (cls_variablesSistema.tipoEstado != cls_constantes.AGREGAR)
+            if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado != cls_constantes.AGREGAR)
             {
-                vo_proyecto = (cls_proyecto)cls_variablesSistema.obj;
+                vo_proyecto = (cls_proyecto)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
             }
             try
             {
@@ -340,7 +340,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
             try
             {
-                vo_proyecto = (cls_proyecto)cls_variablesSistema.obj;
+                vo_proyecto = (cls_proyecto)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
                 this.ddl_estado.SelectedValue = vo_proyecto.pFK_estado.ToString();
                 this.txt_nombre.Text = vo_proyecto.pNombre;
                 this.txt_descripcion.Text = vo_proyecto.pDescripcion;
@@ -350,7 +350,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 this.txt_fechaFin.Text = vo_proyecto.pFechaFin.ToShortDateString();
                 this.txt_horasAsignadas.Text = vo_proyecto.pHorasAsignadas.ToString();
                 this.txt_horasReales.Text = vo_proyecto.pHorasReales.ToString();
-                if (cls_variablesSistema.tipoEstado == cls_constantes.VER)
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado == cls_constantes.VER)
                 {
                     this.habilitarControles(false);
                 }
@@ -426,11 +426,13 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 //El proyecto es el mismo para todos los departamentos que se vayan a insertar
                 vo_dptoProyecto.pProyecto = vo_proyecto;
 
-                switch (cls_variablesSistema.tipoEstado)
+                switch (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado)
                 {
                     case cls_constantes.AGREGAR:
 
                         //Se intenta realizar la inserción del proyecto en la tabla correspondiente
+                        vo_proyecto.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
                         vi_resultado = cls_gestorProyecto.insertProyecto(vo_proyecto);
 
                         //Para cada departamento, se realiza la correspondiente inserción con el proyecto específico
@@ -438,21 +440,27 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                         {
                             vo_dptoProyecto.pDepartamento = vo_departamento;
 
+                            vo_dptoProyecto.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
                             vi_resultado = cls_gestorDepartamentoProyecto.insertDepartamentoProyecto(vo_dptoProyecto);
                         }
 
                         break;
 
                     case cls_constantes.EDITAR:
+
+                        vo_proyecto.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
                         vi_resultado = cls_gestorProyecto.updateProyecto(vo_proyecto);
 
                         //Se revisa cada departamento en la lista que presenta la variable de sistema de "proyecto", si la lista de deparmentos asociados
                         //no cuenta con el departamento de contenido en la lista de la variable de sistema, esta última se intenta eliminar
-                        foreach (cls_departamento vo_departamento in cls_variablesSistema.vs_proyecto.pDepartamentoLista)
+                        foreach (cls_departamento vo_departamento in ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pDepartamentoLista)
                         {
                             if (!(vl_departamentoAsociado.Where(dep => dep.pPK_departamento == vo_departamento.pPK_departamento).Count() > 0))
                             {
                                 vo_dptoProyecto.pDepartamento = vo_departamento;
+                                vo_dptoProyecto.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
                                 vi_resultado = cls_gestorDepartamentoProyecto.deleteDepartamentoProyecto(vo_dptoProyecto);
                             }
                         }
@@ -460,9 +468,11 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                         //Si alguno de los departamentos recién asociados no se encuentra en la variable del sistema, se procede a realizar la inserción de la misma
                         foreach (cls_departamento vo_departamento in vl_departamentoAsociado)
                         {
-                            if (!(cls_variablesSistema.vs_proyecto.pDepartamentoLista.Where(dep => dep.pPK_departamento == vo_departamento.pPK_departamento).Count() > 0))
+                            if (!(((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pDepartamentoLista.Where(dep => dep.pPK_departamento == vo_departamento.pPK_departamento).Count() > 0))
                             {
                                 vo_dptoProyecto.pDepartamento = vo_departamento;
+                                vo_dptoProyecto.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
                                 vi_resultado = cls_gestorDepartamentoProyecto.insertDepartamentoProyecto(vo_dptoProyecto);
                             }
                         }
@@ -598,7 +608,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
                 if (lbx_depasociados.Items.Count > 0)
                 {
-                    cls_variablesSistema.vs_proyecto = po_proyecto;
+                    ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto = po_proyecto;
 
                     foreach (ListItem item in lbx_depasociados.Items)
                     {
@@ -613,8 +623,8 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                         vo_deptoProyecto.pProyecto = po_proyecto;
                         vo_deptoProyecto.pDepartamentoList.Add(vo_departamento);
 
-                        cls_variablesSistema.vs_proyecto.pDepartamentoLista.Add(vo_departamento);
-                        cls_variablesSistema.vs_proyecto.pDptoProyLista.Add(vo_deptoProyecto);
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pDepartamentoLista.Add(vo_departamento);
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pDptoProyLista.Add(vo_deptoProyecto);
                     }
                 }
                 else
@@ -637,7 +647,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             try
             {
-                cls_variablesSistema.vs_proyecto = po_proyecto;
+                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto = po_proyecto;
             }
             catch (Exception po_exception)
             {
@@ -654,7 +664,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             try
             {
-                cls_variablesSistema.vs_proyecto = po_proyecto;
+                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto = po_proyecto;
             }
             catch (Exception po_exception)
             {
@@ -696,7 +706,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         /// </summary>
         private void limpiarVariablesSistema()
         {
-            cls_variablesSistema.vs_proyecto = new cls_proyecto();
+            ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto = new cls_proyecto();
         }
 
         #endregion
@@ -732,7 +742,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             try
             {
-                cls_variablesSistema.tipoEstado = cls_constantes.AGREGAR;
+                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = cls_constantes.AGREGAR;
 
                 this.limpiarCampos();
 
@@ -868,9 +878,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                     case cls_constantes.VER:
                         vo_proyecto = cls_gestorProyecto.seleccionarProyectos(vo_proyecto);
 
-                        cls_variablesSistema.obj = vo_proyecto;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_proyecto;
 
-                        cls_variablesSistema.tipoEstado = e.CommandName;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = e.CommandName;
 
                         this.cargarObjetoProyecto();
 
@@ -884,9 +894,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                     case cls_constantes.EDITAR:
                         vo_proyecto = cls_gestorProyecto.seleccionarProyectos(vo_proyecto);
 
-                        cls_variablesSistema.obj = vo_proyecto;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_proyecto;
 
-                        cls_variablesSistema.tipoEstado = e.CommandName;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = e.CommandName;
 
                         this.cargarObjetoProyecto();
 

@@ -230,9 +230,9 @@ namespace CSLA.web.App_pages.mod.Administracion
         private cls_menu crearObjeto()
         {
             cls_menu vo_menu = new cls_menu();
-            if (cls_variablesSistema.tipoEstado != cls_constantes.AGREGAR)
+            if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado != cls_constantes.AGREGAR)
             {
-                vo_menu = (cls_menu)cls_variablesSistema.obj;
+                vo_menu = (cls_menu)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
             }
             try
             {
@@ -259,13 +259,13 @@ namespace CSLA.web.App_pages.mod.Administracion
 
             try
             {
-                vo_menu = (cls_menu)cls_variablesSistema.obj;
+                vo_menu = (cls_menu)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
                 this.txt_titulo.Text = vo_menu.pTitulo;
                 this.txt_descripcion.Text = vo_menu.pDescripcion;
                 this.txt_menu.Text = vo_menu.pPK_menu.ToString();
                 this.ddl_menu.SelectedIndex = vo_menu.pFK_menu;
 
-                if (cls_variablesSistema.tipoEstado == cls_constantes.VER)
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado == cls_constantes.VER)
                 {
                     this.habilitarControles(false);
                 }
@@ -274,7 +274,7 @@ namespace CSLA.web.App_pages.mod.Administracion
                     this.habilitarControles(true);
                 }
 
-                if (cls_variablesSistema.tipoEstado == cls_constantes.AGREGAR)
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado == cls_constantes.AGREGAR)
                 {
                     this.txt_menu.Enabled = true; ;
                 }
@@ -299,6 +299,8 @@ namespace CSLA.web.App_pages.mod.Administracion
         {
             try
             {
+                po_menu.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
                 cls_gestorMenu.deleteMenu(po_menu);
 
                 this.llenarGridView();
@@ -321,9 +323,12 @@ namespace CSLA.web.App_pages.mod.Administracion
         {
             int vi_resultado = 1;
             cls_menu vo_menu = this.crearObjeto();
+
+            vo_menu.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
             try
             {
-                switch (cls_variablesSistema.tipoEstado)
+                switch (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado)
                 {
                     case cls_constantes.AGREGAR:
                         vi_resultado = cls_gestorMenu.insertMenu(vo_menu);
@@ -426,7 +431,7 @@ namespace CSLA.web.App_pages.mod.Administracion
 
             try
             {
-                cls_variablesSistema.tipoEstado = cls_constantes.AGREGAR;
+                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = cls_constantes.AGREGAR;
 
                 this.limpiarCampos();
 
@@ -545,9 +550,9 @@ namespace CSLA.web.App_pages.mod.Administracion
                     case cls_constantes.VER:
                         vo_menu = cls_gestorMenu.seleccionarMenu(vo_menu);
 
-                        cls_variablesSistema.obj = vo_menu;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_menu;
 
-                        cls_variablesSistema.tipoEstado = e.CommandName;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = e.CommandName;
 
                         this.cargarObjeto();
 
@@ -557,9 +562,9 @@ namespace CSLA.web.App_pages.mod.Administracion
                     case cls_constantes.EDITAR:
                         vo_menu = cls_gestorMenu.seleccionarMenu(vo_menu);
 
-                        cls_variablesSistema.obj = vo_menu;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_menu;
 
-                        cls_variablesSistema.tipoEstado = e.CommandName;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = e.CommandName;
 
                         this.cargarObjeto();
 

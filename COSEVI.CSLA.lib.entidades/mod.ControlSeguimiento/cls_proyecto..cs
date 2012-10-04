@@ -206,6 +206,14 @@ namespace COSEVI.CSLA.lib.entidades.mod.ControlSeguimiento
 
         private List<cls_departamentoProyecto> dptoProyLista = new List<cls_departamentoProyecto>();
 
+        private string usuarioTransaccion;
+
+        public string pUsuarioTransaccion
+        {
+            get { return usuarioTransaccion; }
+            set { usuarioTransaccion = value; }
+        }
+
         #endregion
 
 

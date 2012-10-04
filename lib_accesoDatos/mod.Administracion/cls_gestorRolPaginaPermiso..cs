@@ -60,7 +60,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.ROL_PAGINA_PERMISO, poRolPaginaPermiso.pPK_rol + "/" + poRolPaginaPermiso.pPK_pagina + "/" + poRolPaginaPermiso.pPK_permiso);
+                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.ROL_PAGINA_PERMISO, poRolPaginaPermiso.pPK_rol + "/" + poRolPaginaPermiso.pPK_pagina + "/" + poRolPaginaPermiso.pPK_permiso, poRolPaginaPermiso.pUsuarioTransaccion);
                 return vi_resultado;
 
             }
@@ -96,7 +96,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.MODIFICAR, cls_constantes.ROL_PAGINA_PERMISO, poRolPaginaPermiso.pPK_rol + "/" + poRolPaginaPermiso.pPK_pagina + "/" + poRolPaginaPermiso.pPK_permiso);
+                cls_interface.insertarTransacccionBitacora(cls_constantes.MODIFICAR, cls_constantes.ROL_PAGINA_PERMISO, poRolPaginaPermiso.pPK_rol + "/" + poRolPaginaPermiso.pPK_pagina + "/" + poRolPaginaPermiso.pPK_permiso, poRolPaginaPermiso.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 
@@ -132,7 +132,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.ROL_PAGINA_PERMISO, poRol.pPK_rol.ToString());
+                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.ROL_PAGINA_PERMISO, poRol.pPK_rol.ToString(), poRol.pUsuarioTransaccion);
 
                 return vi_resultado;
 

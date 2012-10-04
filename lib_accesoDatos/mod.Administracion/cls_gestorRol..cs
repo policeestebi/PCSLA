@@ -72,6 +72,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
 
                         vo_rolPaginaPermiso.pPagina = pagina;
                         vo_rolPaginaPermiso.pRol = poRol;
+                        vo_rolPaginaPermiso.pUsuarioTransaccion = poRol.pUsuarioTransaccion;
 
                         foreach (cls_permiso permiso in pagina.Permisos)
                         {
@@ -85,7 +86,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
                 // Se obtiene el número del registro insertado.
                 poRol.pPK_rol = Convert.ToInt32(cls_gestorUtil.selectMax(cls_constantes.ROL, "PK_rol"));
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.ROL, poRol.pPK_rol.ToString());
+                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.ROL, poRol.pPK_rol.ToString(),poRol.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 
@@ -140,6 +141,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
 
                         vo_rolPaginaPermiso.pPagina = pagina;
                         vo_rolPaginaPermiso.pRol = poRol;
+                        vo_rolPaginaPermiso.pUsuarioTransaccion = poRol.pUsuarioTransaccion;
 
                         foreach (cls_permiso permiso in pagina.Permisos)
                         {
@@ -150,7 +152,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
                     }
                 }
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.MODIFICAR, cls_constantes.ROL, poRol.pPK_rol.ToString());
+                cls_interface.insertarTransacccionBitacora(cls_constantes.MODIFICAR, cls_constantes.ROL, poRol.pPK_rol.ToString(), poRol.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 
@@ -191,7 +193,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.ROL, poRol.pPK_rol.ToString());
+                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.ROL, poRol.pPK_rol.ToString(), poRol.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 

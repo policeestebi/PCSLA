@@ -62,7 +62,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
                 // Se obtiene el número del registro insertado.
                 poEntregable.pPK_entregable = Convert.ToInt32(cls_gestorUtil.selectMax(cls_constantes.ENTREGABLE, "PK_entregable"));
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.ENTREGABLE, poEntregable.pPK_entregable.ToString());
+                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.ENTREGABLE, poEntregable.pPK_entregable.ToString(),poEntregable.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 
@@ -102,7 +102,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.MODIFICAR, cls_constantes.ENTREGABLE, poEntregable.pPK_entregable.ToString());
+                cls_interface.insertarTransacccionBitacora(cls_constantes.MODIFICAR, cls_constantes.ENTREGABLE, poEntregable.pPK_entregable.ToString(), poEntregable.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 
@@ -139,7 +139,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.ENTREGABLE, poEntregable.pPK_entregable.ToString());
+                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.ENTREGABLE, poEntregable.pPK_entregable.ToString(), poEntregable.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 

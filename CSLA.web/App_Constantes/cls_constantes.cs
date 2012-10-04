@@ -110,6 +110,19 @@ namespace CSLA.web.App_Constantes
         /// </summary>
         public const string MENSAJEADVERTENCIA = "Debe indicar los parámetros que se le muestran para poder generar el gráfico.";
 
+        /// <summary>
+        /// Nombre de la variable del sistema
+        /// que almacena las variable.
+        /// </summary>
+        public const string VARIABLES = "Variables";
+
+
+        /// <summary>
+        /// Nombre de la variable del sistema
+        /// que almacena las interfaces
+        /// </summary>
+        public const string INTERFACES = "Interfaces";
+
     }
 
 }

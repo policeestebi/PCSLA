@@ -228,9 +228,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             cls_actividad vo_actividad = new cls_actividad();
             try
             {
-				if (cls_variablesSistema.tipoEstado != cls_constantes.AGREGAR)
+				if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado != cls_constantes.AGREGAR)
 				{
-					vo_actividad = (cls_actividad)cls_variablesSistema.obj;
+					vo_actividad = (cls_actividad)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
 				}
                 vo_actividad.pCodigo = txt_codigo.Text;
                 vo_actividad.pNombre = txt_nombre.Text;
@@ -253,12 +253,12 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
             try
             {
-                vo_actividad = (cls_actividad)cls_variablesSistema.obj;
+                vo_actividad = (cls_actividad)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
                 this.txt_codigo.Text = vo_actividad.pCodigo;
                 this.txt_nombre.Text = vo_actividad.pNombre;
                 this.txt_descripcion.Text = vo_actividad.pDescripcion;
 
-                if (cls_variablesSistema.tipoEstado == cls_constantes.VER)
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado == cls_constantes.VER)
                 {
                     this.habilitarControles(false);
                 }
@@ -282,6 +282,8 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             try
             {
+                po_actividad.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
                 cls_gestorActividad.deleteActividad(po_actividad);
 
                 this.llenarGridView();
@@ -304,9 +306,12 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             int vi_resultado = 1;
             cls_actividad vo_actividad = this.crearObjeto();
+
+            vo_actividad.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
             try
             {
-                switch (cls_variablesSistema.tipoEstado)
+                switch (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado)
                 {
                     case cls_constantes.AGREGAR:
                         vi_resultado = cls_gestorActividad.insertActividad(vo_actividad);
@@ -426,7 +431,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             try
             {
-                cls_variablesSistema.tipoEstado = cls_constantes.AGREGAR;
+                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = cls_constantes.AGREGAR;
 
                 this.limpiarCampos();
 
@@ -542,9 +547,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                     case cls_constantes.VER:
                         vo_actividad = cls_gestorActividad.seleccionarActividad(vo_actividad);
 
-                        cls_variablesSistema.obj = vo_actividad;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_actividad;
 
-                        cls_variablesSistema.tipoEstado = e.CommandName;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = e.CommandName;
 
                         this.cargarObjeto();
 
@@ -554,9 +559,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                     case cls_constantes.EDITAR:
                         vo_actividad = cls_gestorActividad.seleccionarActividad(vo_actividad);
 
-                        cls_variablesSistema.obj = vo_actividad;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_actividad;
 
-                        cls_variablesSistema.tipoEstado = e.CommandName;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = e.CommandName;
 
                         this.cargarObjeto();
 

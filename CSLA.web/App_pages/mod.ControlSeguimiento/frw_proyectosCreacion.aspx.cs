@@ -141,7 +141,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             try
             {
-                txt_proyecto.Text = cls_variablesSistema.vs_proyecto.pNombre;
+                txt_proyecto.Text = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pNombre;
             }
             catch (Exception po_exception)
             {
@@ -159,7 +159,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             {
                 List<cls_proyectoEntregable> vo_proyectoEntregable = new List<cls_proyectoEntregable>();
 
-                vo_proyectoEntregable = cls_variablesSistema.vs_proyecto.pProyectoEntregableListaMemoria;
+                vo_proyectoEntregable = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pProyectoEntregableListaMemoria;
 
                 return vo_proyectoEntregable;
             }
@@ -179,7 +179,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             {
                 List<cls_entregableComponente> vo_entregableComponente = new List<cls_entregableComponente>();
 
-                vo_entregableComponente = cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria;
+                vo_entregableComponente = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria;
 
                 return vo_entregableComponente;
             }
@@ -199,7 +199,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             {
                 List<cls_componentePaquete> vo_componentePaquete = new List<cls_componentePaquete>();
 
-                vo_componentePaquete = cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria;
+                vo_componentePaquete = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria;
 
                 return vo_componentePaquete;
             }
@@ -219,7 +219,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             {
                 List<cls_paqueteActividad> vo_paqueteActividad = new List<cls_paqueteActividad>();
 
-                vo_paqueteActividad = cls_variablesSistema.vs_proyecto.pPaqueteActividadListaMemoria;
+                vo_paqueteActividad = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaMemoria;
 
                 return vo_paqueteActividad;
             }
@@ -239,7 +239,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             {
                 List<cls_proyectoEntregable> vo_proyectoEntregable = new List<cls_proyectoEntregable>();
 
-                vo_proyectoEntregable = cls_variablesSistema.vs_proyecto.pProyectoEntregableListaBaseDatos;
+                vo_proyectoEntregable = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pProyectoEntregableListaBaseDatos;
 
                 return vo_proyectoEntregable;
             }
@@ -259,7 +259,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             {
                 List<cls_entregableComponente> vo_entregableComponente = new List<cls_entregableComponente>();
 
-                vo_entregableComponente = cls_variablesSistema.vs_proyecto.pEntregableComponenteListaBaseDatos;
+                vo_entregableComponente = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaBaseDatos;
 
                 return vo_entregableComponente;
             }
@@ -279,7 +279,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             {
                 List<cls_componentePaquete> vo_componentePaquete = new List<cls_componentePaquete>();
 
-                vo_componentePaquete = cls_variablesSistema.vs_proyecto.pComponentePaqueteListaBaseDatos;
+                vo_componentePaquete = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaBaseDatos;
 
                 return vo_componentePaquete;
             }
@@ -299,7 +299,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             {
                 List<cls_paqueteActividad> vo_paqueteActividad = new List<cls_paqueteActividad>();
 
-                vo_paqueteActividad = cls_variablesSistema.vs_proyecto.pPaqueteActividadListaBaseDatos;
+                vo_paqueteActividad = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaBaseDatos;
 
                 return vo_paqueteActividad;
             }
@@ -320,11 +320,11 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             int vi_resultado = 1;
             
             //Se obtiene la llave primaria de proyecto, es decir, PK_proyecto, de la variables del sistema, para luego sólo enviarla por parámetro en los guardar
-            int llaveProyecto = cls_variablesSistema.vs_proyecto.pPK_proyecto;  
+            int llaveProyecto = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPK_proyecto;  
 
             try
             {
-                switch (cls_variablesSistema.tipoEstado)
+                switch (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado)
                 {
                     case cls_constantes.AGREGAR:
 
@@ -371,6 +371,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 foreach (cls_proyectoEntregable vo_proyectoEntregable in vl_proyectoEntregable)
                 {
                     vo_proyectoEntregable.pProyecto.pPK_proyecto = ps_llaveProyecto;
+
+                    vo_proyectoEntregable.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+                    
                     vi_resultado = cls_gestorProyectoEntregable.insertProyectoEntregable(vo_proyectoEntregable);
                 }
 
@@ -399,6 +402,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 foreach (cls_entregableComponente vo_entregableComponente in vl_entregableComponente)
                 {
                     vo_entregableComponente.pProyecto.pPK_proyecto = ps_llaveProyecto;
+
+                    vo_entregableComponente.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
                     vi_resultado = cls_gestorEntregableComponente.insertEntregableComponente(vo_entregableComponente);
                 }
 
@@ -427,6 +433,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 foreach (cls_componentePaquete vo_componentePaquete in vl_componentePaquete)
                 {
                     vo_componentePaquete.pProyecto.pPK_proyecto = ps_llaveProyecto;
+
+                    vo_componentePaquete.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
                     vi_resultado = cls_gestorComponentePaquete.insertComponentePaquete(vo_componentePaquete);
                 }
 
@@ -455,6 +464,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 foreach (cls_paqueteActividad vo_paqueteActividad in vl_paqueteActividad)
                 {
                     vo_paqueteActividad.pProyecto.pPK_proyecto = ps_llaveProyecto;
+                    vo_paqueteActividad.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
                     vi_resultado = cls_gestorPaqueteActividad.insertPaqueteActividad(vo_paqueteActividad);
                 }
 
@@ -487,6 +497,8 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                     if (!(vl_proyectoEntregableBaseDatos.Where(dep => dep.pPK_Entregable == vo_proyectoEntregable.pPK_Entregable).Count() > 0))
                     {
                         vo_proyectoEntregable.pProyecto.pPK_proyecto = ps_llaveProyecto;
+                        vo_proyectoEntregable.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
                         vi_resultado = cls_gestorProyectoEntregable.updateProyectEntregable(vo_proyectoEntregable, 1);
                     }
                 }
@@ -497,6 +509,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                     if (!(vl_proyectoEntregableMemoria.Where(dep => dep.pPK_Entregable == vo_proyectoEntregable.pPK_Entregable).Count() > 0))
                     {
                         vo_proyectoEntregable.pProyecto.pPK_proyecto = ps_llaveProyecto;
+                        vo_proyectoEntregable.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
                         vi_resultado = cls_gestorProyectoEntregable.updateProyectEntregable(vo_proyectoEntregable, 0);
                     }
                 }
@@ -530,6 +543,8 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                                                                         dep.pPK_Componente == vo_entregableComponente.pPK_Componente).Count() > 0))
                     {
                         vo_entregableComponente.pProyecto.pPK_proyecto = ps_llaveProyecto;
+
+                        vo_entregableComponente.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
                         vi_resultado = cls_gestorEntregableComponente.updateEntregableComponente(vo_entregableComponente, 1);
                     }
                 }
@@ -541,6 +556,8 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                                                                       dep.pPK_Componente == vo_entregableComponente.pPK_Componente).Count() > 0))
                     {
                         vo_entregableComponente.pProyecto.pPK_proyecto = ps_llaveProyecto;
+
+                        vo_entregableComponente.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
                         vi_resultado = cls_gestorEntregableComponente.updateEntregableComponente(vo_entregableComponente, 0);
                     }
                 }
@@ -575,6 +592,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                                                                      dep.pPK_Paquete == vo_componentePaquete.pPK_Paquete).Count() > 0))
                     {
                         vo_componentePaquete.pProyecto.pPK_proyecto = ps_llaveProyecto;
+                        vo_componentePaquete.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
                         vi_resultado = cls_gestorComponentePaquete.updateComponentePaquete(vo_componentePaquete, 1);
                     }
                 }
@@ -587,6 +605,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                                                                    dep.pPK_Paquete == vo_componentePaquete.pPK_Paquete).Count() > 0))
                     {
                         vo_componentePaquete.pProyecto.pPK_proyecto = ps_llaveProyecto;
+                        vo_componentePaquete.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
                         vi_resultado = cls_gestorComponentePaquete.updateComponentePaquete(vo_componentePaquete, 0);
                     }
                 }
@@ -622,6 +641,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                                                                      dep.pPK_Actividad == vo_paqueteActividad.pPK_Actividad).Count() > 0))
                     {
                         vo_paqueteActividad.pProyecto.pPK_proyecto = ps_llaveProyecto;
+                        vo_paqueteActividad.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
                         vi_resultado = cls_gestorPaqueteActividad.updatePaqueteActividad(vo_paqueteActividad, 1);
                     }
                 }
@@ -635,6 +655,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                                                                   dep.pPK_Actividad == vo_paqueteActividad.pPK_Actividad).Count() > 0))
                     {
                         vo_paqueteActividad.pProyecto.pPK_proyecto = ps_llaveProyecto;
+                        vo_paqueteActividad.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
                         vi_resultado = cls_gestorPaqueteActividad.updatePaqueteActividad(vo_paqueteActividad, 0);
                     }
                 }
@@ -776,7 +797,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 					//Se envía a llenar los datos asociados de los entregables
 					llenarDatosEntregables();
 
-					if (lbx_entasociados.Items.Count == 0 && btnNxt != null && cls_variablesSistema.vs_proyecto.pProyectoEntregableListaBaseDatos.Count == 0)
+					if (lbx_entasociados.Items.Count == 0 && btnNxt != null && ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pProyectoEntregableListaBaseDatos.Count == 0)
 					{
 						btnNxt.Enabled = false;
 					}
@@ -797,7 +818,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 				//Validación en el step de componentes ya asociados a entregables
 				if (wiz_creacion.ActiveStepIndex == wiz_creacion.WizardSteps.IndexOf(this.wzs_componentes))
 				{
-					if (lbx_compasociados.Items.Count == 0 && btnNxt != null && cls_variablesSistema.vs_proyecto.pEntregableComponenteListaBaseDatos.Count == 0)
+					if (lbx_compasociados.Items.Count == 0 && btnNxt != null && ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaBaseDatos.Count == 0)
 					{
 						btnNxt.Enabled = false;
 					}
@@ -813,7 +834,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 				//Validación en el step de componentes ya asociados a paquetes
 				if (wiz_creacion.ActiveStepIndex == wiz_creacion.WizardSteps.IndexOf(this.wzs_paquetes))
 				{
-					if (lbx_paqasociados.Items.Count == 0 && btnNxt != null && cls_variablesSistema.vs_proyecto.pComponentePaqueteListaBaseDatos.Count == 0)
+					if (lbx_paqasociados.Items.Count == 0 && btnNxt != null && ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaBaseDatos.Count == 0)
 					{
 						btnNxt.Enabled = false;
 					}
@@ -829,7 +850,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 				//Validación en el step de componentes ya asociados a paquetes
 				if (wiz_creacion.ActiveStepIndex == wiz_creacion.WizardSteps.IndexOf(this.wzs_actividades))
 				{
-					if (lbx_actasociadas.Items.Count == 0 && btnNxt != null && cls_variablesSistema.vs_proyecto.pPaqueteActividadListaBaseDatos.Count == 0)
+					if (lbx_actasociadas.Items.Count == 0 && btnNxt != null && ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaBaseDatos.Count == 0)
 					{
 						btnNxt.Enabled = false;
 					}
@@ -925,29 +946,29 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
             try
             {
-                if(cls_variablesSistema.vs_proyecto.pProyectoEntregableListaMemoria.Count > 0)
+                if(((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pProyectoEntregableListaMemoria.Count > 0)
                 {
                     //Si la variable en memoria SI posee algún valor, se va a efectuar una "Actualizacion" al proyecto
-                    cls_variablesSistema.tipoEstado = cls_constantes.EDITAR;
+                    ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = cls_constantes.EDITAR;
 
-                    lbx_entasociados.DataSource = cls_variablesSistema.vs_proyecto.pProyectoEntregableListaMemoria;
+                    lbx_entasociados.DataSource = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pProyectoEntregableListaMemoria;
                     lbx_entasociados.DataTextField = "pNombreEntregable";
                     lbx_entasociados.DataValueField = "pPK_Entregable";
                 }
                 else
                 {
 
-                    vo_dataSet = cls_gestorProyectoEntregable.selectProyectoEntregable(cls_variablesSistema.vs_proyecto);
+                    vo_dataSet = cls_gestorProyectoEntregable.selectProyectoEntregable(((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto);
 
                     if (vo_dataSet.Tables[0].Rows.Count > 0)
                     {
                         //Si la variable en memoria SI posee algún valor, se va a efectuar una "Actualizacion" al proyecto
-                        cls_variablesSistema.tipoEstado = cls_constantes.EDITAR;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = cls_constantes.EDITAR;
                     }
                     else
                     {
                         //Si la variable en memoria NO posee algún valor, se va a efectuar una "Insercion" de proyecto
-                        cls_variablesSistema.tipoEstado = cls_constantes.AGREGAR;
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).tipoEstado = cls_constantes.AGREGAR;
                     }
 
                     //Se recorren los entregables pertenecientes a un proyecto y se asignan en el listbox para los asociados
@@ -962,9 +983,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
                         vo_proyectoEntregable.pEntregable = vo_entregable;
 
-                        cls_variablesSistema.vs_proyecto.pEntregableLista.Add(vo_entregable);
-                        cls_variablesSistema.vs_proyecto.pProyectoEntregableListaMemoria.Add(vo_proyectoEntregable);
-                        cls_variablesSistema.vs_proyecto.pProyectoEntregableListaBaseDatos.Add(vo_proyectoEntregable);
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableLista.Add(vo_entregable);
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pProyectoEntregableListaMemoria.Add(vo_proyectoEntregable);
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pProyectoEntregableListaBaseDatos.Add(vo_proyectoEntregable);
                     }
 
                     lbx_entasociados.DataSource = vo_dataSet;
@@ -1016,10 +1037,10 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 						vo_proyectoEntregable.pEntregable = vo_entregable;
 
 						//Si el registro no existe en memoria, se agrega
-						if (!(cls_variablesSistema.vs_proyecto.pProyectoEntregableListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == vo_entregable.pPK_entregable).Count() > 0))
+						if (!(((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pProyectoEntregableListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == vo_entregable.pPK_entregable).Count() > 0))
 						{
-							cls_variablesSistema.vs_proyecto.pEntregableLista.Add(vo_entregable);
-							cls_variablesSistema.vs_proyecto.pProyectoEntregableListaMemoria.Add(vo_proyectoEntregable);
+							((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableLista.Add(vo_entregable);
+							((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pProyectoEntregableListaMemoria.Add(vo_proyectoEntregable);
 						}
 
 						lbx_entasociados.Items.Add(lbx_entregables.Items[i]);
@@ -1064,39 +1085,39 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 						vo_proyectoEntregable.pEntregable = vo_entregable;
 
 						//Se realiza una eliminación de todas las posibles referencias que se presenten a nivel de memoria para el entregable que se está eliminando
-						foreach (cls_entregableComponente entComp in cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria)
+						foreach (cls_entregableComponente entComp in ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria)
 						{
 							if (entComp.pPK_Entregable == vo_entregable.pPK_entregable)
 							{
-								foreach (cls_componentePaquete compPaq in cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria)
+								foreach (cls_componentePaquete compPaq in ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria)
 								{
 									if (compPaq.pPK_Entregable == entComp.pPK_Entregable)
 									{
-										foreach (cls_paqueteActividad paqAct in cls_variablesSistema.vs_proyecto.pPaqueteActividadListaMemoria)
+										foreach (cls_paqueteActividad paqAct in ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaMemoria)
 										{
 											if (paqAct.pPK_Entregable == entComp.pPK_Entregable)
 											{
-												cls_variablesSistema.vs_proyecto.pActividadLista.RemoveAll(searchLinQ => searchLinQ.pPK_Actividad == paqAct.pPK_Actividad);
+												((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pActividadLista.RemoveAll(searchLinQ => searchLinQ.pPK_Actividad == paqAct.pPK_Actividad);
 											}
 										}
 
-										cls_variablesSistema.vs_proyecto.pPaqueteActividadListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Paquete == compPaq.pPK_Paquete);
+										((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Paquete == compPaq.pPK_Paquete);
 
-										cls_variablesSistema.vs_proyecto.pPaqueteLista.RemoveAll(searchLinQ => searchLinQ.pPK_Paquete == compPaq.pPK_Paquete);
+										((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteLista.RemoveAll(searchLinQ => searchLinQ.pPK_Paquete == compPaq.pPK_Paquete);
 									}
 								}
 
-								cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Componente == entComp.pPK_Componente);
+								((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Componente == entComp.pPK_Componente);
 
-								cls_variablesSistema.vs_proyecto.pComponenteLista.RemoveAll(searchLinQ => searchLinQ.pPK_componente == entComp.pPK_Componente);
+								((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponenteLista.RemoveAll(searchLinQ => searchLinQ.pPK_componente == entComp.pPK_Componente);
 							}
 						}
 
-						cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Entregable == vo_entregable.pPK_entregable);
+						((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Entregable == vo_entregable.pPK_entregable);
 
 
-						cls_variablesSistema.vs_proyecto.pEntregableLista.RemoveAll(searchLinQ => searchLinQ.pPK_entregable == vo_entregable.pPK_entregable);
-						cls_variablesSistema.vs_proyecto.pProyectoEntregableListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Entregable == vo_entregable.pPK_entregable);
+						((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableLista.RemoveAll(searchLinQ => searchLinQ.pPK_entregable == vo_entregable.pPK_entregable);
+						((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pProyectoEntregableListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Entregable == vo_entregable.pPK_entregable);
 
 
 						lbx_entregables.Items.Add(lbx_entasociados.Items[i]);
@@ -1106,7 +1127,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 				}
 
 				//Si luego de desasociar los entregables, si la lista queda vacía, no se puede proseguir hasta que no se realice al menos una asignación
-				if (lbx_entasociados.Items.Count == 0 && cls_variablesSistema.vs_proyecto.pProyectoEntregableListaMemoria.Count == 0)
+				if (lbx_entasociados.Items.Count == 0 && ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pProyectoEntregableListaMemoria.Count == 0)
 				{
 					btnNxt.Enabled = false;
 				}
@@ -1152,9 +1173,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             try
             {
                 //Si la lista posee datos, se respeta lo que se encuentre en memoria
-                if (cls_variablesSistema.vs_proyecto.pProyectoEntregableListaMemoria.Count > 0)
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pProyectoEntregableListaMemoria.Count > 0)
                 {
-                    lbx_entregablesasociados.DataSource = cls_variablesSistema.vs_proyecto.pProyectoEntregableListaMemoria;
+                    lbx_entregablesasociados.DataSource = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pProyectoEntregableListaMemoria;
                     lbx_entregablesasociados.DataTextField = "pNombreEntregable";
                     lbx_entregablesasociados.DataValueField = "pPK_entregable";
                     lbx_entregablesasociados.DataBind();
@@ -1162,7 +1183,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 //De lo contrario, se realiza la consulta a nivel de base de datos
                 else
                 {
-                    vo_dataSet = cls_gestorProyectoEntregable.selectProyectoEntregable(cls_variablesSistema.vs_proyecto);
+                    vo_dataSet = cls_gestorProyectoEntregable.selectProyectoEntregable(((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto);
                     lbx_entregablesasociados.DataSource = vo_dataSet;
                     lbx_entregablesasociados.DataTextField = "nombre";
                     lbx_entregablesasociados.DataValueField = "PK_entregable";
@@ -1221,7 +1242,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 //También se procede a eliminar de la lista de componentes aquellos que se encuentren asignados en memoria
                 foreach (ListItem item in lbx_pivot.Items)
                 {
-                    if (cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Componente.ToString() == item.Value).Count() > 0)
+                    if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Componente.ToString() == item.Value).Count() > 0)
                     {
                         lbx_componentes.Items.Remove(item);
                     }
@@ -1244,7 +1265,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 			{
 				cls_entregableComponente vo_entregableComponente = new cls_entregableComponente();
 
-				vo_entregableComponente.pProyecto = cls_variablesSistema.vs_proyecto;
+				vo_entregableComponente.pProyecto = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto;
 				vo_entregableComponente.pEntregable = po_entregable;
 
 				cargarComponentesPorEntregable(vo_entregableComponente);
@@ -1268,9 +1289,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             try
             {
                 //Si la lista de memoria se encuentra vacía, se realiza la consulta a nivel de base de datos
-                if (cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria.Count == 0)
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria.Count == 0)
                 {
-                    vo_dataSet = cls_gestorEntregableComponente.selectEntregableComponente(cls_variablesSistema.vs_proyecto);
+                    vo_dataSet = cls_gestorEntregableComponente.selectEntregableComponente(((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto);
 
                     //Se recorren los registros obtenidos en la consulta
                     foreach (DataRow row in vo_dataSet.Tables[0].Rows)
@@ -1288,17 +1309,17 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                         vo_entregableComponente.pComponente = vo_componente;
 
                         //Si el objeto no se encuentra en memoria, se agrega
-                        if (cls_variablesSistema.vs_proyecto.pEntregableComponenteListaBaseDatos.Where(searchLinQ => searchLinQ.pPK_Componente == vo_entregableComponente.pPK_Componente).Count() == 0)
+                        if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaBaseDatos.Where(searchLinQ => searchLinQ.pPK_Componente == vo_entregableComponente.pPK_Componente).Count() == 0)
                         {
-                            cls_variablesSistema.vs_proyecto.pEntregableComponenteListaBaseDatos.Add(vo_entregableComponente);
+                            ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaBaseDatos.Add(vo_entregableComponente);
                         }
                         //Si el objeto no se encuentra en memoria, se agrega
-                        if (cls_variablesSistema.vs_proyecto.pProyectoEntregableListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == vo_entregableComponente.pPK_Entregable).Count() > 0)
+                        if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pProyectoEntregableListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == vo_entregableComponente.pPK_Entregable).Count() > 0)
                         {
-                            if (cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Componente == vo_entregableComponente.pPK_Componente).Count() == 0)
+                            if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Componente == vo_entregableComponente.pPK_Componente).Count() == 0)
                             {
-                                cls_variablesSistema.vs_proyecto.pComponenteLista.Add(vo_componente);
-                                cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria.Add(vo_entregableComponente);
+                                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponenteLista.Add(vo_componente);
+                                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria.Add(vo_entregableComponente);
                             }                      
                         }
                     }
@@ -1306,9 +1327,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 }
 
                 //Si el objeto está asociado en memoria se utiliza
-                if (cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == po_entregableComponente.pPK_Entregable).Count() > 0)
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == po_entregableComponente.pPK_Entregable).Count() > 0)
                 {
-                    lbx_compasociados.DataSource = cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == po_entregableComponente.pPK_Entregable);
+                    lbx_compasociados.DataSource = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == po_entregableComponente.pPK_Entregable);
                     lbx_compasociados.DataTextField = "pNombreComponente";
                     lbx_compasociados.DataValueField = "pPK_Componente";
 
@@ -1343,7 +1364,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
                         foreach (ListItem item in lbx_pivot.Items)
                         {
-                            if (cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == po_entregableComponente.pPK_Entregable &&
+                            if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == po_entregableComponente.pPK_Entregable &&
                                                                                                                        searchLinQ.pPK_Componente == Convert.ToInt32(item.Value)).Count() == 0)
                             {
                                 lbx_compasociados.Items.Remove(item);
@@ -1398,7 +1419,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 }
 
                 //Se realiza la consulta para obtener todos los componentes asociados a un entregable del proyecto seleccionado
-                vo_dataSet = cls_gestorEntregableComponente.selectEntregableComponente(cls_variablesSistema.vs_proyecto);
+                vo_dataSet = cls_gestorEntregableComponente.selectEntregableComponente(((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto);
 
                 foreach (DataRow row in vo_dataSet.Tables[0].Rows)
                 {
@@ -1415,26 +1436,26 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                     vo_entregableComponente.pComponente = vo_componente;
 
                     //Si no se encuentra el elemento en la lista de memoria que mantiene los objetos de base de datos, se agrega
-                    if (cls_variablesSistema.vs_proyecto.pEntregableComponenteListaBaseDatos.Where(searchLinQ => searchLinQ.pPK_Componente == vo_entregableComponente.pPK_Componente).Count() == 0)
+                    if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaBaseDatos.Where(searchLinQ => searchLinQ.pPK_Componente == vo_entregableComponente.pPK_Componente).Count() == 0)
                     {
-                        cls_variablesSistema.vs_proyecto.pEntregableComponenteListaBaseDatos.Add(vo_entregableComponente);
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaBaseDatos.Add(vo_entregableComponente);
                     }
                     //Si no se encuentra el elemento en la lista de memoria que se está creando, se agrega
-                    if (cls_variablesSistema.vs_proyecto.pProyectoEntregableListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == vo_entregableComponente.pPK_Entregable).Count() > 0)
+                    if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pProyectoEntregableListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == vo_entregableComponente.pPK_Entregable).Count() > 0)
                     {
                         validacionMemoria = true;
 
-                        if (cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Componente == vo_entregableComponente.pPK_Componente).Count() == 0)
+                        if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Componente == vo_entregableComponente.pPK_Componente).Count() == 0)
                         {
-                            cls_variablesSistema.vs_proyecto.pComponenteLista.Add(vo_componente);
-                            cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria.Add(vo_entregableComponente);
+                            ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponenteLista.Add(vo_componente);
+                            ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria.Add(vo_entregableComponente);
                         }
                     }
                 }
                 //Si la validación es True, se encontró al menos un elemento nuevo en la lista, por lo que se puede proseguir
                 if (validacionMemoria)
                 {
-                    if (lbx_compasociados.Items.Count == 0 && btnNxt != null && cls_variablesSistema.vs_proyecto.pEntregableComponenteListaBaseDatos.Count == 0)
+                    if (lbx_compasociados.Items.Count == 0 && btnNxt != null && ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaBaseDatos.Count == 0)
                     {
                         btnNxt.Enabled = false;
                     }
@@ -1514,17 +1535,17 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 						vo_entregableComponente.pComponente = vo_componente;
 
 						//Se recorre la lista de los entregables asociados a proyecto en memoria
-						foreach (cls_proyectoEntregable proyEnt in cls_variablesSistema.vs_proyecto.pProyectoEntregableListaMemoria)
+						foreach (cls_proyectoEntregable proyEnt in ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pProyectoEntregableListaMemoria)
 						{
 							//Si los entregables coinciden, este es el que se va a asignar
 							if (proyEnt.pPK_Entregable == vo_entregable.pPK_entregable)
 							{
 								//Si en el siguiente nivel, en entregable-componente no se encuentra la asignación, se realiza para ese proyecto-entregable
-								if (cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == vo_entregable.pPK_entregable &&
+								if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == vo_entregable.pPK_entregable &&
 																													 searchLinQ.pPK_Componente == vo_componente.pPK_componente).Count() == 0)
 								{
-									cls_variablesSistema.vs_proyecto.pComponenteLista.Add(vo_componente);
-									cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria.Add(vo_entregableComponente);
+									((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponenteLista.Add(vo_componente);
+									((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria.Add(vo_entregableComponente);
 								}
 							}
 						}
@@ -1580,31 +1601,31 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 						vo_entregableComponente.pComponente = vo_componente;
 
 						//Se realiza un barrido de las asignaciones posteriores que tuviese el elemento a nivel de memoria, de los subniveles siguientes
-						if (cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == vo_entregable.pPK_entregable &&
+						if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == vo_entregable.pPK_entregable &&
 																												   searchLinQ.pPK_Componente == vo_componente.pPK_componente).Count() > 0)
 							{
 								//Se realiza una eliminación de todas las posibles referencias que se presenten a nivel de memoria para el entregable que se está eliminando
-								foreach (cls_componentePaquete compPaq in cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria)
+								foreach (cls_componentePaquete compPaq in ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria)
 								{
 									if (compPaq.pPK_Componente == vo_componente.pPK_componente)
 									{
-										foreach (cls_paqueteActividad paqAct in cls_variablesSistema.vs_proyecto.pPaqueteActividadListaMemoria)
+										foreach (cls_paqueteActividad paqAct in ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaMemoria)
 										{
 											if (paqAct.pPK_Componente == compPaq.pPK_Componente)
 											{
-												cls_variablesSistema.vs_proyecto.pActividadLista.RemoveAll(searchLinQ => searchLinQ.pPK_Actividad == paqAct.pPK_Actividad);
+												((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pActividadLista.RemoveAll(searchLinQ => searchLinQ.pPK_Actividad == paqAct.pPK_Actividad);
 											}
 										}
 
-										cls_variablesSistema.vs_proyecto.pPaqueteActividadListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Paquete == compPaq.pPK_Paquete);
+										((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Paquete == compPaq.pPK_Paquete);
 
-										cls_variablesSistema.vs_proyecto.pPaqueteLista.RemoveAll(searchLinQ => searchLinQ.pPK_Paquete == compPaq.pPK_Paquete);
+										((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteLista.RemoveAll(searchLinQ => searchLinQ.pPK_Paquete == compPaq.pPK_Paquete);
 									}
 								}
-								cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Componente == vo_componente.pPK_componente);
+								((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Componente == vo_componente.pPK_componente);
 
-								cls_variablesSistema.vs_proyecto.pComponenteLista.RemoveAll(searchLinQ => searchLinQ.pPK_componente == vo_componente.pPK_componente);
-								cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Componente == vo_componente.pPK_componente);
+								((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponenteLista.RemoveAll(searchLinQ => searchLinQ.pPK_componente == vo_componente.pPK_componente);
+								((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Componente == vo_componente.pPK_componente);
 							}
 
 						lbx_componentes.Items.Add(lbx_compasociados.Items[i]);
@@ -1615,7 +1636,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 				}
 
 				//Luego del barrido, si no quedó ningún elemento asociado, no se habilita el botón de siguiente
-				if (lbx_compasociados.Items.Count == 0 && cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria.Count == 0 && cls_variablesSistema.vs_proyecto.pEntregableComponenteListaBaseDatos.Count == 0)
+                if (lbx_compasociados.Items.Count == 0 && ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria.Count == 0 && ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaBaseDatos.Count == 0)
 				{
 					btnNxt.Enabled = false;
 				}
@@ -1661,9 +1682,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             try
             {
                 //Si se encuentran elementos ya en la lista que se mantiene en memoria, los mismos se respetan
-                if (cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria.Count > 0)
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria.Count > 0)
                 {
-                    lbx_componentesasociados.DataSource = cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria;
+                    lbx_componentesasociados.DataSource = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria;
                     lbx_componentesasociados.DataTextField = "pNombreComponente";
                     lbx_componentesasociados.DataValueField = "pPK_Componente";
                     lbx_componentesasociados.DataBind();
@@ -1671,7 +1692,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 //De lo contrario se pregunta a nivel de base de datos si existen
                 else
                 {
-                    vo_dataSet = cls_gestorEntregableComponente.selectEntregableComponente(cls_variablesSistema.vs_proyecto);
+                    vo_dataSet = cls_gestorEntregableComponente.selectEntregableComponente(((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto);
                     lbx_componentesasociados.DataSource = vo_dataSet;
                     lbx_componentesasociados.DataTextField = "nombre";
                     lbx_componentesasociados.DataValueField = "PK_componente";
@@ -1729,7 +1750,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 //También se procede a eliminar de la lista de paquetes aquellos que se encuentren asignados en memoria
                 foreach (ListItem item in lbx_pivot.Items)
                 {
-                    if (cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Paquete.ToString() == item.Value).Count() > 0)
+                    if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Paquete.ToString() == item.Value).Count() > 0)
                     {
                         lbx_paquetes.Items.Remove(item);
                     }
@@ -1751,7 +1772,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 			{
 				cls_componentePaquete vo_componentePaquete = new cls_componentePaquete();
 
-				vo_componentePaquete.pProyecto = cls_variablesSistema.vs_proyecto;
+				vo_componentePaquete.pProyecto = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto;
 				vo_componentePaquete.pComponente = po_componente;
 
 				cargarPaquetesPorComponente(vo_componentePaquete);
@@ -1775,9 +1796,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             try
             {
                 //Si la lista de memoria se encuentra vacía, se realiza la consulta en base de datos
-                if (cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria.Count == 0)
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria.Count == 0)
                 {
-                    vo_dataSet = cls_gestorComponentePaquete.selectComponentePaquete(cls_variablesSistema.vs_proyecto);
+                    vo_dataSet = cls_gestorComponentePaquete.selectComponentePaquete(((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto);
 
                     foreach (DataRow row in vo_dataSet.Tables[0].Rows)
                     {
@@ -1797,17 +1818,17 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                         vo_componentePaquete.pPaquete = vo_paquete;
 
                         //Si el elemento no se encuentra en la lista de memoria que mantiene los elementos que se obtienen de base de datos, se agrega
-                        if (cls_variablesSistema.vs_proyecto.pComponentePaqueteListaBaseDatos.Where(searchLinQ => searchLinQ.pPK_Paquete == vo_componentePaquete.pPK_Paquete).Count() == 0)
+                        if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaBaseDatos.Where(searchLinQ => searchLinQ.pPK_Paquete == vo_componentePaquete.pPK_Paquete).Count() == 0)
                         {
-                            cls_variablesSistema.vs_proyecto.pComponentePaqueteListaBaseDatos.Add(vo_componentePaquete);
+                            ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaBaseDatos.Add(vo_componentePaquete);
                         }          
                         //Si el elemento no se encuentra asignado a la lista de memoria, se agrega
-                        if (cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Componente == vo_componentePaquete.pPK_Componente).Count() > 0)
+                        if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Componente == vo_componentePaquete.pPK_Componente).Count() > 0)
                         {
-                            if (cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Paquete == vo_componentePaquete.pPK_Paquete).Count() == 0)
+                            if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Paquete == vo_componentePaquete.pPK_Paquete).Count() == 0)
                             {
-                                cls_variablesSistema.vs_proyecto.pPaqueteLista.Add(vo_paquete);
-                                cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria.Add(vo_componentePaquete);
+                                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteLista.Add(vo_paquete);
+                                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria.Add(vo_componentePaquete);
                             }                         
                         }
                     }
@@ -1815,9 +1836,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 }
 
                 //Se respetan los paquetes que hayan sido asignados en memoria
-                if (cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Componente == po_componentePaquete.pPK_Componente).Count() > 0)
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Componente == po_componentePaquete.pPK_Componente).Count() > 0)
                 {
-                    lbx_paqasociados.DataSource = cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Componente == po_componentePaquete.pPK_Componente);
+                    lbx_paqasociados.DataSource = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Componente == po_componentePaquete.pPK_Componente);
                     lbx_paqasociados.DataTextField = "pNombrePaquete";
                     lbx_paqasociados.DataValueField = "pPK_Paquete";
 
@@ -1852,7 +1873,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
                         foreach (ListItem item in lbx_pivot.Items)
                         {
-                            if (cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == po_componentePaquete.pPK_Entregable &&
+                            if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == po_componentePaquete.pPK_Entregable &&
                                                                                                               searchLinQ.pPK_Componente == po_componentePaquete.pPK_Componente &&
                                                                                                               searchLinQ.pPK_Paquete == Convert.ToInt32(item.Value)).Count() == 0)
                             {
@@ -1906,7 +1927,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 }
 
                 //Se aplica la consulta en base de datos para obtener todos los paquetes asociados a los componentes que se encuentran asignados en memoria para el proyecto
-                vo_dataSet = cls_gestorComponentePaquete.selectComponentePaquete(cls_variablesSistema.vs_proyecto);
+                vo_dataSet = cls_gestorComponentePaquete.selectComponentePaquete(((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto);
 
                 foreach (DataRow row in vo_dataSet.Tables[0].Rows)
                 {
@@ -1926,25 +1947,25 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                     vo_componentePaquete.pPaquete = vo_paquete;
 
                     //Si le elemento leído no se encuentra en la lista de base de datos, se agrega
-                    if (cls_variablesSistema.vs_proyecto.pComponentePaqueteListaBaseDatos.Where(searchLinQ => searchLinQ.pPK_Paquete == vo_componentePaquete.pPK_Paquete).Count() == 0)
+                    if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaBaseDatos.Where(searchLinQ => searchLinQ.pPK_Paquete == vo_componentePaquete.pPK_Paquete).Count() == 0)
                     {
-                        cls_variablesSistema.vs_proyecto.pComponentePaqueteListaBaseDatos.Add(vo_componentePaquete);
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaBaseDatos.Add(vo_componentePaquete);
                     }
                     //Si el elemento leído no se encuentra en la lista de memoria, se agrega
-                    if (cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Componente == vo_componentePaquete.pPK_Componente).Count() == 1)
+                    if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Componente == vo_componentePaquete.pPK_Componente).Count() == 1)
                     {
                         validacionMemoria = true;
 
                         cls_entregableComponente vo_entregableComponente = new cls_entregableComponente();
-                        vo_entregableComponente = (cls_entregableComponente)cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria.Find(searchLinQ => searchLinQ.pPK_Componente == vo_componentePaquete.pPK_Componente);
+                        vo_entregableComponente = (cls_entregableComponente)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria.Find(searchLinQ => searchLinQ.pPK_Componente == vo_componentePaquete.pPK_Componente);
 
                         if (vo_componentePaquete.pPK_Entregable == vo_entregableComponente.pPK_Entregable && vo_componentePaquete.pPK_Componente == vo_entregableComponente.pPK_Componente)
                         {
                             //Si el paquete no ha sido insertado en memoria, se agrega
-                            if (cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Paquete == vo_componentePaquete.pPK_Paquete).Count() == 0)
+                            if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Paquete == vo_componentePaquete.pPK_Paquete).Count() == 0)
                             {
-                                cls_variablesSistema.vs_proyecto.pPaqueteLista.Add(vo_paquete);
-                                cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria.Add(vo_componentePaquete);
+                                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteLista.Add(vo_paquete);
+                                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria.Add(vo_componentePaquete);
                             }
                         }
 
@@ -1953,7 +1974,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 //Si la validación es True significa que se ha agregado al menos un elemento, por lo cuál el botón de siguiente puede habilitarse
                 if (validacionMemoria)
                 {
-                    if (lbx_paqasociados.Items.Count == 0 && btnNxt != null && cls_variablesSistema.vs_proyecto.pComponentePaqueteListaBaseDatos.Count == 0)
+                    if (lbx_paqasociados.Items.Count == 0 && btnNxt != null && ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaBaseDatos.Count == 0)
                     {
                         btnNxt.Enabled = false;
                     }
@@ -2034,20 +2055,20 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 						vo_componentePaquete.pPaquete = vo_paquete;
 
 						//Se recorre la lista de entregables-componentes en memoria
-						foreach (cls_entregableComponente entComp in cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria)
+						foreach (cls_entregableComponente entComp in ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria)
 						{
 							//Si el componente es el mismo que se va a asignar
 							if (entComp.pPK_Componente == vo_componente.pPK_componente)
 							{
-								if (cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == entComp.pPK_Entregable &&
+								if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == entComp.pPK_Entregable &&
 																														searchLinQ.pPK_Componente == vo_componente.pPK_componente &&
 																														searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete).Count() == 0)
 								{
 									//Se agrega el entregable al que pertenece el componentePaquete, puesto que se necesita al guardar el registro
 									vo_componentePaquete.pEntregable = entComp.pEntregable;
 
-									cls_variablesSistema.vs_proyecto.pPaqueteLista.Add(vo_paquete);
-									cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria.Add(vo_componentePaquete);
+									((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteLista.Add(vo_paquete);
+									((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria.Add(vo_componentePaquete);
 								}                        
 							}
 						}
@@ -2103,27 +2124,27 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 						vo_componentePaquete.pPaquete = vo_paquete;
 
 						//Se recorre la lista
-						foreach (cls_entregableComponente entComp in cls_variablesSistema.vs_proyecto.pEntregableComponenteListaMemoria)
+						foreach (cls_entregableComponente entComp in ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pEntregableComponenteListaMemoria)
 						{
 
-							if (cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == entComp.pPK_Entregable &&
+							if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == entComp.pPK_Entregable &&
 																													searchLinQ.pPK_Componente == vo_componente.pPK_componente &&
 																													searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete).Count() > 0)
 							{
 
 								//Se realiza una eliminación de todas las posibles referencias que se presenten a nivel de memoria para el entregable que se está eliminando
-								foreach (cls_paqueteActividad paqAct in cls_variablesSistema.vs_proyecto.pPaqueteActividadListaMemoria)
+								foreach (cls_paqueteActividad paqAct in ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaMemoria)
 								{
 									if (paqAct.pPK_Paquete == vo_paquete.pPK_Paquete)
 									{
-										cls_variablesSistema.vs_proyecto.pActividadLista.RemoveAll(searchLinQ => searchLinQ.pPK_Actividad == paqAct.pPK_Actividad);
+										((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pActividadLista.RemoveAll(searchLinQ => searchLinQ.pPK_Actividad == paqAct.pPK_Actividad);
 									}
 								}
 
-								cls_variablesSistema.vs_proyecto.pPaqueteActividadListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete);
+								((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete);
 
-								cls_variablesSistema.vs_proyecto.pPaqueteLista.RemoveAll(searchLinQ => searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete);
-								cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete);
+								((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteLista.RemoveAll(searchLinQ => searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete);
+								((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete);
 							}
 						}
 
@@ -2137,7 +2158,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 				}
 
 				//Si luego de la eliminación no se encuentran elementos en las listas, se deshabilita el botón de continuar
-				if (lbx_paqasociados.Items.Count == 0 && cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria.Count == 0 && cls_variablesSistema.vs_proyecto.pComponentePaqueteListaBaseDatos.Count == 0)
+                if (lbx_paqasociados.Items.Count == 0 && ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria.Count == 0 && ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaBaseDatos.Count == 0)
 				{
 					btnNxt.Enabled = false;
 				}
@@ -2183,16 +2204,16 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             try
             {
                 //Si la lista de memoria posee elementos, se respetan y asignan
-                if (cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria.Count > 0)
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria.Count > 0)
                 {
-                    lbx_paquetesasociados.DataSource = cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria;
+                    lbx_paquetesasociados.DataSource = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria;
                     lbx_paquetesasociados.DataTextField = "pNombrePaquete";
                     lbx_paquetesasociados.DataValueField = "pPK_Paquete";
                     lbx_paquetesasociados.DataBind();
                 }
                 else
                 {
-                    vo_dataSet = cls_gestorComponentePaquete.selectComponentePaquete(cls_variablesSistema.vs_proyecto);
+                    vo_dataSet = cls_gestorComponentePaquete.selectComponentePaquete(((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto);
                     lbx_paquetesasociados.DataSource = vo_dataSet;
                     lbx_paquetesasociados.DataTextField = "nombre";
                     lbx_paquetesasociados.DataValueField = "PK_paquete";
@@ -2263,7 +2284,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 			{
 				cls_paqueteActividad vo_paqueteActividad = new cls_paqueteActividad();
 
-				vo_paqueteActividad.pProyecto = cls_variablesSistema.vs_proyecto;
+				vo_paqueteActividad.pProyecto = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto;
 				vo_paqueteActividad.pPaquete = po_paquete;
 
 				//Se envía a cargas las actividaes por paquete
@@ -2288,9 +2309,9 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             try
             {
                 //Si se encuentran elementos en la lista de memoria, se verifica en estos
-                if (cls_variablesSistema.vs_proyecto.pPaqueteActividadListaMemoria.Count == 0)
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaMemoria.Count == 0)
                 {
-                    vo_dataSet = cls_gestorPaqueteActividad.selectPaqueteActividad(cls_variablesSistema.vs_proyecto);
+                    vo_dataSet = cls_gestorPaqueteActividad.selectPaqueteActividad(((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto);
 
                     foreach (DataRow row in vo_dataSet.Tables[0].Rows)
                     {
@@ -2313,26 +2334,26 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                         vo_paqueteActividad.pActividad = vo_actividad;
 
                         //Si en la lista de memoria que mantiene los objetos leídos a nivel de base de datos, no se encuentra el elemente, se agrega
-                        if (cls_variablesSistema.vs_proyecto.pPaqueteActividadListaBaseDatos.Where(searchLinQ => searchLinQ.pPK_Actividad == vo_paqueteActividad.pPK_Actividad).Count() == 0)
+                        if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaBaseDatos.Where(searchLinQ => searchLinQ.pPK_Actividad == vo_paqueteActividad.pPK_Actividad).Count() == 0)
                         {
-                            cls_variablesSistema.vs_proyecto.pPaqueteActividadListaBaseDatos.Add(vo_paqueteActividad);
+                            ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaBaseDatos.Add(vo_paqueteActividad);
                         }
                         //Si en la lista de memoria no se encuentra el elemento, se agrega
-                        if (cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == vo_paqueteActividad.pPK_Entregable &&
+                        if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == vo_paqueteActividad.pPK_Entregable &&
                                                                                                                 searchLinQ.pPK_Componente == vo_paqueteActividad.pPK_Componente &&
                                                                                                                 searchLinQ.pPK_Paquete == vo_paqueteActividad.pPK_Paquete).Count() > 0)
                         {
-                            cls_variablesSistema.vs_proyecto.pActividadLista.Add(vo_actividad);
-                            cls_variablesSistema.vs_proyecto.pPaqueteActividadListaMemoria.Add(vo_paqueteActividad);
+                            ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pActividadLista.Add(vo_actividad);
+                            ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaMemoria.Add(vo_paqueteActividad);
                         }
                     }
 
                 }
 
                 //Si el elemento se encuentra en la lista de memoria, se respeta para la asignación
-                if (cls_variablesSistema.vs_proyecto.pPaqueteActividadListaMemoria.Where(searchLinQ => searchLinQ.pPK_Paquete == po_paqueteActividad.pPK_Paquete).Count() > 0)
+                if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaMemoria.Where(searchLinQ => searchLinQ.pPK_Paquete == po_paqueteActividad.pPK_Paquete).Count() > 0)
                 {
-                    lbx_actasociadas.DataSource = cls_variablesSistema.vs_proyecto.pPaqueteActividadListaMemoria.Where(searchLinQ => searchLinQ.pPK_Paquete == po_paqueteActividad.pPK_Paquete);
+                    lbx_actasociadas.DataSource = ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaMemoria.Where(searchLinQ => searchLinQ.pPK_Paquete == po_paqueteActividad.pPK_Paquete);
                     lbx_actasociadas.DataTextField = "pNombreActividad";
                     lbx_actasociadas.DataValueField = "pPK_Actividad";
 
@@ -2368,7 +2389,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                         //Si la actividad ya se encuentra asociada, se elimina del listbox de asociación
                         foreach (ListItem item in lbx_pivot.Items)
                         {
-                            if (cls_variablesSistema.vs_proyecto.pPaqueteActividadListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == po_paqueteActividad.pPK_Entregable &&
+                            if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == po_paqueteActividad.pPK_Entregable &&
                                                                                                                    searchLinQ.pPK_Componente == po_paqueteActividad.pPK_Componente &&
                                                                                                                    searchLinQ.pPK_Paquete == po_paqueteActividad.pPK_Paquete &&
                                                                                                                    searchLinQ.pPK_Actividad == Convert.ToInt32(item.Value)).Count() == 0)
@@ -2423,7 +2444,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 }
                 
                 //Se realiza la consulta en base de datos para obtener las actividades asociadas a los paquetes del proyecto
-                vo_dataSet = cls_gestorPaqueteActividad.selectPaqueteActividad(cls_variablesSistema.vs_proyecto);
+                vo_dataSet = cls_gestorPaqueteActividad.selectPaqueteActividad(((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto);
 
                 foreach (DataRow row in vo_dataSet.Tables[0].Rows)
                 {
@@ -2446,28 +2467,28 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                     vo_paqueteActividad.pActividad = vo_actividad;
 
                     //El filtro aquí se realiza con el paquete y la actividad, esto debido a que una actividad si puede encontrarse ya asignada a varios paquetes
-                    if (cls_variablesSistema.vs_proyecto.pPaqueteActividadListaBaseDatos.Where(searchLinQ => searchLinQ.pPK_Paquete == vo_paqueteActividad.pPK_Paquete && 
+                    if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaBaseDatos.Where(searchLinQ => searchLinQ.pPK_Paquete == vo_paqueteActividad.pPK_Paquete && 
                                                                                                              searchLinQ.pPK_Actividad == vo_paqueteActividad.pPK_Actividad).Count() == 0)
                     {
-                        cls_variablesSistema.vs_proyecto.pPaqueteActividadListaBaseDatos.Add(vo_paqueteActividad);
+                        ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaBaseDatos.Add(vo_paqueteActividad);
                     }
                     //Si el componente-paquete que se va a asignar ya existe en memoria
-                    if (cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Paquete == vo_paqueteActividad.pPK_Paquete).Count() == 1)
+                    if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria.Where(searchLinQ => searchLinQ.pPK_Paquete == vo_paqueteActividad.pPK_Paquete).Count() == 1)
                     {
                         validacionMemoria = true;
 
                         cls_componentePaquete vo_componentePaquete = new cls_componentePaquete();
-                        vo_componentePaquete = (cls_componentePaquete)cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria.Find(searchLinQ => searchLinQ.pPK_Paquete == vo_paqueteActividad.pPK_Paquete);
+                        vo_componentePaquete = (cls_componentePaquete)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria.Find(searchLinQ => searchLinQ.pPK_Paquete == vo_paqueteActividad.pPK_Paquete);
 
                         //Si se está asignando sobre uno que ya existe en memoria, se tiene que corroborar con toda la llave primaria
                         if (vo_paqueteActividad.pPK_Entregable == vo_componentePaquete.pPK_Entregable && vo_paqueteActividad.pPK_Componente == vo_componentePaquete.pPK_Componente && vo_paqueteActividad.pPK_Paquete == vo_componentePaquete.pPK_Paquete)
                         {
                             //Si la actividad no ha sido insertado en memoria, se agrega
-                            if (cls_variablesSistema.vs_proyecto.pPaqueteActividadListaMemoria.Where(searchLinQ => searchLinQ.pPK_Paquete == vo_paqueteActividad.pPK_Paquete &&
+                            if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaMemoria.Where(searchLinQ => searchLinQ.pPK_Paquete == vo_paqueteActividad.pPK_Paquete &&
                                                                                                                    searchLinQ.pPK_Actividad == vo_paqueteActividad.pPK_Actividad).Count() == 0)
                             {
-                                cls_variablesSistema.vs_proyecto.pActividadLista.Add(vo_actividad);
-                                cls_variablesSistema.vs_proyecto.pPaqueteActividadListaMemoria.Add(vo_paqueteActividad);
+                                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pActividadLista.Add(vo_actividad);
+                                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaMemoria.Add(vo_paqueteActividad);
                             }
                         }
 
@@ -2477,7 +2498,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 //Si la validación devuelve un True, se ha asignado almenos un elemento, por lo cual se puede habilitar el botón de siguiente
                 if (validacionMemoria)
                 {
-                    if (lbx_actasociadas.Items.Count == 0 && btnNxt != null && cls_variablesSistema.vs_proyecto.pPaqueteActividadListaBaseDatos.Count == 0)
+                    if (lbx_actasociadas.Items.Count == 0 && btnNxt != null && ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaBaseDatos.Count == 0)
                     {
                         btnNxt.Enabled = false;
                     }
@@ -2556,12 +2577,12 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 						vo_paqueteActividad.pActividad = vo_actividad;
 
 						//Se recorre los elementos de la lista de memoria
-						foreach (cls_componentePaquete compPaq in cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria)
+						foreach (cls_componentePaquete compPaq in ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria)
 						{
 							if (compPaq.pPK_Paquete == vo_paquete.pPK_Paquete)
 							{
 								//Si la actividad no se encuentra asignada para ese paquete, se agrega
-								if (cls_variablesSistema.vs_proyecto.pPaqueteActividadListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == compPaq.pPK_Entregable &&
+								if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == compPaq.pPK_Entregable &&
 																												 searchLinQ.pPK_Componente == compPaq.pPK_Componente &&
 																												 searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete &&
 																												 searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad).Count() == 0)
@@ -2570,8 +2591,8 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 									vo_paqueteActividad.pEntregable = compPaq.pEntregable;
 									vo_paqueteActividad.pComponente = compPaq.pComponente;
 
-									cls_variablesSistema.vs_proyecto.pActividadLista.Add(vo_actividad);
-									cls_variablesSistema.vs_proyecto.pPaqueteActividadListaMemoria.Add(vo_paqueteActividad);
+									((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pActividadLista.Add(vo_actividad);
+									((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaMemoria.Add(vo_paqueteActividad);
 								}
 							}
 						}
@@ -2625,15 +2646,15 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 						vo_paqueteActividad.pActividad = vo_actividad;
 
 						//Se recorren los elementos de la lista de memoria
-						foreach (cls_componentePaquete compPaq in cls_variablesSistema.vs_proyecto.pComponentePaqueteListaMemoria)
+						foreach (cls_componentePaquete compPaq in ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pComponentePaqueteListaMemoria)
 						{
-							if (cls_variablesSistema.vs_proyecto.pPaqueteActividadListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == compPaq.pPK_Entregable &&
+							if (((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaMemoria.Where(searchLinQ => searchLinQ.pPK_Entregable == compPaq.pPK_Entregable &&
 																											 searchLinQ.pPK_Componente == compPaq.pPK_Componente &&
 																											 searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete &&
 																											 searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad).Count() > 0)
 							{
-								cls_variablesSistema.vs_proyecto.pActividadLista.RemoveAll(searchLinQ => searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad);
-								cls_variablesSistema.vs_proyecto.pPaqueteActividadListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete &&
+								((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pActividadLista.RemoveAll(searchLinQ => searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad);
+								((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaMemoria.RemoveAll(searchLinQ => searchLinQ.pPK_Paquete == vo_paquete.pPK_Paquete &&
 																													   searchLinQ.pPK_Actividad == vo_actividad.pPK_Actividad);
 							}
 						}
@@ -2646,7 +2667,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 				}
 
 				//Si no se encuentra al menos un elemento, no se habilita el botón de siguiente
-				if (lbx_actasociadas.Items.Count == 0 && cls_variablesSistema.vs_proyecto.pPaqueteActividadListaMemoria.Count == 0 && cls_variablesSistema.vs_proyecto.pPaqueteActividadListaBaseDatos.Count == 0)
+                if (lbx_actasociadas.Items.Count == 0 && ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaMemoria.Count == 0 && ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).vs_proyecto.pPaqueteActividadListaBaseDatos.Count == 0)
 				{
 					btnNxt.Enabled = false;
 				}

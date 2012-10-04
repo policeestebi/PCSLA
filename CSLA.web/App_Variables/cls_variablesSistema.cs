@@ -17,11 +17,11 @@ namespace CSLA.web.App_Variables
     public class cls_variablesSistema
     {
         //Añadir el usuario
-        public static String tipoEstado;            //Agregar o Modificar
-        public static Object obj = new Object();    //Objeto que trae los datos
+        public  String tipoEstado;            //Agregar o Modificar
+        public  Object obj = new Object();    //Objeto que trae los datos
 
         //Variable Estática para llevar la creación de un proyecto!!!
-        public static cls_proyecto vs_proyecto = new cls_proyecto();
+        public  cls_proyecto vs_proyecto = new cls_proyecto();
 
     }
 }

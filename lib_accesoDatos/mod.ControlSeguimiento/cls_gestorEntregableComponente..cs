@@ -59,7 +59,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.ENTREGABLE_COMPONENTE, po_entregableComponente.pPK_Proyecto + "/" + po_entregableComponente.pPK_Entregable + "/" + po_entregableComponente.pPK_Componente);
+                cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.ENTREGABLE_COMPONENTE, po_entregableComponente.pPK_Proyecto + "/" + po_entregableComponente.pPK_Entregable + "/" + po_entregableComponente.pPK_Componente, po_entregableComponente.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 
@@ -99,7 +99,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
                 vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.ENTREGABLE_COMPONENTE, po_entregableComponente.pPK_Proyecto + "/" + po_entregableComponente.pPK_Entregable + "/" + po_entregableComponente.pPK_Componente);
+                cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.ENTREGABLE_COMPONENTE, po_entregableComponente.pPK_Proyecto + "/" + po_entregableComponente.pPK_Entregable + "/" + po_entregableComponente.pPK_Componente, po_entregableComponente.pUsuarioTransaccion);
 
                 cls_sqlDatabase.commitTransaction();
 

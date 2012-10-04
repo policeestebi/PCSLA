@@ -66,6 +66,14 @@ namespace COSEVI.CSLA.lib.entidades.mod.Administracion
         /// </summary>
         private string registro;
 
+        private string usuarioTransaccion;
+
+        public string pUsuarioTransaccion
+        {
+            get { return usuarioTransaccion; }
+            set { usuarioTransaccion = value; }
+        }
+
         #endregion
 
     }

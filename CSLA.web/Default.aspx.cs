@@ -46,7 +46,7 @@ namespace CSLA.web
                 if (this.Session["cls_usuario"] != null) 
                 {
                     //Se agrega la información del logeo en la bitácora del sistema.
-                    cls_interface.insertarTransacccionBitacora(cls_constantes.LOGOFF, cls_constantes.LOGOFF, cls_interface.vs_usuarioActual);
+                    cls_interface.insertarTransacccionBitacora(cls_constantes.LOGOFF, cls_constantes.LOGOFF, ((COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes.cls_interface)this.Session[CSLA.web.App_Constantes.cls_constantes.INTERFACES]).vs_usuarioActual);
                 }
 
                 this.Session.Clear();
@@ -76,6 +76,10 @@ namespace CSLA.web
 
             cls_usuario vo_usuario = null;
 
+            COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes.cls_interface interfaces = null;
+
+            CSLA.web.App_Variables.cls_variablesSistema variables = null;
+
             try
             {
                 this.lbl_usuarioInvalido.Visible = false;
@@ -93,12 +97,19 @@ namespace CSLA.web
                 {
                     if (vo_usuario.pActivo)
                     {
+                        interfaces = new cls_interface();
+                        variables = new App_Variables.cls_variablesSistema();
+
+                        //Se almacenan en sesion las variables que utilizará el usuario
+                        //en los diferentes mantenimientos.
+                        this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES] = variables;
+                        this.Session[CSLA.web.App_Constantes.cls_constantes.INTERFACES] = interfaces;
 
                         //Se inicia la sesion del usuario.
                         this.Session["cls_usuario"] = vo_usuario;
-                        cls_interface.vs_usuarioActual = vo_usuario.pPK_usuario;
-                        cls_interface.vs_direccionIP = Request.UserHostAddress;
-                        cls_interface.vs_nombreHost = Dns.GetHostName();
+                        ((COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes.cls_interface)this.Session[CSLA.web.App_Constantes.cls_constantes.INTERFACES]).vs_usuarioActual = vo_usuario.pPK_usuario;
+                        ((COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes.cls_interface)this.Session[CSLA.web.App_Constantes.cls_constantes.INTERFACES]).vs_direccionIP = Request.UserHostAddress;
+                        ((COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes.cls_interface)this.Session[CSLA.web.App_Constantes.cls_constantes.INTERFACES]).vs_nombreHost = Dns.GetHostName();
 
                         //Se agrega la información del logeo en la bitácora del sistema.
                         cls_interface.insertarTransacccionBitacora(cls_constantes.LOGIN, cls_constantes.LOGIN, vo_usuario.pPK_usuario);

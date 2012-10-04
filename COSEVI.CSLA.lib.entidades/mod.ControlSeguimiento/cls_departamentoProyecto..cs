@@ -119,6 +119,14 @@ namespace COSEVI.CSLA.lib.entidades.mod.ControlSeguimiento
         
         private List<cls_proyectoEntregable> proyectoEntregablesList;
 
+        private string usuarioTransaccion;
+
+        public string pUsuarioTransaccion
+        {
+            get { return usuarioTransaccion; }
+            set { usuarioTransaccion = value; }
+        }
+
         #endregion
 
 

@@ -61,7 +61,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
 
                     poPermiso.pPK_permiso = Convert.ToInt32(cls_gestorUtil.selectMax(cls_constantes.PERMISO, "PK_permiso"));
 
-                    cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.PERMISO, poPermiso.pPK_permiso.ToString());
+                    cls_interface.insertarTransacccionBitacora(cls_constantes.INSERTAR, cls_constantes.PERMISO, poPermiso.pPK_permiso.ToString(), poPermiso.pUsuarioTransaccion);
 
                     cls_sqlDatabase.commitTransaction();
 
@@ -98,7 +98,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
 
                     vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                    cls_interface.insertarTransacccionBitacora(cls_constantes.MODIFICAR, cls_constantes.PERMISO, poPermiso.pPK_permiso.ToString());
+                    cls_interface.insertarTransacccionBitacora(cls_constantes.MODIFICAR, cls_constantes.PERMISO, poPermiso.pPK_permiso.ToString(), poPermiso.pUsuarioTransaccion);
 
                     cls_sqlDatabase.commitTransaction();
 
@@ -134,7 +134,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.Administracion
 
                     vi_resultado = cls_sqlDatabase.executeNonQuery(vs_comando, true, vu_parametros);
 
-                    cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.PERMISO, poPermiso.pPK_permiso.ToString());
+                    cls_interface.insertarTransacccionBitacora(cls_constantes.ELIMINAR, cls_constantes.PERMISO, poPermiso.pPK_permiso.ToString(), poPermiso.pUsuarioTransaccion);
 
                     cls_sqlDatabase.commitTransaction();
 

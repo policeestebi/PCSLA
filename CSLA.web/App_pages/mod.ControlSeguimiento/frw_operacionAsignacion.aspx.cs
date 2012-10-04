@@ -60,7 +60,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
                 vo_operacion.pPK_Codigo = vs_codigo;
 
-                vo_operacion = cls_gestorOperacion.seleccionarOperacion(vo_operacion);
+                vo_operacion = cls_gestorOperacion.seleccionarOperacion(vo_operacion, ((cls_usuario)Session["cls_usuario"]).pPK_usuario);
 
                 this.lbl_codigoValor.Text = vs_codigo;
 
@@ -68,7 +68,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
                 vo_operacion.ListaAsignaciones = cls_gestorOperacion.listarAsignacionesOperacion(vo_operacion);
 
-                cls_variablesSistema.obj = vo_operacion;
+                ((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj = vo_operacion;
 
             }
             catch (Exception po_exception)
@@ -88,7 +88,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             string vsFiltro = String.Empty;
             try
             {
-                voOperacion = (cls_operacion)cls_variablesSistema.obj;
+                voOperacion = (cls_operacion)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
 
                 listaUsuario = new List<cls_usuario>();
 
@@ -137,7 +137,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
             try
             {
-                voOperacion = (cls_operacion)cls_variablesSistema.obj;
+                voOperacion = (cls_operacion)((CSLA.web.App_Variables.cls_variablesSistema)this.Session[CSLA.web.App_Constantes.cls_constantes.VARIABLES]).obj;
                 poAsignaciones = new List<cls_asignacionOperacion>();
 
                 foreach (ListItem voItem in this.ltb_usuarioAsignados.Items)
@@ -146,6 +146,8 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                     voAsignacion.pFK_Operacion = voOperacion;
                     voAsignacion.pFK_Usuario = voItem.Value.ToString();
                     voAsignacion.pIsActivo = true;
+
+                    voAsignacion.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
 
                     poAsignaciones.Add(voAsignacion);
                 }
@@ -157,6 +159,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 {
                     if (!voOperacion.ListaAsignaciones.Exists(c => c.pFK_Usuario == pOperacion.pFK_Usuario))
                     {
+                        pOperacion.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
                         poAsignacionesAgregar.Add(pOperacion);
                     }
                 }
@@ -165,6 +168,8 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
                 {
                     if (!poAsignaciones.Exists(c => c.pFK_Usuario == pOperacion.pFK_Usuario))
                     {
+                        pOperacion.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
+
                         poAsignacionesEliminar.Add(pOperacion);
                     }
                 }
@@ -246,6 +251,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             try
             {
                 this.generarDiferencias(out voAsignacionesAgregar, out voAsignacionesEliminar);
+
 
                 cls_gestorOperacion.crearAsignacionMasiva(voAsignacionesAgregar, voAsignacionesEliminar);
 
