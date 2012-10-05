@@ -250,7 +250,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
                {
                    voActividad = new cls_actividad();
 
-                   voActividad.pPK_Actividad = Convert.ToInt32(vu_dataSet.Tables[0].Rows[0]["PK_actividad"]);
+                   voActividad.pPK_Actividad = Convert.ToInt32(vu_dataSet.Tables[0].Rows[i]["PK_actividad"]);
 
                    voActividad.pCodigo = vu_dataSet.Tables[0].Rows[i]["codigo"].ToString();
 
