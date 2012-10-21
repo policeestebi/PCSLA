@@ -19,7 +19,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reportes", "Reportes", "{6B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Procedures", "Procedures", "{CAE91CB0-365D-478C-95A3-1244232CE100}"
 	ProjectSection(SolutionItems) = preProject
-		Archivos\ScriptsBD\CSLA_DB\mod_administracion\procedures\csla_admi_procedures_deletes.sql = Archivos\ScriptsBD\CSLA_DB\mod_administracion\procedures\csla_admi_procedures_deletes.sql
 		Archivos\ScriptsBD\CSLA_DB\mod_administracion\procedures\csla_admi_procedures_inserts.sql = Archivos\ScriptsBD\CSLA_DB\mod_administracion\procedures\csla_admi_procedures_inserts.sql
 		Archivos\ScriptsBD\CSLA_DB\mod_administracion\procedures\csla_admi_procedures_selectOne.sql = Archivos\ScriptsBD\CSLA_DB\mod_administracion\procedures\csla_admi_procedures_selectOne.sql
 		Archivos\ScriptsBD\CSLA_DB\mod_administracion\procedures\csla_admi_procedures_selects.sql = Archivos\ScriptsBD\CSLA_DB\mod_administracion\procedures\csla_admi_procedures_selects.sql
@@ -48,7 +47,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Views", "Views", "{76C31540-DCD4-474C-8426-DD67F25F9725}"
 	ProjectSection(SolutionItems) = preProject
 		csla_cont_views.sql = csla_cont_views.sql
-		Archivos\ScriptsBD\CSLA_DB\mod_control_seguimiento\vistas\csla_cont_views.sql = Archivos\ScriptsBD\CSLA_DB\mod_control_seguimiento\vistas\csla_cont_views.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{9134438F-A740-4390-8953-E04F0713D354}"

@@ -129,7 +129,7 @@ namespace COSEVI.CSLA.lib.accesoDatos.mod.ControlSeguimiento
 
             try
             {
-                String vs_comando = "PA_EntregableDelete";
+                String vs_comando = "PA_cont_entregableDelete";
                 cls_parameter[] vu_parametros = 
                 {                  
                  		new cls_parameter("@paramPK_entregable", poEntregable.pPK_entregable)  
