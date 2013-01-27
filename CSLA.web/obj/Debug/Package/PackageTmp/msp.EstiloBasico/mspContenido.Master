@@ -1,0 +1,95 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="mspContenido.master.cs"
+    Inherits="CSLA.web.msp.EstiloBasico.mspContenido" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <link rel="Stylesheet" type="text/css" href="../App_Themes/Basico/css/pages_style.css"
+        media="screen" />
+    <link rel="Stylesheet" type="text/css" href="../App_Themes/Basico/css/jquery-ui.css"
+        media="screen" />
+        <link rel="Stylesheet" type="text/css" href="../App_Themes/Basico/css/jquery.fancybox.css"
+        media="screen" />
+     <link rel="Stylesheet" type="text/css" href="../App_Themes/Basico/css/jquery.booklet.css"
+        media="screen" />
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <script src="<%=Page.ResolveUrl("~/App_Themes/Basico/js/jquery.js") %>" language="javascript"
+            type="text/javascript">
+        </script>
+    </asp:ContentPlaceHolder>
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+        <script src="<%=Page.ResolveUrl("~/App_Themes/Basico/js/jquery-ui.min.js") %>" language="javascript"
+            type="text/javascript">
+        </script>
+    </asp:ContentPlaceHolder>
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder5" runat="server">
+        <script src="<%=Page.ResolveUrl("~/App_Themes/Basico/js/jquery.easing.js") %>" language="javascript"
+            type="text/javascript">
+        </script>
+    </asp:ContentPlaceHolder>
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder6" runat="server">
+        <script src="<%=Page.ResolveUrl("~/App_Themes/Basico/js/jquery.booklet.js") %>" language="javascript"
+            type="text/javascript">
+        </script>
+    </asp:ContentPlaceHolder>
+
+   <asp:ContentPlaceHolder ID="ContentPlaceHolder7" runat="server">
+        <script src="<%=Page.ResolveUrl("~/App_Themes/Basico/js/pdfobject.js") %>" language="javascript"
+            type="text/javascript">
+        </script>
+    </asp:ContentPlaceHolder>
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+        <script src="<%=Page.ResolveUrl("~/App_Themes/Basico/js/jquery.fancybox.pack.js") %>" language="javascript"
+            type="text/javascript">
+        </script>
+    </asp:ContentPlaceHolder>
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder4" runat="server">
+        <script src="<%=Page.ResolveUrl("~/App_Themes/Basico/js/jquery.fn.shorten.js") %>" language="javascript"
+            type="text/javascript">
+        </script>
+    </asp:ContentPlaceHolder>
+    <script type="text/javascript" language="javascript">
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <title></title>
+</head>
+<body id="bod_listado" style="margin: 0px;">
+    <form id="Form1" runat="server">
+    <!-- Scripts de uso general por todas las paginas -->
+    <div>
+        <div class="post">
+            <div class="post_title">
+                <h1 class="left">
+                    <asp:ContentPlaceHolder ID="tituloPagina" runat="server">
+                        <!-- 
+                            Espacio para agregar el titulo de la pagina 
+                        --->
+                    </asp:ContentPlaceHolder>
+                </h1>
+                <div class="clearer">
+                    &ndsp;</div>
+            </div>
+            <div class="post_body" align="center">
+                <asp:ContentPlaceHolder ID="cuerpoPagina" runat="server">
+                    <!-- 
+                        Espacio para agregar el cuerpo de la pagina 
+                    --->
+                </asp:ContentPlaceHolder>
+                <div class="">
+                    <div class="content">
+                        <div class="clearer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

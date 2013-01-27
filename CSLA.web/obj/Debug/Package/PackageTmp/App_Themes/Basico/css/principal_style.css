@@ -1,0 +1,317 @@
+/*@charset "utf-8";*/
+/* CSS Document */
+/* 
+	Creado por: Esteban Ramírez González
+   	Fecha de creación: 22/03/2010
+	
+   	Modificaciones:
+	Modificado por:
+	Fecha de modificación: (dd/mm/yyyy) 
+	Hora de modificación:   (hora militar)
+	Descripción de la modificación:
+
+*/
+
+/*Etiquetas HTML*/
+
+table#form_table
+{
+	/*padding:10px 10px 10px 10px;
+	margin: 5px 5px 5px 5px;*/
+	border-spacing: 5px;
+}
+
+body 
+{
+	/*background-image:url(../imagenes/css/img_body.jpg);/*img_background.png)*/
+	background-image:url(../imagenes/css/madera.png);
+	/*background-color:#DAA672;*/
+    /*background-color:#855205;*/
+	font:12px/18px 'Trebuchet MS', Arial, Helvetica, Sans-serif;
+	background-repeat:repeat;
+}
+
+/* Layouts */
+
+#container_layout{
+width: 1030px;
+margin:0 auto;
+}
+
+#container{
+
+background-color:#FFF;
+}
+#container_header{
+	background-image:url(../imagenes/css/container_header.png);
+	background-repeat:no-repeat;
+	height:8px;
+}
+
+#container_footer{
+	background-image:url(../imagenes/css/container_footer.png);
+	height:8px;
+}
+#header_container{
+	margin:0px 5px 5px 5px;
+	display:block;
+}
+
+
+#header {
+	background-image:url(../imagenes/css/header_body.png);
+	height:88px;
+}
+#header_up{
+	background-image:url(../imagenes/css/header_up.png);
+	background-repeat:no-repeat;
+	height:8px;
+}
+
+#header_buttom{
+	background-image:url(../imagenes/css/header_buttom.png);
+	background-repeat:no-repeat;
+	height:8px;
+}
+
+/*Logos del Header*/
+#logo{
+	display:block;
+	width:340px;
+	float:left;
+	height:88px;
+}
+
+#logo img{
+	height:88px;
+	width:230px;
+}
+
+#logo_compania{
+	display:block;
+	float:left;
+	width:340px;
+	height:88px;
+	text-align:center;
+	
+}
+#logo_compania img{
+	width:179px;
+	height:60px;
+	display:block;
+	margin:0 auto;
+}
+
+#usuario{
+	width:340px;
+	display:block;
+	height:88px;
+	float:left;
+	
+}
+
+#usuario_login
+{
+	height:20px;
+	position:absolute;
+	float:right;
+	top:88px;
+	text-align:right;
+	width:330px;
+}
+#fecha{
+	text-align:right;
+	position:absolute;
+	width:330px;
+	margin-right:20px;
+/*	padding-right:5px;*/
+}
+
+#usuario a:hover
+{
+   color:#F90;
+}
+
+#usuario a:visited
+{
+    color:#444444;
+}
+
+#usuario a
+{
+    cursor:pointer;
+}
+
+#usuario a:link
+{
+   color:#444444; 
+}
+
+/*---*/
+
+#topbar{
+width:auto;
+display:block;
+height:60px;
+}
+
+#navbar{
+width:auto;
+display:block;
+/*	height: ver si hay que ponerlo*/
+}
+
+#main{
+width:auto;
+display:block;
+margin: 5px 5px 5px 5px;
+/*background-color:#999;*/
+/*background-color:#FFF*/
+}
+
+#search{
+height:40px;
+width:auto;
+padding:5px 5px 5px 5px;
+}
+
+#map_canvas{
+width:auto;
+height:500px;
+}
+
+div.spacer{clear:both; height:10px; display:block;}
+
+#footer_container{
+
+margin:0px 5px 0px 5px;
+display:block;
+
+font-size:11px; color:#666666;
+}
+
+#footer {
+background-image:url(../imagenes/css/header_body.png);
+height:30px;
+}
+
+#footer a:hover
+{
+    color:#666666;
+}
+
+#footer a:visited
+{
+   color:#444444; 
+}
+
+#footer a:link
+{
+   color:#444444; 
+}
+
+#footer_up{
+	background-image:url('../imagenes/css/header_up.png');
+	background-repeat:no-repeat;
+	height:8px;
+}
+
+#footer_buttom{
+	background-image:url(../imagenes/css/header_buttom.png);
+	background-repeat:no-repeat;
+	height:8px;
+}
+
+#load {
+	display: none;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	background: url(images/ajax-loader.gif);
+	width: 43px;
+	height: 11px;
+	text-indent: -9999em;
+}
+
+/*Login*/
+
+#login
+{
+    display: block;
+    margin:0 auto;
+    clear:both;
+    width:600px;
+   /* height:200px;*/
+    padding:5px 5px 5px 5px;
+    overflow:hidden;
+}
+
+#login #header_login 
+{
+    clear:both;
+    border-bottom: 2px solid;
+}
+
+#login #header_login p
+{
+    text-align:center;
+    font-size:large;
+}
+
+#login #img_login
+{
+    display:block;
+    padding:5px 5px 5px 5px;
+    float:left;
+    width:40%;
+   /* height:100%;*/
+}
+
+#login #main_login
+{
+    display:block;
+    width:100%;
+    height:100%;
+    
+}
+
+#login #img_login img
+{
+    width:125px;
+    height:110px;
+    margin: 0 auto;
+}
+
+#login #credential_login
+{
+    display:block;
+    padding:5px 5px 5px 5px;
+    float:left;
+    width:55%;
+   /*height:100%;*/   
+}
+
+#login #credential_login table
+{
+    width:100%;
+}
+
+#login #credential_login table td
+{
+    padding:5px 5px 5px 5px;
+}
+
+#login #credential_login table strong
+{
+    font-size:medium;
+}
+
+.textbox
+{
+    padding:2px;
+    height:25px;
+}
+
+
+
+

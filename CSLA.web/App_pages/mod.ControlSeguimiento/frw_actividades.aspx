@@ -78,21 +78,21 @@
                                                 <asp:TemplateField>
                                                     <ItemTemplate>
                                                         <asp:ImageButton runat="server" ID="btn_ver" CommandName="Ver" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                            CausesValidation="false" ImageUrl="~/App_Themes/Basico/Botones/img_ver.gif" />
+                                                            CausesValidation="false" ImageUrl="~/App_Themes/Basico/Botones/img_ver.gif" ToolTip="Ver" />
                                                     </ItemTemplate>
                                                     <ItemStyle Width="1px" />
                                                 </asp:TemplateField>
                                                 <asp:TemplateField>
                                                     <ItemTemplate>
                                                         <asp:ImageButton runat="server" ID="btn_editar" CommandName="Editar" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                            CausesValidation="false" ImageUrl="~/App_Themes/Basico/Botones/img_editar.gif" />
+                                                            CausesValidation="false" ImageUrl="~/App_Themes/Basico/Botones/img_editar.gif" ToolTip="Editar" />
                                                     </ItemTemplate>
                                                     <ItemStyle Width="1px" />
                                                 </asp:TemplateField>
                                                 <asp:TemplateField>
                                                     <ItemTemplate>
                                                         <asp:ImageButton runat="server" ID="btn_eliminar" CommandName="Eliminar" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                            CausesValidation="false" ImageUrl="~/App_Themes/Basico/botones/img_eliminar.gif"
+                                                            CausesValidation="false" ImageUrl="~/App_Themes/Basico/botones/img_eliminar.gif" ToolTip="Eliminar"
                                                             OnClientClick="return confirm('¿Está seguro que desea eliminar este registro?');" />
                                                     </ItemTemplate>
                                                     <ItemStyle Width="1px" />

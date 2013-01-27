@@ -307,6 +307,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             try
             {
                 vo_asignacion = new cls_asignacionOperacion();
+                vo_operacion.pUsuarioTransaccion = ((cls_usuario)Session["cls_usuario"]).pPK_usuario;
 
                 vo_asignacion.pFK_Operacion = vo_operacion;
                 vo_asignacion.pFK_Usuario = ((cls_usuario)(Session["cls_usuario"])).pPK_usuario;
