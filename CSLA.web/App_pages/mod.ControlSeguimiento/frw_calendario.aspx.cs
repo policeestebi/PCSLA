@@ -54,14 +54,18 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             {
                 this.validarSession();
 
-                this.InicializarCalendario();
-
-                if (!this.IsPostBack)
+                if (this.Session["cls_usuario"] != null)
                 {
-                   
-                    this.obtenerPermisos();
-                    this.validarAcceso();
-                    
+
+                    this.InicializarCalendario();
+
+                    if (!this.IsPostBack)
+                    {
+
+                        this.obtenerPermisos();
+                        this.validarAcceso();
+
+                    }
                 }
             }
             catch (Exception po_exception)
@@ -165,8 +169,8 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
                     vs_tipo = ps_proyecto == COSEVI.CSLA.lib.accesoDatos.App_Constantes.cls_constantes.CODIGO_IMPREVISTO.ToString() ? "I" : "O";
 
-                    datos = cls_gestorRegistroOperacion.listarOperacionesUsuario(((COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes.cls_interface)this.Session[CSLA.web.App_Constantes.cls_constantes.INTERFACES]).vs_usuarioActual, 
-                                                                                    vs_tipo, this.ConvertirFechaInicioDia(pd_fecha), 
+                    datos = cls_gestorRegistroOperacion.listarOperacionesUsuario(((COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes.cls_interface)this.Session[CSLA.web.App_Constantes.cls_constantes.INTERFACES]).vs_usuarioActual,
+                                                                                    vs_tipo, this.ConvertirFechaInicioDia(pd_fecha),
                                                                                     this.ConvertirFechaInicioDia(pd_fecha.AddDays(6)));
                 }
                 else
@@ -220,12 +224,12 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
 
                     datos = cls_gestorOperacion.listarOperacionesUsuario(((COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes.cls_interface)this.Session[CSLA.web.App_Constantes.cls_constantes.INTERFACES]).vs_usuarioActual, vs_tipo);
                 }
-                else 
+                else
                 {
                     datos = cls_gestorActividad.listarActividadesUsuario(((COSEVI.CSLA.lib.accesoDatos.App_InterfaceComunes.cls_interface)this.Session[CSLA.web.App_Constantes.cls_constantes.INTERFACES]).vs_usuarioActual, ps_proyecto);
                 }
             }
-            catch (Exception po_exception) 
+            catch (Exception po_exception)
             {
                 datos = null;
 
@@ -301,7 +305,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             {
                 this.Session.Abandon();
                 this.Session.Clear();
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Salida",  cls_constantes.SCRIPTLOGOUT, true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Salida", cls_constantes.SCRIPTLOGOUT, true);
             }
         }
 

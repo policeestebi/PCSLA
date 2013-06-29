@@ -40,7 +40,7 @@ namespace CSLA.web.App_pages.mod.Administracion
         {
             this.validarSession();
 
-            if (!Page.IsPostBack)
+            if (!Page.IsPostBack && this.Session["cls_usuario"] != null)
             {
                 //Se carga la información del usuario.
                 this.cargarUsuario();

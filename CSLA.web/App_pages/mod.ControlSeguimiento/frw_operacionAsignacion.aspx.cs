@@ -25,7 +25,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             try
             {
-                if (!IsPostBack)
+                if (!IsPostBack && this.Session["cls_usuario"] != null)
                 {
                     this.cargarOperacion();
                     this.cargarListBox();

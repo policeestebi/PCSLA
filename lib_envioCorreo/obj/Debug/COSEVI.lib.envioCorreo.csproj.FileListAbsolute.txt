@@ -61,3 +61,10 @@ P:\Dropbox\ProyectoCSLA\PCSLA\lib_envioCorreo\bin\Debug\ExceptionManagement.pdb
 P:\Dropbox\ProyectoCSLA\PCSLA\lib_envioCorreo\obj\Debug\ResolveAssemblyReference.cache
 P:\Dropbox\ProyectoCSLA\PCSLA\lib_envioCorreo\obj\Debug\lib_envioCorreo.dll
 P:\Dropbox\ProyectoCSLA\PCSLA\lib_envioCorreo\obj\Debug\lib_envioCorreo.pdb
+C:\Users\Esteban\Proyectos\PCSLA\lib_envioCorreo\bin\Debug\lib_envioCorreo.dll
+C:\Users\Esteban\Proyectos\PCSLA\lib_envioCorreo\bin\Debug\lib_envioCorreo.pdb
+C:\Users\Esteban\Proyectos\PCSLA\lib_envioCorreo\bin\Debug\ExceptionManagement.dll
+C:\Users\Esteban\Proyectos\PCSLA\lib_envioCorreo\bin\Debug\ExceptionManagement.pdb
+C:\Users\Esteban\Proyectos\PCSLA\lib_envioCorreo\obj\Debug\COSEVI.lib.envioCorreo.csprojResolveAssemblyReference.cache
+C:\Users\Esteban\Proyectos\PCSLA\lib_envioCorreo\obj\Debug\lib_envioCorreo.dll
+C:\Users\Esteban\Proyectos\PCSLA\lib_envioCorreo\obj\Debug\lib_envioCorreo.pdb

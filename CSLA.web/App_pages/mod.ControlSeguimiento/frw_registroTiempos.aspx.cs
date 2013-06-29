@@ -33,7 +33,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
             {
                 this.validarSession();
 
-                if (!this.IsPostBack)
+                if (!this.IsPostBack && this.Session["cls_usuario"] != null)
                 {
 
                     this.obtenerPermisos();

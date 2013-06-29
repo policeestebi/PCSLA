@@ -43,3 +43,7 @@ P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.lib.Security\bin\Debug\COSEVI.lib.Security.
 P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.lib.Security\obj\Debug\ResolveAssemblyReference.cache
 P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.lib.Security\obj\Debug\COSEVI.lib.Security.dll
 P:\Dropbox\ProyectoCSLA\PCSLA\COSEVI.lib.Security\obj\Debug\COSEVI.lib.Security.pdb
+C:\Users\Esteban\Proyectos\PCSLA\COSEVI.lib.Security\bin\Debug\COSEVI.lib.Security.dll
+C:\Users\Esteban\Proyectos\PCSLA\COSEVI.lib.Security\bin\Debug\COSEVI.lib.Security.pdb
+C:\Users\Esteban\Proyectos\PCSLA\COSEVI.lib.Security\obj\Debug\COSEVI.lib.Security.dll
+C:\Users\Esteban\Proyectos\PCSLA\COSEVI.lib.Security\obj\Debug\COSEVI.lib.Security.pdb

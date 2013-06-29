@@ -25,8 +25,8 @@ namespace CSLA.web.App_pages.mod.Reportes.RegistroTiemposUsuario
         protected void Page_Load(object sender, EventArgs e)
         {
             this.validarSession();
-            
-            if (!Page.IsPostBack)
+
+            if (!Page.IsPostBack && this.Session["cls_usuario"] != null)
             {
                 try
                 {

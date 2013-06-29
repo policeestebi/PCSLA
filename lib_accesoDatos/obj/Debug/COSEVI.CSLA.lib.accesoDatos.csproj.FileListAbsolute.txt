@@ -61,3 +61,10 @@ P:\Dropbox\ProyectoCSLA\PCSLA\lib_accesoDatos\bin\Debug\COSEVI.CSLA.lib.entidade
 P:\Dropbox\ProyectoCSLA\PCSLA\lib_accesoDatos\obj\Debug\ResolveAssemblyReference.cache
 P:\Dropbox\ProyectoCSLA\PCSLA\lib_accesoDatos\obj\Debug\lib_accesoDatos.dll
 P:\Dropbox\ProyectoCSLA\PCSLA\lib_accesoDatos\obj\Debug\lib_accesoDatos.pdb
+C:\Users\Esteban\Proyectos\PCSLA\lib_accesoDatos\bin\Debug\lib_accesoDatos.dll
+C:\Users\Esteban\Proyectos\PCSLA\lib_accesoDatos\bin\Debug\lib_accesoDatos.pdb
+C:\Users\Esteban\Proyectos\PCSLA\lib_accesoDatos\bin\Debug\COSEVI.CSLA.lib.entidades.dll
+C:\Users\Esteban\Proyectos\PCSLA\lib_accesoDatos\bin\Debug\COSEVI.CSLA.lib.entidades.pdb
+C:\Users\Esteban\Proyectos\PCSLA\lib_accesoDatos\obj\Debug\COSEVI.CSLA.lib.accesoDatos.csprojResolveAssemblyReference.cache
+C:\Users\Esteban\Proyectos\PCSLA\lib_accesoDatos\obj\Debug\lib_accesoDatos.dll
+C:\Users\Esteban\Proyectos\PCSLA\lib_accesoDatos\obj\Debug\lib_accesoDatos.pdb

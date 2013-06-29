@@ -31,7 +31,7 @@ namespace CSLA.web.App_pages.mod.ControlSeguimiento
         {
             this.validarSession();
 
-            if (!Page.IsPostBack)
+            if (!Page.IsPostBack && this.Session["cls_usuario"] != null)
             {
                 try
                 {
